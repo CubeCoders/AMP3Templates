@@ -237,6 +237,7 @@
     {
       "FieldName": "MinecraftVersion",
       "Required": true,
+      "DefaultValue": "[Latest]",
       "ConditionSetting": "ServerType",
       "ConditionValue": "Vanilla",
       "Category": "category.server-version:package",
@@ -263,6 +264,7 @@
     {
       "FieldName": "PaperMinecraftVersion",
       "Required": true,
+      "DefaultValue": "[Latest]",
       "ConditionSetting": "ServerType",
       "ConditionValue": "Paper",
       "Category": "category.server-version:package",
@@ -276,6 +278,7 @@
     {
       "FieldName": "PaperBuild",
       "Required": true,
+      "DefaultValue": "[Latest]",
       "ConditionSetting": "ServerType",
       "ConditionValue": "Paper",
       "Category": "category.server-version:package",
@@ -289,6 +292,7 @@
     {
       "FieldName": "FoliaMinecraftVersion",
       "Required": true,
+      "DefaultValue": "[Latest]",
       "ConditionSetting": "ServerType",
       "ConditionValue": "Folia",
       "Category": "category.server-version:package",
@@ -302,6 +306,7 @@
     {
       "FieldName": "FoliaBuild",
       "Required": true,
+      "DefaultValue": "[Latest]",
       "ConditionSetting": "ServerType",
       "ConditionValue": "Folia",
       "Category": "category.server-version:package",
@@ -315,6 +320,7 @@
     {
       "FieldName": "ForgeVersion",
       "Required": true,
+      "DefaultValue": "[Latest]",
       "ConditionSetting": "ServerType",
       "ConditionValue": "Forge",
       "Category": "category.server-version:package",
@@ -328,6 +334,7 @@
     {
       "FieldName": "NeoForgeVersion",
       "Required": true,
+      "DefaultValue": "[Latest]",
       "ConditionSetting": "ServerType",
       "ConditionValue": "NeoForge",
       "Category": "category.server-version:package",
