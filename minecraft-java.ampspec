@@ -354,7 +354,7 @@
     {
       "FieldName": "JavaVersion",
       "Deployment": "Container",
-      "DefaultValue": "21",
+      "DefaultValue": "25",
       "Category": "category.java:coffee",
       "DisplayName": "setting.JavaVersion.name",
       "Description": "setting.JavaVersion.desc",
