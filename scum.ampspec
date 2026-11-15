@@ -1,0 +1,292 @@
+{
+  "Id": "721f4476-0b57-4765-9f36-21cbae019e46",
+  "TemplateSlug": "scum",
+  "Lifecycle": {
+    "RootDir": "./scum/",
+    "BaseDirectory": "./scum/3792580/",
+    "ExecutableWin": "3792580\\SCUM\\Binaries\\Win64\\SCUMServer.exe",
+    "ExecutableLinux": ".proton/proton",
+    "WorkingDir": "3792580",
+    "LinuxCommandLineArgs": "runinprefix \u0022{{$FullBaseDir}}SCUM/Binaries/Win64/SCUMServer.exe\u0022",
+    "CommandLineArgs": "{{$PlatformArgs}} SCUM -Port={{$ServerPort}} -QueryPort={{$QueryPort}} -MaxPlayers={{$MaxUsers}} {{nobattleye}}{{$FormattedArgs}} {{CustomArgs}}",
+    "CommandLineParameterFormat": "-{0}={1}",
+    "MonitorChildProcessName": "^.*{{$WineBaseDir}}SCUM\\\\Binaries\\\\Win64\\\\SCUMServer\\.exe.*-Port={{$ServerPort}}.*$",
+    "ExitMethod": "OS_CLOSE",
+    "ExitString": "stop",
+    "ExitFile": "app_exit.lck"
+  },
+  "Management": {
+    "HasWriteableConsole": false,
+    "HasReadableConsole": false,
+    "AdminMethod": "TailLogFile",
+    "UseRandomAdminPassword": true,
+    "PersistRandomPassword": true,
+    "RCONConnectDelaySeconds": 10,
+    "RCONHeartbeatCommand": "ping",
+    "TailLogFilePath": "{{$FullBaseDir}}SCUM/Saved/Logs/SCUM.log",
+    "MaxUsers": 64,
+    "EnvironmentVariables": {
+      "SteamAppId": "513710",
+      "STEAM_COMPAT_DATA_PATH": "{{$FullRootDir}}.proton/compatdata",
+      "STEAM_COMPAT_CLIENT_INSTALL_PATH": "{{$FullBaseDir}}.steam/steam",
+      "HOME": "{{$FullBaseDir}}"
+    }
+  },
+  "Metadata": {
+    "DisplayName": "meta.name",
+    "Description": "meta.description",
+    "Author": "Greelan",
+    "URL": "https://scum.game/",
+    "DisplayImageSource": "steam:513710",
+    "EndpointURIFormat": "{ip}:{GenericModule.App.Ports.$ClientPort}",
+    "SpecificDockerImage": "cubecoders/ampbase:debian",
+    "ConfigVersion": "5",
+    "MinAMPVersion": "2.6.0.0"
+  },
+  "Console": {
+    "FilterMatchRegex": "(\\e\\[(\\d\u002B;)*(\\d\u002B)?[ABCDHJKfmsu]|\\e\\[?[?\\\u003E\\=\\da-z]\u002B|ProtonFixes\\[\\d\u002B\\] WARN: Skipping fix execution\\. We are probably running a unit test\\.)",
+    "ThrowawayMessageRegex": "^(WARNING|ERROR): Shader.\u002B$",
+    "AppReadyRegex": "^\\[[\\d.]\u002B-[\\d.:]\u002B\\]\\[[\\d ]\u002B\\]LogSCUM: Global Stats:.*$",
+    "UserJoinRegex": "^\\[[\\d.]\u002B-[\\d.:]\u002B\\]\\[[\\d ]\u002B\\]LogSCUM: \u0027(?\u003Cendpoint\u003E.*?) (?\u003Cuserid\u003E\\d\u002B?):(?\u003Cusername\u003E.*?)\\(\\d\u002B\\)\u0027 logged in at:.*$",
+    "UserLeaveRegex": "^\\[[\\d.]\u002B-[\\d.:]\u002B\\]\\[[\\d ]\u002B\\]LogSCUM: Warning: Prisoner logging out: (?\u003Cusername\u003E.*?) \\((?\u003Cuserid\u003E\\d\u002B?)\\)$",
+    "UserChatRegex": "^\\[[\\d.]\u002B-[\\d.:]\u002B\\]\\[[\\d ]\u002B\\]$",
+    "UpdateAvailableRegex": "^\\[\\d\\d:\\d\\d:\\d\\d\\] \\[INFO\\] A new server update is available! v[\\d\\.]\u002B.$",
+    "MetricsRegex": "^\\[[\\d.]\u002B-[\\d.:]\u002B\\]\\[[\\d ]\u002B\\]LogSCUM: Global Stats: \\d\u002B\\.\\d\u002Bms\\s\u002B\\(\\s\u002B\\d\u002B\\.\\d\u002BFPS\\), \\d\u002B\\.\\d\u002Bms\\s\u002B\\(\\s\u002B(?\u003CFPS\u003E\\d\u002B\\.\\d\u002B?)FPS\\), \\d\u002B\\.\\d\u002Bms\\s\u002B\\(\\s\u002B\\d\u002B\\.\\d\u002BFPS\\).*$"
+  },
+  "PortReferences": {
+    "AdminPortRef": "0",
+    "PrimaryApplicationPortRef": "ServerPort",
+    "UniversalSleepApplicationUDPPortRef": "0",
+    "UniversalSleepSteamQueryPortRef": "0"
+  },
+  "UpdateStages": [
+    {
+      "UpdateSource": "SteamCMD",
+      "UpdateStageName": "SCUM Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "3792580",
+      "UpdateSourceArgs": "513710",
+      "ForceDownloadPlatform": "Windows"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Proton GE Download",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022cd \\\u0022{{$FullRootDir}}\\\u0022; mkdir -p \\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 \\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullBaseDir}}.config/protonfixes\\\u0022; ProtonVersion=\\\u0022{{SpecificReleaseVersion}}\\\u0022 \u0026\u0026 if [[ -x \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 \u0026\u0026 -f \\\u0022{{$FullRootDir}}.proton/version\\\u0022 ]]; then read _ InstalledVersion \u003C \\\u0022{{$FullRootDir}}.proton/version\\\u0022; else InstalledVersion=\\\u0022\\\u0022; fi; if [[ -z \\\u0022$ProtonVersion\\\u0022 ]]; then ProtonVersion=$(wget -qO- https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | jq -r .tag_name); fi; if [[ ! \\\u0022$ProtonVersion\\\u0022 =~ ^GE-Proton[0-9]\u002B-[0-9]\u002B$ ]]; then echo \\\u0022Invalid Proton GE release version format specified\\\u0022 \u0026\u0026 exit 1; elif [[ \\\u0022$InstalledVersion\\\u0022 == \\\u0022$ProtonVersion\\\u0022* ]]; then echo \\\u0022Proton GE version $ProtonVersion already installed. Skipping\\\u0022 \u0026\u0026 exit 0; else [[ -f GE-Proton.tar.gz ]] \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261; suffix=\\\u0022\\\u0022; ver=\\\u0022${ProtonVersion#GE-Proton}\\\u0022; major=\\\u0022${ver%%-*}\\\u0022; minor=\\\u0022${ver#*-}\\\u0022; if (( major \u003E 11 || (major == 11 \u0026\u0026 minor \u003E= 4) )); then suffix=\\\u0022-x86_64\\\u0022; fi; wget -qO GE-Proton.tar.gz https://github.com/GloriousEggroll/proton-ge-custom/releases/download/$ProtonVersion/${ProtonVersion}${suffix}.tar.gz || { echo \\\u0022Proton GE download failed from GitHub. Aborting\\\u0022; exit 1; }; rm -rf \\\u0022{{$FullRootDir}}.proton/compatdata/\\\u0022* \u003E/dev/null 2\u003E\u00261; tar -xzf GE-Proton.tar.gz -C \\\u0022{{$FullRootDir}}.proton\\\u0022 --strip-components=1 \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261 \u0026\u0026 echo \\\u0022Proton GE version $ProtonVersion downloaded\\\u0022 \u0026\u0026 { STEAM_COMPAT_DATA_PATH=\\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 STEAM_COMPAT_CLIENT_INSTALL_PATH=\\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 PROTON_LOG=1 \u003E/dev/null 2\u003E\u00261; exit 0; }; fi\u0022"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Disable Prefix Sound",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022cd scum \u0026\u0026 export PATH=\\\u0022{{$FullRootDir}}.proton/files/bin:$PATH\\\u0022; export WINEPREFIX=\\\u0022{{$FullRootDir}}.proton/compatdata/pfx\\\u0022; export WINEARCH=win64; ./.proton/protonfixes/winetricks sound=disabled \u003E winescript_log.txt 2\u003E\u00261\u0022",
+      "SkipOnFailure": true
+    },
+    {
+      "UpdateSource": "CreateDirectory",
+      "UpdateStageName": "Config Directory Creation",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceArgs": "{{$FullBaseDir}}SCUM/Saved/Config/WindowsServer"
+    },
+    {
+      "UpdateSource": "FetchURL",
+      "UpdateStageName": "ServerSettings.ini File Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/scumserversettings.ini",
+      "UpdateSourceArgs": "ServerSettings.ini",
+      "UpdateSourceTarget": "{{$FullBaseDir}}SCUM/Saved/Config/WindowsServer"
+    }
+  ],
+  "PortRequirements": [
+    {
+      "Name": "port.ServerPort.name",
+      "Description": "port.ServerPort.desc",
+      "Ref": "ServerPort",
+      "Port": 7777,
+      "Protocol": "UDP",
+      "ChildPorts": [
+        {
+          "Name": "port.ClientPort.name",
+          "Description": "port.ClientPort.desc",
+          "Ref": "ClientPort",
+          "Port": 7779,
+          "Offset": 2
+        }
+      ]
+    },
+    {
+      "Name": "port.QueryPort.name",
+      "Description": "port.QueryPort.desc",
+      "Ref": "QueryPort",
+      "Port": 27015,
+      "Protocol": "UDP"
+    }
+  ],
+  "Settings": [
+    {
+      "FieldName": "ServerSettings",
+      "ParamFieldName": "ServerSettings",
+      "DefaultValue": "",
+      "Category": "category.scum:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.ServerSettings.name",
+      "Description": "setting.ServerSettings.desc",
+      "InputType": "hidden"
+    },
+    {
+      "FieldName": "$MaxUsers",
+      "ParamFieldName": "General.scum.MaxPlayers",
+      "DefaultValue": "64",
+      "Category": "category.scum:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.$MaxUsers.name",
+      "Description": "setting.$MaxUsers.desc",
+      "Keywords": "maximum,players,clients,limit,maxplayers,slots",
+      "InputType": "number",
+      "Placeholder": "64",
+      "Suffix": "users",
+      "MinValue": 1,
+      "MaxValue": 128
+    },
+    {
+      "FieldName": "ExclusiveUsers",
+      "ParamFieldName": "ExclusiveUsers",
+      "DefaultValue": "",
+      "Category": "category.scum:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "Special": "listfile:./scum/3792580/SCUM/Saved/Config/WindowsServer/ExclusiveUsers.ini",
+      "DisplayName": "setting.ExclusiveUsers.name",
+      "Description": "setting.ExclusiveUsers.desc",
+      "Keywords": "exclusive,users,join,list,whitelist,ExclusiveUsers",
+      "InputType": "list"
+    },
+    {
+      "FieldName": "WhitelistedUsers",
+      "ParamFieldName": "WhitelistedUsers",
+      "DefaultValue": "",
+      "Category": "category.scum:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "Special": "listfile:./scum/3792580/SCUM/Saved/Config/WindowsServer/WhitelistedUsers.ini",
+      "DisplayName": "setting.WhitelistedUsers.name",
+      "Description": "setting.WhitelistedUsers.desc",
+      "Keywords": "reserved,users,WhitelistedUsers",
+      "InputType": "list"
+    },
+    {
+      "FieldName": "AdminUsers",
+      "ParamFieldName": "AdminUsers",
+      "DefaultValue": "",
+      "Category": "category.scum:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "Special": "listfile:./scum/3792580/SCUM/Saved/Config/WindowsServer/AdminUsers.ini",
+      "DisplayName": "setting.AdminUsers.name",
+      "Description": "setting.AdminUsers.desc",
+      "Keywords": "admin,users,permissions,AdminUsers",
+      "InputType": "list"
+    },
+    {
+      "FieldName": "ServerSettingsAdminUsers",
+      "ParamFieldName": "ServerSettingsAdminUsers",
+      "DefaultValue": "",
+      "Category": "category.scum:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "Special": "listfile:./scum/3792580/SCUM/Saved/Config/WindowsServer/ServerSettingsAdminUsers.ini",
+      "DisplayName": "setting.ServerSettingsAdminUsers.name",
+      "Description": "setting.ServerSettingsAdminUsers.desc",
+      "Keywords": "admin,users,server,settings,ServerSettingsAdminUsers",
+      "InputType": "list"
+    },
+    {
+      "FieldName": "nobattleye",
+      "ParamFieldName": "nobattleye",
+      "DefaultValue": "",
+      "Category": "category.scum:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.nobattleye.name",
+      "Description": "setting.nobattleye.desc",
+      "Keywords": "battleye,anti,cheat,nobattleye",
+      "InputType": "checkbox",
+      "EnumValues": {
+        "False": "",
+        "True": "setting.nobattleye.value.True"
+      }
+    },
+    {
+      "FieldName": "CustomArgs",
+      "ParamFieldName": "CustomArgs",
+      "DefaultValue": "",
+      "Category": "category.scum:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.CustomArgs.name",
+      "Description": "setting.CustomArgs.desc",
+      "Keywords": "custom,server,arguments,parameters",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "SpecificReleaseVersion",
+      "ParamFieldName": "SpecificReleaseVersion",
+      "DefaultValue": "",
+      "Category": "category.updates",
+      "Subcategory": "category.runtime-configuration:build:3",
+      "DisplayName": "setting.SpecificReleaseVersion.name",
+      "Description": "setting.SpecificReleaseVersion.desc",
+      "Keywords": "proton,release,version",
+      "InputType": "text",
+      "Placeholder": "GE-Proton9-1"
+    },
+    {
+      "FieldName": "$ApplicationIPBinding",
+      "DefaultValue": "0.0.0.0",
+      "Category": "category.networking:lan",
+      "DisplayName": "setting.$ApplicationIPBinding.name",
+      "Description": "setting.$ApplicationIPBinding.desc",
+      "Keywords": "ip,binding,bind,address,interface",
+      "InputType": "text",
+      "Placeholder": "0.0.0.0"
+    }
+  ],
+  "ConfigFileMappings": [
+    {
+      "ConfigFile": "SCUM/Saved/Config/WindowsServer/ServerSettings.ini",
+      "ConfigType": "ini",
+      "AutoMap": true
+    }
+  ],
+  "Locale": {
+    "en": {
+      "meta.name": "SCUM",
+      "meta.description": "SCUM Dedicated Server",
+      "setting.ServerSettings.name": "Server Settings",
+      "setting.ServerSettings.desc": "Settings for the server can be configured in \u0027SCUM/Saved/Config/WindowsServer/ServerSettings.ini\u0027, or in-game by admins listed under Admin Users For Server Settings",
+      "category.scum": "SCUM",
+      "category.server": "Server",
+      "setting.$MaxUsers.name": "User Limit",
+      "setting.$MaxUsers.desc": "Sets the maximum number of users that may connect to the server at one time",
+      "setting.ExclusiveUsers.name": "Exclusive Join List",
+      "setting.ExclusiveUsers.desc": "List of [Steam64 IDs](https://steamid.io/) of players who are allowed to join the server. If any IDs are set, only those players will be able to connect, turning the server into a \u0027whitelist\u0027 server",
+      "setting.WhitelistedUsers.name": "Reserved List",
+      "setting.WhitelistedUsers.desc": "List of [Steam64 IDs](https://steamid.io/) of players who are allowed to join the server even if it is otherwise full. Commonly used as a VIP list. If the server is full, a random player will be kicked from the server to allow a reserved player to join",
+      "setting.AdminUsers.name": "Admin Users",
+      "setting.AdminUsers.desc": "List of [Steam64 IDs](https://steamid.io/) for users who will be allowed to use admin commands in-game and (if desired) their specific permissions. Specific permissions must be specified in square brackets immediately after the Steam64 ID (no spaces), such as: 3456789098765432[SetGodMode,RestartServer]",
+      "setting.ServerSettingsAdminUsers.name": "Admin Users For Server Settings",
+      "setting.ServerSettingsAdminUsers.desc": "List of [Steam64 IDs](https://steamid.io/) for users who will be allowed to change server settings in-game",
+      "setting.nobattleye.name": "Disable BattlEye",
+      "setting.nobattleye.desc": "If set, BattlEye anti-cheat will be disabled on the server",
+      "setting.nobattleye.value.True": "-nobattleye ",
+      "setting.CustomArgs.name": "Additional Command Line Arguments",
+      "setting.CustomArgs.desc": "Specifies additional command line arguments (anything that begins with a - ) that are not otherwise set by AMP. Use with care",
+      "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",
+      "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
+      "category.updates": "Updates",
+      "category.runtime-configuration": "Runtime Configuration",
+      "setting.$ApplicationIPBinding.name": "IP Binding",
+      "setting.$ApplicationIPBinding.desc": "The network address the server binds its ports to. 0.0.0.0 binds every interface (recommended for most setups); set a specific address on multi-IP hosts.",
+      "category.networking": "Networking",
+      "port.ServerPort.name": "Server Port",
+      "port.ServerPort.desc": "Port for main game traffic",
+      "port.ClientPort.name": "Client Port",
+      "port.ClientPort.desc": "Port for client connections",
+      "port.QueryPort.name": "Query Port",
+      "port.QueryPort.desc": "Port for Steam query traffic"
+    }
+  }
+}

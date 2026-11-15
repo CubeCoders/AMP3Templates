@@ -1,0 +1,432 @@
+{
+  "Id": "a530b939-e389-494a-95df-efa1d0e90d9f",
+  "TemplateSlug": "voyagers-of-nera",
+  "Lifecycle": {
+    "RootDir": "./voyagers-of-nera/",
+    "BaseDirectory": "./voyagers-of-nera/3937860/",
+    "ExecutableWin": "3937860\\BoatGame\\Binaries\\Win64\\BoatGameServer-Win64-Shipping.exe",
+    "ExecutableLinux": ".proton/proton",
+    "WorkingDir": "3937860",
+    "LinuxCommandLineArgs": "runinprefix \u0022{{$FullBaseDir}}BoatGame/Binaries/Win64/BoatGameServer-Win64-Shipping.exe\u0022",
+    "CommandLineArgs": "{{$PlatformArgs}} BoatGame -Port={{$GamePort}} -log=BoatGame.log -LoggingInShippingEnabled=true {{$FormattedArgs}} {{CustomArgs}}",
+    "CommandLineParameterFormat": "-{0}={1}",
+    "MonitorChildProcessName": "^.*{{$WineBaseDir}}BoatGame\\\\Binaries\\\\Win64\\\\BoatGameServer-Win64-Shipping\\.exe.*-Port={{$GamePort}}.*$",
+    "ExitMethod": "OS_CLOSE",
+    "ExitString": "stop",
+    "ExitFile": "app_exit.lck"
+  },
+  "Management": {
+    "AdminMethod": "TailLogFile",
+    "RemoteAdminPassword": "Password123",
+    "RCONHeartbeatCommand": "ping",
+    "TailLogFilePath": "{{$FullBaseDir}}BoatGame/Saved/Logs/BoatGame.log",
+    "SupportsIPv6": true,
+    "MaxUsers": 10,
+    "EnvironmentVariables": {
+      "SteamAppId": "2686630",
+      "STEAM_COMPAT_DATA_PATH": "{{$FullRootDir}}.proton/compatdata",
+      "STEAM_COMPAT_CLIENT_INSTALL_PATH": "{{$FullBaseDir}}.steam/steam",
+      "HOME": "{{$FullBaseDir}}",
+      "EOS_OVERRIDE_HOST_IP": "{{EOS_OVERRIDE_HOST_IP}}"
+    }
+  },
+  "Metadata": {
+    "DisplayName": "meta.name",
+    "Description": "meta.description",
+    "Author": "Greelan",
+    "URL": "https://voyagersofnera.com/",
+    "DisplayImageSource": "steam:2686630",
+    "EndpointURIFormat": "{ip}:{GenericModule.App.Ports.$GamePort}",
+    "SpecificDockerImage": "cubecoders/ampbase:debian",
+    "ConfigVersion": "5",
+    "MinAMPVersion": "2.6.2.8"
+  },
+  "Console": {
+    "FilterMatchRegex": "(\\e\\[(\\d\u002B;)*(\\d\u002B)?[ABCDHJKfmsu]|\\e\\[?[?\\\u003E\\=\\da-z]\u002B|ProtonFixes\\[\\d\u002B\\] WARN: Skipping fix execution\\. We are probably running a unit test\\.)",
+    "ThrowawayMessageRegex": "^(WARNING|ERROR): Shader.\u002B$",
+    "AppReadyRegex": "^\\[[\\d\\.]\u002B-[\\d\\.]\u002B:\\d\u002B\\]\\[[\\d ]\u002B\\]LogCommonSession: OnStartSessionComplete\\(SessionName: GameSession, bWasSuccessful: 1\\)$",
+    "UserJoinRegex": "^\\[[\\d\\.]\u002B-[\\d\\.]\u002B:\\d\u002B\\]\\[[\\d ]\u002B\\]LogNet: Login request: \\?Name=(?\u003Cusername\u003E.\u002B?) userId: RedpointEOS:(?\u003Cuserid\u003E.\u002B?) platform: RedpointEOS$",
+    "UserLeaveRegex": "^\\[[\\d\\.]\u002B-[\\d\\.]\u002B:\\d\u002B\\]\\[[\\d ]\u002B\\]LogNet: UChannel::Close: Sending CloseBunch\\.(?:.\u002B?) UniqueId: RedpointEOS:(?\u003Cuserid\u003E.\u002B?)$",
+    "UserChatRegex": "^(?:\\[[\\d\\.]\u002B-[\\d\\.]\u002B:\\d\u002B\\]\\[[\\d ]\u002B\\])?$",
+    "UpdateAvailableRegex": "^\\[\\d\\d:\\d\\d:\\d\\d\\] \\[INFO\\] A new server update is available! v[\\d\\.]\u002B.$"
+  },
+  "PortReferences": {
+    "AdminPortRef": "0",
+    "PrimaryApplicationPortRef": "GamePort",
+    "UniversalSleepApplicationUDPPortRef": "0",
+    "UniversalSleepSteamQueryPortRef": "0"
+  },
+  "UpdateStages": [
+    {
+      "UpdateSource": "SteamCMD",
+      "UpdateStageName": "Server Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "3937860",
+      "UpdateSourceArgs": "2686630",
+      "ForceDownloadPlatform": "Windows"
+    },
+    {
+      "UpdateSource": "SteamCMD",
+      "UpdateStageName": "SteamCMD Component Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "1007",
+      "UpdateSourceTarget": "{{$FullBaseDir}}BoatGame/Binaries/Win64",
+      "ForceDownloadPlatform": "Windows"
+    },
+    {
+      "UpdateSource": "CreateDirectory",
+      "UpdateStageName": "Create Config Directory",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceArgs": "{{$FullBaseDir}}BoatGame/Saved/PersistedData/CustomConfig"
+    },
+    {
+      "UpdateSource": "FetchURL",
+      "UpdateStageName": "CustomHostServerUserSettings.ini Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/voyagers-of-neracustomhostserverusersettings.ini",
+      "UpdateSourceArgs": "CustomHostServerUserSettings.ini",
+      "UpdateSourceTarget": "{{$FullBaseDir}}BoatGame/Saved/PersistedData/CustomConfig",
+      "OverwriteExistingFiles": true
+    },
+    {
+      "UpdateSource": "FetchURL",
+      "UpdateStageName": "CustomGameUserSettings.ini Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/voyagers-of-neracustomgameusersettings.ini",
+      "UpdateSourceArgs": "CustomGameUserSettings.ini",
+      "UpdateSourceTarget": "{{$FullBaseDir}}BoatGame/Saved/PersistedData/CustomConfig",
+      "OverwriteExistingFiles": true
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Proton GE Download",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022cd \\\u0022{{$FullRootDir}}\\\u0022; mkdir -p \\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 \\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullBaseDir}}.config/protonfixes\\\u0022; ProtonVersion=\\\u0022{{SpecificReleaseVersion}}\\\u0022 \u0026\u0026 if [[ -x \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 \u0026\u0026 -f \\\u0022{{$FullRootDir}}.proton/version\\\u0022 ]]; then read _ InstalledVersion \u003C \\\u0022{{$FullRootDir}}.proton/version\\\u0022; else InstalledVersion=\\\u0022\\\u0022; fi; if [[ -z \\\u0022$ProtonVersion\\\u0022 ]]; then ProtonVersion=$(wget -qO- https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | jq -r .tag_name); fi; if [[ ! \\\u0022$ProtonVersion\\\u0022 =~ ^GE-Proton[0-9]\u002B-[0-9]\u002B$ ]]; then echo \\\u0022Invalid Proton GE release version format specified\\\u0022 \u0026\u0026 exit 1; elif [[ \\\u0022$InstalledVersion\\\u0022 == \\\u0022$ProtonVersion\\\u0022* ]]; then echo \\\u0022Proton GE version $ProtonVersion already installed. Skipping\\\u0022 \u0026\u0026 exit 0; else [[ -f GE-Proton.tar.gz ]] \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261; suffix=\\\u0022\\\u0022; ver=\\\u0022${ProtonVersion#GE-Proton}\\\u0022; major=\\\u0022${ver%%-*}\\\u0022; minor=\\\u0022${ver#*-}\\\u0022; if (( major \u003E 11 || (major == 11 \u0026\u0026 minor \u003E= 4) )); then suffix=\\\u0022-x86_64\\\u0022; fi; wget -qO GE-Proton.tar.gz https://github.com/GloriousEggroll/proton-ge-custom/releases/download/$ProtonVersion/${ProtonVersion}${suffix}.tar.gz || { echo \\\u0022Proton GE download failed from GitHub. Aborting\\\u0022; exit 1; }; rm -rf \\\u0022{{$FullRootDir}}.proton/compatdata/\\\u0022* \u003E/dev/null 2\u003E\u00261; tar -xzf GE-Proton.tar.gz -C \\\u0022{{$FullRootDir}}.proton\\\u0022 --strip-components=1 \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261 \u0026\u0026 echo \\\u0022Proton GE version $ProtonVersion downloaded\\\u0022 \u0026\u0026 { STEAM_COMPAT_DATA_PATH=\\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 STEAM_COMPAT_CLIENT_INSTALL_PATH=\\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 PROTON_LOG=1 \u003E/dev/null 2\u003E\u00261; exit 0; }; fi\u0022"
+    }
+  ],
+  "PortRequirements": [
+    {
+      "Name": "port.GamePort.name",
+      "Description": "port.GamePort.desc",
+      "Ref": "GamePort",
+      "Port": 7777,
+      "Protocol": "UDP",
+      "ChildPorts": [
+        {
+          "Name": "port.BeaconPort.name",
+          "Description": "port.BeaconPort.desc",
+          "Ref": "BeaconPort",
+          "Port": 7778,
+          "Protocol": "UDP",
+          "Offset": 1
+        }
+      ]
+    }
+  ],
+  "Settings": [
+    {
+      "FieldName": "HostServerDisplayName",
+      "ParamFieldName": "/Script/BoatGame.BGCustomHostServerSettings.HostServerDisplayName",
+      "DefaultValue": "AMP Voyagers of Nera Server",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.HostServerDisplayName.name",
+      "Description": "setting.HostServerDisplayName.desc",
+      "Keywords": "name,display,name,HostServerDisplayName",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "HostServerPassword",
+      "ParamFieldName": "/Script/BoatGame.BGCustomHostServerSettings.HostServerPassword",
+      "DefaultValue": "",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.HostServerPassword.name",
+      "Description": "setting.HostServerPassword.desc",
+      "Keywords": "server,password,HostServerPassword",
+      "InputType": "Password"
+    },
+    {
+      "FieldName": "$MaxUsers",
+      "ParamFieldName": "/Script/BoatGame.BGCustomHostServerSettings.MaxPlayers",
+      "DefaultValue": "10",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.$MaxUsers.name",
+      "Description": "setting.$MaxUsers.desc",
+      "Keywords": "maximum,players,limit,MaxPlayers",
+      "InputType": "number",
+      "Placeholder": "10",
+      "Suffix": "users",
+      "MinValue": 1,
+      "MaxValue": 10
+    },
+    {
+      "FieldName": "AutosaveTimerSeconds",
+      "ParamFieldName": "/Script/BoatGame.BGCustomHostServerSettings.AutosaveTimerSeconds",
+      "DefaultValue": "300",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.AutosaveTimerSeconds.name",
+      "Description": "setting.AutosaveTimerSeconds.desc",
+      "Keywords": "autosave,timer,interval,AutosaveTimerSeconds",
+      "InputType": "number",
+      "Placeholder": "300",
+      "Suffix": "seconds",
+      "MinValue": 10,
+      "MaxValue": 900
+    },
+    {
+      "FieldName": "EOS_OVERRIDE_HOST_IP",
+      "ParamFieldName": "EOS_OVERRIDE_HOST_IP",
+      "DefaultValue": "",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.EOS_OVERRIDE_HOST_IP.name",
+      "Description": "setting.EOS_OVERRIDE_HOST_IP.desc",
+      "Keywords": "public,ip,address,eos,override,host,EOS_OVERRIDE_HOST_IP",
+      "InputType": "enum",
+      "EnumValues": {
+        "": "setting.EOS_OVERRIDE_HOST_IP.value._",
+        "{{$ExternalIP}}": "setting.EOS_OVERRIDE_HOST_IP.value._ExternalIP_",
+        "{{ManualPublicIP}}": "setting.EOS_OVERRIDE_HOST_IP.value._ManualPublicIP_"
+      }
+    },
+    {
+      "FieldName": "ManualPublicIP",
+      "ParamFieldName": "ManualPublicIP",
+      "DefaultValue": "",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.ManualPublicIP.name",
+      "Description": "setting.ManualPublicIP.desc",
+      "Keywords": "manual,public,ip,eos,override,host,EOS_OVERRIDE_HOST_IP",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "CustomArgs",
+      "ParamFieldName": "CustomArgs",
+      "DefaultValue": "",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.CustomArgs.name",
+      "Description": "setting.CustomArgs.desc",
+      "Keywords": "custom,server,arguments,parameters",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "GatheringRateMultiplier",
+      "ParamFieldName": "/Script/BoatGame.BGCustomGameSettings.GatheringRateMultiplier",
+      "DefaultValue": "1.0",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.gameplay:joystick:2",
+      "DisplayName": "setting.GatheringRateMultiplier.name",
+      "Description": "setting.GatheringRateMultiplier.desc",
+      "Keywords": "gathering,rate,multiplier,resources,GatheringRateMultiplier",
+      "InputType": "number",
+      "Placeholder": "1.0",
+      "MinValue": 0.01,
+      "MaxValue": 10
+    },
+    {
+      "FieldName": "EnemyDamageMultiplier",
+      "ParamFieldName": "/Script/BoatGame.BGCustomGameSettings.EnemyDamageMultiplier",
+      "DefaultValue": "1.0",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.gameplay:joystick:2",
+      "DisplayName": "setting.EnemyDamageMultiplier.name",
+      "Description": "setting.EnemyDamageMultiplier.desc",
+      "Keywords": "enemy,damage,multiplier,EnemyDamageMultiplier",
+      "InputType": "number",
+      "Placeholder": "1.0",
+      "MinValue": 0.01,
+      "MaxValue": 10
+    },
+    {
+      "FieldName": "PlayerDamageMultiplier",
+      "ParamFieldName": "/Script/BoatGame.BGCustomGameSettings.PlayerDamageMultiplier",
+      "DefaultValue": "1.0",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.gameplay:joystick:2",
+      "DisplayName": "setting.PlayerDamageMultiplier.name",
+      "Description": "setting.PlayerDamageMultiplier.desc",
+      "Keywords": "player,damage,multiplier,PlayerDamageMultiplier",
+      "InputType": "number",
+      "Placeholder": "1.0",
+      "MinValue": 0.01,
+      "MaxValue": 10
+    },
+    {
+      "FieldName": "DisableEquipmentDurability",
+      "ParamFieldName": "/Script/BoatGame.BGCustomGameSettings.DisableEquipmentDurability",
+      "DefaultValue": "False",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.gameplay:joystick:2",
+      "DisplayName": "setting.DisableEquipmentDurability.name",
+      "Description": "setting.DisableEquipmentDurability.desc",
+      "Keywords": "disable,equipment,durability,DisableEquipmentDurability",
+      "InputType": "checkbox",
+      "EnumValues": {
+        "True": "setting.DisableEquipmentDurability.value.True",
+        "False": "setting.DisableEquipmentDurability.value.False"
+      }
+    },
+    {
+      "FieldName": "DisableDropItemsOnDeath",
+      "ParamFieldName": "/Script/BoatGame.BGCustomGameSettings.DisableDropItemsOnDeath",
+      "DefaultValue": "False",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.gameplay:joystick:2",
+      "DisplayName": "setting.DisableDropItemsOnDeath.name",
+      "Description": "setting.DisableDropItemsOnDeath.desc",
+      "Keywords": "disable,drop,items,death,DisableDropItemsOnDeath",
+      "InputType": "checkbox",
+      "EnumValues": {
+        "True": "setting.DisableDropItemsOnDeath.value.True",
+        "False": "setting.DisableDropItemsOnDeath.value.False"
+      }
+    },
+    {
+      "FieldName": "DisableEncumbrance",
+      "ParamFieldName": "/Script/BoatGame.BGCustomGameSettings.DisableEncumbrance",
+      "DefaultValue": "False",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.gameplay:joystick:2",
+      "DisplayName": "setting.DisableEncumbrance.name",
+      "Description": "setting.DisableEncumbrance.desc",
+      "Keywords": "disable,encumbrance,disableencumbrance",
+      "InputType": "checkbox",
+      "EnumValues": {
+        "True": "setting.DisableEncumbrance.value.True",
+        "False": "setting.DisableEncumbrance.value.False"
+      }
+    },
+    {
+      "FieldName": "DisableFogOfWar",
+      "ParamFieldName": "/Script/BoatGame.BGCustomGameSettings.DisableFogOfWar",
+      "DefaultValue": "False",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.gameplay:joystick:2",
+      "DisplayName": "setting.DisableFogOfWar.name",
+      "Description": "setting.DisableFogOfWar.desc",
+      "Keywords": "disable,fog,war,disablefogofwar",
+      "InputType": "checkbox",
+      "EnumValues": {
+        "True": "setting.DisableFogOfWar.value.True",
+        "False": "setting.DisableFogOfWar.value.False"
+      }
+    },
+    {
+      "FieldName": "DisableWeather",
+      "ParamFieldName": "/Script/BoatGame.BGCustomGameSettings.DisableWeather",
+      "DefaultValue": "False",
+      "Category": "category.voyagers-of-nera:stadia_controller",
+      "Subcategory": "category.gameplay:joystick:2",
+      "DisplayName": "setting.DisableWeather.name",
+      "Description": "setting.DisableWeather.desc",
+      "Keywords": "disable,weather,disableweather",
+      "InputType": "checkbox",
+      "EnumValues": {
+        "True": "setting.DisableWeather.value.True",
+        "False": "setting.DisableWeather.value.False"
+      }
+    },
+    {
+      "FieldName": "SpecificReleaseVersion",
+      "ParamFieldName": "SpecificReleaseVersion",
+      "DefaultValue": "",
+      "Category": "category.updates",
+      "Subcategory": "category.runtime-configuration:build:3",
+      "DisplayName": "setting.SpecificReleaseVersion.name",
+      "Description": "setting.SpecificReleaseVersion.desc",
+      "Keywords": "proton,release,version",
+      "InputType": "text",
+      "Placeholder": "GE-Proton9-1"
+    },
+    {
+      "FieldName": "$ApplicationIPBinding",
+      "DefaultValue": "0.0.0.0",
+      "Category": "category.networking:lan",
+      "DisplayName": "setting.$ApplicationIPBinding.name",
+      "Description": "setting.$ApplicationIPBinding.desc",
+      "Keywords": "ip,binding,bind,address,interface",
+      "InputType": "text",
+      "Placeholder": "0.0.0.0"
+    }
+  ],
+  "ConfigFileMappings": [
+    {
+      "ConfigFile": "BoatGame/Saved/PersistedData/CustomConfig/CustomHostServerUserSettings.ini",
+      "ConfigType": "ini",
+      "AutoMap": true
+    },
+    {
+      "ConfigFile": "BoatGame/Saved/PersistedData/CustomConfig/CustomGameUserSettings.ini",
+      "ConfigType": "ini",
+      "AutoMap": true
+    }
+  ],
+  "Locale": {
+    "en": {
+      "meta.name": "Voyagers of Nera",
+      "meta.description": "Voyagers of Nera Dedicated Server",
+      "setting.HostServerDisplayName.name": "Server Name",
+      "setting.HostServerDisplayName.desc": "Sets the name of the server as shown in the server browser. Maximum 30 characters",
+      "category.voyagers-of-nera": "Voyagers of Nera",
+      "category.server": "Server",
+      "setting.HostServerPassword.name": "Server Password",
+      "setting.HostServerPassword.desc": "Sets the password for players to join the server. Default is no password",
+      "setting.$MaxUsers.name": "User Limit",
+      "setting.$MaxUsers.desc": "Sets the maximum number of users that may connect to the server at one time",
+      "setting.AutosaveTimerSeconds.name": "Autosave Interval",
+      "setting.AutosaveTimerSeconds.desc": "Sets often the server will automatically save",
+      "setting.EOS_OVERRIDE_HOST_IP.name": "Public IP Selection Mode",
+      "setting.EOS_OVERRIDE_HOST_IP.desc": "Sets whether the server or AMP should automatically select the public IP advertised for the server, or whether it should use the IP set under Server Public IP",
+      "setting.EOS_OVERRIDE_HOST_IP.value._": "Server automatically selects (default)",
+      "setting.EOS_OVERRIDE_HOST_IP.value._ExternalIP_": "AMP automatically selects",
+      "setting.EOS_OVERRIDE_HOST_IP.value._ManualPublicIP_": "Manual selection",
+      "setting.ManualPublicIP.name": "Server Public IP",
+      "setting.ManualPublicIP.desc": "Sets the public IP advertised for the server, if \u0022Manual selection\u0022 is selected as the Public IP Selection Mode. Useful if the host network has multiple public IPs, or the server is behind a public proxy or VPN",
+      "setting.CustomArgs.name": "Additional Command Line Arguments",
+      "setting.CustomArgs.desc": "Specifies additional command line arguments (anything that begins with a - ) that are not otherwise set by AMP. Use with care",
+      "setting.GatheringRateMultiplier.name": "Gathering Rate Multiplier",
+      "setting.GatheringRateMultiplier.desc": "Sets the resource yield multiplier, which determines the quantity gathered per gathering interaction",
+      "category.gameplay": "Gameplay",
+      "setting.EnemyDamageMultiplier.name": "Enemy Damage Multiplier",
+      "setting.EnemyDamageMultiplier.desc": "Sets the enemy attack damage multiplier",
+      "setting.PlayerDamageMultiplier.name": "Player Damage Multiplier",
+      "setting.PlayerDamageMultiplier.desc": "Sets the player attack damage multiplier",
+      "setting.DisableEquipmentDurability.name": "Disable Equipment Durability",
+      "setting.DisableEquipmentDurability.desc": "If set, equipment will never break or lose durability",
+      "setting.DisableEquipmentDurability.value.True": "True",
+      "setting.DisableEquipmentDurability.value.False": "False",
+      "setting.DisableDropItemsOnDeath.name": "Disable Items Dropping On Death",
+      "setting.DisableDropItemsOnDeath.desc": "If set, players will keep inventory items after death",
+      "setting.DisableDropItemsOnDeath.value.True": "True",
+      "setting.DisableDropItemsOnDeath.value.False": "False",
+      "setting.DisableEncumbrance.name": "Disable Encumbrance",
+      "setting.DisableEncumbrance.desc": "If set, players will not become encumbered",
+      "setting.DisableEncumbrance.value.True": "True",
+      "setting.DisableEncumbrance.value.False": "False",
+      "setting.DisableFogOfWar.name": "Disable Fog Of War",
+      "setting.DisableFogOfWar.desc": "If set, fog of war will be disabled",
+      "setting.DisableFogOfWar.value.True": "True",
+      "setting.DisableFogOfWar.value.False": "False",
+      "setting.DisableWeather.name": "Disable Weather",
+      "setting.DisableWeather.desc": "If set, weather will be disabled",
+      "setting.DisableWeather.value.True": "True",
+      "setting.DisableWeather.value.False": "False",
+      "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",
+      "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
+      "category.updates": "Updates",
+      "category.runtime-configuration": "Runtime Configuration",
+      "setting.$ApplicationIPBinding.name": "IP Binding",
+      "setting.$ApplicationIPBinding.desc": "The network address the server binds its ports to. 0.0.0.0 binds every interface (recommended for most setups); set a specific address on multi-IP hosts.",
+      "category.networking": "Networking",
+      "port.GamePort.name": "Game Port",
+      "port.GamePort.desc": "Port for main game traffic",
+      "port.BeaconPort.name": "Beacon Port",
+      "port.BeaconPort.desc": "Port for beacon traffic"
+    }
+  }
+}

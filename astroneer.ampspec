@@ -1,0 +1,403 @@
+{
+  "Id": "2a9f3285-5adc-4574-8a5b-d6ef39e8b7a0",
+  "TemplateSlug": "astroneer",
+  "Lifecycle": {
+    "RootDir": "./astroneer/",
+    "BaseDirectory": "./astroneer/728470/",
+    "ExecutableWin": "728470\\Astro\\Binaries\\Win64\\AstroServer-Win64-Shipping.exe",
+    "ExecutableLinux": ".proton/proton",
+    "WorkingDir": "728470/Astro/Binaries/Win64",
+    "LinuxCommandLineArgs": "runinprefix \u0022{{$FullBaseDir}}Astro/Binaries/Win64/AstroServer-Win64-Shipping.exe\u0022",
+    "CommandLineArgs": "{{$PlatformArgs}} Port={{$ApplicationPort1}} ConsolePort={{$RemoteAdminPort}} {{$FormattedArgs}} -log",
+    "CommandLineParameterFormat": "-{0}={1}",
+    "ApplicationReadyMode": "RCONConnected",
+    "MonitorChildProcessName": "^.*{{$WineBaseDir}}Astro\\\\Binaries\\\\Win64\\\\AstroServer-Win64-Shipping\\.exe.*Port={{$ApplicationPort1}}.*$",
+    "ExitString": "DSServerShutdown",
+    "ExitFile": "app_exit.lck"
+  },
+  "Management": {
+    "AdminMethod": "TelnetRCON",
+    "UseRandomAdminPassword": true,
+    "PersistRandomPassword": true,
+    "RCONHeartbeatCommand": "ping",
+    "TailLogFilePath": "server.log",
+    "MaxUsers": 8,
+    "EnvironmentVariables": {
+      "SteamAppId": "361420",
+      "STEAM_COMPAT_DATA_PATH": "{{$FullRootDir}}.proton/compatdata",
+      "STEAM_COMPAT_CLIENT_INSTALL_PATH": "{{$FullBaseDir}}.steam/steam",
+      "HOME": "{{$FullBaseDir}}"
+    }
+  },
+  "Metadata": {
+    "DisplayName": "meta.name",
+    "Description": "meta.description",
+    "AarchSupport": "Emulated",
+    "Author": "Greelan, Tueem",
+    "URL": "https://store.steampowered.com/app/361420/ASTRONEER/",
+    "DisplayImageSource": "steam:361420",
+    "SpecificDockerImage": "cubecoders/ampbase:debian",
+    "ConfigVersion": "6",
+    "MinAMPVersion": "2.6.2.6"
+  },
+  "Console": {
+    "FilterMatchRegex": "(\\e\\[(\\d\u002B;)*(\\d\u002B)?[ABCDHJKfmsu]|\\e\\[?[?\\\u003E\\=\\da-z]\u002B|ProtonFixes\\[\\d\u002B\\] WARN: Skipping fix execution\\. We are probably running a unit test\\.)",
+    "AppReadyRegex": "^$",
+    "UserJoinRegex": "^$",
+    "UserLeaveRegex": "^$",
+    "UserChatRegex": "^$",
+    "UpdateAvailableRegex": "^\\[\\d\\d:\\d\\d:\\d\\d\\] \\[INFO\\] A new server update is available! v[\\d\\.]\u002B.$"
+  },
+  "PortReferences": {
+    "PrimaryApplicationPortRef": "ApplicationPort1",
+    "UniversalSleepApplicationUDPPortRef": "0",
+    "UniversalSleepSteamQueryPortRef": "0"
+  },
+  "UpdateStages": [
+    {
+      "UpdateSource": "SteamCMD",
+      "UpdateStageName": "SteamCMD Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "728470",
+      "UpdateSourceArgs": "361420",
+      "ForceDownloadPlatform": "Windows"
+    },
+    {
+      "UpdateSource": "CreateDirectory",
+      "UpdateStageName": "Create Config Directory",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceArgs": "{{$FullBaseDir}}Astro/Saved/Config/WindowsServer"
+    },
+    {
+      "UpdateSource": "FetchURL",
+      "UpdateStageName": "Server Config Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/astroneerastroserversettings.ini",
+      "UpdateSourceArgs": "AstroServerSettings.ini",
+      "UpdateSourceTarget": "{{$FullBaseDir}}Astro/Saved/Config/WindowsServer"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Proton GE Download",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022cd \\\u0022{{$FullRootDir}}\\\u0022; mkdir -p \\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 \\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullBaseDir}}.config/protonfixes\\\u0022; ProtonVersion=\\\u0022{{SpecificReleaseVersion}}\\\u0022 \u0026\u0026 if [[ -x \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 \u0026\u0026 -f \\\u0022{{$FullRootDir}}.proton/version\\\u0022 ]]; then read _ InstalledVersion \u003C \\\u0022{{$FullRootDir}}.proton/version\\\u0022; else InstalledVersion=\\\u0022\\\u0022; fi; if [[ -z \\\u0022$ProtonVersion\\\u0022 ]]; then ProtonVersion=$(wget -qO- https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | jq -r .tag_name); fi; if [[ ! \\\u0022$ProtonVersion\\\u0022 =~ ^GE-Proton[0-9]\u002B-[0-9]\u002B$ ]]; then echo \\\u0022Invalid Proton GE release version format specified\\\u0022 \u0026\u0026 exit 1; elif [[ \\\u0022$InstalledVersion\\\u0022 == \\\u0022$ProtonVersion\\\u0022* ]]; then echo \\\u0022Proton GE version $ProtonVersion already installed. Skipping\\\u0022 \u0026\u0026 exit 0; else [[ -f GE-Proton.tar.gz ]] \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261; suffix=\\\u0022\\\u0022; ver=\\\u0022${ProtonVersion#GE-Proton}\\\u0022; major=\\\u0022${ver%%-*}\\\u0022; minor=\\\u0022${ver#*-}\\\u0022; if (( major \u003E 11 || (major == 11 \u0026\u0026 minor \u003E= 4) )); then suffix=\\\u0022-x86_64\\\u0022; fi; wget -qO GE-Proton.tar.gz https://github.com/GloriousEggroll/proton-ge-custom/releases/download/$ProtonVersion/${ProtonVersion}${suffix}.tar.gz || { echo \\\u0022Proton GE download failed from GitHub. Aborting\\\u0022; exit 1; }; rm -rf \\\u0022{{$FullRootDir}}.proton/compatdata/\\\u0022* \u003E/dev/null 2\u003E\u00261; tar -xzf GE-Proton.tar.gz -C \\\u0022{{$FullRootDir}}.proton\\\u0022 --strip-components=1 \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261 \u0026\u0026 echo \\\u0022Proton GE version $ProtonVersion downloaded\\\u0022 \u0026\u0026 { STEAM_COMPAT_DATA_PATH=\\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 STEAM_COMPAT_CLIENT_INSTALL_PATH=\\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 PROTON_LOG=1 \u003E/dev/null 2\u003E\u00261; exit 0; }; fi\u0022"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Disable Prefix Sound",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022cd astroneer \u0026\u0026 export PATH=\\\u0022{{$FullRootDir}}.proton/files/bin:$PATH\\\u0022; export WINEPREFIX=\\\u0022{{$FullRootDir}}.proton/compatdata/pfx\\\u0022; export WINEARCH=win64; ./.proton/protonfixes/winetricks sound=disabled \u003E winescript_log.txt 2\u003E\u00261\u0022",
+      "SkipOnFailure": true
+    }
+  ],
+  "PortRequirements": [
+    {
+      "Name": "port.ApplicationPort1.name",
+      "Description": "port.ApplicationPort1.desc",
+      "Ref": "ApplicationPort1",
+      "Port": 7777,
+      "Protocol": "UDP"
+    },
+    {
+      "Name": "port.RemoteAdminPort.name",
+      "Description": "port.RemoteAdminPort.desc",
+      "Ref": "RemoteAdminPort",
+      "Port": 1234
+    }
+  ],
+  "Settings": [
+    {
+      "FieldName": "$RemoteAdminPassword",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.ConsolePassword",
+      "Hidden": true,
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.$RemoteAdminPassword.name",
+      "InputType": "Password",
+      "ExcludeFromImport": true
+    },
+    {
+      "FieldName": "$ApplicationPort1",
+      "ParamFieldName": "URL.Port",
+      "Hidden": true,
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.$ApplicationPort1.name",
+      "InputType": "number"
+    },
+    {
+      "FieldName": "$RemoteAdminPort",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.ConsolePort",
+      "Hidden": true,
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.$RemoteAdminPort.name",
+      "InputType": "number",
+      "ExcludeFromImport": true
+    },
+    {
+      "FieldName": "ServerName",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.ServerName",
+      "DefaultValue": "Astroneer Server - Powered by AMP",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.ServerName.name",
+      "Description": "setting.ServerName.desc",
+      "Keywords": "name,servername",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "ServerPassword",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.ServerPassword",
+      "DefaultValue": "",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.ServerPassword.name",
+      "Description": "setting.ServerPassword.desc",
+      "Keywords": "password,serverpassword",
+      "InputType": "Password"
+    },
+    {
+      "FieldName": "OwnerName",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.OwnerName",
+      "DefaultValue": "",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.OwnerName.name",
+      "Description": "setting.OwnerName.desc",
+      "Keywords": "owner,name,ownername",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "$MaxUsers",
+      "ParamFieldName": "/Script/Astro.AstroGameUserSettings.MaxPlayers",
+      "DefaultValue": "8",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.$MaxUsers.name",
+      "Description": "setting.$MaxUsers.desc",
+      "Keywords": "players,limit,maxplayers",
+      "InputType": "number",
+      "Placeholder": "8",
+      "Suffix": "users",
+      "MinValue": 2,
+      "MaxValue": 8
+    },
+    {
+      "FieldName": "bLoadAutoSave",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.bLoadAutoSave",
+      "DefaultValue": "True",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.bLoadAutoSave.name",
+      "Description": "setting.bLoadAutoSave.desc",
+      "Keywords": "autosave,load,bLoadAutoSave",
+      "InputType": "checkbox",
+      "EnumValues": {
+        "False": "setting.bLoadAutoSave.value.False",
+        "True": "setting.bLoadAutoSave.value.True"
+      }
+    },
+    {
+      "FieldName": "ActiveSaveFileDescriptiveName",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.ActiveSaveFileDescriptiveName",
+      "DefaultValue": "SAVE_1",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.ActiveSaveFileDescriptiveName.name",
+      "Description": "setting.ActiveSaveFileDescriptiveName.desc",
+      "Keywords": "save,file,name,ActiveSaveFileDescriptiveName",
+      "InputType": "text",
+      "Placeholder": "SAVE_1"
+    },
+    {
+      "FieldName": "AutoSaveGameInterval",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.AutoSaveGameInterval",
+      "DefaultValue": "900",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.AutoSaveGameInterval.name",
+      "Description": "setting.AutoSaveGameInterval.desc",
+      "Keywords": "autosave,save,interval,autosavegameinterval",
+      "InputType": "number",
+      "Placeholder": "900",
+      "Suffix": "seconds"
+    },
+    {
+      "FieldName": "BackupSaveGamesInterval",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.BackupSaveGamesInterval",
+      "DefaultValue": "7200",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.BackupSaveGamesInterval.name",
+      "Description": "setting.BackupSaveGamesInterval.desc",
+      "Keywords": "backup,interval,backupsavegamesinterval",
+      "InputType": "number",
+      "Placeholder": "7200",
+      "Suffix": "seconds"
+    },
+    {
+      "FieldName": "DenyUnlistedPlayers",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.DenyUnlistedPlayers",
+      "DefaultValue": "False",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.DenyUnlistedPlayers.name",
+      "Description": "setting.DenyUnlistedPlayers.desc",
+      "Keywords": "deny,unlisted,denyunlistedplayers",
+      "InputType": "checkbox",
+      "EnumValues": {
+        "False": "setting.DenyUnlistedPlayers.value.False",
+        "True": "setting.DenyUnlistedPlayers.value.True"
+      }
+    },
+    {
+      "FieldName": "MaxServerFramerate",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.MaxServerFramerate",
+      "DefaultValue": "30.000000",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.MaxServerFramerate.name",
+      "Description": "setting.MaxServerFramerate.desc",
+      "Keywords": "fps,framerate,active,maxserverframerate",
+      "InputType": "number",
+      "Placeholder": "30.000000",
+      "Suffix": "fps"
+    },
+    {
+      "FieldName": "MaxServerIdleFramerate",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.MaxServerIdleFramerate",
+      "DefaultValue": "3.000000",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.MaxServerIdleFramerate.name",
+      "Description": "setting.MaxServerIdleFramerate.desc",
+      "Keywords": "fps,framerate,idle,maxserveridleframerate",
+      "InputType": "number",
+      "Placeholder": "3.000000",
+      "Suffix": "fps"
+    },
+    {
+      "FieldName": "PublicIP",
+      "ParamFieldName": "/Script/Astro.AstroServerSettings.PublicIP",
+      "DefaultValue": "{{$ExternalIP}}",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.PublicIP.name",
+      "Description": "setting.PublicIP.desc",
+      "Keywords": "public,ip,publicip",
+      "InputType": "enum",
+      "EnumValues": {
+        "{{$ExternalIP}}": "setting.PublicIP.value._ExternalIP_",
+        "{{ManualPublicIP}}": "setting.PublicIP.value._ManualPublicIP_"
+      }
+    },
+    {
+      "FieldName": "ManualPublicIP",
+      "ParamFieldName": "ManualPublicIP",
+      "DefaultValue": "",
+      "Category": "category.astroneer:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.ManualPublicIP.name",
+      "Description": "setting.ManualPublicIP.desc",
+      "Keywords": "manual,public,ip,publicip",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "SpecificReleaseVersion",
+      "ParamFieldName": "SpecificReleaseVersion",
+      "DefaultValue": "",
+      "Category": "category.updates",
+      "Subcategory": "category.runtime-configuration:build:3",
+      "DisplayName": "setting.SpecificReleaseVersion.name",
+      "Description": "setting.SpecificReleaseVersion.desc",
+      "Keywords": "proton,release,version",
+      "InputType": "text",
+      "Placeholder": "GE-Proton9-1"
+    },
+    {
+      "FieldName": "$ApplicationIPBinding",
+      "DefaultValue": "0.0.0.0",
+      "Category": "category.networking:lan",
+      "DisplayName": "setting.$ApplicationIPBinding.name",
+      "Description": "setting.$ApplicationIPBinding.desc",
+      "Keywords": "ip,binding,bind,address,interface",
+      "InputType": "text",
+      "Placeholder": "0.0.0.0"
+    }
+  ],
+  "ConfigFileMappings": [
+    {
+      "ConfigFile": "Astro/Saved/Config/WindowsServer/AstroServerSettings.ini",
+      "ConfigFormatRegex": "^(?\u003Ckey\u003E.\u002B?)=(?\u003Cvalue\u003E.*?)$",
+      "ConfigType": "ini",
+      "AutoMap": true
+    },
+    {
+      "ConfigFile": "Astro/Saved/Config/WindowsServer/GameUserSettings.ini",
+      "ConfigFormatRegex": "^(?\u003Ckey\u003E.\u002B?)=(?\u003Cvalue\u003E.*?)$",
+      "ConfigType": "ini",
+      "AutoMap": true
+    },
+    {
+      "ConfigFile": "Astro/Saved/Config/WindowsServer/Engine.ini",
+      "ConfigFormatRegex": "^(?\u003Ckey\u003E.\u002B?)=(?\u003Cvalue\u003E.*?)$",
+      "ConfigType": "ini",
+      "AutoMap": true
+    }
+  ],
+  "Locale": {
+    "en": {
+      "meta.name": "Astroneer",
+      "meta.description": "Astroneer Dedicated Server",
+      "setting.$RemoteAdminPassword.name": "Console Password",
+      "category.astroneer": "Astroneer",
+      "category.server": "Server",
+      "setting.$ApplicationPort1.name": "Server Port",
+      "setting.$RemoteAdminPort.name": "Console Port",
+      "setting.ServerName.name": "Server Name",
+      "setting.ServerName.desc": "Sets the name of the server as it appears publicly",
+      "setting.ServerPassword.name": "Server Password",
+      "setting.ServerPassword.desc": "Sets the password required to connect to the server. Default is no password",
+      "setting.OwnerName.name": "Owner Name",
+      "setting.OwnerName.desc": "Sets the Steam name of the server owner (admin)",
+      "setting.$MaxUsers.name": "User Limit",
+      "setting.$MaxUsers.desc": "Sets the maximum number of users that may connect to the server at one time",
+      "setting.bLoadAutoSave.name": "Load Latest Auto Save",
+      "setting.bLoadAutoSave.desc": "If enabled, the server will load the most recent autosave on startup. Otherwise, the save specified under Active Save File Name will be loaded if it exists, or a new autosave will be created",
+      "setting.bLoadAutoSave.value.False": "False",
+      "setting.bLoadAutoSave.value.True": "True",
+      "setting.ActiveSaveFileDescriptiveName.name": "Active Save File Name",
+      "setting.ActiveSaveFileDescriptiveName.desc": "Sets the descriptive name of an existing save file to load, if Load Latest Auto Save is disabled",
+      "setting.AutoSaveGameInterval.name": "Game Save Interval",
+      "setting.AutoSaveGameInterval.desc": "Sets the interval between automatic server saves",
+      "setting.BackupSaveGamesInterval.name": "Backup Save Interval",
+      "setting.BackupSaveGamesInterval.desc": "Sets the interval between automatic server backups",
+      "setting.DenyUnlistedPlayers.name": "Enable Whitelist",
+      "setting.DenyUnlistedPlayers.desc": "If set, unlisted players will not be able to connect",
+      "setting.DenyUnlistedPlayers.value.False": "False",
+      "setting.DenyUnlistedPlayers.value.True": "True",
+      "setting.MaxServerFramerate.name": "Maximum Active Server Framerate",
+      "setting.MaxServerFramerate.desc": "Sets the maximum framerate that the server will allow when active",
+      "setting.MaxServerIdleFramerate.name": "Maximum Idle Server Framerate",
+      "setting.MaxServerIdleFramerate.desc": "Sets the maximum framerate that the server will allow when idle",
+      "setting.PublicIP.name": "Public IP Selection Mode",
+      "setting.PublicIP.desc": "Sets whether AMP should automatically select the public IP advertised for the server, or whether it should use the IP set under Server Public IP",
+      "setting.PublicIP.value._ExternalIP_": "Automatic (default)",
+      "setting.PublicIP.value._ManualPublicIP_": "Manual",
+      "setting.ManualPublicIP.name": "Server Public IP",
+      "setting.ManualPublicIP.desc": "Sets the public IP advertised for the server, if \u0022Manual\u0022 is selected as the Public IP Selection Mode. Useful if the host network has multiple public IPs, or the server is behind a public proxy",
+      "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",
+      "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
+      "category.updates": "Updates",
+      "category.runtime-configuration": "Runtime Configuration",
+      "setting.$ApplicationIPBinding.name": "IP Binding",
+      "setting.$ApplicationIPBinding.desc": "The network address the server binds its ports to. 0.0.0.0 binds every interface (recommended for most setups); set a specific address on multi-IP hosts.",
+      "category.networking": "Networking",
+      "port.ApplicationPort1.name": "Game Port",
+      "port.ApplicationPort1.desc": "Port for game traffic",
+      "port.RemoteAdminPort.name": "Console Port",
+      "port.RemoteAdminPort.desc": "Port for raw TCP socket RCON traffic"
+    }
+  }
+}

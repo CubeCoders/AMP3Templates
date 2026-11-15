@@ -1,0 +1,213 @@
+{
+  "Id": "17f9ff01-e66e-4562-ae32-911bc011373f",
+  "TemplateSlug": "wreckfest2",
+  "Lifecycle": {
+    "RootDir": "./wreckfest2/",
+    "BaseDirectory": "./wreckfest2/3519390/",
+    "ExecutableWin": "3519390\\Wreckfest2.exe",
+    "ExecutableLinux": ".proton/proton",
+    "WorkingDir": "3519390",
+    "LinuxCommandLineArgs": "runinprefix \u0022{{$FullBaseDir}}Wreckfest2.exe\u0022",
+    "CommandLineArgs": "{{$PlatformArgs}} --server --save-dir=.\\server_data {{$FormattedArgs}}",
+    "CommandLineParameterFormat": "-{0}=\u0022{1}\u0022",
+    "CommandLineParameterDelimiter": "",
+    "ApplicationReadyMode": "Immediate",
+    "MonitorChildProcessName": "^.*{{$WineBaseDir}}Wreckfest2\\.exe.*$",
+    "ExitMethod": "OS_CLOSE",
+    "ExitString": "exit",
+    "ExitFile": "app_exit.lck"
+  },
+  "Management": {
+    "RCONHeartbeatCommand": "ping",
+    "MaxUsers": 24,
+    "EnvironmentVariables": {
+      "SteamAppId": "1203190",
+      "STEAM_COMPAT_DATA_PATH": "{{$FullRootDir}}.proton/compatdata",
+      "STEAM_COMPAT_CLIENT_INSTALL_PATH": "{{$FullBaseDir}}.steam/steam",
+      "HOME": "{{$FullBaseDir}}"
+    }
+  },
+  "Metadata": {
+    "DisplayName": "meta.name",
+    "Description": "meta.description",
+    "Author": "Greelan",
+    "URL": "https://wreckfest2.thqnordic.com/",
+    "DisplayImageSource": "steam:1203190",
+    "EndpointURIFormat": "steam://connect/{ip}:{GenericModule.App.Ports.$GamePort}",
+    "SpecificDockerImage": "cubecoders/ampbase:debian",
+    "ConfigVersion": "3",
+    "MinAMPVersion": "2.6.0.0"
+  },
+  "Console": {
+    "FilterMatchRegex": "(\\e\\[(\\d\u002B;)*(\\d\u002B)?[ABCDHJKfmsu]|\\e\\[?[?\\\u003E\\=\\da-z]\u002B|ProtonFixes\\[\\d\u002B\\] WARN: Skipping fix execution\\. We are probably running a unit test\\.)",
+    "ThrowawayMessageRegex": "^(WARNING|ERROR): Shader.\u002B$",
+    "AppReadyRegex": "^[\\d:\\.]\u002B: Server Started$",
+    "UserJoinRegex": "^$",
+    "UserLeaveRegex": "^$",
+    "UserChatRegex": "^$",
+    "UpdateAvailableRegex": "^\\[\\d\\d:\\d\\d:\\d\\d\\] \\[INFO\\] A new server update is available! v[\\d\\.]\u002B.$"
+  },
+  "PortReferences": {
+    "AdminPortRef": "0",
+    "PrimaryApplicationPortRef": "GamePort",
+    "UniversalSleepApplicationUDPPortRef": "0",
+    "UniversalSleepSteamQueryPortRef": "0"
+  },
+  "UpdateStages": [
+    {
+      "UpdateSource": "SteamCMD",
+      "UpdateStageName": "SteamCMD Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "3519390",
+      "UpdateSourceArgs": "1203190",
+      "UpdateSourceTarget": "{{$FullBaseDir}}",
+      "ForceDownloadPlatform": "Windows"
+    },
+    {
+      "UpdateSource": "CreateDirectory",
+      "UpdateStageName": "Server_data Directory Creation",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceArgs": "{{$FullBaseDir}}server_data"
+    },
+    {
+      "UpdateSource": "FetchURL",
+      "UpdateStageName": "Server_config.scnf Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/wreckfest2server_config.scnf",
+      "UpdateSourceArgs": "server_config.scnf",
+      "UpdateSourceTarget": "{{$FullBaseDir}}server_data"
+    },
+    {
+      "UpdateSource": "FetchURL",
+      "UpdateStageName": "Server_privilege.sprv Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/wreckfest2server_privilege.sprv",
+      "UpdateSourceArgs": "server_privilege.sprv",
+      "UpdateSourceTarget": "{{$FullBaseDir}}server_data"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Proton GE Download",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022cd \\\u0022{{$FullRootDir}}\\\u0022; mkdir -p \\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 \\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullBaseDir}}.config/protonfixes\\\u0022; ProtonVersion=\\\u0022{{SpecificReleaseVersion}}\\\u0022 \u0026\u0026 if [[ -x \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 \u0026\u0026 -f \\\u0022{{$FullRootDir}}.proton/version\\\u0022 ]]; then read _ InstalledVersion \u003C \\\u0022{{$FullRootDir}}.proton/version\\\u0022; else InstalledVersion=\\\u0022\\\u0022; fi; if [[ -z \\\u0022$ProtonVersion\\\u0022 ]]; then ProtonVersion=$(wget -qO- https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | jq -r .tag_name); fi; if [[ ! \\\u0022$ProtonVersion\\\u0022 =~ ^GE-Proton[0-9]\u002B-[0-9]\u002B$ ]]; then echo \\\u0022Invalid Proton GE release version format specified\\\u0022 \u0026\u0026 exit 1; elif [[ \\\u0022$InstalledVersion\\\u0022 == \\\u0022$ProtonVersion\\\u0022* ]]; then echo \\\u0022Proton GE version $ProtonVersion already installed. Skipping\\\u0022 \u0026\u0026 exit 0; else [[ -f GE-Proton.tar.gz ]] \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261; suffix=\\\u0022\\\u0022; ver=\\\u0022${ProtonVersion#GE-Proton}\\\u0022; major=\\\u0022${ver%%-*}\\\u0022; minor=\\\u0022${ver#*-}\\\u0022; if (( major \u003E 11 || (major == 11 \u0026\u0026 minor \u003E= 4) )); then suffix=\\\u0022-x86_64\\\u0022; fi; wget -qO GE-Proton.tar.gz https://github.com/GloriousEggroll/proton-ge-custom/releases/download/$ProtonVersion/${ProtonVersion}${suffix}.tar.gz || { echo \\\u0022Proton GE download failed from GitHub. Aborting\\\u0022; exit 1; }; rm -rf \\\u0022{{$FullRootDir}}.proton/compatdata/\\\u0022* \u003E/dev/null 2\u003E\u00261; tar -xzf GE-Proton.tar.gz -C \\\u0022{{$FullRootDir}}.proton\\\u0022 --strip-components=1 \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261 \u0026\u0026 echo \\\u0022Proton GE version $ProtonVersion downloaded\\\u0022 \u0026\u0026 { STEAM_COMPAT_DATA_PATH=\\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 STEAM_COMPAT_CLIENT_INSTALL_PATH=\\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 PROTON_LOG=1 \u003E/dev/null 2\u003E\u00261; exit 0; }; fi\u0022"
+    }
+  ],
+  "PortRequirements": [
+    {
+      "Name": "port.GamePort.name",
+      "Description": "port.GamePort.desc",
+      "Ref": "GamePort",
+      "Port": 30100,
+      "Protocol": "UDP"
+    }
+  ],
+  "Settings": [
+    {
+      "FieldName": "$GamePort",
+      "ParamFieldName": "$[\u0027net server config\u0027][0][\u0027game port\u0027]",
+      "Hidden": true,
+      "Category": "category.wreckfest-2:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.$GamePort.name",
+      "InputType": "number"
+    },
+    {
+      "FieldName": "net_server_config.name",
+      "ParamFieldName": "$[\u0027net server config\u0027][0][\u0027name\u0027]",
+      "DefaultValue": "AMP Powered Wreckfest 2 Server",
+      "Category": "category.wreckfest-2:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.net_server_config.name.name",
+      "Description": "setting.net_server_config.name.desc",
+      "Keywords": "server,name",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "net_server_config.description",
+      "ParamFieldName": "$[\u0027net server config\u0027][0][\u0027description\u0027]",
+      "DefaultValue": "Welcome to my server!",
+      "Category": "category.wreckfest-2:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.net_server_config.description.name",
+      "Description": "setting.net_server_config.description.desc",
+      "Keywords": "server,description",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "net_server_config.password",
+      "ParamFieldName": "$[\u0027net server config\u0027][0][\u0027password\u0027]",
+      "DefaultValue": "",
+      "Category": "category.wreckfest-2:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.net_server_config.password.name",
+      "Description": "setting.net_server_config.password.desc",
+      "Keywords": "server,password",
+      "InputType": "Password"
+    },
+    {
+      "FieldName": "SpecificReleaseVersion",
+      "ParamFieldName": "SpecificReleaseVersion",
+      "DefaultValue": "",
+      "Category": "category.updates",
+      "Subcategory": "category.runtime-configuration:build:3",
+      "DisplayName": "setting.SpecificReleaseVersion.name",
+      "Description": "setting.SpecificReleaseVersion.desc",
+      "Keywords": "proton,release,version",
+      "InputType": "text",
+      "Placeholder": "GE-Proton9-1"
+    },
+    {
+      "FieldName": "$ApplicationIPBinding",
+      "DefaultValue": "0.0.0.0",
+      "Category": "category.networking:lan",
+      "DisplayName": "setting.$ApplicationIPBinding.name",
+      "Description": "setting.$ApplicationIPBinding.desc",
+      "Keywords": "ip,binding,bind,address,interface",
+      "InputType": "text",
+      "Placeholder": "0.0.0.0"
+    },
+    {
+      "FieldName": "$MaxUsers",
+      "DefaultValue": "24",
+      "Category": "category.server",
+      "DisplayName": "setting.$MaxUsers.name",
+      "Description": "setting.$MaxUsers.desc",
+      "Keywords": "max,users,players,slots,capacity,limit",
+      "InputType": "number",
+      "MinValue": 0
+    }
+  ],
+  "ConfigFileMappings": [
+    {
+      "ConfigFile": "server_data/server_config.scnf",
+      "ConfigType": "json",
+      "AutoMap": true
+    }
+  ],
+  "Locale": {
+    "en": {
+      "meta.name": "Wreckfest 2",
+      "meta.description": "Wreckfest 2 Dedicated Server",
+      "setting.$GamePort.name": "Game Port",
+      "category.wreckfest-2": "Wreckfest 2",
+      "category.server": "Server",
+      "setting.net_server_config.name.name": "Server Name",
+      "setting.net_server_config.name.desc": "Sets the name of the server displayed in the server list",
+      "setting.net_server_config.description.name": "Server Description",
+      "setting.net_server_config.description.desc": "Sets the description of the server displayed in the server list",
+      "setting.net_server_config.password.name": "Server Password",
+      "setting.net_server_config.password.desc": "Sets the password required to join the server. Default is no password",
+      "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",
+      "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
+      "category.updates": "Updates",
+      "category.runtime-configuration": "Runtime Configuration",
+      "setting.$ApplicationIPBinding.name": "IP Binding",
+      "setting.$ApplicationIPBinding.desc": "The network address the server binds its ports to. 0.0.0.0 binds every interface (recommended for most setups); set a specific address on multi-IP hosts.",
+      "category.networking": "Networking",
+      "setting.$MaxUsers.name": "Maximum Users",
+      "setting.$MaxUsers.desc": "The maximum number of simultaneous users. Set to 0 for unlimited.",
+      "port.GamePort.name": "Game Port",
+      "port.GamePort.desc": "Port used for main game traffic"
+    }
+  }
+}

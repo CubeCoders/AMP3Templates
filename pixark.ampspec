@@ -1,0 +1,353 @@
+{
+  "Id": "79bb4c35-7e34-4ce7-b685-ccded8c4f1d7",
+  "TemplateSlug": "pixark",
+  "Lifecycle": {
+    "RootDir": "./pixark/",
+    "BaseDirectory": "./pixark/824360/",
+    "ExecutableWin": "824360\\ShooterGame\\Binaries\\Win64\\PixARKServer.exe",
+    "ExecutableLinux": ".proton/proton",
+    "WorkingDir": "824360/ShooterGame/Binaries/Win64",
+    "LinuxCommandLineArgs": "runinprefix \u0022{{$FullBaseDir}}ShooterGame/Binaries/Win64/PixARKServer.exe\u0022",
+    "CommandLineArgs": "{{$PlatformArgs}} {{Map}}?listen?DelayRegisterServer=True?bRawSockets=True?Port={{$GamePort}}?QueryPort={{$QueryPort}}?RCONEnabled=True?RCONPort={{$RCONPort}}?SessionName=\u0022{{SessionName}}\u0022?MultiHome={{$ApplicationIPBinding}}?{{$FormattedArgs}}?ServerAdminPassword={{$RemoteAdminPassword}}{{CustomOptions}} -Seed={{Seed}} -CULTUREFORCOOKING=en -NoBattlEye -CubePort={{$CubePort}} -cubeworld={{cubeworld}} -nosteamclient -NoHangDetection {{NoTransferFromFiltering}}-ClusterDirOverride=\u0022{{ClusterDirOverride}}\u0022 -clusterid={{clusterid}} -server {{CustomFlags}} -gameplaylogging -log",
+    "CommandLineParameterFormat": "{0}={1}",
+    "CommandLineParameterDelimiter": "?",
+    "ApplicationReadyMode": "RCONConnected",
+    "MonitorChildProcessName": "^.*PixARKServer\\.exe.*Port={{$GamePort}}.*$",
+    "ExitTimeout": 15,
+    "ExitString": "DoExit",
+    "ExitFile": "app_exit.lck"
+  },
+  "Management": {
+    "AdminMethod": "SourceRCON",
+    "UseRandomAdminPassword": true,
+    "PersistRandomPassword": true,
+    "RCONConnectDelaySeconds": 15,
+    "RCONHeartbeatMinutes": 0.09,
+    "RCONHeartbeatCommand": "GetGameLog",
+    "MaxUsers": 20,
+    "EnvironmentVariables": {
+      "SteamAppId": "593600",
+      "STEAM_COMPAT_DATA_PATH": "{{$FullRootDir}}.proton/compatdata",
+      "STEAM_COMPAT_CLIENT_INSTALL_PATH": "{{$FullBaseDir}}.steam/steam",
+      "HOME": "{{$FullBaseDir}}"
+    }
+  },
+  "Metadata": {
+    "DisplayName": "meta.name",
+    "Description": "meta.description",
+    "Author": "Greelan",
+    "URL": "https://snail.com/portfolio/pixark",
+    "DisplayImageSource": "steam:593600",
+    "EndpointURIFormat": "steam://connect/{ip}:{GenericModule.App.Ports.$QueryPort}",
+    "SpecificDockerImage": "cubecoders/ampbase:debian",
+    "ConfigVersion": "3",
+    "MinAMPVersion": "2.5.1.4"
+  },
+  "Console": {
+    "FilterMatchRegex": "(\\e\\[(\\d\u002B;)*(\\d\u002B)?[ABCDHJKfmsu]|\\e\\[?[?\\\u003E\\=\\da-z]\u002B|Keep Alive|Server received, But no response!! \\n |LogOnline:Warning: STEAM: Server setting .* overflows Steam SetGameTags call|LogOnline:Warning: STEAM: Empty session setting .* :OnlineService of type String|CubeWorldServer:Warning: compose_generator.cpp \\d\u002B cubesvr::CComposeGenerator::ComposeColumn  biome not exists\\. \\d\u002B|LogShooter:Warning: Receive Command : GetGameLog|ProtonFixes\\[\\d\u002B\\] WARN: Skipping fix execution\\. We are probably running a unit test\\.)",
+    "AppReadyRegex": "^$",
+    "UserJoinRegex": "^[\\d\\.]\u002B_[\\d\\.]\u002B: (?\u003Cusername\u003E.\u002B?) joined this ARK!\\n \\n $",
+    "UserLeaveRegex": "^[\\d\\.]\u002B_[\\d\\.]\u002B: (?\u003Cusername\u003E.\u002B?) left this ARK!\\n \\n $",
+    "UserChatRegex": "^[\\d\\.]\u002B_[\\d\\.]\u002B:(\u00A0| )(?\u003Cusername\u003E.\u002B?)(\u00A0| )\\((?:.\u002B?)\\): (?\u003Cmessage\u003E.\u002B)\\n \\n $",
+    "UpdateAvailableRegex": "^\\[\\d\\d:\\d\\d:\\d\\d\\] \\[INFO\\] A new server update is available! v[\\d\\.]\u002B.$"
+  },
+  "PortReferences": {
+    "AdminPortRef": "RCONPort",
+    "PrimaryApplicationPortRef": "GamePort",
+    "UniversalSleepApplicationUDPPortRef": "GamePort",
+    "UniversalSleepSteamQueryPortRef": "QueryPort"
+  },
+  "UpdateStages": [
+    {
+      "UpdateSource": "SteamCMD",
+      "UpdateStageName": "SteamCMD Server Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "824360",
+      "UpdateSourceArgs": "593600",
+      "ForceDownloadPlatform": "Windows"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Proton GE Download",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022cd \\\u0022{{$FullRootDir}}\\\u0022; mkdir -p \\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 \\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullBaseDir}}.config/protonfixes\\\u0022; ProtonVersion=\\\u0022{{SpecificReleaseVersion}}\\\u0022 \u0026\u0026 if [[ -x \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 \u0026\u0026 -f \\\u0022{{$FullRootDir}}.proton/version\\\u0022 ]]; then read _ InstalledVersion \u003C \\\u0022{{$FullRootDir}}.proton/version\\\u0022; else InstalledVersion=\\\u0022\\\u0022; fi; if [[ -z \\\u0022$ProtonVersion\\\u0022 ]]; then ProtonVersion=$(wget -qO- https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | jq -r .tag_name); fi; if [[ ! \\\u0022$ProtonVersion\\\u0022 =~ ^GE-Proton[0-9]\u002B-[0-9]\u002B$ ]]; then echo \\\u0022Invalid Proton GE release version format specified\\\u0022 \u0026\u0026 exit 1; elif [[ \\\u0022$InstalledVersion\\\u0022 == \\\u0022$ProtonVersion\\\u0022* ]]; then echo \\\u0022Proton GE version $ProtonVersion already installed. Skipping\\\u0022 \u0026\u0026 exit 0; else [[ -f GE-Proton.tar.gz ]] \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261; suffix=\\\u0022\\\u0022; ver=\\\u0022${ProtonVersion#GE-Proton}\\\u0022; major=\\\u0022${ver%%-*}\\\u0022; minor=\\\u0022${ver#*-}\\\u0022; if (( major \u003E 11 || (major == 11 \u0026\u0026 minor \u003E= 4) )); then suffix=\\\u0022-x86_64\\\u0022; fi; wget -qO GE-Proton.tar.gz https://github.com/GloriousEggroll/proton-ge-custom/releases/download/$ProtonVersion/${ProtonVersion}${suffix}.tar.gz || { echo \\\u0022Proton GE download failed from GitHub. Aborting\\\u0022; exit 1; }; rm -rf \\\u0022{{$FullRootDir}}.proton/compatdata/\\\u0022* \u003E/dev/null 2\u003E\u00261; tar -xzf GE-Proton.tar.gz -C \\\u0022{{$FullRootDir}}.proton\\\u0022 --strip-components=1 \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261 \u0026\u0026 echo \\\u0022Proton GE version $ProtonVersion downloaded\\\u0022 \u0026\u0026 { STEAM_COMPAT_DATA_PATH=\\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 STEAM_COMPAT_CLIENT_INSTALL_PATH=\\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 PROTON_LOG=1 \u003E/dev/null 2\u003E\u00261; exit 0; }; fi\u0022"
+    }
+  ],
+  "PortRequirements": [
+    {
+      "Name": "port.GamePort.name",
+      "Description": "port.GamePort.desc",
+      "Ref": "GamePort",
+      "Port": 7777,
+      "Protocol": "UDP"
+    },
+    {
+      "Name": "port.QueryPort.name",
+      "Description": "port.QueryPort.desc",
+      "Ref": "QueryPort",
+      "Port": 27015,
+      "Protocol": "UDP"
+    },
+    {
+      "Name": "port.RCONPort.name",
+      "Description": "port.RCONPort.desc",
+      "Ref": "RCONPort",
+      "Port": 27020
+    },
+    {
+      "Name": "port.CubePort.name",
+      "Ref": "CubePort",
+      "Port": 14999
+    }
+  ],
+  "Settings": [
+    {
+      "FieldName": "Map",
+      "ParamFieldName": "Map",
+      "DefaultValue": "CubeWorld_Light",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.Map.name",
+      "Description": "setting.Map.desc",
+      "Keywords": "map,cubeworld,skyward,terracrypt,underground",
+      "InputType": "enum",
+      "EnumValues": {
+        "CubeWorld_Light": "setting.Map.value.CubeWorld_Light",
+        "Skypiea_light": "setting.Map.value.Skypiea_light",
+        "Underground_Light": "setting.Map.value.Underground_Light",
+        "{{CustomMap}}": "setting.Map.value._CustomMap_"
+      }
+    },
+    {
+      "FieldName": "CustomMap",
+      "ParamFieldName": "CustomMap",
+      "DefaultValue": "",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.CustomMap.name",
+      "Description": "setting.CustomMap.desc",
+      "Keywords": "custom,map",
+      "InputType": "text",
+      "Placeholder": "Underground_Light"
+    },
+    {
+      "FieldName": "SessionName",
+      "ParamFieldName": "SessionName",
+      "DefaultValue": "AMP Powered PixARK Server",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.SessionName.name",
+      "Description": "setting.SessionName.desc",
+      "Keywords": "server,name,sessionname",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "Seed",
+      "ParamFieldName": "Seed",
+      "DefaultValue": "{{randomdigits(5)}}",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.Seed.name",
+      "Description": "setting.Seed.desc",
+      "Keywords": "seed,map",
+      "InputType": "number"
+    },
+    {
+      "FieldName": "cubeworld",
+      "ParamFieldName": "cubeworld",
+      "Required": true,
+      "DefaultValue": "world",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.cubeworld.name",
+      "Description": "setting.cubeworld.desc",
+      "Keywords": "world,save,name,cubeworld",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "ServerPassword",
+      "ParamFieldName": "ServerPassword",
+      "DefaultValue": "",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.ServerPassword.name",
+      "Description": "setting.ServerPassword.desc",
+      "Keywords": "server,password,serverpassword",
+      "InputType": "Password",
+      "IncludeInCommandLine": true,
+      "SkipIfEmpty": true
+    },
+    {
+      "FieldName": "RCONPassword",
+      "ParamFieldName": "RCONPassword",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.RCONPassword.name",
+      "Description": "setting.RCONPassword.desc",
+      "Keywords": "rcon,password,serveradminpassword",
+      "InputType": "hidden"
+    },
+    {
+      "FieldName": "$MaxUsers",
+      "ParamFieldName": "MaxPlayers",
+      "DefaultValue": "20",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.$MaxUsers.name",
+      "Description": "setting.$MaxUsers.desc",
+      "Keywords": "max,players,limit,maxplayers",
+      "InputType": "number",
+      "Placeholder": "20",
+      "Suffix": "users",
+      "IncludeInCommandLine": true,
+      "MinValue": 1
+    },
+    {
+      "FieldName": "MultiHome",
+      "ParamFieldName": "MultiHome",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.MultiHome.name",
+      "Description": "setting.MultiHome.desc",
+      "Keywords": "ip,binding,address,multihome",
+      "InputType": "hidden"
+    },
+    {
+      "FieldName": "CustomFlags",
+      "ParamFieldName": "CustomFlags",
+      "DefaultValue": "",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.CustomFlags.name",
+      "Description": "setting.CustomFlags.desc",
+      "Keywords": "custom,command,line,flags",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "CustomOptions",
+      "ParamFieldName": "CustomOptions",
+      "DefaultValue": "",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.CustomOptions.name",
+      "Description": "setting.CustomOptions.desc",
+      "Keywords": "custom,command,line,options",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "ClusterDirOverride",
+      "ParamFieldName": "ClusterDirOverride",
+      "DefaultValue": "",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.clusters:share:3",
+      "DisplayName": "setting.ClusterDirOverride.name",
+      "Description": "setting.ClusterDirOverride.desc",
+      "Keywords": "cluster,directory,override,clusterdiroverride",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "clusterid",
+      "ParamFieldName": "clusterid",
+      "DefaultValue": "",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.clusters:share:3",
+      "DisplayName": "setting.clusterid.name",
+      "Description": "setting.clusterid.desc",
+      "Keywords": "cluster,id,clusterid",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "NoTransferFromFiltering",
+      "ParamFieldName": "NoTransferFromFiltering",
+      "DefaultValue": "",
+      "Category": "category.pixark:stadia_controller",
+      "Subcategory": "category.clusters:share:3",
+      "DisplayName": "setting.NoTransferFromFiltering.name",
+      "Description": "setting.NoTransferFromFiltering.desc",
+      "Keywords": "filter,data,transfer,notransferfromfiltering",
+      "InputType": "checkbox",
+      "EnumValues": {
+        "False": "",
+        "True": "setting.NoTransferFromFiltering.value.True"
+      }
+    },
+    {
+      "FieldName": "SpecificReleaseVersion",
+      "ParamFieldName": "SpecificReleaseVersion",
+      "DefaultValue": "",
+      "Category": "category.updates",
+      "Subcategory": "category.runtime-configuration:build:3",
+      "DisplayName": "setting.SpecificReleaseVersion.name",
+      "Description": "setting.SpecificReleaseVersion.desc",
+      "Keywords": "proton,release,version",
+      "InputType": "text",
+      "Placeholder": "GE-Proton9-1"
+    },
+    {
+      "FieldName": "$ApplicationIPBinding",
+      "DefaultValue": "0.0.0.0",
+      "Category": "category.networking:lan",
+      "DisplayName": "setting.$ApplicationIPBinding.name",
+      "Description": "setting.$ApplicationIPBinding.desc",
+      "Keywords": "ip,binding,bind,address,interface",
+      "InputType": "text",
+      "Placeholder": "0.0.0.0"
+    }
+  ],
+  "Locale": {
+    "en": {
+      "meta.name": "PixARK",
+      "meta.description": "PixARK Dedicated Server",
+      "setting.Map.name": "Server Map",
+      "setting.Map.desc": "Sets the map for the server. Terracrypt requires the Terracrypt DLC. If Custom is selected, Custom Map Name must also be set. Each map keeps its own world saves, so changing this starts a new world rather than converting the existing one",
+      "category.pixark": "PixARK",
+      "category.server": "Server",
+      "setting.Map.value.CubeWorld_Light": "PixARK (default)",
+      "setting.Map.value.Skypiea_light": "Skyward",
+      "setting.Map.value.Underground_Light": "Terracrypt",
+      "setting.Map.value._CustomMap_": "--Custom--",
+      "setting.CustomMap.name": "Custom Map Name",
+      "setting.CustomMap.desc": "Sets a custom map for the server. \u0022Custom\u0022 must be selected under Server Map. Use this for maps added by a future DLC or update that are not yet listed above",
+      "setting.SessionName.name": "Server Name",
+      "setting.SessionName.desc": "Set the name of the server as it appears publicly. Don\u0027t include a question mark",
+      "setting.Seed.name": "Server Seed",
+      "setting.Seed.desc": "Sets the seed for randomisation of the map. Default = random seed",
+      "setting.cubeworld.name": "World Save Name",
+      "setting.cubeworld.desc": "Sets the name of the world save to load, or to create if it does not exist",
+      "setting.ServerPassword.name": "Server Password",
+      "setting.ServerPassword.desc": "Sets the password for players to join the server. Don\u0027t include a question mark",
+      "setting.RCONPassword.name": "RCON/Server Admin Password",
+      "setting.RCONPassword.desc": "See the Security and Privacy menu for configurable options for the server\u0027s RCON password. The RCON password is also used in the in-game console for players to access administrator commands",
+      "setting.$MaxUsers.name": "User Limit",
+      "setting.$MaxUsers.desc": "Sets the maximum number of users allowed on the server",
+      "setting.MultiHome.name": "MultiHome IP Binding",
+      "setting.MultiHome.desc": "If required, you can change the binding of the server and RCON by changing the Application IP Binding for this instance. NOTE: The IP must be reachable by AMP, otherwise AMP\u0027s console won\u0027t work",
+      "setting.CustomFlags.name": "Custom Command Line Flags",
+      "setting.CustomFlags.desc": "Sets custom command line flags for the server (those that start with a - (dash)). Include the dash and separate with a space. Don\u0027t use flags already in AMP\u0027s settings!",
+      "setting.CustomOptions.name": "Custom Command Line Options",
+      "setting.CustomOptions.desc": "Sets custom command line options for the server (those that start with a ? (question mark)). Include the question mark but do not separate with a space. Don\u0027t use options already in AMP\u0027s settings!",
+      "setting.ClusterDirOverride.name": "Cluster Directory Override",
+      "setting.ClusterDirOverride.desc": "Sets the path to a shared cluster directory for a server cluster. The cluster directory must be accessible to all cluster servers. If the server is in Docker, the directory must be mounted in the container",
+      "category.clusters": "Clusters",
+      "setting.clusterid.name": "Cluster ID",
+      "setting.clusterid.desc": "Sets the cluster ID for a server cluster. The cluster ID must be the same on all servers in the cluster",
+      "setting.NoTransferFromFiltering.name": "Filter Transfers",
+      "setting.NoTransferFromFiltering.desc": "If set, prevents ARK data usage between single player and servers that do not have a Cluster ID set. Even with a Cluster ID set, it is suggested to enable this option",
+      "setting.NoTransferFromFiltering.value.True": "-NoTransferFromFiltering ",
+      "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",
+      "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
+      "category.updates": "Updates",
+      "category.runtime-configuration": "Runtime Configuration",
+      "setting.$ApplicationIPBinding.name": "IP Binding",
+      "setting.$ApplicationIPBinding.desc": "The network address the server binds its ports to. 0.0.0.0 binds every interface (recommended for most setups); set a specific address on multi-IP hosts.",
+      "category.networking": "Networking",
+      "port.GamePort.name": "Game Port",
+      "port.GamePort.desc": "Port for game traffic",
+      "port.QueryPort.name": "Query Port",
+      "port.QueryPort.desc": "Port for Steam query traffic",
+      "port.RCONPort.name": "RCON Port",
+      "port.RCONPort.desc": "Port for RCON traffic",
+      "port.CubePort.name": "Cube Port"
+    }
+  }
+}
