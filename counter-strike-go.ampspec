@@ -72,7 +72,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Server.cfg Template File Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/counter-strike-goserver.cfg",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/counter-strike-go/server.cfg",
       "UpdateSourceArgs": "AMP_server.cfg",
       "UpdateSourceTarget": "{{$FullRootDir}}",
       "OverwriteExistingFiles": true

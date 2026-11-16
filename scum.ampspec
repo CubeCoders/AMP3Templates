@@ -91,7 +91,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "ServerSettings.ini File Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/scumserversettings.ini",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/scum/serversettings.ini",
       "UpdateSourceArgs": "ServerSettings.ini",
       "UpdateSourceTarget": "{{$FullBaseDir}}SCUM/Saved/Config/WindowsServer"
     }

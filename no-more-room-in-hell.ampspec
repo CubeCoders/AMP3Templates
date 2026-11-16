@@ -63,7 +63,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Server.cfg Template File Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/no-more-room-in-hellserver.cfg",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/no-more-room-in-hell/server.cfg",
       "UpdateSourceArgs": "AMP_server.cfg",
       "UpdateSourceTarget": "{{$FullRootDir}}",
       "OverwriteExistingFiles": true

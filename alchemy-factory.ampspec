@@ -72,7 +72,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Server Config Seed",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/alchemy-factoryserverconfig.ini",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/alchemy-factory/serverconfig.ini",
       "UpdateSourceArgs": "ServerConfig.ini",
       "UpdateSourceTarget": "{{$FullBaseDir}}"
     },

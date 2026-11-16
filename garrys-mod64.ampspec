@@ -66,7 +66,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Server.cfg Template File Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/garrys-mod64server.cfg",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/garrys-mod64/server.cfg",
       "UpdateSourceArgs": "AMP_server.cfg",
       "UpdateSourceTarget": "{{$FullRootDir}}",
       "OverwriteExistingFiles": true

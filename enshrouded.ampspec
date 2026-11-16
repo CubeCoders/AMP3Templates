@@ -67,7 +67,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Enshrouded_server.json Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/enshroudedserver.json",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/enshrouded/server.json",
       "UpdateSourceArgs": "enshrouded_server.json",
       "UpdateSourceTarget": "{{$FullBaseDir}}"
     },

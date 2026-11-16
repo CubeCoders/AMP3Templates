@@ -64,7 +64,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Server.cfg Template File Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/half-life2dmserver.cfg",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/half-life2dm/server.cfg",
       "UpdateSourceArgs": "AMP_server.cfg",
       "UpdateSourceTarget": "{{$FullRootDir}}",
       "OverwriteExistingFiles": true

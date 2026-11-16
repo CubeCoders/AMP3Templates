@@ -73,7 +73,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Server_config.scnf Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/wreckfest2server_config.scnf",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/wreckfest2/server_config.scnf",
       "UpdateSourceArgs": "server_config.scnf",
       "UpdateSourceTarget": "{{$FullBaseDir}}server_data"
     },
@@ -81,7 +81,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Server_privilege.sprv Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/wreckfest2server_privilege.sprv",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/wreckfest2/server_privilege.sprv",
       "UpdateSourceArgs": "server_privilege.sprv",
       "UpdateSourceTarget": "{{$FullBaseDir}}server_data"
     },

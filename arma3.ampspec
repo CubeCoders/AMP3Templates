@@ -185,7 +185,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Server Config Template Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/arma3server.cfg",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/arma3/server.cfg",
       "UpdateSourceArgs": "AMP_server.cfg",
       "UpdateSourceTarget": "{{$FullBaseDir}}"
     },
@@ -193,7 +193,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Basic Config File Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/arma3basic.cfg",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/arma3/basic.cfg",
       "UpdateSourceArgs": "basic.cfg",
       "UpdateSourceTarget": "{{$FullBaseDir}}"
     },
@@ -212,7 +212,7 @@
     {
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Modscript Download",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/arma3managemods.sh",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/scripts/arma3/managemods.sh",
       "UpdateSourceArgs": "managemods.sh",
       "UpdateSourceTarget": "{{$FullInstanceDir}}",
       "OverwriteExistingFiles": true
@@ -228,7 +228,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Modscript Download",
       "UpdateSourcePlatform": "Windows",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/arma3managemods.ps1",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/scripts/arma3/managemods.ps1",
       "UpdateSourceArgs": "managemods.ps1",
       "UpdateSourceTarget": "{{$FullInstanceDir}}",
       "OverwriteExistingFiles": true
@@ -280,7 +280,7 @@
     {
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Headless Client Script Download",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/arma3runhc.sh",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/scripts/arma3/runhc.sh",
       "UpdateSourceArgs": "runhc.sh",
       "UpdateSourceTarget": "{{$FullInstanceDir}}",
       "OverwriteExistingFiles": true,
@@ -291,7 +291,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Headless Client Script Download",
       "UpdateSourcePlatform": "Windows",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/arma3runhc.ps1",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/scripts/arma3/runhc.ps1",
       "UpdateSourceArgs": "runhc.ps1",
       "UpdateSourceTarget": "{{$FullInstanceDir}}",
       "OverwriteExistingFiles": true,
@@ -301,7 +301,7 @@
     {
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Headless Client Script Download",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/arma3runhc32.sh",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/scripts/arma3/runhc32.sh",
       "UpdateSourceArgs": "runhc.sh",
       "UpdateSourceTarget": "{{$FullInstanceDir}}",
       "OverwriteExistingFiles": true,
@@ -311,7 +311,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Headless Client Script Download",
       "UpdateSourcePlatform": "Windows",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/arma3runhc32.ps1",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/scripts/arma3/runhc32.ps1",
       "UpdateSourceArgs": "runhc.ps1",
       "UpdateSourceTarget": "{{$FullInstanceDir}}",
       "OverwriteExistingFiles": true,

@@ -83,7 +83,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "CustomHostServerUserSettings.ini Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/voyagers-of-neracustomhostserverusersettings.ini",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/voyagers-of-nera/customhostserverusersettings.ini",
       "UpdateSourceArgs": "CustomHostServerUserSettings.ini",
       "UpdateSourceTarget": "{{$FullBaseDir}}BoatGame/Saved/PersistedData/CustomConfig",
       "OverwriteExistingFiles": true
@@ -92,7 +92,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "CustomGameUserSettings.ini Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/voyagers-of-neracustomgameusersettings.ini",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/voyagers-of-nera/customgameusersettings.ini",
       "UpdateSourceArgs": "CustomGameUserSettings.ini",
       "UpdateSourceTarget": "{{$FullBaseDir}}BoatGame/Saved/PersistedData/CustomConfig",
       "OverwriteExistingFiles": true

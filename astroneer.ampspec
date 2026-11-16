@@ -72,7 +72,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Server Config Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/astroneerastroserversettings.ini",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/astroneer/astroserversettings.ini",
       "UpdateSourceArgs": "AstroServerSettings.ini",
       "UpdateSourceTarget": "{{$FullBaseDir}}Astro/Saved/Config/WindowsServer"
     },

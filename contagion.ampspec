@@ -66,7 +66,7 @@
       "UpdateSource": "FetchURL",
       "UpdateStageName": "Server Config Template Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/contagionserver.cfg",
+      "UpdateSourceData": "https://raw.githubusercontent.com/CubeCoders/AMP3Templates/main/configtemplates/contagion/server.cfg",
       "UpdateSourceArgs": "AMP_server.cfg",
       "UpdateSourceTarget": "{{$FullRootDir}}",
       "OverwriteExistingFiles": true
