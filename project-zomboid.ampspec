@@ -39,8 +39,8 @@
   "Console": {
     "ThrowawayMessageRegex": "^(WARNING|ERROR): Shader.\u002B$",
     "AppReadyRegex": "^LOG\\s\u002B: Network\\s\u002B.*\u003E \\*\u002B SERVER STARTED \\*\u002B$",
-    "UserJoinRegex": "^LOG\\s\u002B: (Network\\s\u002B.*\u003E ConnectionManager: \\[fully-connected\\] (?:.\u002B?) steam-id=(?\u003Cuserid\u003E.\u002B?) (?:.\u002B?) username=\u0022(?\u003Cusername\u003E.\u002B?)\u0022 (?:.\u002B?)|Multiplayer\\s\u002B.*\u003E connection: guid=(?\u003Cuserid\u003E.\u002B?) \\[fully-connected\\] \u0022\u0022)$",
-    "UserLeaveRegex": "^LOG\\s\u002B: (Network\\s\u002B.*\u003E Disconnected player \u0022(?\u003Cusername\u003E.\u002B?)\u0022 (?\u003Cuserid\u003E.\u002B?)|Multiplayer\\s\u002B.*\u003E connection: guid=(?\u003Cuserid\u003E.\u002B?) \\[disconnect\\] \u0022receive-disconnect\u0022)$",
+    "UserJoinRegex": "^LOG\\s\u002B: (Network\\s\u002B.*\u003E ConnectionManager: \\[fully-connected\\] (?:.\u002B?) steam-id=(?\u003Cuserid\u003E.\u002B?) (?:.\u002B?) username=\u0022(?\u003Cusername\u003E.\u002B?)\u0022 (?:.\u002B?)|Multiplayer\\s\u002B.*\u003E connection: guid=(?\u003Csessionid\u003E.\u002B?) \\[fully-connected\\] \u0022\u0022)$",
+    "UserLeaveRegex": "^LOG\\s\u002B: (Network\\s\u002B.*\u003E Disconnected player \u0022(?\u003Cusername\u003E.\u002B?)\u0022 (?\u003Cuserid\u003E.\u002B?)|Multiplayer\\s\u002B.*\u003E connection: guid=(?\u003Csessionid\u003E.\u002B?) \\[disconnect\\] \u0022receive-disconnect\u0022)$",
     "UserChatRegex": "^$",
     "UpdateAvailableRegex": "^$",
     "LogRegex": "^(?\u003Ctype\u003E\\w\u002B)\\s*:\\s(?\u003Csource\u003E\\w\u002B)\\s\u002B,\\s\\d\u002B\u003E [\\d,]\u002B\u003E (!?\\[[\\d\\- :\\.]\u002B\\] \u003E )?(?\u003Ccontents\u003E.\u002B?)$"
