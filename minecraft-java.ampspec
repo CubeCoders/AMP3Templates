@@ -34,15 +34,15 @@
   "Console": {
     "FilterMatchRegex": "^>+\\s*",
     "ThrowawayMessageRegex": "^\\s*>+\\s*$",
-    "AppReadyRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: Done \\([\\d.,]+s\\)! For help, type \"help\"",
-    "PreConnectRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: UUID of player (?<id>[^ ]+) is (?<userid>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$",
+    "AppReadyRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: Done \\([\\d.,]+s\\)! For help, type \"help\"",
+    "PreConnectRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: UUID of player (?<id>[^ ]+) is (?<userid>[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$",
     "UserIdKind": "minecraft-uuid",
-    "UserJoinRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: (?<username>[^ ]+?)\\[\\/(?<endpoint>.+?)\\] logged in with entity id",
-    "UserLeaveRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: (?<username>[^ ]+?) left the game$",
-    "UserChatRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: <(?<username>.+?)> (?<message>.+)$",
-    "MetricsRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: Can't keep up! Is the server overloaded\\? Running (?<Lag>\\d+)ms or \\d+ ticks behind$",
-    "StartupProgressRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: (?<stage>Preparing spawn area): (?<PercentageComplete>\\d+)%$",
-    "LogRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: (?<level>[A-Z]+))?\\](?: \\[(?<origin>[^\\]]*?)(?:\\/(?<level>[A-Z]+))?\\])?: (?<message>.*)$"
+    "UserJoinRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: (?<username>[^ ]+?)\\[\\/(?<endpoint>.+?)\\] logged in with entity id",
+    "UserLeaveRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: (?<username>[^ ]+?) left the game$",
+    "UserChatRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: <(?<username>.+?)> (?<message>.+)$",
+    "MetricsRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: Can't keep up! Is the server overloaded\\? Running (?<Lag>\\d+)ms or \\d+ ticks behind$",
+    "StartupProgressRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: (?<stage>Preparing spawn area): (?<PercentageComplete>\\d+)%$",
+    "LogRegex": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: (?<level>[A-Z]+))?\\](?: \\[(?<origin>[^\\]]*?)(?:\\/(?<level>[A-Z]+))?\\])?(?: \\[[^\\]]*\\])?: (?<message>.*)$"
   },
   "PortReferences": {
     "PrimaryApplicationPortRef": "ServerPort"
@@ -1285,7 +1285,7 @@
       "Id": "blockPlaced",
       "Name": "event.blockPlaced.name",
       "Description": "event.blockPlaced.desc",
-      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: \\[(?<User>[^\\]]+?): Changed the block at (?<Position>(?<X>-?\\d+), (?<Y>-?\\d+), (?<Z>-?\\d+))\\]",
+      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: \\[(?<User>[^\\]]+?): Changed the block at (?<Position>(?<X>-?\\d+), (?<Y>-?\\d+), (?<Z>-?\\d+))\\]",
       "ParamMap": {
         "User": {
           "Name": "event.blockPlaced.param.User.name",
@@ -1301,31 +1301,31 @@
       "Id": "advancementMade",
       "Name": "event.advancementMade.name",
       "Description": "event.advancementMade.desc",
-      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: (?<User>\\S+) has made the advancement \\[(?<Advancement>.+?)\\]$"
+      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: (?<User>\\S+) has made the advancement \\[(?<Advancement>.+?)\\]$"
     },
     {
       "Id": "goalReached",
       "Name": "event.goalReached.name",
       "Description": "event.goalReached.desc",
-      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: (?<User>\\S+) has reached the goal \\[(?<Goal>.+?)\\]$"
+      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: (?<User>\\S+) has reached the goal \\[(?<Goal>.+?)\\]$"
     },
     {
       "Id": "challengeCompleted",
       "Name": "event.challengeCompleted.name",
       "Description": "event.challengeCompleted.desc",
-      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: (?<User>\\S+) has completed the challenge \\[(?<Challenge>.+?)\\]$"
+      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: (?<User>\\S+) has completed the challenge \\[(?<Challenge>.+?)\\]$"
     },
     {
       "Id": "achievementEarned",
       "Name": "event.achievementEarned.name",
       "Description": "event.achievementEarned.desc",
-      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: (?<User>\\S+) has just earned the achievement \\[(?<Achievement>.+)\\]$"
+      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: (?<User>\\S+) has just earned the achievement \\[(?<Achievement>.+)\\]$"
     },
     {
       "Id": "userKilled",
       "Name": "event.userKilled.name",
       "Description": "event.userKilled.desc",
-      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: (?<User>\\S+) was (?<Cause>.+?) by (?<Killer>.+)$",
+      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: (?<User>\\S+) was (?<Cause>.+?) by (?<Killer>.+)$",
       "ParamMap": {
         "User": {
           "Name": "event.userKilled.param.User.name",
@@ -1345,7 +1345,7 @@
       "Id": "serverLagging",
       "Name": "event.serverLagging.name",
       "Description": "event.serverLagging.desc",
-      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\])?: Can't keep up! (?:Is the server overloaded\\? Running (?<MillisecondsBehind>\\d+)ms or (?<TicksSkipped>\\d+) ticks? behind|Did the system time change, or is the server overloaded\\? Running (?<MillisecondsBehind>\\d+)ms behind, skipping (?<TicksSkipped>\\d+) tick\\(?s?\\)?)$",
+      "Expression": "^\\[\\d{1,2}:\\d{2}:\\d{2}(?: [A-Z]+)?\\](?: \\[[^\\]]*\\]){0,2}: Can't keep up! (?:Is the server overloaded\\? Running (?<MillisecondsBehind>\\d+)ms or (?<TicksSkipped>\\d+) ticks? behind|Did the system time change, or is the server overloaded\\? Running (?<MillisecondsBehind>\\d+)ms behind, skipping (?<TicksSkipped>\\d+) tick\\(?s?\\)?)$",
       "ParamMap": {
         "MillisecondsBehind": {
           "Name": "event.serverLagging.param.MillisecondsBehind.name",
