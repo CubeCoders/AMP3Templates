@@ -222,7 +222,7 @@
         }
       ],
       "Format": "Xml",
-      "Select": "//versions/version",
+      "Select": "/metadata[artifactId='neoforge']/versioning/versions/version[not(contains(., '-alpha') or contains(., '+snapshot'))] | /metadata[artifactId='forge']/versioning/versions/version[contains(., '-')]",
       "Value": "text()",
       "CacheMinutes": 240
     },
