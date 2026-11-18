@@ -193,6 +193,7 @@
       "Description": "setting.adminpassword.desc",
       "Keywords": "admin,password,adminpassword",
       "InputType": "Password",
+      "Required": true,
       "IncludeInCommandLine": true,
       "SkipIfEmpty": true
     },
