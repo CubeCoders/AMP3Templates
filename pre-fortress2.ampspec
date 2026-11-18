@@ -91,10 +91,18 @@
       "UpdateSourceArgs": "-NoProfile -Command \u0022$ProgressPreference=\u0027SilentlyContinue\u0027; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Set-Location -Path \u0027pre-fortress2/7-Zip\u0027; if (Test-Path \u00277zr.exe\u0027) { exit 0 } else { Invoke-WebRequest -UseBasicParsing -Uri \u0027https://github.com/ip7z/7zip/releases/download/26.00/7zr.exe\u0027 -OutFile \u00277zr.exe\u0027 }\u0022"
     },
     {
+      "UpdateSource": "FetchURL",
+      "UpdateStageName": "7-Zip Download",
+      "UpdateSourceData": "https://github.com/ip7z/7zip/releases/download/26.00/7z2600-linux-x64.tar.xz",
+      "UpdateSourceArgs": "7z.tar.xz",
+      "UpdateSourceTarget": "{{$FullRootDir}}7-Zip",
+      "OverwriteExistingFiles": true
+    },
+    {
       "UpdateSource": "Executable",
       "UpdateStageName": "7-Zip Installation",
       "UpdateSourceData": "/bin/bash",
-      "UpdateSourceArgs": "-c \u0022cd pre-fortress2/7-Zip \u0026\u0026 [[ -x 7zzs ]] \u0026\u0026 exit 0 || { wget -qO 7z.tar.xz https://github.com/ip7z/7zip/releases/download/26.00/7z2600-linux-x64.tar.xz \u0026\u0026 tar -xf 7z.tar.xz \u003E/dev/null 2\u003E\u00261 \u0026\u0026 rm -f 7z.tar.xz \u003E/dev/null 2\u003E\u00261; }\u0022"
+      "UpdateSourceArgs": "-c \u0022cd pre-fortress2/7-Zip \u0026\u0026 tar -xf 7z.tar.xz \u003E/dev/null \u0026\u0026 rm -f 7z.tar.xz\u0022"
     },
     {
       "UpdateSource": "FetchURLfromJQ",

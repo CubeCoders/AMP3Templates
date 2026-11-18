@@ -1,0 +1,323 @@
+{
+  "Id": "dbc03533-2478-4262-a262-49231c1dca7f",
+  "TemplateSlug": "mariadb",
+  "Lifecycle": {
+    "RootDir": "./mariadb/",
+    "BaseDirectory": "./mariadb/",
+    "ExecutableWin": "mariadb\\bin\\mariadb.exe",
+    "ExecutableLinux": "mariadb/bin/mariadb",
+    "Compatibility": "LinuxBufferedConsole, WindowsBufferedConsole",
+    "LinuxCommandLineArgs": "--protocol=socket --socket=\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\u0022",
+    "WindowsCommandLineArgs": "--protocol=pipe --socket={{WindowsSocketName}} --user=root",
+    "CommandLineArgs": "{{CustomClientOptions}} {{$PlatformArgs}} --reconnect --force {{$FormattedArgs}}",
+    "CommandLineParameterFormat": "--{0}={1}",
+    "ExitTimeout": 15,
+    "ExitString": "shutdown; exit",
+    "ExitFile": "app_exit.lck"
+  },
+  "Management": {
+    "RCONHeartbeatMinutes": 479,
+    "RCONHeartbeatCommand": "SELECT 1;",
+    "SupportsIPv6": true,
+    "EnvironmentVariables": {
+      "PATH": "%PATH%:{{$FullBaseDir}}mariadb/bin",
+      "MYSQL_PWD": "{{RootPassword}}"
+    }
+  },
+  "Metadata": {
+    "DisplayName": "meta.name",
+    "Description": "meta.description",
+    "Author": "Greelan",
+    "URL": "https://www.mariadb.com/",
+    "DisplayImageSource": "url:https://mariadb.com/wp-content/uploads/2019/11/mariadb-logo_blue-transparent.png",
+    "EndpointURIFormat": " ",
+    "SpecificDockerImage": "cubecoders/ampbase:debian",
+    "ConfigVersion": "3",
+    "MinAMPVersion": "2.6.2.6"
+  },
+  "Console": {
+    "FilterMatchRegex": "\\e\\[(\\d\u002B;)*(\\d\u002B)?[ABCDHJKfmsu]|\\e\\[?[?\\\u003E\\=\\da-z]\u002B|.*Access denied for user \u0027root\u0027@\u0027localhost\u0027 \\(using password: NO\\)",
+    "AppReadyRegex": "^(?:Your MariaDB connection id is \\d\u002B|CPID: \\d\u002B)$",
+    "UserJoinRegex": "^$",
+    "UserLeaveRegex": "^$",
+    "UserChatRegex": "^$",
+    "UpdateAvailableRegex": "^$"
+  },
+  "PortReferences": {
+    "AdminPortRef": "0",
+    "PrimaryApplicationPortRef": "ServerPort",
+    "UniversalSleepApplicationUDPPortRef": "0",
+    "UniversalSleepSteamQueryPortRef": "0"
+  },
+  "UpdateStages": [
+    {
+      "UpdateSource": "CreateDirectory",
+      "UpdateStageName": "Create Installation Directory",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceArgs": "{{$FullBaseDir}}mariadb"
+    },
+    {
+      "UpdateSource": "CreateDirectory",
+      "UpdateStageName": "Create Data Directory",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceArgs": "{{$FullBaseDir}}data"
+    },
+    {
+      "UpdateSource": "CreateDirectory",
+      "UpdateStageName": "Create Log Directory",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceArgs": "{{$FullBaseDir}}log/mariadb"
+    },
+    {
+      "UpdateSource": "CreateDirectory",
+      "UpdateStageName": "Create Run Directory",
+      "UpdateSourceArgs": "{{$FullBaseDir}}run/mariadbd"
+    },
+    {
+      "UpdateSource": "FetchURL",
+      "UpdateStageName": "Download MariaDB",
+      "UpdateSourceData": "https://downloads.mariadb.org/rest-api/mariadb/{{CustomServerVersion}}/mariadb-{{CustomServerVersion}}-linux-systemd-x86_64.tar.gz",
+      "UpdateSourceArgs": "mariadb.tar.gz",
+      "UpdateSourceTarget": "{{$FullBaseDir}}",
+      "OverwriteExistingFiles": true
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Install MariaDB",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022MariaDBVersion=\\\u0022{{CustomServerVersion}}\\\u0022; cd mariadb \u0026\u0026 if [[ -x mariadb/bin/mariadbd ]]; then InstalledVersion=$(mariadb/bin/mariadbd -V | sed \\\u0022s/.*Ver \\([0-9][0-9]*\\.[0-9][0-9]*\\.[0-9][0-9]*\\)-MariaDB.*/\\1/\\\u0022); else InstalledVersion=\\\u0022\\\u0022; fi; if [[ \\\u0022$InstalledVersion\\\u0022 == \\\u0022$MariaDBVersion\\\u0022 ]]; then rm -f mariadb.tar.gz; echo \\\u0022MariaDB v$MariaDBVersion already installed. Skipping\\\u0022; exit 0; fi; { [[ -d mariadb/lib/plugin ]] \u0026\u0026 mv mariadb/lib/plugin plugin-bak || true; } \u0026\u0026 mkdir -p mariadb \u0026\u0026 rm -rf mariadb/* \u003E/dev/null 2\u003E\u00261 \u0026\u0026 mkdir -p mariadb/lib \u0026\u0026 { [[ -d plugin-bak ]] \u0026\u0026 mv plugin-bak mariadb/lib/plugin || true; } \u0026\u0026 tar -xzf mariadb.tar.gz -C mariadb --strip-components=1 \u0026\u0026 rm -f mariadb.tar.gz \u0026\u0026 echo \\\u0022MariaDB v$MariaDBVersion installed\\\u0022\u0022"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Download MariaDB",
+      "UpdateSourcePlatform": "Windows",
+      "UpdateSourceData": "powershell.exe",
+      "UpdateSourceArgs": "-NoProfile -Command \u0022$ProgressPreference=\u0027SilentlyContinue\u0027; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $MariaDBRelease=\u0027{{ServerVersion}}\u0027; $MariaDBVersion=\u0027{{CustomServerVersion}}\u0027; Set-Location -Path \u0027mariadb\u0027; if (Test-Path \u0027mariadb/bin/mariadbd.exe\u0027) { $match = \u0026 mariadb/bin/mariadbd.exe -V | Select-String -Pattern \u0027Ver (\\d\u002B\\.\\d\u002B\\.\\d\u002B)-MariaDB\u0027; $InstalledVersion = $match.Matches[0].Groups[1].Value } else { $InstalledVersion = \u0027\u0027 }; if ( [string]::IsNullOrWhiteSpace($MariaDBVersion) ) { $MariaDBVersion = (Invoke-RestMethod -UseBasicParsing -Uri \\\u0022https://downloads.mariadb.org/rest-api/mariadb/$MariaDBRelease/latest\\\u0022).releases.PSObject.Properties.Name | Select-Object -First 1 }; if ( $MariaDBVersion -notmatch \u0027^(10|11|12|13)\\.\\d\u002B\\.\\d\u002B$\u0027 ) { Write-Output \u0027Invalid MariaDB version format specified\u0027; exit 1 } elseif ( $InstalledVersion -eq $MariaDBVersion ) { Write-Output \\\u0022MariaDB v$MariaDBVersion already installed. Skipping\\\u0022; exit 0 } else { if ( Test-Path mariadb.zip ) { Remove-Item mariadb.zip -Force -ErrorAction SilentlyContinue *\u003E $null }; try { Invoke-WebRequest -UseBasicParsing -Uri http://downloads.mariadb.org/rest-api/mariadb/$MariaDBVersion/mariadb-$MariaDBVersion-winx64.zip -OutFile mariadb.zip -ErrorAction Stop } catch { Write-Output \\\u0022Download failed from the MariaDB CDN. This is a fault with the CDN, not AMP. Aborting\\\u0022; exit 1; }; Expand-Archive -Path \\\u0022mariadb.zip\\\u0022 -DestinationPath \\\u0022.\\\u0022 -Force *\u003E $null; if ( Test-Path mariadb.zip ) { Remove-Item mariadb.zip -Force -ErrorAction SilentlyContinue *\u003E $null }; if (Test-Path \\\u0022mariadb-*\\\u0022) { if ( Test-Path \u0027mariadb/lib/plugin\u0027 ) { Move-Item \u0027mariadb/lib/plugin\u0027 \u0027plugin-bak\u0027 -Force *\u003E $null }; Remove-Item mariadb/* -Recurse -Force -ErrorAction SilentlyContinue *\u003E $null; New-Item \u0027mariadb/lib\u0027 -ItemType Directory -Force | Out-Null; Move-Item \u0027plugin-bak\u0027 \u0027mariadb/lib/plugin\u0027 -Force *\u003E $null; $source = Get-ChildItem -Directory -Filter \u0027mariadb-*\u0027 | Select-Object -First 1; if ($source) { robocopy $source.FullName \u0027mariadb\u0027 /E /MOVE /NFL /NDL /NJH /NJS /NP *\u003E $null; if ($LASTEXITCODE -gt 7) { exit $LASTEXITCODE } }; Write-Output \\\u0022MariaDB v$MariaDBVersion downloaded\\\u0022 } }\u0022"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Initialize MariaDB",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022cd mariadb \u0026\u0026 { [[ -f \\\u0022{{$FullBaseDir}}data/mysql/user.frm\\\u0022 ]] || { mariadb/scripts/mariadb-install-db --no-defaults --auth-root-socket-user=$(id -un) --port={{$ServerPort}} --basedir=\\\u0022{{$FullBaseDir}}mariadb\\\u0022 --datadir=\\\u0022{{$FullBaseDir}}data\\\u0022 \u003E/dev/null \u0026\u0026 echo -e \\\u0022\\nDefault database tables created\\nSuper-users $(id -un)@localhost and root@localhost created with unix socket authentication\\nUse AMP\u0027s console to manage the server via the $(id -un)@localhost user\\n\\\u0022; }; }\u0022"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Initialize MariaDB",
+      "UpdateSourcePlatform": "Windows",
+      "UpdateSourceData": "powershell.exe",
+      "UpdateSourceArgs": "-NoProfile -Command \u0022Set-Location -Path \u0027mariadb\u0027; if (Test-Path \u0027{{$FullBaseDir}}data/mysql/user.frm\u0027) { exit 0 } else { \u0026 mariadb/bin/mariadb-install-db.exe --port={{$ServerPort}} --datadir=\\\u0022{{$FullBaseDir}}data\\\u0022 1\u003E $null; if ($LASTEXITCODE -eq 0) { Write-Output \\\u0022\u0060nDefault database tables created\u0060nSuper-users root@localhost, root@127.0.0.1 and (if applicable) root@::1 created with secure password authentication\u0060nUse AMP\u0027s console to manage the server via the root@localhost user\u0060n\\\u0022 } }\u0022"
+    },
+    {
+      "UpdateSource": "CreateFile",
+      "UpdateStageName": "Create my.cnf",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceArgs": "{{$FullBaseDir}}my.cnf"
+    }
+  ],
+  "PreStartStages": [
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Run MariaDB Server",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022BindAddress=\\\u0022{{$ApplicationIPBinding}}\\\u0022; [[ \\\u0022$BindAddress\\\u0022 == \u0027::\u0027 ]] \u0026\u0026 BindAddress=\u0027*\u0027; cd mariadb \u0026\u0026 mariadb/bin/mariadb-admin --socket=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\\\u0022 ping \u003E/dev/null 2\u003E\u00261 \u0026\u0026 exit 0 || mariadb/bin/mariadbd --defaults-file=\\\u0022{{$FullBaseDir}}my.cnf\\\u0022 --port={{$ServerPort}} --basedir=\\\u0022{{$FullBaseDir}}mariadb\\\u0022 --datadir=\\\u0022{{$FullBaseDir}}data\\\u0022 --pid-file=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.pid\\\u0022 --socket=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\\\u0022 --bind-address=\\\u0022$BindAddress\\\u0022 --general-log-file=\\\u0022{{$FullBaseDir}}log/mariadb/mariadb.log\\\u0022 --wait-timeout=28800 \u0026\u0022",
+      "RunInBackground": true
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Run MariaDB Server",
+      "UpdateSourcePlatform": "Windows",
+      "UpdateSourceData": "powershell.exe",
+      "UpdateSourceArgs": "-NoProfile -Command \u0022$BindAddress = \u0027{{$ApplicationIPBinding}}\u0027; if ($BindAddress -eq \u0027::\u0027) { $BindAddress = \u0027*\u0027 }; Set-Location -Path \u0027mariadb\u0027; $env:MYSQL_PWD = \\\u0022{{RootPassword}}\\\u0022; \u0026 mariadb/bin/mariadb-admin.exe --protocol=pipe --socket={{WindowsSocketName}} --user=root ping *\u003E $null 2\u003E\u00261; if ($LASTEXITCODE -eq 0) { exit 0 } else { \u0026 mariadb/bin/mariadbd.exe --defaults-file=\\\u0022{{$FullBaseDir}}my.cnf\\\u0022 --port={{$ServerPort}} --basedir=\\\u0022{{$FullBaseDir}}mariadb\\\u0022 --datadir=\\\u0022{{$FullBaseDir}}data\\\u0022 --socket={{WindowsSocketName}} --bind-address=$BindAddress --general-log-file=\\\u0022{{$FullBaseDir}}log/mariadb/mariadb.log\\\u0022 --wait-timeout=28800 --named-pipe --console }\u0022",
+      "RunInBackground": true
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Set Up and Upgrade MariaDB",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022cd mariadb \u0026\u0026 timeout=60; while ((timeout--)); do mariadb/bin/mariadb-admin --socket=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\\\u0022 ping \u003E/dev/null 2\u003E\u00261 \u0026\u0026 break || sleep 1; done; ((timeout\u003C0)) \u0026\u0026 { echo \\\u0022MariaDB server failed to start. Aborting\\\u0022; exit 1; }; mariadb/bin/mariadb --socket=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\\\u0022 --user=$(id -un) -e \\\u0022FLUSH PRIVILEGES; ALTER USER \u0027root\u0027@\u0027localhost\u0027 IDENTIFIED VIA unix_socket; ALTER USER CURRENT_USER() IDENTIFIED VIA unix_socket; DELETE FROM mysql.user WHERE User=\u0027\u0027; DROP DATABASE IF EXISTS test; DELETE FROM mysql.db WHERE Db=\u0027test\u0027 OR Db=\u0027test\\\\_%\u0027; FLUSH PRIVILEGES\\\u0022; mariadb/bin/mariadb-upgrade --port={{$ServerPort}} --socket=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\\\u0022 --user=$(id -un)\u0022"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Set Up and Upgrade MariaDB",
+      "UpdateSourcePlatform": "Windows",
+      "UpdateSourceData": "powershell.exe",
+      "UpdateSourceArgs": "-NoProfile -Command \u0022Set-Location -Path \u0027mariadb\u0027; for ($i=0; $i -lt 60; $i\u002B\u002B) { $env:MYSQL_PWD = \\\u0022{{RootPassword}}\\\u0022; \u0026 mariadb/bin/mariadb-admin.exe --protocol=pipe --socket={{WindowsSocketName}} --user=root ping *\u003E $null 2\u003E\u00261; if ($LASTEXITCODE -eq 0) { Remove-Item Env:MYSQL_PWD; \u0026 mariadb/bin/mariadb-admin.exe --protocol=pipe --socket={{WindowsSocketName}} --user=root ping *\u003E $null 2\u003E\u00261; if ($LASTEXITCODE -eq 0) { $hosts = \u0026 mariadb/bin/mariadb.exe --protocol=pipe --socket={{WindowsSocketName}} --user=root --batch --skip-column-names -e \\\u0022SELECT Host FROM mysql.user WHERE User = \u0027root\u0027;\\\u0022; foreach ($h in $hosts) { \u0026 mariadb/bin/mariadb.exe --protocol=pipe --socket={{WindowsSocketName}} --user=root -e \\\u0022ALTER USER \u0027root\u0027@\u0027${h}\u0027 IDENTIFIED BY \u0027{{RootPassword}}\u0027;\\\u0022 }; break } }; Start-Sleep -Seconds 1 }; if ($i -eq 60) { Write-Output \\\u0022MariaDB server failed to start. Aborting\\\u0022; exit 1 } else { Write-Output \\\u0022*** NOTE: The log messages above relating to access being denied for the root user can be ignored. ***\\\u0022; $env:MYSQL_PWD = \\\u0022{{RootPassword}}\\\u0022; \u0026 mariadb/bin/mariadb.exe --protocol=pipe --socket={{WindowsSocketName}} --user=root -e \\\u0022FLUSH PRIVILEGES; DELETE FROM mysql.user WHERE User=\u0027\u0027; DELETE FROM mysql.user WHERE User=\u0027root\u0027 AND Host NOT IN (\u0027localhost\u0027, \u0027127.0.0.1\u0027, \u0027::1\u0027); DROP DATABASE IF EXISTS test; DELETE FROM mysql.db WHERE Db=\u0027test\u0027 OR Db=\u0027test\\\\_%\u0027; FLUSH PRIVILEGES\\\u0022; \u0026 mariadb/bin/mariadb-upgrade.exe --protocol=pipe --socket={{WindowsSocketName}} --user=root }\u0022"
+    }
+  ],
+  "PortRequirements": [
+    {
+      "Name": "port.ServerPort.name",
+      "Description": "port.ServerPort.desc",
+      "Ref": "ServerPort",
+      "Port": 3306
+    }
+  ],
+  "VersionSources": [
+    {
+      "Id": "mariadb.versions",
+      "Url": "https://downloads.mariadb.org/rest-api/mariadb/{{ServerVersion}}/",
+      "Select": "$.releases.*",
+      "Value": "$.release_id",
+      "DependsOn": [
+        "ServerVersion"
+      ]
+    }
+  ],
+  "Settings": [
+    {
+      "FieldName": "WindowsSocketName",
+      "ParamFieldName": "WindowsSocketName",
+      "Hidden": true,
+      "DefaultValue": "{{newguid()}}",
+      "Category": "category.mariadb:database",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.WindowsSocketName.name",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "RootPassword",
+      "ParamFieldName": "RootPassword",
+      "Hidden": true,
+      "DefaultValue": "{{newguid()}}",
+      "Category": "category.mariadb:database",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.RootPassword.name",
+      "InputType": "text"
+    },
+    {
+      "FieldName": "database",
+      "ParamFieldName": "database",
+      "DefaultValue": "",
+      "Category": "category.mariadb:database",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.database.name",
+      "Description": "setting.database.desc",
+      "Keywords": "database,name",
+      "InputType": "text",
+      "IncludeInCommandLine": true,
+      "SkipIfEmpty": true
+    },
+    {
+      "FieldName": "OptionsFileSettings",
+      "ParamFieldName": "OptionsFileSettings",
+      "DefaultValue": "",
+      "Category": "category.mariadb:database",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.OptionsFileSettings.name",
+      "Description": "setting.OptionsFileSettings.desc",
+      "Keywords": "options,file,settings",
+      "InputType": "Textarea"
+    },
+    {
+      "FieldName": "CustomClientOptions",
+      "ParamFieldName": "CustomClientOptions",
+      "DefaultValue": "",
+      "Category": "category.mariadb:database",
+      "Subcategory": "category.server:dns:1",
+      "DisplayName": "setting.CustomClientOptions.name",
+      "Description": "setting.CustomClientOptions.desc",
+      "Keywords": "custom,client,options,arguments",
+      "InputType": "Textarea"
+    },
+    {
+      "FieldName": "ServerVersion",
+      "ParamFieldName": "MariaDBRelease",
+      "DefaultValue": "11.4",
+      "Category": "category.updates",
+      "Subcategory": "category.server-updates:build:-1",
+      "DisplayName": "setting.ServerVersion.name",
+      "Description": "setting.ServerVersion.desc",
+      "Keywords": "mariadb,release,stream,MariaDBRelease",
+      "InputType": "enum",
+      "EnumValues": {
+        "12.0": "setting.ServerVersion.value.12_0",
+        "11.8": "setting.ServerVersion.value.11_8",
+        "11.4": "setting.ServerVersion.value.11_4",
+        "10.11": "setting.ServerVersion.value.10_11",
+        "10.6": "setting.ServerVersion.value.10_6"
+      }
+    },
+    {
+      "FieldName": "CustomServerVersion",
+      "ParamFieldName": "MariaDBVersion",
+      "Required": true,
+      "DefaultValue": "[Latest]",
+      "Category": "category.updates",
+      "Subcategory": "category.server-updates:build:-1",
+      "DisplayName": "setting.CustomServerVersion.name",
+      "Description": "setting.CustomServerVersion.desc",
+      "Keywords": "mariadb,version,MariaDBVersion",
+      "InputType": "enum",
+      "ValueSourceId": "mariadb.versions"
+    },
+    {
+      "FieldName": "$ApplicationIPBinding",
+      "DefaultValue": "0.0.0.0",
+      "Category": "category.networking:lan",
+      "DisplayName": "setting.$ApplicationIPBinding.name",
+      "Description": "setting.$ApplicationIPBinding.desc",
+      "Keywords": "ip,binding,bind,address,interface",
+      "InputType": "text",
+      "Placeholder": "0.0.0.0"
+    },
+    {
+      "FieldName": "$MaxUsers",
+      "DefaultValue": "0",
+      "Category": "category.server",
+      "DisplayName": "setting.$MaxUsers.name",
+      "Description": "setting.$MaxUsers.desc",
+      "Keywords": "max,users,slots,capacity,limit",
+      "InputType": "number",
+      "MinValue": 0
+    }
+  ],
+  "ConfigFileMappings": [
+    {
+      "ConfigFile": "my.cnf",
+      "ConfigFormat": "{0}{1}",
+      "ConfigType": "kvp",
+      "Subsections": [
+        {
+          "Heading": "$root",
+          "SettingMappings": {
+            "": "OptionsFileSettings"
+          }
+        }
+      ]
+    }
+  ],
+  "Locale": {
+    "en": {
+      "meta.name": "MariaDB",
+      "meta.description": "MariaDB Service Instance",
+      "setting.WindowsSocketName.name": "Windows Socket Name",
+      "category.mariadb": "MariaDB",
+      "category.server": "Server",
+      "setting.RootPassword.name": "Root User Password (Windows)",
+      "setting.database.name": "Database Name",
+      "setting.database.desc": "Optionally sets the initial database to connect to when the client run in AMP is started. The database must exist on the server. Alternatively send the command \u0027use \u003Cdatabase name\u003E\u0027 in the AMP console to switch to a specific database",
+      "setting.OptionsFileSettings.name": "Server Options File Settings",
+      "setting.OptionsFileSettings.desc": "Specifies [options file settings](https://mariadb.com/kb/en/configuring-mariadb-with-option-files/) to include in \u0027my.cnf\u0027 for the MariaDB server that are not otherwise set by AMP. One setting per line, including the option group heading. Additional information on [server variables](https://mariadb.com/kb/en/server-system-variables/)",
+      "setting.CustomClientOptions.name": "Additional Client Command Line Options",
+      "setting.CustomClientOptions.desc": "Specifies [additional command line options](https://mariadb.com/kb/en/mariadb-command-line-client/) for the MariaDB client run by AMP (a super user named after the system account the server runs as on Linux, and \u0027root\u0027 on Windows) that are not otherwise set by AMP. Use with care",
+      "setting.ServerVersion.name": "MariaDB Release Stream",
+      "setting.ServerVersion.desc": "Sets the MariaDB release stream from which to install the latest version, unless a specific version is specified under MariaDB Version. WARNING: SWITCHING BETWEEN RELEASE STREAMS OR DOWNGRADING VERSIONS MAY CORRUPT DATA! Update the server after changing this setting",
+      "category.updates": "Updates",
+      "category.server-updates": "Server Updates",
+      "setting.ServerVersion.value.12_0": "12.0",
+      "setting.ServerVersion.value.11_8": "11.8 - LTS",
+      "setting.ServerVersion.value.11_4": "11.4 - LTS (default)",
+      "setting.ServerVersion.value.10_11": "10.11 - LTS",
+      "setting.ServerVersion.value.10_6": "10.6 - LTS",
+      "setting.CustomServerVersion.name": "MariaDB Version",
+      "setting.CustomServerVersion.desc": "Sets the [MariaDB version](https://mariadb.org/mariadb/all-releases/) to install from the release stream specified under MariaDB Release Stream. Latest = the newest version in that stream. WARNING: SWITCHING BETWEEN RELEASE STREAMS OR DOWNGRADING VERSIONS MAY CORRUPT DATA! Update the server after changing this setting",
+      "setting.$ApplicationIPBinding.name": "IP Binding",
+      "setting.$ApplicationIPBinding.desc": "The network address the server binds its ports to. 0.0.0.0 binds every interface (recommended for most setups); set a specific address on multi-IP hosts.",
+      "category.networking": "Networking",
+      "setting.$MaxUsers.name": "User Limit",
+      "setting.$MaxUsers.desc": "The maximum number of simultaneous users. Set to 0 for unlimited.",
+      "port.ServerPort.name": "Server Port",
+      "port.ServerPort.desc": "Port for server traffic"
+    }
+  }
+}
