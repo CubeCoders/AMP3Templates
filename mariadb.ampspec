@@ -7,7 +7,7 @@
     "ExecutableWin": "mariadb\\bin\\mariadb.exe",
     "ExecutableLinux": "mariadb/bin/mariadb",
     "Compatibility": "LinuxBufferedConsole, WindowsBufferedConsole",
-    "LinuxCommandLineArgs": "--protocol=socket --socket=\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\u0022",
+    "LinuxCommandLineArgs": "--protocol=socket --socket=data/mariadbd.sock",
     "WindowsCommandLineArgs": "--protocol=pipe --socket={{WindowsSocketName}} --user=root",
     "CommandLineArgs": "{{CustomClientOptions}} {{$PlatformArgs}} --reconnect --force {{$FormattedArgs}}",
     "CommandLineParameterFormat": "--{0}={1}",
@@ -119,7 +119,7 @@
       "UpdateSource": "Executable",
       "UpdateStageName": "Run MariaDB Server",
       "UpdateSourceData": "/bin/bash",
-      "UpdateSourceArgs": "-c \u0022BindAddress=\\\u0022{{$ApplicationIPBinding}}\\\u0022; [[ \\\u0022$BindAddress\\\u0022 == \u0027::\u0027 ]] \u0026\u0026 BindAddress=\u0027*\u0027; cd mariadb \u0026\u0026 mariadb/bin/mariadb-admin --socket=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\\\u0022 ping \u003E/dev/null 2\u003E\u00261 \u0026\u0026 exit 0 || mariadb/bin/mariadbd --defaults-file=\\\u0022{{$FullBaseDir}}my.cnf\\\u0022 --port={{$ServerPort}} --basedir=\\\u0022{{$FullBaseDir}}mariadb\\\u0022 --datadir=\\\u0022{{$FullBaseDir}}data\\\u0022 --pid-file=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.pid\\\u0022 --socket=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\\\u0022 --bind-address=\\\u0022$BindAddress\\\u0022 --general-log-file=\\\u0022{{$FullBaseDir}}log/mariadb/mariadb.log\\\u0022 --wait-timeout=28800 \u0026\u0022",
+      "UpdateSourceArgs": "-c \u0022BindAddress=\\\u0022{{$ApplicationIPBinding}}\\\u0022; [[ \\\u0022$BindAddress\\\u0022 == \u0027::\u0027 ]] \u0026\u0026 BindAddress=\u0027*\u0027; cd mariadb/data \u0026\u0026 ../mariadb/bin/mariadb-admin --socket=mariadbd.sock ping \u003E/dev/null 2\u003E\u00261 \u0026\u0026 exit 0 || ../mariadb/bin/mariadbd --defaults-file=\\\u0022{{$FullBaseDir}}my.cnf\\\u0022 --port={{$ServerPort}} --basedir=\\\u0022{{$FullBaseDir}}mariadb\\\u0022 --datadir=\\\u0022{{$FullBaseDir}}data\\\u0022 --pid-file=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.pid\\\u0022 --socket=mariadbd.sock --bind-address=\\\u0022$BindAddress\\\u0022 --general-log-file=\\\u0022{{$FullBaseDir}}log/mariadb/mariadb.log\\\u0022 --wait-timeout=28800 \u0026\u0022",
       "RunInBackground": true
     },
     {
@@ -134,7 +134,7 @@
       "UpdateSource": "Executable",
       "UpdateStageName": "Set Up and Upgrade MariaDB",
       "UpdateSourceData": "/bin/bash",
-      "UpdateSourceArgs": "-c \u0022cd mariadb \u0026\u0026 timeout=60; while ((timeout--)); do mariadb/bin/mariadb-admin --socket=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\\\u0022 ping \u003E/dev/null 2\u003E\u00261 \u0026\u0026 break || sleep 1; done; ((timeout\u003C0)) \u0026\u0026 { echo \\\u0022MariaDB server failed to start. Aborting\\\u0022; exit 1; }; mariadb/bin/mariadb --socket=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\\\u0022 --user=$(id -un) -e \\\u0022FLUSH PRIVILEGES; ALTER USER \u0027root\u0027@\u0027localhost\u0027 IDENTIFIED VIA unix_socket; ALTER USER CURRENT_USER() IDENTIFIED VIA unix_socket; DELETE FROM mysql.user WHERE User=\u0027\u0027; DROP DATABASE IF EXISTS test; DELETE FROM mysql.db WHERE Db=\u0027test\u0027 OR Db=\u0027test\\\\_%\u0027; FLUSH PRIVILEGES\\\u0022; mariadb/bin/mariadb-upgrade --port={{$ServerPort}} --socket=\\\u0022{{$FullBaseDir}}run/mariadbd/mariadbd.sock\\\u0022 --user=$(id -un)\u0022"
+      "UpdateSourceArgs": "-c \u0022cd mariadb \u0026\u0026 timeout=60; while ((timeout--)); do mariadb/bin/mariadb-admin --socket=data/mariadbd.sock ping \u003E/dev/null 2\u003E\u00261 \u0026\u0026 break || sleep 1; done; ((timeout\u003C0)) \u0026\u0026 { echo \\\u0022MariaDB server failed to start. Aborting\\\u0022; exit 1; }; mariadb/bin/mariadb --socket=data/mariadbd.sock --user=$(id -un) -e \\\u0022FLUSH PRIVILEGES; ALTER USER \u0027root\u0027@\u0027localhost\u0027 IDENTIFIED VIA unix_socket; ALTER USER CURRENT_USER() IDENTIFIED VIA unix_socket; DELETE FROM mysql.user WHERE User=\u0027\u0027; DROP DATABASE IF EXISTS test; DELETE FROM mysql.db WHERE Db=\u0027test\u0027 OR Db=\u0027test\\\\_%\u0027; FLUSH PRIVILEGES\\\u0022; mariadb/bin/mariadb-upgrade --port={{$ServerPort}} --socket=data/mariadbd.sock --user=$(id -un)\u0022"
     },
     {
       "UpdateSource": "Executable",
