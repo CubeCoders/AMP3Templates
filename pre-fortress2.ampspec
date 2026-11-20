@@ -35,7 +35,7 @@
     "URL": "https://prefortress.com/",
     "DisplayImageSource": "url:https://prefortress.com/img/logo.webp",
     "SpecificDockerImage": "cubecoders/ampbase:debian",
-    "ConfigVersion": "4",
+    "ConfigVersion": "5",
     "MinAMPVersion": "2.4.7",
     "AppIsMultiIPAware": true
   },
@@ -72,9 +72,17 @@
     {
       "UpdateSource": "SteamCMD",
       "UpdateStageName": "Source SDK Base 2013 Download",
-      "UpdateSourcePlatform": "All",
+      "UpdateSourcePlatform": "Windows",
       "UpdateSourceData": "244310",
       "UpdateSourceArgs": "243750",
+      "UpdateSourceTarget": "{{$FullBaseDir}}"
+    },
+    {
+      "UpdateSource": "SteamCMD",
+      "UpdateStageName": "Source SDK Base 2013 Download",
+      "UpdateSourceData": "244310",
+      "UpdateSourceArgs": "243750",
+      "UpdateSourceVersion": "previous",
       "UpdateSourceTarget": "{{$FullBaseDir}}"
     },
     {
@@ -105,22 +113,17 @@
       "UpdateSourceArgs": "-c \u0022cd pre-fortress2/7-Zip \u0026\u0026 tar -xf 7z.tar.xz \u003E/dev/null \u0026\u0026 rm -f 7z.tar.xz\u0022"
     },
     {
-      "UpdateSource": "FetchURLfromJQ",
-      "UpdateStageName": "PF2 Files Download 1",
-      "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://api.github.com/repos/Pre-Fortress-2/pf2/releases/latest",
-      "UpdateSourceArgs": "$.assets.[0].browser_download_url",
-      "UpdateSourceTarget": "{{$FullBaseDir}}",
-      "OverwriteExistingFiles": true
+      "UpdateSource": "Executable",
+      "UpdateStageName": "PF2 Files Download",
+      "UpdateSourcePlatform": "Windows",
+      "UpdateSourceData": "powershell.exe",
+      "UpdateSourceArgs": "-NoProfile -Command \u0022$ProgressPreference=\u0027SilentlyContinue\u0027; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; Set-Location -Path \u0027{{$FullBaseDir}}\u0027; $parts = (Invoke-RestMethod -UseBasicParsing -Uri \u0027https://api.github.com/repos/Pre-Fortress-2/pf2/releases/latest\u0027).assets | Where-Object { $_.name -match \u0027^pf2_.*[.]7z[.][0-9]\u002B$\u0027 }; if (-not $parts) { Write-Output \u0027No PF2 archive parts found in the latest release\u0027; exit 1 }; foreach ($p in $parts) { Invoke-WebRequest -UseBasicParsing -Uri $p.browser_download_url -OutFile $p.name }\u0022"
     },
     {
-      "UpdateSource": "FetchURLfromJQ",
-      "UpdateStageName": "PF2 Files Download 2",
-      "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "https://api.github.com/repos/Pre-Fortress-2/pf2/releases/latest",
-      "UpdateSourceArgs": "$.assets.[1].browser_download_url",
-      "UpdateSourceTarget": "{{$FullBaseDir}}",
-      "OverwriteExistingFiles": true
+      "UpdateSource": "Executable",
+      "UpdateStageName": "PF2 Files Download",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \u0022cd \\\u0022{{$FullBaseDir}}\\\u0022 \u0026\u0026 urls=$(wget -qO- https://api.github.com/repos/Pre-Fortress-2/pf2/releases/latest | jq -r \u0027.assets[] | select(.name | test(\\\u0022^pf2_.*[.]7z[.][0-9]\u002B$\\\u0022)) | .browser_download_url\u0027) \u0026\u0026 [[ -n \\\u0022$urls\\\u0022 ]] || { echo \\\u0022No PF2 archive parts found in the latest release\\\u0022; exit 1; }; for u in $urls; do wget -qO \\\u0022${u##*/}\\\u0022 \\\u0022$u\\\u0022 || exit 1; done\u0022"
     },
     {
       "UpdateSource": "Executable",
@@ -139,7 +142,7 @@
       "UpdateSource": "Executable",
       "UpdateStageName": "Binary Symlinks and Deletion",
       "UpdateSourceData": "/bin/bash",
-      "UpdateSourceArgs": "-c \u0022cd ./pre-fortress2/server/bin \u0026\u0026 ln -sf datacache_srv.so datacache.so \u0026\u0026 ln -sf dedicated_srv.so dedicated.so \u0026\u0026 ln -sf engine_srv.so engine.so \u0026\u0026 ln -sf materialsystem_srv.so materialsystem.so \u0026\u0026 ln -sf replay_srv.so replay.so \u0026\u0026 ln -sf scenefilecache_srv.so scenefilecache.so \u0026\u0026 ln -sf shaderapiempty_srv.so shaderapiempty.so \u0026\u0026 ln -sf soundemittersystem_srv.so soundemittersystem.so \u0026\u0026 ln -sf studiorender_srv.so studiorender.so \u0026\u0026 ln -sf vphysics_srv.so vphysics.so \u0026\u0026 rm -f libstdc\u002B\u002B.so.6 \u0026\u0026 cd ../pf2/bin \u0026\u0026 ln -sf server.so server_srv.so\u0022"
+      "UpdateSourceArgs": "-c \u0022cd ./pre-fortress2/server/bin \u0026\u0026 ln -sf datacache_srv.so datacache.so \u0026\u0026 ln -sf dedicated_srv.so dedicated.so \u0026\u0026 ln -sf engine_srv.so engine.so \u0026\u0026 ln -sf materialsystem_srv.so materialsystem.so \u0026\u0026 ln -sf replay_srv.so replay.so \u0026\u0026 ln -sf scenefilecache_srv.so scenefilecache.so \u0026\u0026 ln -sf shaderapiempty_srv.so shaderapiempty.so \u0026\u0026 ln -sf soundemittersystem_srv.so soundemittersystem.so \u0026\u0026 ln -sf studiorender_srv.so studiorender.so \u0026\u0026 ln -sf vphysics_srv.so vphysics.so \u0026\u0026 rm -f libstdc\u002B\u002B.so.6 libgcc_s.so.1 \u0026\u0026 cd ../pf2/bin \u0026\u0026 ln -sf server.so server_srv.so\u0022"
     },
     {
       "UpdateSource": "FetchURL",
