@@ -35,7 +35,7 @@
     "URL": "https://blog.counter-strike.net/",
     "DisplayImageSource": "url:https://developer.valvesoftware.com/w/images/4/49/Software_Cover_-_Counter-Strike_Global_Offensive.jpg",
     "SpecificDockerImage": "cubecoders/ampbase:debian",
-    "ConfigVersion": "7",
+    "ConfigVersion": "8",
     "MinAMPVersion": "2.5.0.4",
     "AppIsMultiIPAware": true
   },
@@ -1117,7 +1117,7 @@
     {
       "FieldName": "SourceModBranch",
       "ParamFieldName": "SourceModBranch",
-      "DefaultValue": "1.13",
+      "DefaultValue": "1.12",
       "Category": "category.updates",
       "Subcategory": "category.metamod-and-sourcemod:build:3",
       "DisplayName": "setting.SourceModBranch.name",
@@ -1420,8 +1420,8 @@
       "setting.SourceModBranch.name": "SourceMod Branch",
       "setting.SourceModBranch.desc": "Specifies the [SourceMod](https://www.sourcemod.net/downloads.php) branch to install",
       "setting.SourceModBranch.value.1_11": "Old stable (1.11)",
-      "setting.SourceModBranch.value.1_12": "Stable (1.12)",
-      "setting.SourceModBranch.value.1_13": "Development (1.13) (default)",
+      "setting.SourceModBranch.value.1_12": "Stable (1.12) (default)",
+      "setting.SourceModBranch.value.1_13": "Development (1.13)",
       "setting.SourceModVersion.name": "SourceMod Build Version",
       "setting.SourceModVersion.desc": "Specifies the [SourceMod build version](https://www.sourcemod.net/downloads.php) to install. Empty = latest build for the branch specified under SourceMod Branch",
       "setting.$ApplicationIPBinding.name": "IP Binding",

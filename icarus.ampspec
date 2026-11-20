@@ -5,9 +5,9 @@
     "RootDir": "./icarus/",
     "BaseDirectory": "./icarus/2089300/",
     "ExecutableWin": "2089300/Icarus/Binaries/Win64/IcarusServer-Win64-Shipping.exe",
-    "ExecutableLinux": ".proton/proton",
+    "ExecutableLinux": "/bin/bash",
     "WorkingDir": "2089300",
-    "LinuxCommandLineArgs": "runinprefix \u0022{{$FullBaseDir}}Icarus/Binaries/Win64/IcarusServer-Win64-Shipping.exe\u0022 Icarus -ini:Engine:[OnlineSubsystemSteam]:AsyncTaskTimeout={{AsyncTaskTimeout}}",
+    "LinuxCommandLineArgs": "-c \u0022if [[ -x /usr/bin/wine ]]; then exec /usr/bin/wine \\\u0022{{$FullBaseDir}}Icarus/Binaries/Win64/IcarusServer-Win64-Shipping.exe\\\u0022 Icarus -ini:Engine:[OnlineSubsystemSteam]:AsyncTaskTimeout={{AsyncTaskTimeout}} \\\u0022$@\\\u0022; elif [[ -x \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 ]]; then unset WINEPREFIX WINEARCH WINEDEBUG; export STEAM_COMPAT_DATA_PATH=\\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 STEAM_COMPAT_CLIENT_INSTALL_PATH=\\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 HOME=\\\u0022{{$FullBaseDir}}\\\u0022; exec \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 runinprefix \\\u0022{{$FullBaseDir}}Icarus/Binaries/Win64/IcarusServer-Win64-Shipping.exe\\\u0022 Icarus -ini:Engine:[OnlineSubsystemSteam]:AsyncTaskTimeout={{AsyncTaskTimeout}} \\\u0022$@\\\u0022; else echo \\\u0022ERROR: Wine was not found at /usr/bin/wine, and this instance has no Proton GE runtime to fall back to.\\\u0022; exit 1; fi\u0022 amp-launch",
     "WindowsCommandLineArgs": "Icarus",
     "CommandLineArgs": "{{$PlatformArgs}} -Port={{$GamePort}} -QueryPort={{$QueryPort}} {{StartupMode}}{{$FormattedArgs}} -log=Icarus.log",
     "CommandLineParameterFormat": "-{0}=\u0022{1}\u0022",
@@ -25,9 +25,9 @@
     "EnvironmentVariables": {
       "LD_LIBRARY_PATH": "{{$FullBaseDir}}linux64:%LD_LIBRARY_PATH%",
       "SteamAppId": "1149460",
-      "STEAM_COMPAT_DATA_PATH": "{{$FullRootDir}}.proton/compatdata",
-      "STEAM_COMPAT_CLIENT_INSTALL_PATH": "{{$FullBaseDir}}.steam/steam",
-      "HOME": "{{$FullBaseDir}}"
+      "WINEPREFIX": "{{$FullRootDir}}.wine",
+      "WINEARCH": "win64",
+      "WINEDEBUG": "-all"
     }
   },
   "Metadata": {
@@ -37,8 +37,11 @@
     "URL": "https://surviveicarus.com/",
     "DisplayImageSource": "steam:1149460",
     "EndpointURIFormat": "{ip}:{GenericModule.App.Ports.$QueryPort}",
-    "SpecificDockerImage": "cubecoders/ampbase:debian",
-    "ConfigVersion": "7",
+    "SpecificDockerImage": "cubecoders/ampbase:wine-stable",
+    "ContainerPolicy": "SupportedOnWindows, RecommendedOnLinux",
+    "ContainerPolicyReason": "The server requires Wine (ideally latest stable from winehq.org) to run on Linux. Using a container avoids the need for you to install this dependency on the host.",
+    "ConfigVersion": "8",
+    "BreakingReleaseNotes": "Linux now uses Wine instead of Proton GE. Container shards switch automatically unless they have an image override. Native shards: install Wine. Until then the old Proton GE install keeps working but is no longer updated. Proton saves are copied into the Wine prefix; .proton/compatdata is kept.",
     "MinAMPVersion": "2.6.0.8"
   },
   "Console": {
@@ -82,9 +85,9 @@
     },
     {
       "UpdateSource": "Executable",
-      "UpdateStageName": "Proton GE Download",
+      "UpdateStageName": "Initialise Wine",
       "UpdateSourceData": "/bin/bash",
-      "UpdateSourceArgs": "-c \u0022cd \\\u0022{{$FullRootDir}}\\\u0022; mkdir -p \\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 \\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullBaseDir}}.config/protonfixes\\\u0022; ProtonVersion=\\\u0022{{SpecificReleaseVersion}}\\\u0022 \u0026\u0026 if [[ -x \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 \u0026\u0026 -f \\\u0022{{$FullRootDir}}.proton/version\\\u0022 ]]; then read _ InstalledVersion \u003C \\\u0022{{$FullRootDir}}.proton/version\\\u0022; else InstalledVersion=\\\u0022\\\u0022; fi; if [[ -z \\\u0022$ProtonVersion\\\u0022 ]]; then ProtonVersion=$(wget -qO- https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | jq -r .tag_name); fi; if [[ ! \\\u0022$ProtonVersion\\\u0022 =~ ^GE-Proton[0-9]\u002B-[0-9]\u002B$ ]]; then echo \\\u0022Invalid Proton GE release version format specified\\\u0022 \u0026\u0026 exit 1; elif [[ \\\u0022$InstalledVersion\\\u0022 == \\\u0022$ProtonVersion\\\u0022* ]]; then echo \\\u0022Proton GE version $ProtonVersion already installed. Skipping\\\u0022 \u0026\u0026 exit 0; else [[ -f GE-Proton.tar.gz ]] \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261; suffix=\\\u0022\\\u0022; ver=\\\u0022${ProtonVersion#GE-Proton}\\\u0022; major=\\\u0022${ver%%-*}\\\u0022; minor=\\\u0022${ver#*-}\\\u0022; if (( major \u003E 11 || (major == 11 \u0026\u0026 minor \u003E= 4) )); then suffix=\\\u0022-x86_64\\\u0022; fi; wget -qO GE-Proton.tar.gz https://github.com/GloriousEggroll/proton-ge-custom/releases/download/$ProtonVersion/${ProtonVersion}${suffix}.tar.gz || { echo \\\u0022Proton GE download failed from GitHub. Aborting\\\u0022; exit 1; }; rm -rf \\\u0022{{$FullRootDir}}.proton/compatdata/\\\u0022* \u003E/dev/null 2\u003E\u00261; tar -xzf GE-Proton.tar.gz -C \\\u0022{{$FullRootDir}}.proton\\\u0022 --strip-components=1 \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261 \u0026\u0026 echo \\\u0022Proton GE version $ProtonVersion downloaded\\\u0022 \u0026\u0026 { STEAM_COMPAT_DATA_PATH=\\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 STEAM_COMPAT_CLIENT_INSTALL_PATH=\\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 PROTON_LOG=1 \u003E/dev/null 2\u003E\u00261; exit 0; }; fi\u0022"
+      "UpdateSourceArgs": "-c \u0022if [[ -x /usr/bin/wine ]]; then WINEPREFIX=\\\u0022{{$FullRootDir}}.wine\\\u0022 WINEARCH=win64 WINEDEBUG=-all /usr/bin/wineboot --init --update || exit 1; old=\\\u0022{{$FullRootDir}}.proton/compatdata/pfx/drive_c/users/steamuser\\\u0022; new=\\\u0022{{$FullRootDir}}.wine/drive_c/users/$(id -un)\\\u0022; if [[ -d \\\u0022$old\\\u0022 \u0026\u0026 -d \\\u0022$new\\\u0022 \u0026\u0026 ! -e \\\u0022{{$FullRootDir}}.wine/.proton-profile-copied\\\u0022 ]]; then cp -an \\\u0022$old/.\\\u0022 \\\u0022$new/\\\u0022 \u0026\u0026 touch \\\u0022{{$FullRootDir}}.wine/.proton-profile-copied\\\u0022 \u0026\u0026 echo \\\u0022Copied the Proton GE user profile into the Wine prefix\\\u0022; fi; for f in \\\u0022{{$FullRootDir}}.proton\\\u0022/*; do [[ \\\u0022$f\\\u0022 == */compatdata ]] || rm -rf \\\u0022$f\\\u0022; done; elif [[ -x \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 ]]; then echo \\\u0022WARNING: Wine was not found at /usr/bin/wine, so this instance keeps running on its current Proton GE version, which is no longer updated. To switch to Wine, remove this shard\u0027s container image override or set it to cubecoders/ampbase:wine-stable, or install Wine (latest stable from winehq.org) on the host of a native shard.\\\u0022; else echo \\\u0022ERROR: Wine was not found at /usr/bin/wine. To switch to Wine, remove this shard\u0027s container image override or set it to cubecoders/ampbase:wine-stable, or install Wine (latest stable from winehq.org) on the host of a native shard.\\\u0022; exit 1; fi\u0022"
     }
   ],
   "PortRequirements": [
@@ -576,18 +579,6 @@
       }
     },
     {
-      "FieldName": "SpecificReleaseVersion",
-      "ParamFieldName": "SpecificReleaseVersion",
-      "DefaultValue": "",
-      "Category": "category.updates",
-      "Subcategory": "category.runtime-configuration:build:3",
-      "DisplayName": "setting.SpecificReleaseVersion.name",
-      "Description": "setting.SpecificReleaseVersion.desc",
-      "Keywords": "proton,release,version",
-      "InputType": "text",
-      "Placeholder": "GE-Proton9-1"
-    },
-    {
       "FieldName": "$ApplicationIPBinding",
       "DefaultValue": "0.0.0.0",
       "Category": "category.networking:lan",
@@ -819,9 +810,6 @@
       "setting.ServerBranch.value.public": "Public (default)",
       "setting.ServerBranch.value.experimental": "Experimental",
       "setting.ServerBranch.value.greathunts": "Great Hunts release testing",
-      "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",
-      "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
-      "category.runtime-configuration": "Runtime Configuration",
       "setting.$ApplicationIPBinding.name": "IP Binding",
       "setting.$ApplicationIPBinding.desc": "The network address the server binds its ports to. 0.0.0.0 binds every interface (recommended for most setups); set a specific address on multi-IP hosts.",
       "category.networking": "Networking",
