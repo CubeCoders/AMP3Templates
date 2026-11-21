@@ -284,8 +284,8 @@
       "Keywords": "lan,local,sv_lan",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_lan.value.False",
-        "True": "setting.sv_lan.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -522,8 +522,8 @@
       "Keywords": "workshop,map,allow,other,sv_workshop_allow_other_maps",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_workshop_allow_other_maps.value.False",
-        "True": "setting.sv_workshop_allow_other_maps.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -583,8 +583,8 @@
       "Keywords": "pure,server,cheat,hack,integrity,sv_pure_kick_clients",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_pure_kick_clients.value.False",
-        "True": "setting.sv_pure_kick_clients.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -598,8 +598,8 @@
       "Keywords": "consistency,files,sv_consistency",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_consistency.value.False",
-        "True": "setting.sv_consistency.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -613,8 +613,8 @@
       "Keywords": "force,preload,sv_forcepreload",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_forcepreload.value.False",
-        "True": "setting.sv_forcepreload.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -628,8 +628,8 @@
       "Keywords": "allow,cheat,hack,integrity,sv_cheats",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_cheats.value.False",
-        "True": "setting.sv_cheats.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -644,7 +644,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.insecure.value.True"
+        "True": "-insecure "
       }
     },
     {
@@ -673,8 +673,8 @@
       "Keywords": "allow,download,content,maps,sv_allowdownload",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_allowdownload.value.False",
-        "True": "setting.sv_allowdownload.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -700,8 +700,8 @@
       "Keywords": "allow,upload,customisation,files,sv_allowupload",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_allowupload.value.False",
-        "True": "setting.sv_allowupload.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -830,8 +830,8 @@
       "Keywords": "friendly,fire,mp_friendlyfire",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_friendlyfire.value.False",
-        "True": "setting.mp_friendlyfire.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -845,8 +845,8 @@
       "Keywords": "footstep,sounds,mp_footsteps_serverside",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_footsteps_serverside.value.False",
-        "True": "setting.mp_footsteps_serverside.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -860,8 +860,8 @@
       "Keywords": "pause,pausable,sv_pausable",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_pausable.value.False",
-        "True": "setting.sv_pausable.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -875,8 +875,8 @@
       "Keywords": "wait,command,sv_allow_wait_command",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_allow_wait_command.value.False",
-        "True": "setting.sv_allow_wait_command.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -890,8 +890,8 @@
       "Keywords": "voice,communication,sv_voiceenable",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_voiceenable.value.False",
-        "True": "setting.sv_voiceenable.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -905,8 +905,8 @@
       "Keywords": "living,talk,sv_talk_enemy_living",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_talk_enemy_living.value.False",
-        "True": "setting.sv_talk_enemy_living.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -920,8 +920,8 @@
       "Keywords": "dead,talk,sv_talk_enemy_dead",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_talk_enemy_dead.value.False",
-        "True": "setting.sv_talk_enemy_dead.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -935,8 +935,8 @@
       "Keywords": "team,automatic,balance,balancing,mp_autoteambalance",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_autoteambalance.value.False",
-        "True": "setting.mp_autoteambalance.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -994,8 +994,8 @@
       "Keywords": "disable,autokick,mp_disable_autokick",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_disable_autokick.value.False",
-        "True": "setting.mp_disable_autokick.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1009,8 +1009,8 @@
       "Keywords": "alternate,ticks,sv_alternateticks",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_alternateticks.value.False",
-        "True": "setting.sv_alternateticks.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1024,8 +1024,8 @@
       "Keywords": "clear,hint,history,sv_clearhinthistory",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_clearhinthistory.value.False",
-        "True": "setting.sv_clearhinthistory.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1040,7 +1040,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.nohltv.value.True"
+        "True": "-nohltv "
       }
     },
     {
@@ -1054,8 +1054,8 @@
       "Keywords": "sourcetv,tv,tv_autorecord",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.tv_autorecord.value.False",
-        "True": "setting.tv_autorecord.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1176,8 +1176,6 @@
       "setting.sv_steamgroup.desc": "Sets the ID of the steam group that the server belongs to. You can find your group\u0027s ID on the admin profile page in the steam community",
       "setting.sv_lan.name": "LAN Server",
       "setting.sv_lan.desc": "If enabled, the server will operate as a LAN server: no heartbeat, no authentication, and no non-class C addresses",
-      "setting.sv_lan.value.False": "0",
-      "setting.sv_lan.value.True": "1",
       "setting.sv_setsteamaccount.name": "Game Server Login Token (GSLT)",
       "setting.sv_setsteamaccount.desc": "Sets the [Steam Game Server Login Token](https://steamcommunity.com/dev/managegameservers) for the server, to allow it to be listed in the server browser. Use app ID 4465480 when generating the token",
       "setting.sv_password.name": "Server Password",
@@ -1279,8 +1277,6 @@
       "setting.authkey.desc": "Sets the [Steam Web API key](https://steamcommunity.com/dev/apikey) for the server, to enable the use of a workshop collection",
       "setting.sv_workshop_allow_other_maps.name": "Allow Other Map By Players",
       "setting.sv_workshop_allow_other_maps.desc": "If set, and when the server is hosting a workshop collection, players will be able to play another workshop map on the server when it is empty and then rotate their map cycle into the server collection",
-      "setting.sv_workshop_allow_other_maps.value.False": "0",
-      "setting.sv_workshop_allow_other_maps.value.True": "1",
       "setting.$MaxUsers.name": "User Limit",
       "setting.$MaxUsers.desc": "Sets the maximum number of users allowed on the server at one time",
       "setting.sv_visiblemaxplayers.name": "Visible Player Limit",
@@ -1291,35 +1287,22 @@
       "setting.sv_pure.value.1": "All client files except those listed in pure_server_whitelist.txt must match the server",
       "setting.sv_pure_kick_clients.name": "Kick Clients On Pure Server",
       "setting.sv_pure_kick_clients.desc": "If enabled, the server will kick clients with mismatching files. Otherwise, it will issue a warning to the clients",
-      "setting.sv_pure_kick_clients.value.False": "0",
-      "setting.sv_pure_kick_clients.value.True": "1",
       "setting.sv_consistency.name": "Require File Consistency",
       "setting.sv_consistency.desc": "If set, the server will enforce file consistency for critical files",
-      "setting.sv_consistency.value.False": "0",
-      "setting.sv_consistency.value.True": "1",
       "setting.sv_forcepreload.name": "Force Preload",
       "setting.sv_forcepreload.desc": "If set, server side preloading will be forced",
-      "setting.sv_forcepreload.value.False": "0",
-      "setting.sv_forcepreload.value.True": "1",
       "setting.sv_cheats.name": "Enable Cheats",
       "setting.sv_cheats.desc": "If set, cheat convars will be allowed to be used on the server",
-      "setting.sv_cheats.value.False": "0",
-      "setting.sv_cheats.value.True": "1",
       "setting.insecure.name": "Disable Valve Anti-Cheat",
       "setting.insecure.desc": "If set, Valve Anti-Cheat (VAC) will be disabled",
-      "setting.insecure.value.True": "-insecure ",
       "setting.tickrate.name": "Server Tickrate",
       "setting.tickrate.desc": "Sets the server tickrate",
       "setting.sv_allowdownload.name": "Allow Download From Server",
       "setting.sv_allowdownload.desc": "If set, clients will be allowed to download content from the server (maps, sprays and related)",
-      "setting.sv_allowdownload.value.False": "0",
-      "setting.sv_allowdownload.value.True": "1",
       "setting.sv_downloadurl.name": "Fast Download URL",
       "setting.sv_downloadurl.desc": "Sets the URL for clients to download custom content from, instead of sourcing the content from the server. This allows for faster downloads",
       "setting.sv_allowupload.name": "Allow Upload To Server",
       "setting.sv_allowupload.desc": "If set, clients will be allowed to upload customisation files to the server",
-      "setting.sv_allowupload.value.False": "0",
-      "setting.sv_allowupload.value.True": "1",
       "setting.sv_minrate.name": "Minimum Client Rate",
       "setting.sv_minrate.desc": "Sets the minimum allowable bandwidth rate a client may have set when connected to the server. 0 = no minimum",
       "setting.sv_maxrate.name": "Maximum Client Rate",
@@ -1345,36 +1328,20 @@
       "setting.mp_friendlyfire.name": "Enable Friendly Fire",
       "setting.mp_friendlyfire.desc": "If set, friendly fire will be enabled (teammates can cause damage to other teammates)",
       "category.gameplay": "Gameplay",
-      "setting.mp_friendlyfire.value.False": "0",
-      "setting.mp_friendlyfire.value.True": "1",
       "setting.mp_footsteps_serverside.name": "Enable Footsteps",
       "setting.mp_footsteps_serverside.desc": "If set, the server will always play footstep sounds",
-      "setting.mp_footsteps_serverside.value.False": "0",
-      "setting.mp_footsteps_serverside.value.True": "1",
       "setting.sv_pausable.name": "Allow Players To Pause Server",
       "setting.sv_pausable.desc": "If set, players will be able to pause the server. Not recommended",
-      "setting.sv_pausable.value.False": "0",
-      "setting.sv_pausable.value.True": "1",
       "setting.sv_allow_wait_command.name": "Allow Wait Command",
       "setting.sv_allow_wait_command.desc": "If enabled, the wait command will be allowed on clients connected to the server. Recommended to keep disabled to prevent server crash exploits",
-      "setting.sv_allow_wait_command.value.False": "0",
-      "setting.sv_allow_wait_command.value.True": "1",
       "setting.sv_voiceenable.name": "Enable Voice Communication",
       "setting.sv_voiceenable.desc": "If set, voice communication will be enabled on the server",
-      "setting.sv_voiceenable.value.False": "0",
-      "setting.sv_voiceenable.value.True": "1",
       "setting.sv_talk_enemy_living.name": "Allow Living Talk",
       "setting.sv_talk_enemy_living.desc": "If enabled, living players can hear all living enemy communications (voice, chat)",
-      "setting.sv_talk_enemy_living.value.False": "0",
-      "setting.sv_talk_enemy_living.value.True": "1",
       "setting.sv_talk_enemy_dead.name": "Allow Dead Talk",
       "setting.sv_talk_enemy_dead.desc": "If enabled, dead players can hear all dead enemy communications (voice, chat)",
-      "setting.sv_talk_enemy_dead.value.False": "0",
-      "setting.sv_talk_enemy_dead.value.True": "1",
       "setting.mp_autoteambalance.name": "Enable Automatic Team Balancing",
       "setting.mp_autoteambalance.desc": "If set, the automatic team balancing feature will be disabled",
-      "setting.mp_autoteambalance.value.False": "0",
-      "setting.mp_autoteambalance.value.True": "1",
       "setting.mp_timelimit.name": "Map Rotation Time Limit",
       "setting.mp_timelimit.desc": "Sets the game time per map. 0 = disabled",
       "setting.mp_maxrounds.name": "Map Rotation Round Limit",
@@ -1386,24 +1353,15 @@
       "setting.mp_forcecamera.value.2": "No one; fade to black on death",
       "setting.mp_disable_autokick.name": "Disable Autokick",
       "setting.mp_disable_autokick.desc": "If set, players will not be auto-kicked",
-      "setting.mp_disable_autokick.value.False": "0",
-      "setting.mp_disable_autokick.value.True": "1",
       "setting.sv_alternateticks.name": "Alternate Ticks",
       "setting.sv_alternateticks.desc": "If set, the server only simulates entities on even numbered ticks",
-      "setting.sv_alternateticks.value.False": "0",
-      "setting.sv_alternateticks.value.True": "1",
       "setting.sv_clearhinthistory.name": "Clear Hint History",
       "setting.sv_clearhinthistory.desc": "If set, memory of server side hints displayed to a player is cleared",
-      "setting.sv_clearhinthistory.value.False": "0",
-      "setting.sv_clearhinthistory.value.True": "1",
       "setting.nohltv.name": "Disable SourceTV",
       "setting.nohltv.desc": "If set, SourceTV will be disabled on the server",
       "category.sourcetv": "SourceTV",
-      "setting.nohltv.value.True": "-nohltv ",
       "setting.tv_autorecord.name": "Enable Automatic Demo Recording",
       "setting.tv_autorecord.desc": "If set, all games will be recorded as SourceTV demos",
-      "setting.tv_autorecord.value.False": "0",
-      "setting.tv_autorecord.value.True": "1",
       "setting.tv_maxclients.name": "SourceTV Viewer Limit",
       "setting.tv_maxclients.desc": "Sets the maximum number of clients allowed to connect to the server\u0027s SourceTV. 0 = no SourceTV viewers are allowed, the game will only be recorded locally",
       "setting.tv_maxrate.name": "Maximum SourceTV Bandwidth",

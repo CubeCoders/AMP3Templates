@@ -246,7 +246,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.mods.value.True"
+        "True": "-mods={{modslist}} "
       }
     },
     {
@@ -273,7 +273,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.passivemods.value.True"
+        "True": "-passivemods={{passivemodslist}} "
       }
     },
     {
@@ -300,7 +300,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.pconlymods.value.True"
+        "True": "-pconlymods "
       }
     },
     {
@@ -355,7 +355,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.exclusivejoin.value.True"
+        "True": "-exclusivejoin "
       }
     },
     {
@@ -408,7 +408,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.BattlEye.value.True"
+        "True": "-NoBattlEye "
       }
     },
     {
@@ -447,8 +447,8 @@
       "Keywords": "admin,log,chat,adminlogging",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AdminLogging.value.False",
-        "True": "setting.AdminLogging.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -463,7 +463,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.EnableIdlePlayerKick.value.True"
+        "True": "-EnableIdlePlayerKick "
       }
     },
     {
@@ -507,7 +507,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.NoHangDetection.value.True"
+        "True": "-NoHangDetection "
       }
     },
     {
@@ -522,7 +522,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.NoTransferFromFiltering.value.True"
+        "True": "-NoTransferFromFiltering "
       }
     },
     {
@@ -600,7 +600,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.NoGameAnalytics.value.True"
+        "True": "-NoGameAnalytics "
       }
     },
     {
@@ -638,8 +638,8 @@
       "Keywords": "pve,pvp,serverpve",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ServerPVE.value.False",
-        "True": "setting.ServerPVE.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -653,8 +653,8 @@
       "Keywords": "offline,pvp,raiding,prevention,preventofflinepvp",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PreventOfflinePvP.value.False",
-        "True": "setting.PreventOfflinePvP.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -681,8 +681,8 @@
       "Keywords": "hardcore,serverhardcore",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ServerHardcore.value.False",
-        "True": "setting.ServerHardcore.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -697,7 +697,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.OverrideOfficialDifficulty.value.True"
+        "True": "?OverrideOfficialDifficulty={{DifficultyOverrideLevel}}"
       }
     },
     {
@@ -738,8 +738,8 @@
       "Keywords": "crosshair,servercrosshair",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ServerCrosshair.value.False",
-        "True": "setting.ServerCrosshair.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -753,8 +753,8 @@
       "Keywords": "hud,head-up,heads-up,display,serverforcenohud",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ServerForceNoHUD.value.False",
-        "Truue": "setting.ServerForceNoHUD.value.Truue"
+        "False": "False",
+        "Truue": "True"
       }
     },
     {
@@ -768,8 +768,8 @@
       "Keywords": "player,position,location,map,showmapplayerlocation",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ShowMapPlayerLocation.value.False",
-        "True": "setting.ShowMapPlayerLocation.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -783,8 +783,8 @@
       "Keywords": "third,person,3rd,view,camera,allowthirdpersonplayer",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowThirdPersonPlayer.value.False",
-        "True": "setting.AllowThirdPersonPlayer.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -798,8 +798,8 @@
       "Keywords": "show,floating,damage,text,showfloatingdamagetext",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ShowFloatingDamageText.value.False",
-        "True": "setting.ShowFloatingDamageText.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -813,8 +813,8 @@
       "Keywords": "prevent,spawn,animations,preventspawnanimations",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PreventSpawnAnimations.value.False",
-        "True": "setting.PreventSpawnAnimations.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -828,8 +828,8 @@
       "Keywords": "prevent,mate,boost,preventmateboost",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PreventMateBoost.value.False",
-        "True": "setting.PreventMateBoost.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -843,8 +843,8 @@
       "Keywords": "allow,hit,markers,allowhitmarkers",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowHitMarkers.value.False",
-        "True": "setting.AllowHitMarkers.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -933,8 +933,8 @@
       "Keywords": "prevent,tribe,alliances,preventtribealliances",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PreventTribeAlliances.value.False",
-        "True": "setting.PreventTribeAlliances.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -948,8 +948,8 @@
       "Keywords": "pvp,friendly,fire,bdisablefriendlyfire",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.bDisableFriendlyFire.value.False",
-        "True": "setting.bDisableFriendlyFire.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -963,8 +963,8 @@
       "Keywords": "pve,friendly,fire,bpvedisablefriendlyfire",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.bPvEDisableFriendlyFire.value.False",
-        "True": "setting.bPvEDisableFriendlyFire.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -978,8 +978,8 @@
       "Keywords": "pvp,gamma,enablepvpgamma",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.EnablePvPGamma.value.False",
-        "True": "setting.EnablePvPGamma.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -993,8 +993,8 @@
       "Keywords": "pve,gamma,disablepvegamma",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisablePvEGamma.value.False",
-        "True": "setting.DisablePvEGamma.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1008,8 +1008,8 @@
       "Keywords": "notify,player,join,alwaysnotifyplayerjoined",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AlwaysNotifyPlayerJoined.value.False",
-        "True": "setting.AlwaysNotifyPlayerJoined.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1023,8 +1023,8 @@
       "Keywords": "voice,chat,globalvoicechat",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.GlobalVoiceChat.value.False",
-        "True": "setting.GlobalVoiceChat.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1038,8 +1038,8 @@
       "Keywords": "proximity,chat,proximitychat",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ProximityChat.value.False",
-        "True": "setting.ProximityChat.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1053,8 +1053,8 @@
       "Keywords": "pve,cave,building,allowcavebuildingpve",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowCaveBuildingPVE.value.False",
-        "True": "setting.AllowCaveBuildingPVE.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1068,8 +1068,8 @@
       "Keywords": "pve,flyer,carry,allowflyercarrypve",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowFlyerCarryPvE.value.False",
-        "True": "setting.AllowFlyerCarryPvE.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1084,7 +1084,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.AllowSpeedLeveling.value.True"
+        "True": "-AllowSpeedLeveling "
       }
     },
     {
@@ -1099,7 +1099,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.ForceAllowCaveFlyers.value.True"
+        "True": "-ForceAllowCaveFlyers "
       }
     },
     {
@@ -1114,7 +1114,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.nodinos.value.True"
+        "True": "-nodinos "
       }
     },
     {
@@ -1129,7 +1129,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.ForceRespawnDinos.value.True"
+        "True": "-ForceRespawnDinos "
       }
     },
     {
@@ -1144,7 +1144,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.DisableRailgunPVP.value.True"
+        "True": "-DisableRailgunPVP "
       }
     },
     {
@@ -1158,8 +1158,8 @@
       "Keywords": "disable,loot,crates,disablelootcrates",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.bDisableLootCrates.value.False",
-        "True": "setting.bDisableLootCrates.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1199,8 +1199,8 @@
       "Keywords": "pve,dino,decay,unclaim,disabledinodecaypve",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableDinoDecayPvE.value.False",
-        "True": "setting.DisableDinoDecayPvE.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1214,8 +1214,8 @@
       "Keywords": "pvp,dino,decay,unclaim,pvpdinodecay",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PvPDinoDecay.value.False",
-        "True": "setting.PvPDinoDecay.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1229,8 +1229,8 @@
       "Keywords": "passive,defense,defence,damage,bpassivedefensesdamageriderlessdinos",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.bPassiveDefensesDamageRiderlessDinos.value.False",
-        "True": "setting.bPassiveDefensesDamageRiderlessDinos.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1244,8 +1244,8 @@
       "Keywords": "prevent,diseases,preventdiseases",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PreventDiseases.value.False",
-        "True": "setting.PreventDiseases.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1259,8 +1259,8 @@
       "Keywords": "non,permanent,diseases,nonpermanentdiseases",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.NonPermanentDiseases.value.False",
-        "True": "setting.NonPermanentDiseases.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1274,8 +1274,8 @@
       "Keywords": "care,baby,creature,cuddle,imprint,allowanyonebabyimprintcuddle",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowAnyoneBabyImprintCuddle.value.False",
-        "True": "setting.AllowAnyoneBabyImprintCuddle.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1289,8 +1289,8 @@
       "Keywords": "buff,creature,imprint,disableimprintdinobuff",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableImprintDinoBuff.value.False",
-        "True": "setting.DisableImprintDinoBuff.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1304,8 +1304,8 @@
       "Keywords": "raid,dinosaur,titanosaur,taming,feeding,AllowRaidDinoFeeding",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowRaidDinoFeeding.value.False",
-        "True": "setting.AllowRaidDinoFeeding.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1319,8 +1319,8 @@
       "Keywords": "c4,multiple,attached,allowmultipleattachedc4",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowMultipleAttachedC4.value.False",
-        "True": "setting.AllowMultipleAttachedC4.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1334,8 +1334,8 @@
       "Keywords": "weather,fog,disableweatherfog",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableWeatherFog.value.False",
-        "True": "setting.DisableWeatherFog.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1349,8 +1349,8 @@
       "Keywords": "random,supply,crate,points,randomsupplycratepoints",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.RandomSupplyCratePoints.value.False",
-        "True": "setting.RandomSupplyCratePoints.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1877,7 +1877,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.UseStructureStasisGrid.value.True"
+        "True": "-UseStructureStasisGrid "
       }
     },
     {
@@ -1891,8 +1891,8 @@
       "Keywords": "pve,structure,decay,disablestructuredecaypve",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableStructureDecayPvE.value.False",
-        "True": "setting.DisableStructureDecayPvE.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1906,8 +1906,8 @@
       "Keywords": "override,structure,platform,overridestructureplatformprevention",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.OverrideStructurePlatformPrevention.value.False",
-        "True": "setting.OverrideStructurePlatformPrevention.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1921,8 +1921,8 @@
       "Keywords": "rich,resources,block,building,extra,structure,prevention,enableextrastructurepreventionvolumes",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.EnableExtraStructurePreventionVolumes.value.False",
-        "True": "setting.EnableExtraStructurePreventionVolumes.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1936,8 +1936,8 @@
       "Keywords": "pve,supply,drops,structures,pveallowstructuresatsupplydrops",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PvEAllowStructuresAtSupplyDrops.value.False",
-        "True": "setting.PvEAllowStructuresAtSupplyDrops.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1951,8 +1951,8 @@
       "Keywords": "structure,placement,collision,bdisablestructureplacementcollision",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.bDisableStructurePlacementCollision.value.False",
-        "True": "setting.bDisableStructurePlacementCollision.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -1966,8 +1966,8 @@
       "Keywords": "quick,pickup,pick-up,timer,AlwaysAllowStructurePickup",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AlwaysAllowStructurePickup.value.False",
-        "True": "setting.AlwaysAllowStructurePickup.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -2008,7 +2008,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.EnableCluster.value.True"
+        "True": "-ClusterDirOverride=\u0022{{ClusterDirOverride}}\u0022 -clusterID={{clusterID}} "
       }
     },
     {
@@ -2044,8 +2044,8 @@
       "Keywords": "prevent,download,tribute,characters,data,transfer,cluster,notributedownloads",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.NoTributeDownloads.value.False",
-        "True": "setting.NoTributeDownloads.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -2059,8 +2059,8 @@
       "Keywords": "prevent,download,survivor,data,transfer,cluster,preventdownloadsurvivors",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PreventDownloadSurvivors.value.False",
-        "True": "setting.PreventDownloadSurvivors.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -2074,8 +2074,8 @@
       "Keywords": "prevent,download,items,data,transfer,cluster,preventdownloaditems",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PreventDownloadItems.value.False",
-        "True": "setting.PreventDownloadItems.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -2089,8 +2089,8 @@
       "Keywords": "prevent,download,creatures,data,transfer,cluster,preventdownloaddinos",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PreventDownloadDinos.value.False",
-        "True": "setting.PreventDownloadDinos.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -2104,8 +2104,8 @@
       "Keywords": "prevent,upload,survivor,data,transfer,cluster,preventuploadsurvivors",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PreventUploadSurvivors.value.False",
-        "True": "setting.PreventUploadSurvivors.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -2119,8 +2119,8 @@
       "Keywords": "prevent,upload,items,data,transfer,cluster,preventuploaditems",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PreventUploadItems.value.False",
-        "True": "setting.PreventUploadItems.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -2134,8 +2134,8 @@
       "Keywords": "prevent,upload,creatures,data,transfer,cluster,preventuploaddinos",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PreventUploadDinos.value.False",
-        "True": "setting.PreventUploadDinos.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -2150,7 +2150,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.usestore.value.True"
+        "True": "{{converttostore}}-usestore {{BackupTransferPlayerDatas}}"
       }
     },
     {
@@ -2165,7 +2165,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.converttostore.value.True"
+        "True": "-converttostore "
       }
     },
     {
@@ -2180,7 +2180,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.BackupTransferPlayerDatas.value.True"
+        "True": "-BackupTransferPlayerDatas "
       }
     },
     {
@@ -2278,17 +2278,14 @@
       "setting.CustomMap.desc": "Sets a custom map for the server. \u0022Custom\u0022 type must be selected under Map, and the CurseForge Project ID for the map included under Mods List",
       "setting.mods.name": "Use Mods",
       "setting.mods.desc": "If set, enables automatic mod downloading, updating and loading (on server start). Specify the relevant mods under Mods List. Don\u0027t enable this setting if no mods are specified under Mods List or the server will not start",
-      "setting.mods.value.True": "-mods={{modslist}} ",
       "setting.modslist.name": "Mods List",
       "setting.modslist.desc": "Comma-separated and ordered list of [CurseForge Project IDs](https://www.curseforge.com/ark-survival-ascended) for mods (including events) to install and load on server start (map mods will not load unless also named as a \u0022Custom\u0022 map under Custom Map Name). Requires Use Mods to be enabled",
       "setting.passivemods.name": "Use Passive Mods",
       "setting.passivemods.desc": "If enabled, this option activates the -passivemods function, allowing specified mods to load their data while disabling their functionality (even if the mods are listed under Mods List). Don\u0027t enable this setting if no mods are specified under Passive Mods List or the server will not start",
-      "setting.passivemods.value.True": "-passivemods={{passivemodslist}} ",
       "setting.passivemodslist.name": "Passive Mods List",
       "setting.passivemodslist.desc": "Comma-separated and ordered list of [CurseForge Project IDs](https://www.curseforge.com/ark-survival-ascended) for mods to be loaded in passive mode, disabling their functionality while retaining their data. Requires Use Passive Mods to be enabled. When enabled, at least one mod ID must be specified, or the server will not start",
       "setting.pconlymods.name": "Enable Steam/PC Mods Only",
       "setting.pconlymods.desc": "If set, crossplay mods will be disabled on the server",
-      "setting.pconlymods.value.True": "-pconlymods ",
       "setting.Colors.name": "Dino Event Colors",
       "setting.Colors.desc": "If particular event colors are selected, then dinos may spawn with those colors",
       "setting.Colors.value._": "None",
@@ -2303,7 +2300,6 @@
       "setting.ServerPassword.desc": "Sets the password for players to join the server",
       "setting.exclusivejoin.name": "Enable Player Whitelist",
       "setting.exclusivejoin.desc": "If set, only players with EOS IDs listed under Whitelisted Players or Whitelisted Players Above Limit can join the server",
-      "setting.exclusivejoin.value.True": "-exclusivejoin ",
       "setting.PlayerWhitelist.name": "Whitelisted Players",
       "setting.PlayerWhitelist.desc": "List of EOS IDs for normal whitelisted players. EOS IDs can be found by using the \u0027whoami\u0027 command, by viewing another player\u0027s character in spectator mode, or by inspecting the server\u0027s log files",
       "setting.PlayerWhitelistAboveLimit.name": "Whitelisted Players Above Limit",
@@ -2312,28 +2308,22 @@
       "setting.$MaxUsers.desc": "Sets the maximum number of users allowed on the server. May be exceeded as a result of players listed under Whitelisted Players Above Limit",
       "setting.BattlEye.name": "Disable BattlEye",
       "setting.BattlEye.desc": "If set, BattlEye will be disabled on the server",
-      "setting.BattlEye.value.True": "-NoBattlEye ",
       "setting.ServerPlatform.name": "Client Platform/Crossplay Support",
       "setting.ServerPlatform.desc": "List (separated by \u002B, such as: XSX\u002BPS5) of the game client platforms supported by the server. \u0027PC\u0027 = Steam/PC, \u0027XSX\u0027 = Xbox, \u0027WINGDK\u0027 = Microsoft Store/PC, \u0027PS5\u0027 = PlayStation 5, \u0027ALL\u0027 = all platforms. Crossplay will be enabled if more than one platform is specified",
       "setting.BanListURL.name": "Banlist URL",
       "setting.BanListURL.desc": "Sets a banlist to disallow access to the server to specified players (identified by Steam64 ID). Use either the global banlist of ARK, or a custom banlist URL",
       "setting.AdminLogging.name": "Enable Admin Logging In Chat",
       "setting.AdminLogging.desc": "If set, all admin commands used will be logged to in-game chat",
-      "setting.AdminLogging.value.False": "False",
-      "setting.AdminLogging.value.True": "True",
       "setting.EnableIdlePlayerKick.name": "Kick Idle Players",
       "setting.EnableIdlePlayerKick.desc": "If set, characters that have not moved or interacted within the Kick Idle Players Period will be kicked from the server",
-      "setting.EnableIdlePlayerKick.value.True": "-EnableIdlePlayerKick ",
       "setting.KickIdlePlayersPeriod.name": "Kick Idle Players Period",
       "setting.KickIdlePlayersPeriod.desc": "Sets the time period after which characters that have not moved or interacted will be kicked (if Kick Idle Players is enabled)",
       "setting.AutoSavePeriodMinutes.name": "Auto Save Period",
       "setting.AutoSavePeriodMinutes.desc": "Sets the interval for automatic saves. 0 = constant saving, 9000000 = effectively disabled",
       "setting.NoHangDetection.name": "Disable Hang Detection",
       "setting.NoHangDetection.desc": "If set, prevents the server from shutdown if its start-time takes more than 2700 seconds (45 minutes). Useful for servers with big saves or very slow machines",
-      "setting.NoHangDetection.value.True": "-NoHangDetection ",
       "setting.NoTransferFromFiltering.name": "Filter Transfers",
       "setting.NoTransferFromFiltering.desc": "If set, prevents ARK data usage between single player and servers that do not have a Cluster ID set. Even with a Cluster ID set, it is suggested to enable this option",
-      "setting.NoTransferFromFiltering.value.True": "-NoTransferFromFiltering ",
       "setting.culture.name": "Language",
       "setting.culture.desc": "Sets the language of the server",
       "setting.culture.value.ca": "Catal\u00E0",
@@ -2368,7 +2358,6 @@
       "setting.ManualServerIP.desc": "Sets the public IP advertised for the server, if \u0022Manual\u0022 is selected as the Public IP Selection Mode. Useful if the host network has multiple public IPs, or the server is behind a public proxy",
       "setting.NoGameAnalytics.name": "Disable Game Analytics",
       "setting.NoGameAnalytics.desc": "If set, the server\u0027s game analytics reporting will be disabled",
-      "setting.NoGameAnalytics.value.True": "-NoGameAnalytics ",
       "setting.CustomFlags.name": "Custom Command Line Flags",
       "setting.CustomFlags.desc": "Sets custom [command line flags](https://ark.wiki.gg/wiki/Server_configuration_(Survival_Ascended%29) for the server (those that start with a - (dash)). Include the dash and separate with a space. Don\u0027t use flags already in AMP\u0027s settings!",
       "setting.CustomOptions.name": "Custom Command Line Options",
@@ -2376,57 +2365,34 @@
       "setting.ServerPVE.name": "Enable PvE / Disable PvP",
       "setting.ServerPVE.desc": "If set, PvE will be enabled, and PvP disabled",
       "category.gameplay": "Gameplay",
-      "setting.ServerPVE.value.False": "False",
-      "setting.ServerPVE.value.True": "True",
       "setting.PreventOfflinePvP.name": "Enable Offline Raiding Prevention",
       "setting.PreventOfflinePvP.desc": "If set, the Offline Raiding Prevention option will be enabled, so that when all tribe members are logged off, tribe characters, creatures and structures become invulnerable. Creature starvation still applies, and characters and creatures can still die if drowned",
-      "setting.PreventOfflinePvP.value.False": "False",
-      "setting.PreventOfflinePvP.value.True": "True",
       "setting.PreventOfflinePvPInterval.name": "Offline Raiding Prevention Interval",
       "setting.PreventOfflinePvPInterval.desc": "Sets the time period after which Offline Raiding Prevention becomes active for tribes/players and related creatures/structures. Recommended to set a minimum for performance reasons",
       "setting.ServerHardcore.name": "Enable Hardcore Mode",
       "setting.ServerHardcore.desc": "If set, enables hardcore mode, meaning player characters revert to level 1 upon death",
-      "setting.ServerHardcore.value.False": "False",
-      "setting.ServerHardcore.value.True": "True",
       "setting.OverrideOfficialDifficulty.name": "Override Official Difficulty",
       "setting.OverrideOfficialDifficulty.desc": "If enabled, sets the server difficulty level to the value set under \u0022Difficulty Override Level\u0022. This is generally the recommended way to set the difficulty level",
-      "setting.OverrideOfficialDifficulty.value.True": "?OverrideOfficialDifficulty={{DifficultyOverrideLevel}}",
       "setting.DifficultyOverrideLevel.name": "Difficulty Override Level",
       "setting.DifficultyOverrideLevel.desc": "Sets the value of the difficulty level to be applied if \u0022Override Official Difficulty\u0022 is enabled, allowing the level to go above the default 4.0. Value of 5.0 will allow common creatures to spawn up to level 150. Be careful not to go too high!",
       "setting.DifficultyOffset.name": "Difficulty Offset",
       "setting.DifficultyOffset.desc": "As an alternative to using \u0022Override Official Difficulty\u0022, this setting sets the difficulty offset, which is used to calculate the [difficulty level](https://ark.wiki.gg/wiki/Difficulty)",
       "setting.ServerCrosshair.name": "Enable Crosshair",
       "setting.ServerCrosshair.desc": "If set, each player will be shown a crosshair",
-      "setting.ServerCrosshair.value.False": "False",
-      "setting.ServerCrosshair.value.True": "True",
       "setting.ServerForceNoHUD.name": "Disable HUD",
       "setting.ServerForceNoHUD.desc": "If set, the HUD (head-up display) will always be disabled for non-tribe owned NPCs",
-      "setting.ServerForceNoHUD.value.False": "False",
-      "setting.ServerForceNoHUD.value.Truue": "True",
       "setting.ShowMapPlayerLocation.name": "Show Player On Map",
       "setting.ShowMapPlayerLocation.desc": "If set, shows each player their own precise position when they view their map",
-      "setting.ShowMapPlayerLocation.value.False": "False",
-      "setting.ShowMapPlayerLocation.value.True": "True",
       "setting.AllowThirdPersonPlayer.name": "Allow Third Person View",
       "setting.AllowThirdPersonPlayer.desc": "If set, the third person camera is enabled",
-      "setting.AllowThirdPersonPlayer.value.False": "False",
-      "setting.AllowThirdPersonPlayer.value.True": "True",
       "setting.ShowFloatingDamageText.name": "Show Floating Damage Text",
       "setting.ShowFloatingDamageText.desc": "If set, damage caused is shown in a RPG style pop-up text",
-      "setting.ShowFloatingDamageText.value.False": "False",
-      "setting.ShowFloatingDamageText.value.True": "True",
       "setting.PreventSpawnAnimations.name": "Prevent Spawn Animation",
       "setting.PreventSpawnAnimations.desc": "If set, player characters spawn and respawn without the wake-up animation",
-      "setting.PreventSpawnAnimations.value.False": "False",
-      "setting.PreventSpawnAnimations.value.True": "True",
       "setting.PreventMateBoost.name": "Disable Creature Mate Boost",
       "setting.PreventMateBoost.desc": "If set, disables creature mate boosting",
-      "setting.PreventMateBoost.value.False": "False",
-      "setting.PreventMateBoost.value.True": "True",
       "setting.AllowHitMarkers.name": "Enable Hit Markers",
       "setting.AllowHitMarkers.desc": "If set, enables optional hit markers for ranged attacks",
-      "setting.AllowHitMarkers.value.False": "False",
-      "setting.AllowHitMarkers.value.True": "True",
       "setting.MaxTamedDinos.name": "Maximum Tamed Creatures",
       "setting.MaxTamedDinos.desc": "Sets the maximum number of tamed creatures on the server. This is a global cap",
       "setting.MaxPersonalTamedDinos.name": "Maximum Personal Tamed Creatures",
@@ -2441,111 +2407,62 @@
       "setting.MaxNumberOfPlayersInTribe.desc": "Sets the maximum number of players in each tribe. 0 = no limit, 1 = tribes effectively disabled",
       "setting.PreventTribeAlliances.name": "Prevent Tribe Alliances",
       "setting.PreventTribeAlliances.desc": "If set, tribes will be prevented from creating alliances",
-      "setting.PreventTribeAlliances.value.False": "False",
-      "setting.PreventTribeAlliances.value.True": "True",
       "setting.bDisableFriendlyFire.name": "Disable PvP Friendly Fire",
       "setting.bDisableFriendlyFire.desc": "If set, prevents friendly fire among tribe-mates, tribe-dinosaurs and tribe-structures on PvP servers",
-      "setting.bDisableFriendlyFire.value.False": "False",
-      "setting.bDisableFriendlyFire.value.True": "True",
       "setting.bPvEDisableFriendlyFire.name": "Disable PvE Friendly Fire",
       "setting.bPvEDisableFriendlyFire.desc": "If set, prevents friendly fire among tribe-mates, tribe-dinosaurs and tribe-structures on PvE servers",
-      "setting.bPvEDisableFriendlyFire.value.False": "False",
-      "setting.bPvEDisableFriendlyFire.value.True": "True",
       "setting.EnablePvPGamma.name": "Enable PvP Gamma",
       "setting.EnablePvPGamma.desc": "If set, allows use of console command \u0022gamma\u0022 in PvP mode",
-      "setting.EnablePvPGamma.value.False": "False",
-      "setting.EnablePvPGamma.value.True": "True",
       "setting.DisablePvEGamma.name": "Disable PvE Gamma",
       "setting.DisablePvEGamma.desc": "If set, prevents use of console command \u0022gamma\u0022 in PvE mode",
-      "setting.DisablePvEGamma.value.False": "False",
-      "setting.DisablePvEGamma.value.True": "True",
       "setting.AlwaysNotifyPlayerJoined.name": "Notify Player Join",
       "setting.AlwaysNotifyPlayerJoined.desc": "If set, players will always be notified if someone joins the server",
-      "setting.AlwaysNotifyPlayerJoined.value.False": "False",
-      "setting.AlwaysNotifyPlayerJoined.value.True": "True",
       "setting.GlobalVoiceChat.name": "Enable Global Voice Chat",
       "setting.GlobalVoiceChat.desc": "If set, voice chat will be enabled globally",
-      "setting.GlobalVoiceChat.value.False": "False",
-      "setting.GlobalVoiceChat.value.True": "True",
       "setting.ProximityChat.name": "Enable Proximity Chat",
       "setting.ProximityChat.desc": "If set, only players near each other can see each other\u0027s chat messages",
-      "setting.ProximityChat.value.False": "False",
-      "setting.ProximityChat.value.True": "True",
       "setting.AllowCaveBuildingPVE.name": "Allow PvE Cave Building",
       "setting.AllowCaveBuildingPVE.desc": "If set, allows building in caves in PvE mode",
-      "setting.AllowCaveBuildingPVE.value.False": "False",
-      "setting.AllowCaveBuildingPVE.value.True": "True",
       "setting.AllowFlyerCarryPvE.name": "Allow PvE Flyer Carry",
       "setting.AllowFlyerCarryPvE.desc": "If set, flying dinosaurs will be permitted to pick up wild creatures in PvE mode",
-      "setting.AllowFlyerCarryPvE.value.False": "False",
-      "setting.AllowFlyerCarryPvE.value.True": "True",
       "setting.AllowSpeedLeveling.name": "Allow Speed Levelling",
       "setting.AllowSpeedLeveling.desc": "If set, players and non-flyers can have their movement speed levelled up. Disabled by default due to engine limitations. Use with caution",
-      "setting.AllowSpeedLeveling.value.True": "-AllowSpeedLeveling ",
       "setting.ForceAllowCaveFlyers.name": "Allow Cave Flyers",
       "setting.ForceAllowCaveFlyers.desc": "If set, flyers will always be allowed into caves (flyers are able to go into caves by default on custom maps)",
-      "setting.ForceAllowCaveFlyers.value.True": "-ForceAllowCaveFlyers ",
       "setting.nodinos.name": "Disable Wild Creature Spawn",
       "setting.nodinos.desc": "If set, wild creatures will not be spawned in the server. For an existing server, existing creatures need to be wiped with the admin command \u0022destroywilddinos\u0022",
-      "setting.nodinos.value.True": "-nodinos ",
       "setting.ForceRespawnDinos.name": "Force Wild Creature Respawn On Start",
       "setting.ForceRespawnDinos.desc": "If set, all wild creatures that are not currently tamed will be destroyed on server start",
-      "setting.ForceRespawnDinos.value.True": "-ForceRespawnDinos ",
       "setting.DisableRailgunPVP.name": "Disable Tek Railgun",
       "setting.DisableRailgunPVP.desc": "If set, the Tek Railgun will be disabled in PvP mode",
-      "setting.DisableRailgunPVP.value.True": "-DisableRailgunPVP ",
       "setting.bDisableLootCrates.name": "Disable Loot Crates",
       "setting.bDisableLootCrates.desc": "If set, loot crates will not spawn. Artifact crates will still spawn",
-      "setting.bDisableLootCrates.value.False": "False",
-      "setting.bDisableLootCrates.value.True": "True",
       "setting.ResourceNoReplenishRadiusPlayers.name": "Player Radius For No Resource Replenish",
       "setting.ResourceNoReplenishRadiusPlayers.desc": "Sets the distance around players where resources are not allowed to grow back. Values higher than 1 increase it, values between 0 and 1 reduce it",
       "setting.ResourceNoReplenishRadiusStructures.name": "Structure Radius For No Resource Replenish",
       "setting.ResourceNoReplenishRadiusStructures.desc": "Sets the distance around structures where resources are not allowed to grow back. Values higher than 1 increase it, values between 0 and 1 reduce it",
       "setting.DisableDinoDecayPvE.name": "Disable PvE Creature Decay",
       "setting.DisableDinoDecayPvE.desc": "If set, the gradual (7 days) decay (or unclaiming) of creature ownership will be disabled in PvE mode. Otherwise, every creature can be claimed by any player",
-      "setting.DisableDinoDecayPvE.value.False": "False",
-      "setting.DisableDinoDecayPvE.value.True": "True",
       "setting.PvPDinoDecay.name": "Enable PvP Creature Decay",
       "setting.PvPDinoDecay.desc": "If set, the gradual decay (or unclaiming) of creature ownership will be enabled in PvP mode while Offline Raid Prevention is active",
-      "setting.PvPDinoDecay.value.False": "False",
-      "setting.PvPDinoDecay.value.True": "True",
       "setting.bPassiveDefensesDamageRiderlessDinos.name": "Enable Passive Defence Damage",
       "setting.bPassiveDefensesDamageRiderlessDinos.desc": "If set, wild and riderless dinosaurs can take damage from passive defence structures like spikewalls",
-      "setting.bPassiveDefensesDamageRiderlessDinos.value.False": "False",
-      "setting.bPassiveDefensesDamageRiderlessDinos.value.True": "True",
       "setting.PreventDiseases.name": "Prevent Diseases",
       "setting.PreventDiseases.desc": "If set, diseases will be completely disabled on the server",
-      "setting.PreventDiseases.value.False": "False",
-      "setting.PreventDiseases.value.True": "True",
       "setting.NonPermanentDiseases.name": "Disable Permanent Diseases",
       "setting.NonPermanentDiseases.desc": "If set, diseases will not be permanent (they will be lost on respawn)",
-      "setting.NonPermanentDiseases.value.False": "False",
-      "setting.NonPermanentDiseases.value.True": "True",
       "setting.AllowAnyoneBabyImprintCuddle.name": "Allow Care By Anyone",
       "setting.AllowAnyoneBabyImprintCuddle.desc": "If set, enables anyone to \u0022take care\u0022 of baby creatures (cuddle etc), not just whomever imprinted on it",
-      "setting.AllowAnyoneBabyImprintCuddle.value.False": "False",
-      "setting.AllowAnyoneBabyImprintCuddle.value.True": "True",
       "setting.DisableImprintDinoBuff.name": "Disable Imprint Creature Buff",
       "setting.DisableImprintDinoBuff.desc": "If set, disables the creature imprinting player Stat Bonus (where whomever specifically imprinted on the creature, and raised it to have an imprinting quality, gets extra damage/resistance buff)",
-      "setting.DisableImprintDinoBuff.value.False": "False",
-      "setting.DisableImprintDinoBuff.value.True": "True",
       "setting.AllowRaidDinoFeeding.name": "Allow Raid Dinosaur Feeding",
       "setting.AllowRaidDinoFeeding.desc": "If set, allows Titanosaurs to be permanently tamed (ie they can be fed). Note: The Island only spawns a maximum of 3 Titanosaurs, so 3 tamed ones will ultimately block any more spawning",
-      "setting.AllowRaidDinoFeeding.value.False": "False",
-      "setting.AllowRaidDinoFeeding.value.True": "True",
       "setting.AllowMultipleAttachedC4.name": "Allow Multiple Attached C4",
       "setting.AllowMultipleAttachedC4.desc": "If enabled, more than one C4 can be attached per creature",
-      "setting.AllowMultipleAttachedC4.value.False": "False",
-      "setting.AllowMultipleAttachedC4.value.True": "True",
       "setting.DisableWeatherFog.name": "Disable Weather Fog",
       "setting.DisableWeatherFog.desc": "If set, fog is disabled",
-      "setting.DisableWeatherFog.value.False": "False",
-      "setting.DisableWeatherFog.value.True": "True",
       "setting.RandomSupplyCratePoints.name": "Enable Random Supply Crate Points",
       "setting.RandomSupplyCratePoints.desc": "If enabled, supply drops will be in random locations",
-      "setting.RandomSupplyCratePoints.value.False": "False",
-      "setting.RandomSupplyCratePoints.value.True": "True",
       "setting.DayCycleSpeedScale.name": "Day/Night Cycle Speed Multiplier",
       "setting.DayCycleSpeedScale.desc": "Sets the scaling factor for the server day/night cycle. The default value 1 sets the same speed as a singleplayer game, ie 1 minute real time = approx 28 minutes server time. A scale of 0.035 would set a day/night cycle of approx 24 hours real time",
       "category.multipliers": "Multipliers",
@@ -2602,31 +2519,18 @@
       "setting.UseStructureStasisGrid.name": "Enable Structure Stasis Grid",
       "setting.UseStructureStasisGrid.desc": "If set, enables the structure stasis grid to improve server performance on large bases with lots of players. Structures are loaded based on grids with players. Not recommended for modded servers",
       "category.structures": "Structures",
-      "setting.UseStructureStasisGrid.value.True": "-UseStructureStasisGrid ",
       "setting.DisableStructureDecayPvE.name": "Disable PvE Structure Decay",
       "setting.DisableStructureDecayPvE.desc": "If set, the gradual (7 days) decay of player structures will be disabled in PvE mode",
-      "setting.DisableStructureDecayPvE.value.False": "False",
-      "setting.DisableStructureDecayPvE.value.True": "True",
       "setting.OverrideStructurePlatformPrevention.name": "Override Structure Platform Prevention",
       "setting.OverrideStructurePlatformPrevention.desc": "If set, turret and spike structures will be buildable and functional on platform saddles",
-      "setting.OverrideStructurePlatformPrevention.value.False": "False",
-      "setting.OverrideStructurePlatformPrevention.value.True": "True",
       "setting.EnableExtraStructurePreventionVolumes.name": "Disable Building In Rich Resource Areas",
       "setting.EnableExtraStructurePreventionVolumes.desc": "If set, completely disables building in specific resource-rich areas, in particular setup on The Island around the major mountains",
-      "setting.EnableExtraStructurePreventionVolumes.value.False": "False",
-      "setting.EnableExtraStructurePreventionVolumes.value.True": "True",
       "setting.PvEAllowStructuresAtSupplyDrops.name": "Allow PvE Structures At Supply Drops",
       "setting.PvEAllowStructuresAtSupplyDrops.desc": "If set, building near supply drop points will be allowed in PvE mode",
-      "setting.PvEAllowStructuresAtSupplyDrops.value.False": "False",
-      "setting.PvEAllowStructuresAtSupplyDrops.value.True": "True",
       "setting.bDisableStructurePlacementCollision.name": "Disable Structure Placement Collision",
       "setting.bDisableStructurePlacementCollision.desc": "If set, allows for structures to clip into the terrain",
-      "setting.bDisableStructurePlacementCollision.value.False": "False",
-      "setting.bDisableStructurePlacementCollision.value.True": "True",
       "setting.AlwaysAllowStructurePickup.name": "Always Allow Structure Pickup",
       "setting.AlwaysAllowStructurePickup.desc": "If set, the timer on the quick pick-up system will be disabled",
-      "setting.AlwaysAllowStructurePickup.value.False": "False",
-      "setting.AlwaysAllowStructurePickup.value.True": "True",
       "setting.StructurePickupHoldDuration.name": "Structure Pickup Hold Duration",
       "setting.StructurePickupHoldDuration.desc": "Sets the quick pick-up hold duration. 0 = instant pick-up",
       "setting.StructurePickupTimeAfterPlacement.name": "Structure Pickup Time After Placement",
@@ -2634,48 +2538,30 @@
       "setting.EnableCluster.name": "Enable Cluster",
       "setting.EnableCluster.desc": "If set, the use of a server cluster will be enabled. Requires Cluster Directory Override and Cluster ID to be set",
       "category.clusters": "Clusters",
-      "setting.EnableCluster.value.True": "-ClusterDirOverride=\u0022{{ClusterDirOverride}}\u0022 -clusterID={{clusterID}} ",
       "setting.ClusterDirOverride.name": "Cluster Directory Override",
       "setting.ClusterDirOverride.desc": "Sets the path to a shared cluster directory for a server cluster. The cluster directory must be accessible to all cluster servers. If the server is in Docker, the directory must be mounted in the container. Requires Enable Cluster to be set",
       "setting.clusterID.name": "Cluster ID",
       "setting.clusterID.desc": "Sets the cluster ID for a server cluster. The cluster ID must be the same on all servers in the cluster. Requires Enable Cluster to be set",
       "setting.NoTributeDownloads.name": "Prevent Character Download",
       "setting.NoTributeDownloads.desc": "If set, prevents the download of characters from a cluster to the server",
-      "setting.NoTributeDownloads.value.False": "False",
-      "setting.NoTributeDownloads.value.True": "True",
       "setting.PreventDownloadSurvivors.name": "Prevent Survivor Download",
       "setting.PreventDownloadSurvivors.desc": "If set, prevents the download of survivors from a cluster to the server",
-      "setting.PreventDownloadSurvivors.value.False": "False",
-      "setting.PreventDownloadSurvivors.value.True": "True",
       "setting.PreventDownloadItems.name": "Prevent Item Download",
       "setting.PreventDownloadItems.desc": "If set, prevents the download of items from a cluster to the server",
-      "setting.PreventDownloadItems.value.False": "False",
-      "setting.PreventDownloadItems.value.True": "True",
       "setting.PreventDownloadDinos.name": "Prevent Creature Download",
       "setting.PreventDownloadDinos.desc": "If set, prevents the download of tamed creatures from a cluster to the server",
-      "setting.PreventDownloadDinos.value.False": "False",
-      "setting.PreventDownloadDinos.value.True": "True",
       "setting.PreventUploadSurvivors.name": "Prevent Survivor Upload",
       "setting.PreventUploadSurvivors.desc": "If set, prevents the upload of survivors from the server to a cluster",
-      "setting.PreventUploadSurvivors.value.False": "False",
-      "setting.PreventUploadSurvivors.value.True": "True",
       "setting.PreventUploadItems.name": "Prevent Item Upload",
       "setting.PreventUploadItems.desc": "If set, prevents the upload of items from the server to a cluster",
-      "setting.PreventUploadItems.value.False": "False",
-      "setting.PreventUploadItems.value.True": "True",
       "setting.PreventUploadDinos.name": "Prevent Creature Upload",
       "setting.PreventUploadDinos.desc": "If set, prevents the upload of tamed creatures from the server to a cluster",
-      "setting.PreventUploadDinos.value.False": "False",
-      "setting.PreventUploadDinos.value.True": "True",
       "setting.usestore.name": "Use Unified Save Data",
       "setting.usestore.desc": "If set, a player\u0027s character profile file (.arkprofile) will not be saved separately from the map save (.ark), nor its backup. When necessary (such as a character just transferred or a new character has been created), a temporary character profile file is created and kept until next world-save. Tribe profiles are stored in a different format (.arktributetribe)",
-      "setting.usestore.value.True": "{{converttostore}}-usestore {{BackupTransferPlayerDatas}}",
       "setting.converttostore.name": "Convert To Unified Save Data",
       "setting.converttostore.desc": "If set, non-stored data (default save behaviour of unofficial and legacy) will be converted to stored data (default save behaviour of official non-legacy) at next world-save. It will not delete older character profile saves. Requires Use Unified Save Data to be enabled",
-      "setting.converttostore.value.True": "-converttostore ",
       "setting.BackupTransferPlayerDatas.name": "Backup Transfer Player Data",
       "setting.BackupTransferPlayerDatas.desc": "If set, the server will fully mimic official (non-legacy) servers on handling player characters data, adding permanent character profile backup files separately from the world-save. Requires Use Unified Save Data to be enabled",
-      "setting.BackupTransferPlayerDatas.value.True": "-BackupTransferPlayerDatas ",
       "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",
       "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
       "category.updates": "Updates",

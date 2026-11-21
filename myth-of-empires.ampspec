@@ -180,8 +180,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.NoticeSelfEnable.value.False",
-        "True": "setting.NoticeSelfEnable.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -221,8 +221,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.bUseServerAdmin.value.False",
-        "True": "setting.bUseServerAdmin.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -251,7 +251,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.UseACE.value.True"
+        "True": "-UseACE "
       }
     },
     {
@@ -266,8 +266,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.EnableVACBan.value.False",
-        "True": "setting.EnableVACBan.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -341,8 +341,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.GameServerPVPType.value.False",
-        "True": "setting.GameServerPVPType.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -357,7 +357,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.ForceSteamNet.value.True"
+        "True": "-ForceSteamNet "
       }
     },
     {
@@ -398,8 +398,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.bCanChat.value.False",
-        "True": "setting.bCanChat.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -414,8 +414,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.bCanVoiceChat.value.False",
-        "True": "setting.bCanVoiceChat.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -430,8 +430,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.NoticeAllEnable.value.False",
-        "True": "setting.NoticeAllEnable.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -487,8 +487,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.bUseDurable.value.False",
-        "True": "setting.bUseDurable.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -503,8 +503,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.bRiderUseShooterMovingCheck.value.False",
-        "True": "setting.bRiderUseShooterMovingCheck.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -548,8 +548,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.bDeadCorpseCreateBag.value.False",
-        "True": "setting.bDeadCorpseCreateBag.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -564,8 +564,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.bOpenWillDead.value.False",
-        "True": "setting.bOpenWillDead.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -580,8 +580,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.bAllCanRescue.value.False",
-        "True": "setting.bAllCanRescue.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -596,8 +596,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.bCanDropItem.value.False",
-        "True": "setting.bCanDropItem.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -612,8 +612,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.bShowFleshPhysicialMaterialEffect.value.False",
-        "True": "setting.bShowFleshPhysicialMaterialEffect.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -700,8 +700,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.bEnableServerLevel.value.False",
-        "True": "setting.bEnableServerLevel.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -870,25 +870,18 @@
       "setting.Description.desc": "Sets a short description of the server that is displayed when clicked on in the server list",
       "setting.NoticeSelfEnable.name": "Enable Welcome Message",
       "setting.NoticeSelfEnable.desc": "If set, the Welcome Message will be displayed when players join the server",
-      "setting.NoticeSelfEnable.value.False": "false",
-      "setting.NoticeSelfEnable.value.True": "true",
       "setting.NoticeSelfEnterServer.name": "Welcome Message",
       "setting.NoticeSelfEnterServer.desc": "Sets the welcome message (or MOTD) that is displayed when players join the server",
       "setting.PrivateServerPassword.name": "Server Password",
       "setting.PrivateServerPassword.desc": "Sets the password required to join the server. Default is no password",
       "setting.bUseServerAdmin.name": "Enable Server Admins",
       "setting.bUseServerAdmin.desc": "If set, server admins will be enabled on the server. Specify the admins under Server Admins",
-      "setting.bUseServerAdmin.value.False": "false",
-      "setting.bUseServerAdmin.value.True": "true",
       "setting.ServerAdminAccounts.name": "Server Admins",
       "setting.ServerAdminAccounts.desc": "Semi-colon separated list of [Steam64 IDs](https://steamid.io/) of server admins",
       "setting.UseACE.name": "Enable Anti Cheat Engine",
       "setting.UseACE.desc": "If set, the Anti Cheat Engine will be enabled",
-      "setting.UseACE.value.True": "-UseACE ",
       "setting.EnableVACBan.name": "Enable VAC Ban",
       "setting.EnableVACBan.desc": "If set, VAC ban will be enabled",
-      "setting.EnableVACBan.value.False": "0",
-      "setting.EnableVACBan.value.True": "1",
       "setting.Map.name": "Initial Map",
       "setting.Map.desc": "Sets the map to start the server with",
       "setting.Map.value.LargeTerrain_Central_Main": "Zhongzhou (default)",
@@ -902,11 +895,8 @@
       "setting.MapDifficultyRate.desc": "Sets the difficulty level of the server, based on the strength and HP of NPCs and animals",
       "setting.GameServerPVPType.name": "Enable PvE / Disable PvP",
       "setting.GameServerPVPType.desc": "If set, PvE mode will be enabled on the server. Otherwise, PvP will be enabled",
-      "setting.GameServerPVPType.value.False": "0",
-      "setting.GameServerPVPType.value.True": "1",
       "setting.ForceSteamNet.name": "Enable Steam P2P",
       "setting.ForceSteamNet.desc": "If set, Steam P2P will be enabled",
-      "setting.ForceSteamNet.value.True": "-ForceSteamNet ",
       "setting.OutAddress.name": "Out IP Address",
       "setting.OutAddress.desc": "Sets the \u0027OutAddress\u0027 IP parameter. Usually this should be set to \u0027Public IP\u0027. However, for purely LAN servers, the \u0027Application IP Binding\u0027 may need to be used - make sure this is set to an actual IP for the instance, and not 0.0.0.0",
       "setting.OutAddress.value._ExternalIP_": "Public IP",
@@ -916,16 +906,10 @@
       "setting.bCanChat.name": "Enable Text Chat",
       "setting.bCanChat.desc": "If set, text chat will be enabled",
       "category.advanced": "Advanced",
-      "setting.bCanChat.value.False": "false",
-      "setting.bCanChat.value.True": "true",
       "setting.bCanVoiceChat.name": "Enable Voice Chat",
       "setting.bCanVoiceChat.desc": "If set, voice chat will be enabled",
-      "setting.bCanVoiceChat.value.False": "false",
-      "setting.bCanVoiceChat.value.True": "true",
       "setting.NoticeAllEnable.name": "Enable Join/Leave Messages",
       "setting.NoticeAllEnable.desc": "If set, join and leave broadcast messages will be enabled",
-      "setting.NoticeAllEnable.value.False": "false",
-      "setting.NoticeAllEnable.value.True": "true",
       "setting.NoticeEnterServer.name": "Join Message",
       "setting.NoticeEnterServer.desc": "Sets the message broadcast when a player joins the server. Enable Join/Leave Message must be set",
       "setting.NoticeLeaveServer.name": "Leave Message",
@@ -934,36 +918,22 @@
       "setting.SaveGameIntervalMinute.desc": "Sets the interval between automatic saves of the server",
       "setting.bUseDurable.name": "Enable Durability",
       "setting.bUseDurable.desc": "If set, durability will be enabled",
-      "setting.bUseDurable.value.False": "false",
-      "setting.bUseDurable.value.True": "true",
       "setting.bRiderUseShooterMovingCheck.name": "Enable Horse Archery View Increase",
       "setting.bRiderUseShooterMovingCheck.desc": "If set, horse archery view increase will be enabled",
-      "setting.bRiderUseShooterMovingCheck.value.False": "false",
-      "setting.bRiderUseShooterMovingCheck.value.True": "true",
       "setting.NpcSpawnMultiplier.name": "NPC Spawn Multiplier",
       "setting.NpcSpawnMultiplier.desc": "Sets the NPC spawn multiplier",
       "setting.InitCapitalCopper.name": "Starting Copper Coins",
       "setting.InitCapitalCopper.desc": "Sets the starting copper coins for new players",
       "setting.bDeadCorpseCreateBag.name": "Enable Loot Drop On Death",
       "setting.bDeadCorpseCreateBag.desc": "If set, loot will be dropped on death",
-      "setting.bDeadCorpseCreateBag.value.False": "false",
-      "setting.bDeadCorpseCreateBag.value.True": "true",
       "setting.bOpenWillDead.name": "Enable Wounded State",
       "setting.bOpenWillDead.desc": "If set, the wounded state will be enabled",
-      "setting.bOpenWillDead.value.False": "false",
-      "setting.bOpenWillDead.value.True": "true",
       "setting.bAllCanRescue.name": "Allow Players To Rescue Everyone",
       "setting.bAllCanRescue.desc": "If set, every player can rescue everyone",
-      "setting.bAllCanRescue.value.False": "false",
-      "setting.bAllCanRescue.value.True": "true",
       "setting.bCanDropItem.name": "Enable Inventory Item Drop",
       "setting.bCanDropItem.desc": "If set, items can be dropped from inventory",
-      "setting.bCanDropItem.value.False": "false",
-      "setting.bCanDropItem.value.True": "true",
       "setting.bShowFleshPhysicialMaterialEffect.name": "Show Blood Effect",
       "setting.bShowFleshPhysicialMaterialEffect.desc": "If set, the red blood screen will be shown when wounded",
-      "setting.bShowFleshPhysicialMaterialEffect.value.False": "false",
-      "setting.bShowFleshPhysicialMaterialEffect.value.True": "true",
       "setting.AITurretTraceProjectileRatio.name": "Chance of Turret Hitting Enemy",
       "setting.AITurretTraceProjectileRatio.desc": "Sets the chance of a turret hitting an enemy",
       "setting.MaxActiveCharacterCountConfig.name": "Character Limit",
@@ -976,8 +946,6 @@
       "setting.SleepPlayerCharacterDestroyDays.desc": "Sets the period after which an offline player character is destroyed",
       "setting.bEnableServerLevel.name": "Enable Server Level System",
       "setting.bEnableServerLevel.desc": "If set, the server level system will be enabled",
-      "setting.bEnableServerLevel.value.False": "false",
-      "setting.bEnableServerLevel.value.True": "true",
       "setting.ServerLevelAddMul.name": "Server Level Upgrade Multiplier",
       "setting.ServerLevelAddMul.desc": "Sets the server level upgrade multiplier",
       "setting.FoodBuffValueMulti.name": "Food Restores Satiety Multiplier",

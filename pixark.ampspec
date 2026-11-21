@@ -268,7 +268,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.NoTransferFromFiltering.value.True"
+        "True": "-NoTransferFromFiltering "
       }
     },
     {
@@ -333,7 +333,6 @@
       "setting.clusterid.desc": "Sets the cluster ID for a server cluster. The cluster ID must be the same on all servers in the cluster",
       "setting.NoTransferFromFiltering.name": "Filter Transfers",
       "setting.NoTransferFromFiltering.desc": "If set, prevents ARK data usage between single player and servers that do not have a Cluster ID set. Even with a Cluster ID set, it is suggested to enable this option",
-      "setting.NoTransferFromFiltering.value.True": "-NoTransferFromFiltering ",
       "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",
       "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
       "category.updates": "Updates",

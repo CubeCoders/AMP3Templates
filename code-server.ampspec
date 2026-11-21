@@ -252,7 +252,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.ignore-last-opened.value.True"
+        "True": "--ignore-last-opened "
       }
     },
     {
@@ -267,7 +267,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.disable-getting-started-override.value.True"
+        "True": "--disable-getting-started-override "
       }
     },
     {
@@ -282,7 +282,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.disable-workspace-trust.value.True"
+        "True": "--disable-workspace-trust "
       }
     },
     {
@@ -297,7 +297,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.disable-file-downloads.value.True"
+        "True": "--disable-file-downloads "
       }
     },
     {
@@ -312,7 +312,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.disable-file-uploads.value.True"
+        "True": "--disable-file-uploads "
       }
     },
     {
@@ -356,7 +356,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.disable-telemetry.value.True"
+        "True": "--disable-telemetry "
       }
     },
     {
@@ -371,7 +371,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.disable-update-check.value.True"
+        "True": "--disable-update-check "
       }
     },
     {
@@ -386,7 +386,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.verbose.value.True"
+        "True": "--verbose "
       }
     },
     {
@@ -401,7 +401,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.enable-proposed-api.value.True"
+        "True": "--enable-proposed-api "
       }
     },
     {
@@ -455,7 +455,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.disable-proxy.value.True"
+        "True": "--disable-proxy "
       }
     },
     {
@@ -484,7 +484,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.skip-auth-preflight.value.True"
+        "True": "--skip-auth-preflight "
       }
     },
     {
@@ -625,35 +625,26 @@
       "setting.i18n.desc": "Sets the path to a JSON file with custom translations. Merges with default strings and supports all i18n keys",
       "setting.ignore-last-opened.name": "Ignore Last Opened",
       "setting.ignore-last-opened.desc": "If set, the last opened directory or workspace will be ignored in favor of an empty window on launch",
-      "setting.ignore-last-opened.value.True": "--ignore-last-opened ",
       "setting.disable-getting-started-override.name": "Disable Getting Started Override",
       "setting.disable-getting-started-override.desc": "If set, the coder/coder override in the Help: Getting Started page will be disabled",
-      "setting.disable-getting-started-override.value.True": "--disable-getting-started-override ",
       "setting.disable-workspace-trust.name": "Disable Workspace Trust",
       "setting.disable-workspace-trust.desc": "If set, the Workspace Trust feature will be disabled",
-      "setting.disable-workspace-trust.value.True": "--disable-workspace-trust ",
       "setting.disable-file-downloads.name": "Disable File Downloads",
       "setting.disable-file-downloads.desc": "If set, file downloads from code-server will be disabled",
-      "setting.disable-file-downloads.value.True": "--disable-file-downloads ",
       "setting.disable-file-uploads.name": "Disable File Uploads",
       "setting.disable-file-uploads.desc": "If set, file uploads to code-server will be disabled",
-      "setting.disable-file-uploads.value.True": "--disable-file-uploads ",
       "setting.socket.name": "Socket Path",
       "setting.socket.desc": "Sets the path to a Unix socket to listen on instead of IP:Port. Empty = disabled",
       "setting.reconnection-grace-time.name": "Reconnection Grace Time",
       "setting.reconnection-grace-time.desc": "Sets the reconnection grace time. Clients that disconnect for longer than this duration will need to reload the window. Default = 3 hours",
       "setting.disable-telemetry.name": "Disable Telemetry",
       "setting.disable-telemetry.desc": "If set, telemetry reporting will be disabled",
-      "setting.disable-telemetry.value.True": "--disable-telemetry ",
       "setting.disable-update-check.name": "Disable Update Check",
       "setting.disable-update-check.desc": "If set, the automatic update check will be disabled. Otherwise, code-server checks every 6 hours against the latest GitHub release and then notifies once every week that a new release is available",
-      "setting.disable-update-check.value.True": "--disable-update-check ",
       "setting.verbose.name": "Enable Verbose Logging",
       "setting.verbose.desc": "If set, verbose logging output for debugging will be enabled",
-      "setting.verbose.value.True": "--verbose ",
       "setting.enable-proposed-api.name": "Enable Proposed API",
       "setting.enable-proposed-api.desc": "If set, the proposed VS Code API features for extensions will be enabled",
-      "setting.enable-proposed-api.value.True": "--enable-proposed-api ",
       "setting.CustomArgs.name": "Custom Command Line Arguments",
       "setting.CustomArgs.desc": "Sets custom [command line arguments](https://github.com/coder/code-server/blob/main/src/node/cli.ts) for code-server. Don\u0027t use arguments already in AMP\u0027s settings!",
       "setting.proxy-domain.name": "Proxy Domain",
@@ -662,12 +653,10 @@
       "setting.abs-proxy-base-path.desc": "Sets the [base path](https://coder.com/docs/code-server/guide#prefixing-absproxyport-with-a-path) to prefix to all absproxy requests. Useful when running behind a reverse proxy on a subpath",
       "setting.disable-proxy.name": "Disable Proxy",
       "setting.disable-proxy.desc": "If set, [domain and path proxy routes](https://coder.com/docs/code-server/FAQ#how-do-i-disable-the-proxy) will be disabled",
-      "setting.disable-proxy.value.True": "--disable-proxy ",
       "setting.trusted-origins.name": "Trusted Origins",
       "setting.trusted-origins.desc": "Sets trusted origins for which the origin authentication check should be disabled. Useful when behind a reverse proxy that cannot set the origin header",
       "setting.skip-auth-preflight.name": "Skip Auth Preflight",
       "setting.skip-auth-preflight.desc": "If set, allows preflight requests through the proxy without authentication. Useful when behind a reverse proxy",
-      "setting.skip-auth-preflight.value.True": "--skip-auth-preflight ",
       "setting.cookie-suffix.name": "Cookie Suffix",
       "setting.cookie-suffix.desc": "Sets a suffix to add to the cookie. This can prevent a collision of cookies for subdomains, making them explicit",
       "setting.SSLMode.name": "SSL Mode",

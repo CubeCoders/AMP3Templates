@@ -201,7 +201,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.mods.value.True"
+        "True": "-mods={{modslist}} "
       }
     },
     {
@@ -228,7 +228,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.passivemods.value.True"
+        "True": "-passivemods={{passivemodslist}} "
       }
     },
     {
@@ -255,7 +255,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.pconlymods.value.True"
+        "True": "-pconlymods "
       }
     },
     {
@@ -299,7 +299,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.exclusivejoin.value.True"
+        "True": "-exclusivejoin "
       }
     },
     {
@@ -352,7 +352,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.BattlEye.value.True"
+        "True": "-NoBattlEye "
       }
     },
     {
@@ -380,7 +380,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.UseDynamicConfig.value.True"
+        "True": "-UseDynamicConfig "
       }
     },
     {
@@ -395,7 +395,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.EnableIdlePlayerKick.value.True"
+        "True": "-EnableIdlePlayerKick "
       }
     },
     {
@@ -410,7 +410,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.NoHangDetection.value.True"
+        "True": "-NoHangDetection "
       }
     },
     {
@@ -425,7 +425,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.DisableCustomCosmetics.value.True"
+        "True": "-DisableCustomCosmetics "
       }
     },
     {
@@ -440,7 +440,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.NoTransferFromFiltering.value.True"
+        "True": "-NoTransferFromFiltering "
       }
     },
     {
@@ -518,7 +518,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.NoGameAnalytics.value.True"
+        "True": "-NoGameAnalytics "
       }
     },
     {
@@ -557,7 +557,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.ForceAllowCaveFlyers.value.True"
+        "True": "-ForceAllowCaveFlyers "
       }
     },
     {
@@ -572,7 +572,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.nodinos.value.True"
+        "True": "-nodinos "
       }
     },
     {
@@ -587,7 +587,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.ForceRespawnDinos.value.True"
+        "True": "-ForceRespawnDinos "
       }
     },
     {
@@ -602,7 +602,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.DisableRailgunPVP.value.True"
+        "True": "-DisableRailgunPVP "
       }
     },
     {
@@ -617,7 +617,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.UseStructureStasisGrid.value.True"
+        "True": "-UseStructureStasisGrid "
       }
     },
     {
@@ -632,7 +632,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.EnableCluster.value.True"
+        "True": "-ClusterDirOverride=\u0022{{ClusterDirOverride}}\u0022 -clusterID={{clusterID}} "
       }
     },
     {
@@ -669,7 +669,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.usestore.value.True"
+        "True": "{{converttostore}}-usestore {{BackupTransferPlayerDatas}}"
       }
     },
     {
@@ -684,7 +684,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.converttostore.value.True"
+        "True": "-converttostore "
       }
     },
     {
@@ -699,7 +699,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.BackupTransferPlayerDatas.value.True"
+        "True": "-BackupTransferPlayerDatas "
       }
     },
     {
@@ -763,17 +763,14 @@
       "setting.CustomMap.desc": "Sets a custom map for the server. \u0022Custom\u0022 type must be selected under Map, and the CurseForge Project ID for the map included under Mods List",
       "setting.mods.name": "Use Mods",
       "setting.mods.desc": "If set, enables automatic mod downloading, updating and loading (on server start). Specify the relevant mods under Mods List. Don\u0027t enable this setting if no mods are specified under Mods List or the server will not start",
-      "setting.mods.value.True": "-mods={{modslist}} ",
       "setting.modslist.name": "Mods List",
       "setting.modslist.desc": "Comma-separated and ordered list of [CurseForge Project IDs](https://www.curseforge.com/ark-survival-ascended) for mods (including events) to install and load on server start (map mods will not load unless also named as a \u0022Custom\u0022 map under Custom Map Name). Requires Use Mods to be enabled",
       "setting.passivemods.name": "Use Passive Mods",
       "setting.passivemods.desc": "If enabled, this option activates the -passivemods function, allowing specified mods to load their data while disabling their functionality (even if the mods are listed under Mods List). Don\u0027t enable this setting if no mods are specified under Passive Mods List or the server will not start",
-      "setting.passivemods.value.True": "-passivemods={{passivemodslist}} ",
       "setting.passivemodslist.name": "Passive Mods List",
       "setting.passivemodslist.desc": "Comma-separated and ordered list of [CurseForge Project IDs](https://www.curseforge.com/ark-survival-ascended) for mods to be loaded in passive mode, disabling their functionality while retaining their data. Requires Use Passive Mods to be enabled. When enabled, at least one mod ID must be specified, or the server will not start",
       "setting.pconlymods.name": "Enable Steam/PC Mods Only",
       "setting.pconlymods.desc": "If set, crossplay mods will be disabled on the server",
-      "setting.pconlymods.value.True": "-pconlymods ",
       "setting.Colors.name": "Dino Event Colors",
       "setting.Colors.desc": "If particular event colors are selected, then dinos may spawn with those colors",
       "setting.Colors.value._": "None",
@@ -786,7 +783,6 @@
       "setting.RCONPassword.desc": "See the Security and Privacy menu for configurable options for the server\u0027s RCON password. The RCON password is also used in the in-game console for players to access administrator commands (unless they are whitelisted)",
       "setting.exclusivejoin.name": "Enable Player Whitelist",
       "setting.exclusivejoin.desc": "If set, only players with EOS IDs listed under Whitelisted Players or Whitelisted Players Above Limit can join the server",
-      "setting.exclusivejoin.value.True": "-exclusivejoin ",
       "setting.PlayerWhitelist.name": "Whitelisted Players",
       "setting.PlayerWhitelist.desc": "List of EOS IDs for normal whitelisted players. EOS IDs can be found by using the \u0027whoami\u0027 command, by viewing another player\u0027s character in spectator mode, or by inspecting the server\u0027s log files",
       "setting.PlayerWhitelistAboveLimit.name": "Whitelisted Players Above Limit",
@@ -795,24 +791,18 @@
       "setting.$MaxUsers.desc": "Sets the maximum number of users allowed on the server. May be exceeded as a result of players listed under Whitelisted Players Above Limit",
       "setting.BattlEye.name": "Disable BattlEye",
       "setting.BattlEye.desc": "If set, BattlEye will be disabled on the server",
-      "setting.BattlEye.value.True": "-NoBattlEye ",
       "setting.ServerPlatform.name": "Client Platform/Crossplay Support",
       "setting.ServerPlatform.desc": "List (separated by \u002B, such as: XSX\u002BPS5) of the game client platforms supported by the server. \u0027PC\u0027 = Steam/PC, \u0027XSX\u0027 = Xbox, \u0027WINGDK\u0027 = Microsoft Store/PC, \u0027PS5\u0027 = PlayStation 5, \u0027ALL\u0027 = all platforms. Crossplay will be enabled if more than one platform is specified",
       "setting.UseDynamicConfig.name": "Use Dynamic Config",
       "setting.UseDynamicConfig.desc": "If set, the server will use a dynamic config. The default dynamic config for the platform will be used if \u0027CustomDynamicConfigUrl\u0027 is not set in GameUserSettings.ini",
-      "setting.UseDynamicConfig.value.True": "-UseDynamicConfig ",
       "setting.EnableIdlePlayerKick.name": "Kick Idle Players",
       "setting.EnableIdlePlayerKick.desc": "If set, characters that have not moved or interacted within the Kick Idle Players Period will be kicked from the server",
-      "setting.EnableIdlePlayerKick.value.True": "-EnableIdlePlayerKick ",
       "setting.NoHangDetection.name": "Disable Hang Detection",
       "setting.NoHangDetection.desc": "If set, prevents the server from shutdown if its start-time takes more than 2700 seconds (45 minutes). Useful for servers with big saves or very slow machines",
-      "setting.NoHangDetection.value.True": "-NoHangDetection ",
       "setting.DisableCustomCosmetics.name": "Disable Custom Cosmetics",
       "setting.DisableCustomCosmetics.desc": "If set, the Custom Cosmetic system will be disabled (allowing players to use and display special mods that should only be skins and will be downloaded automatically by the connected clients)",
-      "setting.DisableCustomCosmetics.value.True": "-DisableCustomCosmetics ",
       "setting.NoTransferFromFiltering.name": "Filter Transfers",
       "setting.NoTransferFromFiltering.desc": "If set, prevents ARK data usage between single player and servers that do not have a Cluster ID set. Even with a Cluster ID set, it is suggested to enable this option",
-      "setting.NoTransferFromFiltering.value.True": "-NoTransferFromFiltering ",
       "setting.culture.name": "Language",
       "setting.culture.desc": "Sets the language of the server",
       "setting.culture.value.ca": "Catal\u00E0",
@@ -847,7 +837,6 @@
       "setting.ManualServerIP.desc": "Sets the public IP advertised for the server, if \u0022Manual\u0022 is selected as the Public IP Selection Mode. Useful if the host network has multiple public IPs, or the server is behind a public proxy",
       "setting.NoGameAnalytics.name": "Disable Game Analytics",
       "setting.NoGameAnalytics.desc": "If set, the server\u0027s game analytics reporting will be disabled",
-      "setting.NoGameAnalytics.value.True": "-NoGameAnalytics ",
       "setting.CustomFlags.name": "Custom Command Line Flags",
       "setting.CustomFlags.desc": "Sets custom [command line flags](https://ark.wiki.gg/wiki/Server_configuration_(Survival_Ascended%29) for the server (those that start with a - (dash)). Include the dash and separate with a space. Don\u0027t use flags already in AMP\u0027s settings!",
       "setting.CustomOptions.name": "Custom Command Line Options",
@@ -855,36 +844,27 @@
       "setting.ForceAllowCaveFlyers.name": "Allow Cave Flyers",
       "setting.ForceAllowCaveFlyers.desc": "If set, flyers will always be allowed into caves (flyers are able to go into caves by default on custom maps)",
       "category.gameplay": "Gameplay",
-      "setting.ForceAllowCaveFlyers.value.True": "-ForceAllowCaveFlyers ",
       "setting.nodinos.name": "Disable Wild Creature Spawn",
       "setting.nodinos.desc": "If set, wild creatures will not be spawned in the server. For an existing server, existing creatures need to be wiped with the admin command \u0022destroywilddinos\u0022",
-      "setting.nodinos.value.True": "-nodinos ",
       "setting.ForceRespawnDinos.name": "Force Wild Creature Respawn On Start",
       "setting.ForceRespawnDinos.desc": "If set, all wild creatures that are not currently tamed will be destroyed on server start",
-      "setting.ForceRespawnDinos.value.True": "-ForceRespawnDinos ",
       "setting.DisableRailgunPVP.name": "Disable Tek Railgun",
       "setting.DisableRailgunPVP.desc": "If set, the Tek Railgun will be disabled in PvP mode",
-      "setting.DisableRailgunPVP.value.True": "-DisableRailgunPVP ",
       "setting.UseStructureStasisGrid.name": "Enable Structure Stasis Grid",
       "setting.UseStructureStasisGrid.desc": "If set, enables the structure stasis grid to improve server performance on large bases with lots of players. Structures are loaded based on grids with players. Not recommended for modded servers",
-      "setting.UseStructureStasisGrid.value.True": "-UseStructureStasisGrid ",
       "setting.EnableCluster.name": "Enable Cluster",
       "setting.EnableCluster.desc": "If set, the use of a server cluster will be enabled. Requires Cluster Directory Override and Cluster ID to be set",
       "category.clusters": "Clusters",
-      "setting.EnableCluster.value.True": "-ClusterDirOverride=\u0022{{ClusterDirOverride}}\u0022 -clusterID={{clusterID}} ",
       "setting.ClusterDirOverride.name": "Cluster Directory Override",
       "setting.ClusterDirOverride.desc": "Sets the path to a shared cluster directory for a server cluster. The cluster directory must be accessible to all cluster servers. If the server is in Docker, the directory must be mounted in the container. Requires Enable Cluster to be set",
       "setting.clusterID.name": "Cluster ID",
       "setting.clusterID.desc": "Sets the cluster ID for a server cluster. The cluster ID must be the same on all servers in the cluster. Requires Enable Cluster to be set",
       "setting.usestore.name": "Use Unified Save Data",
       "setting.usestore.desc": "If set, a player\u0027s character profile file (.arkprofile) will not be saved separately from the map save (.ark), nor its backup. When necessary (such as a character just transferred or a new character has been created), a temporary character profile file is created and kept until next world-save. Tribe profiles are stored in a different format (.arktributetribe)",
-      "setting.usestore.value.True": "{{converttostore}}-usestore {{BackupTransferPlayerDatas}}",
       "setting.converttostore.name": "Convert To Unified Save Data",
       "setting.converttostore.desc": "If set, non-stored data (default save behaviour of unofficial and legacy) will be converted to stored data (default save behaviour of official non-legacy) at next world-save. It will not delete older character profile saves. Requires Use Unified Save Data to be enabled",
-      "setting.converttostore.value.True": "-converttostore ",
       "setting.BackupTransferPlayerDatas.name": "Backup Transfer Player Data",
       "setting.BackupTransferPlayerDatas.desc": "If set, the server will fully mimic official (non-legacy) servers on handling player characters data, adding permanent character profile backup files separately from the world-save. Requires Use Unified Save Data to be enabled",
-      "setting.BackupTransferPlayerDatas.value.True": "-BackupTransferPlayerDatas ",
       "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",
       "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
       "category.updates": "Updates",

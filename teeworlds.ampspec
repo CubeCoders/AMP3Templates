@@ -246,8 +246,8 @@
       "Keywords": "register,server,sv_register",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_register.value.False",
-        "True": "setting.sv_register.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -363,8 +363,8 @@
       "Keywords": "auto,demo,record,sv_auto_demo_record",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_auto_demo_record.value.False",
-        "True": "setting.sv_auto_demo_record.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -390,8 +390,8 @@
       "Keywords": "high,bandwidth,sv_high_bandwidth",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_high_bandwidth.value.False",
-        "True": "setting.sv_high_bandwidth.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -421,8 +421,8 @@
       "Keywords": "inactive,kick,spectators,sv_inactivekick_spec",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_inactivekick_spec.value.False",
-        "True": "setting.sv_inactivekick_spec.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -461,8 +461,8 @@
       "Keywords": "silent,spectator,mode,sv_silent_spectator_mode",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_silent_spectator_mode.value.False",
-        "True": "setting.sv_silent_spectator_mode.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -476,8 +476,8 @@
       "Keywords": "spam,protection,sv_spamprotection",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_spamprotection.value.False",
-        "True": "setting.sv_spamprotection.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -540,8 +540,8 @@
       "Keywords": "log,file,timestamp,logfile_timestamp",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.logfile_timestamp.value.False",
-        "True": "setting.logfile_timestamp.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -555,8 +555,8 @@
       "Keywords": "abort,tcp,connection,close,sv_abort_on_close",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.net_tcp_abort_on_close.value.False",
-        "True": "setting.net_tcp_abort_on_close.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -666,8 +666,8 @@
       "Keywords": "swap,teams,sv_match_swap",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_match_swap.value.False",
-        "True": "setting.sv_match_swap.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -681,8 +681,8 @@
       "Keywords": "player,ready,mode,sv_player_ready_mode",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_player_ready_mode.value.False",
-        "True": "setting.sv_player_ready_mode.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -709,8 +709,8 @@
       "Keywords": "powerups,sv_powerups",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_powerups.value.False",
-        "True": "setting.sv_powerups.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -761,8 +761,8 @@
       "Keywords": "strict,spectate,mode,sv_strict_spectate_mode",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_strict_spectate_mode.value.False",
-        "True": "setting.sv_strict_spectate_mode.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -789,8 +789,8 @@
       "Keywords": "team,damage,sv_teamdamage",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_teamdamage.value.False",
-        "True": "setting.sv_teamdamage.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -820,8 +820,8 @@
       "Keywords": "vote,kick,sv_vote_kick",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_vote_kick.value.False",
-        "True": "setting.sv_vote_kick.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -860,8 +860,8 @@
       "Keywords": "vote,spectate,sv_vote_spectate",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_vote_spectate.value.False",
-        "True": "setting.sv_vote_spectate.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -921,8 +921,6 @@
       "setting.password.desc": "Sets the password required to connect to the server",
       "setting.sv_register.name": "Register Server Publicly",
       "setting.sv_register.desc": "If set, the server will be registered with the master server for public listing",
-      "setting.sv_register.value.False": "0",
-      "setting.sv_register.value.True": "1",
       "setting.sv_skill_level.name": "Skill Level",
       "setting.sv_skill_level.desc": "Sets the skill level shown in the server browser",
       "setting.sv_skill_level.value.0": "Casual",
@@ -944,14 +942,10 @@
       "setting.sv_rcon_max_tries.desc": "Maximum number of tries for remote console authentication",
       "setting.sv_auto_demo_record.name": "Enable Auto Demo Recording",
       "setting.sv_auto_demo_record.desc": "If set, demos will be automatically recorded",
-      "setting.sv_auto_demo_record.value.False": "0",
-      "setting.sv_auto_demo_record.value.True": "1",
       "setting.sv_auto_demo_max.name": "Maximum Auto Demo Recordings",
       "setting.sv_auto_demo_max.desc": "Sets the maximum number of automatically recorded demos. 0 = no limit",
       "setting.sv_high_bandwidth.name": "Enable High Bandwidth Mode",
       "setting.sv_high_bandwidth.desc": "If set, the server will use high bandwidth mode. Doubles the bandwidth required for the server. LAN use only",
-      "setting.sv_high_bandwidth.value.False": "0",
-      "setting.sv_high_bandwidth.value.True": "1",
       "setting.sv_inactivekick.name": "Inactive Kick Mode",
       "setting.sv_inactivekick.desc": "Sets how to deal with inactive clients",
       "setting.sv_inactivekick.value.1": "Move player to spectator",
@@ -959,20 +953,14 @@
       "setting.sv_inactivekick.value.3": "Kick",
       "setting.sv_inactivekick_spec.name": "Kick Inactive Spectators",
       "setting.sv_inactivekick_spec.desc": "If set, inactive spectators will be kicked",
-      "setting.sv_inactivekick_spec.value.False": "0",
-      "setting.sv_inactivekick_spec.value.True": "1",
       "setting.sv_inactivekick_time.name": "Inactive Kick Time",
       "setting.sv_inactivekick_time.desc": "Sets the time to wait before taking care of inactive clients",
       "setting.sv_map_download_speed.name": "Map Download Speed",
       "setting.sv_map_download_speed.desc": "Sets the number of map data packages a client gets on each request",
       "setting.sv_silent_spectator_mode.name": "Silent Spectator Mode",
       "setting.sv_silent_spectator_mode.desc": "If set, join/leave messages for spectators will be muted",
-      "setting.sv_silent_spectator_mode.value.False": "0",
-      "setting.sv_silent_spectator_mode.value.True": "1",
       "setting.sv_spamprotection.name": "Enable Spam Protection",
       "setting.sv_spamprotection.desc": "If set, spam protection will be enabled",
-      "setting.sv_spamprotection.value.False": "0",
-      "setting.sv_spamprotection.value.True": "1",
       "setting.console_output_level.name": "Console Output Level",
       "setting.console_output_level.desc": "Sets the output level for messages in the console",
       "setting.ec_bantime.name": "External Console Ban Time",
@@ -983,12 +971,8 @@
       "setting.ec_output_level.desc": "Sets the output level for information in the external console",
       "setting.logfile_timestamp.name": "Log File Timestamp",
       "setting.logfile_timestamp.desc": "If set, a time stamp will be added to the server's log file name ('user/dumps/log.txt'), meaning the file won't be overwritten on each start. The server's logs are separate to AMP's logs, which are not overwritten",
-      "setting.logfile_timestamp.value.False": "0",
-      "setting.logfile_timestamp.value.True": "1",
       "setting.net_tcp_abort_on_close.name": "Abort TCP Connection On Close",
       "setting.net_tcp_abort_on_close.desc": "If set, the server will abort the TCP connection on close",
-      "setting.net_tcp_abort_on_close.value.False": "0",
-      "setting.net_tcp_abort_on_close.value.True": "1",
       "setting.sv_gametype.name": "Game Type",
       "setting.sv_gametype.desc": "Sets the game type. The map must be reloaded for any change to take effect",
       "category.gameplay": "Gameplay",
@@ -1026,18 +1010,12 @@
       "setting.sv_matches_per_map.desc": "Sets the number of matches on each map before rotating",
       "setting.sv_match_swap.name": "Swap Teams Between Matches",
       "setting.sv_match_swap.desc": "If set, teams will be swapped between matches",
-      "setting.sv_match_swap.value.False": "0",
-      "setting.sv_match_swap.value.True": "1",
       "setting.sv_player_ready_mode.name": "Enable Player Ready Mode",
       "setting.sv_player_ready_mode.desc": "If set, players can pause/unpause the game and start the game on warmup via their ready state",
-      "setting.sv_player_ready_mode.value.False": "0",
-      "setting.sv_player_ready_mode.value.True": "1",
       "setting.sv_warmup.name": "Warmup Time",
       "setting.sv_warmup.desc": "Sets the warmup time before a match starts. 0 = disabled. -1 = all players ready",
       "setting.sv_powerups.name": "Allow Powerups",
       "setting.sv_powerups.desc": "If set, powerups like ninja will be allowed",
-      "setting.sv_powerups.value.False": "0",
-      "setting.sv_powerups.value.True": "1",
       "setting.sv_respawn_delay_tdm.name": "Respawn Delay (TDM)",
       "setting.sv_respawn_delay_tdm.desc": "Sets the time needed to respawn after death in the Team Deathmatch gametype",
       "setting.sv_scorelimit.name": "Score Limit",
@@ -1046,14 +1024,10 @@
       "setting.sv_timelimit.desc": "Sets the time limit for the game (in case of equal points there will be sudden death). 0 = disabled",
       "setting.sv_strict_spectate_mode.name": "Enable Strict Spectator Mode",
       "setting.sv_strict_spectate_mode.desc": "If set, information like health, ammo and armour will be restricted in spectator mode",
-      "setting.sv_strict_spectate_mode.value.False": "0",
-      "setting.sv_strict_spectate_mode.value.True": "1",
       "setting.sv_teambalance_time.name": "Team Auto Balance Delay",
       "setting.sv_teambalance_time.desc": "Sets how long to wait before autobalancing teams",
       "setting.sv_teamdamage.name": "Enable Team Damage",
       "setting.sv_teamdamage.desc": "If set, team damage will be enabled",
-      "setting.sv_teamdamage.value.False": "0",
-      "setting.sv_teamdamage.value.True": "1",
       "setting.sv_tournament_mode.name": "Tournament Mode",
       "setting.sv_tournament_mode.desc": "Sets the tournament mode. When enabled, players join the server as spectators",
       "setting.sv_tournament_mode.value.0": "Disabled",
@@ -1061,16 +1035,12 @@
       "setting.sv_tournament_mode.value.2": "Enabled with restricted spectator chat",
       "setting.sv_vote_kick.name": "Allow Vote Kick",
       "setting.sv_vote_kick.desc": "If set, voting to kick players will be allowed",
-      "setting.sv_vote_kick.value.False": "0",
-      "setting.sv_vote_kick.value.True": "1",
       "setting.sv_vote_kick_min.name": "Vote Kick Minimum Players",
       "setting.sv_vote_kick_min.desc": "Sets the minimum number of players required to start a kick vote",
       "setting.sv_vote_kick_bantime.name": "Vote Kick Ban Time",
       "setting.sv_vote_kick_bantime.desc": "Sets the time to ban a player if kicked by vote. 0 = just use kick",
       "setting.sv_vote_spectate.name": "Allow Spectator Move Voting",
       "setting.sv_vote_spectate.desc": "If set, voting to move players to spectators will be allowed",
-      "setting.sv_vote_spectate.value.False": "0",
-      "setting.sv_vote_spectate.value.True": "1",
       "setting.sv_vote_spectate_rejoindelay.name": "Spectator Move Rejoin Delay",
       "setting.sv_vote_spectate_rejoindelay.desc": "Sets how long to wait before a player can rejoin after being moved to spectator by vote",
       "setting.$MaxUsers.name": "Maximum Players",

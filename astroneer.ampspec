@@ -194,8 +194,8 @@
       "Keywords": "autosave,load,bLoadAutoSave",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.bLoadAutoSave.value.False",
-        "True": "setting.bLoadAutoSave.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -247,8 +247,8 @@
       "Keywords": "deny,unlisted,denyunlistedplayers",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DenyUnlistedPlayers.value.False",
-        "True": "setting.DenyUnlistedPlayers.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -365,8 +365,6 @@
       "setting.$MaxUsers.desc": "Sets the maximum number of users that may connect to the server at one time",
       "setting.bLoadAutoSave.name": "Load Latest Auto Save",
       "setting.bLoadAutoSave.desc": "If enabled, the server will load the most recent autosave on startup. Otherwise, the save specified under Active Save File Name will be loaded if it exists, or a new autosave will be created",
-      "setting.bLoadAutoSave.value.False": "False",
-      "setting.bLoadAutoSave.value.True": "True",
       "setting.ActiveSaveFileDescriptiveName.name": "Active Save File Name",
       "setting.ActiveSaveFileDescriptiveName.desc": "Sets the descriptive name of an existing save file to load, if Load Latest Auto Save is disabled",
       "setting.AutoSaveGameInterval.name": "Game Save Interval",
@@ -375,8 +373,6 @@
       "setting.BackupSaveGamesInterval.desc": "Sets the interval between automatic server backups",
       "setting.DenyUnlistedPlayers.name": "Enable Whitelist",
       "setting.DenyUnlistedPlayers.desc": "If set, unlisted players will not be able to connect",
-      "setting.DenyUnlistedPlayers.value.False": "False",
-      "setting.DenyUnlistedPlayers.value.True": "True",
       "setting.MaxServerFramerate.name": "Maximum Active Server Framerate",
       "setting.MaxServerFramerate.desc": "Sets the maximum framerate that the server will allow when active",
       "setting.MaxServerIdleFramerate.name": "Maximum Idle Server Framerate",

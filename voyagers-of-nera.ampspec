@@ -267,8 +267,8 @@
       "Keywords": "disable,equipment,durability,DisableEquipmentDurability",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.DisableEquipmentDurability.value.True",
-        "False": "setting.DisableEquipmentDurability.value.False"
+        "True": "True",
+        "False": "False"
       }
     },
     {
@@ -282,8 +282,8 @@
       "Keywords": "disable,drop,items,death,DisableDropItemsOnDeath",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.DisableDropItemsOnDeath.value.True",
-        "False": "setting.DisableDropItemsOnDeath.value.False"
+        "True": "True",
+        "False": "False"
       }
     },
     {
@@ -297,8 +297,8 @@
       "Keywords": "disable,encumbrance,disableencumbrance",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.DisableEncumbrance.value.True",
-        "False": "setting.DisableEncumbrance.value.False"
+        "True": "True",
+        "False": "False"
       }
     },
     {
@@ -312,8 +312,8 @@
       "Keywords": "disable,fog,war,disablefogofwar",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.DisableFogOfWar.value.True",
-        "False": "setting.DisableFogOfWar.value.False"
+        "True": "True",
+        "False": "False"
       }
     },
     {
@@ -327,8 +327,8 @@
       "Keywords": "disable,weather,disableweather",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.DisableWeather.value.True",
-        "False": "setting.DisableWeather.value.False"
+        "True": "True",
+        "False": "False"
       }
     },
     {
@@ -398,24 +398,14 @@
       "setting.PlayerDamageMultiplier.desc": "Sets the player attack damage multiplier",
       "setting.DisableEquipmentDurability.name": "Disable Equipment Durability",
       "setting.DisableEquipmentDurability.desc": "If set, equipment will never break or lose durability",
-      "setting.DisableEquipmentDurability.value.True": "True",
-      "setting.DisableEquipmentDurability.value.False": "False",
       "setting.DisableDropItemsOnDeath.name": "Disable Items Dropping On Death",
       "setting.DisableDropItemsOnDeath.desc": "If set, players will keep inventory items after death",
-      "setting.DisableDropItemsOnDeath.value.True": "True",
-      "setting.DisableDropItemsOnDeath.value.False": "False",
       "setting.DisableEncumbrance.name": "Disable Encumbrance",
       "setting.DisableEncumbrance.desc": "If set, players will not become encumbered",
-      "setting.DisableEncumbrance.value.True": "True",
-      "setting.DisableEncumbrance.value.False": "False",
       "setting.DisableFogOfWar.name": "Disable Fog Of War",
       "setting.DisableFogOfWar.desc": "If set, fog of war will be disabled",
-      "setting.DisableFogOfWar.value.True": "True",
-      "setting.DisableFogOfWar.value.False": "False",
       "setting.DisableWeather.name": "Disable Weather",
       "setting.DisableWeather.desc": "If set, weather will be disabled",
-      "setting.DisableWeather.value.True": "True",
-      "setting.DisableWeather.value.False": "False",
       "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",
       "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
       "category.updates": "Updates",

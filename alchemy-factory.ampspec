@@ -168,8 +168,8 @@
       "Keywords": "public,browser,list",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ServerPublic.value.False",
-        "True": "setting.ServerPublic.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -183,8 +183,8 @@
       "Keywords": "relay,steam,sdr,ports",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ServerRelay.value.False",
-        "True": "setting.ServerRelay.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -198,8 +198,8 @@
       "Keywords": "lan,local",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ServerLan.value.False",
-        "True": "setting.ServerLan.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -255,8 +255,8 @@
       "Keywords": "pause,empty,idle",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PauseWhenEmpty.value.False",
-        "True": "setting.PauseWhenEmpty.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -347,16 +347,10 @@
       "setting.AdminPassword.desc": "Sets the password used to become admin in-game with the chat command /admin \u003Cpassword\u003E. The server has no RCON or console, so admin actions are only available in-game. Default is no admin access",
       "setting.ServerPublic.name": "Public Server",
       "setting.ServerPublic.desc": "If enabled, lists the server in the public server browser",
-      "setting.ServerPublic.value.False": "0",
-      "setting.ServerPublic.value.True": "1",
       "setting.ServerRelay.name": "Steam Relay",
       "setting.ServerRelay.desc": "If enabled, routes traffic via the Steam Datagram Relay so the server can be hosted without a public IP address or inbound ports. If disabled, the Game Port and Query Port must be forwarded and players can also connect by IP:port. The join code and public server list work in both modes",
-      "setting.ServerRelay.value.False": "0",
-      "setting.ServerRelay.value.True": "1",
       "setting.ServerLan.name": "LAN Only",
       "setting.ServerLan.desc": "If enabled, the server is only reachable on the local network",
-      "setting.ServerLan.value.False": "0",
-      "setting.ServerLan.value.True": "1",
       "setting.$MaxUsers.name": "Max Users",
       "setting.$MaxUsers.desc": "Sets the maximum number of users that may connect to the server at one time",
       "setting.MaxAdmins.name": "Max Admins",
@@ -370,8 +364,6 @@
       "setting.AutosaveMode.value.3": "Never",
       "setting.PauseWhenEmpty.name": "Pause When Empty",
       "setting.PauseWhenEmpty.desc": "If enabled, pauses the game while no players are connected. The world is autosaved when the last player leaves",
-      "setting.PauseWhenEmpty.value.False": "0",
-      "setting.PauseWhenEmpty.value.True": "1",
       "setting.SessionRetrySeconds.name": "Session Retry Delay",
       "setting.SessionRetrySeconds.desc": "Sets how long to wait after a failed Steam session creation before retrying. Retries never stop",
       "setting.$GamePort.name": "Game Port",

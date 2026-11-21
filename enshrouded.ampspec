@@ -195,8 +195,8 @@
       "Keywords": "voice,chat,enable,enableVoiceChat",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.enableVoiceChat.value.False",
-        "True": "setting.enableVoiceChat.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -225,8 +225,8 @@
       "Keywords": "text,chat,enable,enableTextChat",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.enableTextChat.value.False",
-        "True": "setting.enableTextChat.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -336,8 +336,8 @@
       "Keywords": "durability,weapons,break,enableDurability",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.enableDurability.value.False",
-        "True": "setting.enableDurability.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -351,8 +351,8 @@
       "Keywords": "starving,starvation,hunger,enableStarvingDebuff",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.enableStarvingDebuff.value.False",
-        "True": "setting.enableStarvingDebuff.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -422,8 +422,8 @@
       "Keywords": "glider,turbulences,enable,enableGliderTurbulences",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.enableGliderTurbulences.value.False",
-        "True": "setting.enableGliderTurbulences.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -747,8 +747,8 @@
       "Keywords": "pacify,enemies,attack,pacifyAllEnemies",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.pacifyAllEnemies.value.False",
-        "True": "setting.pacifyAllEnemies.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -860,16 +860,12 @@
       "category.gameplay": "Gameplay",
       "setting.enableVoiceChat.name": "Enable Voice Chat",
       "setting.enableVoiceChat.desc": "If set, voice chat will be enabled",
-      "setting.enableVoiceChat.value.False": "false",
-      "setting.enableVoiceChat.value.True": "true",
       "setting.voiceChatMode.name": "Voice Chat Mode",
       "setting.voiceChatMode.desc": "Sets the mode for voice chat. Requires Voice Chat to be enabled",
       "setting.voiceChatMode.value.Proximity": "Proximity (default)",
       "setting.voiceChatMode.value.Global": "Global",
       "setting.enableTextChat.name": "Enable Text Chat",
       "setting.enableTextChat.desc": "If set, text chat will be enabled",
-      "setting.enableTextChat.value.False": "false",
-      "setting.enableTextChat.value.True": "true",
       "setting.gameSettingsPreset.name": "Game Settings Preset",
       "setting.gameSettingsPreset.desc": "Sets the difficulty setting for the game. If \u0022Custom\u0022 is selected, the following individual gameplay settings can be configured. Otherwise the preset determines the gameplay settings",
       "setting.gameSettingsPreset.value.Default": "Default (for first-time players)",
@@ -893,12 +889,8 @@
       "setting.playerDivingTimeFactor.desc": "Modifies the initial amount of oxygen for players and therefore the time available underwater. Minimum = 0.75",
       "setting.enableDurability.name": "Enable Weapon Durability",
       "setting.enableDurability.desc": "If set, weapons can be broken",
-      "setting.enableDurability.value.False": "false",
-      "setting.enableDurability.value.True": "true",
       "setting.enableStarvingDebuff.name": "Enable Hunger And Starvation",
       "setting.enableStarvingDebuff.desc": "If set, hunger and starvation will be enabled. During starvation, a player will lose health periodically until death if no food or drink is consumed",
-      "setting.enableStarvingDebuff.value.False": "false",
-      "setting.enableStarvingDebuff.value.True": "true",
       "setting.foodBuffDurationFactor.name": "Food Buff Duration Factor",
       "setting.foodBuffDurationFactor.desc": "Scales food buff durations by the set factor. Minimum = 0.5",
       "setting.fromHungerToStarving.name": "Hungry State Duration",
@@ -912,8 +904,6 @@
       "setting.tombstoneMode.value.NoTombstone": "Keep everything (no tombstone)",
       "setting.enableGliderTurbulences.name": "Air Turbulences Affect Glider",
       "setting.enableGliderTurbulences.desc": "If set, the glider will be affected by air turbulences",
-      "setting.enableGliderTurbulences.value.False": "false",
-      "setting.enableGliderTurbulences.value.True": "true",
       "setting.weatherFrequency.name": "Weather Frequency",
       "setting.weatherFrequency.desc": "Sets how often new weather phenomena appear in the game world",
       "setting.weatherFrequency.value.Disabled": "Disabled",
@@ -974,8 +964,6 @@
       "setting.threatBonus.desc": "Scales the frequency of enemy attacks. This excludes bosses. Minimum = 0.25",
       "setting.pacifyAllEnemies.name": "Pacify All Enemies",
       "setting.pacifyAllEnemies.desc": "If set, enemies won\u0027t attack players until they are attacked. This excludes bosses",
-      "setting.pacifyAllEnemies.value.False": "false",
-      "setting.pacifyAllEnemies.value.True": "true",
       "setting.tamingStartleRepercussion.name": "Taming Failure Repercussions",
       "setting.tamingStartleRepercussion.desc": "Sets how the game reacts when a player startles wildlife during taming. Progress is visualized by hearts in the game",
       "setting.tamingStartleRepercussion.value.KeepProgress": "Keep all progress",

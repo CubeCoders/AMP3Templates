@@ -294,8 +294,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.sv_vote_allow.value.False",
-        "True": "setting.sv_vote_allow.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -324,8 +324,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "False": "setting.cp_betterstartingweapons.value.False",
-        "True": "setting.cp_betterstartingweapons.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -464,14 +464,10 @@
       "setting.sv_alltalk.value.2": "On (mic icon shown above enemies)",
       "setting.sv_vote_allow.name": "Allow Voting",
       "setting.sv_vote_allow.desc": "Allow players to call votes (kick, map change, restart, difficulty change, etc.)",
-      "setting.sv_vote_allow.value.False": "0",
-      "setting.sv_vote_allow.value.True": "1",
       "setting.cx_max_zombies.name": "Max Zombies (Extraction Mode)",
       "setting.cx_max_zombies.desc": "Maximum number of zombies alive at once in Extraction mode",
       "setting.cp_betterstartingweapons.name": "Better Starting Weapons (Panic Mode)",
       "setting.cp_betterstartingweapons.desc": "Gives survivors better starting weapons in Panic mode if they keep failing to win rounds",
-      "setting.cp_betterstartingweapons.value.False": "0",
-      "setting.cp_betterstartingweapons.value.True": "1",
       "setting.$ApplicationIPBinding.name": "IP Binding",
       "setting.$ApplicationIPBinding.desc": "The network address the server binds its ports to. 0.0.0.0 binds every interface (recommended for most setups); set a specific address on multi-IP hosts.",
       "category.networking": "Networking",

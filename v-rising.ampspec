@@ -346,8 +346,8 @@
       "Keywords": "loot, enemy, containers",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.CanLootEnemyContainers.value.False",
-        "True": "setting.CanLootEnemyContainers.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -361,8 +361,8 @@
       "Keywords": "blood, bound, equipment",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.BloodBoundEquipment.value.False",
-        "True": "setting.BloodBoundEquipment.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -376,8 +376,8 @@
       "Keywords": "teleport, bound, items",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.TeleportBoundItems.value.False",
-        "True": "setting.TeleportBoundItems.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -391,8 +391,8 @@
       "Keywords": "bat, bound, items",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.BatBoundItems.value.False",
-        "True": "setting.BatBoundItems.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -406,8 +406,8 @@
       "Keywords": "allow, global, chat",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowGlobalChat.value.False",
-        "True": "setting.AllowGlobalChat.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -421,8 +421,8 @@
       "Keywords": "waypoints",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllWaypointsUnlocked.value.False",
-        "True": "setting.AllWaypointsUnlocked.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -436,8 +436,8 @@
       "Keywords": "castle, claim",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.FreeCastleClaim.value.False",
-        "True": "setting.FreeCastleClaim.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -451,8 +451,8 @@
       "Keywords": "castle, destroy",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.FreeCastleDestroy.value.False",
-        "True": "setting.FreeCastleDestroy.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -466,8 +466,8 @@
       "Keywords": "castle, relocation",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.CastleRelocationEnabled.value.False",
-        "True": "setting.CastleRelocationEnabled.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -481,8 +481,8 @@
       "Keywords": "inactivity, kill",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.InactivityKillEnabled.value.False",
-        "True": "setting.InactivityKillEnabled.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -509,8 +509,8 @@
       "Keywords": "disconnected,dead,sun,damage",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableDisconnectedDeadEnabled.value.False",
-        "True": "setting.DisableDisconnectedDeadEnabled.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -831,8 +831,8 @@
       "Keywords": "announce, siege, weapons, spawn, golem",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AnnounceSiegeWeaponSpawn.value.False",
-        "True": "setting.AnnounceSiegeWeaponSpawn.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -846,8 +846,8 @@
       "Keywords": "siege, weapon, map",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ShowSiegeWeaponMapIcon.value.False",
-        "True": "setting.ShowSiegeWeaponMapIcon.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -2055,8 +2055,8 @@
       "Keywords": "lan,mode,lanMode",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.lanMode.value.False",
-        "True": "setting.lanMode.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -2108,8 +2108,8 @@
       "InputType": "checkbox",
       "IncludeInCommandLine": true,
       "EnumValues": {
-        "True": "setting.LowerFPSWhenEmpty.value.True",
-        "False": "setting.LowerFPSWhenEmpty.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -2169,8 +2169,8 @@
       "Keywords": "server, secure",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.Secure.value.True",
-        "False": "setting.Secure.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -2184,8 +2184,8 @@
       "Keywords": "list,steam,server,list",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.ListOnSteam.value.True",
-        "False": "setting.ListOnSteam.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -2199,8 +2199,8 @@
       "Keywords": "list,EOS,game,server,list",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.ListOnEOS.value.True",
-        "False": "setting.ListOnEOS.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -2298,8 +2298,8 @@
       "Keywords": "admin, debug, events",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.AdminOnlyDebugEvents.value.True",
-        "False": "setting.AdminOnlyDebugEvents.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -2313,8 +2313,8 @@
       "Keywords": "disable, debug, events",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.DisableDebugEvents.value.True",
-        "False": "setting.DisableDebugEvents.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -2328,8 +2328,8 @@
       "Keywords": "API,enabled",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.API.Enabled.value.True",
-        "False": "setting.API.Enabled.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -2362,8 +2362,8 @@
       "Keywords": "install,enable,bepinex,modded,mods",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.BepInExEnabled.value.False",
-        "True": "setting.BepInExEnabled.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -2491,50 +2491,28 @@
       "setting.RelicSpawnType.value.Plentiful": "Plentiful",
       "setting.CanLootEnemyContainers.name": "Can Loot Enemy Containers",
       "setting.CanLootEnemyContainers.desc": "If players may loot enemy stashes, containers, and crafting stations",
-      "setting.CanLootEnemyContainers.value.False": "False",
-      "setting.CanLootEnemyContainers.value.True": "True",
       "setting.BloodBoundEquipment.name": "Blood Bound Equipment",
       "setting.BloodBoundEquipment.desc": "When enabled, most equipment will not be dropped upon death",
-      "setting.BloodBoundEquipment.value.False": "False",
-      "setting.BloodBoundEquipment.value.True": "True",
       "setting.TeleportBoundItems.name": "Teleport Bound Items",
       "setting.TeleportBoundItems.desc": "When enabled, some items will prevent you from using waygates",
-      "setting.TeleportBoundItems.value.False": "False",
-      "setting.TeleportBoundItems.value.True": "True",
       "setting.BatBoundItems.name": "Bat Bound Items",
       "setting.BatBoundItems.desc": "When enabled, some items will prevent you from transforming into a bat",
-      "setting.BatBoundItems.value.False": "False",
-      "setting.BatBoundItems.value.True": "True",
       "setting.AllowGlobalChat.name": "Allow Global Chat",
       "setting.AllowGlobalChat.desc": "Allow players to write messages that all players on the server can read",
-      "setting.AllowGlobalChat.value.False": "False",
-      "setting.AllowGlobalChat.value.True": "True",
       "setting.AllWaypointsUnlocked.name": "All Waypoints Unlocked",
       "setting.AllWaypointsUnlocked.desc": "Determines whether all waygates are active or inactive when in a new world",
-      "setting.AllWaypointsUnlocked.value.False": "False",
-      "setting.AllWaypointsUnlocked.value.True": "True",
       "setting.FreeCastleClaim.name": "Free Castle Claim",
       "setting.FreeCastleClaim.desc": "Seizing an enemy player castle heart requires no materials",
-      "setting.FreeCastleClaim.value.False": "False",
-      "setting.FreeCastleClaim.value.True": "True",
       "setting.FreeCastleDestroy.name": "Free Castle Destroy",
       "setting.FreeCastleDestroy.desc": "Destroying an enemy player castle heart requires no materials",
-      "setting.FreeCastleDestroy.value.False": "False",
-      "setting.FreeCastleDestroy.value.True": "True",
       "setting.CastleRelocationEnabled.name": "Castle Relocation",
       "setting.CastleRelocationEnabled.desc": "Players should be able to relocate their castle",
-      "setting.CastleRelocationEnabled.value.False": "False",
-      "setting.CastleRelocationEnabled.value.True": "True",
       "setting.InactivityKillEnabled.name": "Inactivity Kill Enabled",
       "setting.InactivityKillEnabled.desc": "Inactive players are automatically killed after a set duration",
-      "setting.InactivityKillEnabled.value.False": "False",
-      "setting.InactivityKillEnabled.value.True": "True",
       "setting.InactivityKillTimeMin.name": "Inactivity Kill Time Min",
       "setting.InactivityKillTimeMin.desc": "Minimum timer before inactive player is killed in seconds based on gear level",
       "setting.DisableDisconnectedDeadEnabled.name": "Disable Sun Damage For Disconnected Players",
       "setting.DisableDisconnectedDeadEnabled.desc": "If set, disconnected players will be immune to sun damage",
-      "setting.DisableDisconnectedDeadEnabled.value.False": "False",
-      "setting.DisableDisconnectedDeadEnabled.value.True": "True",
       "setting.DisableDisconnectedDeadTimer.name": "Disable Disconnected Dead Timer",
       "setting.DisableDisconnectedDeadTimer.desc": "The time for a disconnected dead player to become disabled",
       "setting.InventoryStacksModifier.name": "Inventory Stacks Modifier",
@@ -2581,12 +2559,8 @@
       "setting.CastleRaidProtectionTime.desc": "Defines how long a castle is protected from another Raid after being raided",
       "setting.AnnounceSiegeWeaponSpawn.name": "Announce Siege Weapon Spawn",
       "setting.AnnounceSiegeWeaponSpawn.desc": "Shows a system message in the chat when a Siege Golem is being summoned",
-      "setting.AnnounceSiegeWeaponSpawn.value.False": "False",
-      "setting.AnnounceSiegeWeaponSpawn.value.True": "True",
       "setting.ShowSiegeWeaponMapIcon.name": "Show Siege Weapon Map Icon",
       "setting.ShowSiegeWeaponMapIcon.desc": "Show Siege Golems on the big map",
-      "setting.ShowSiegeWeaponMapIcon.value.False": "False",
-      "setting.ShowSiegeWeaponMapIcon.value.True": "True",
       "setting.BuildCostModifier.name": "Build Cost Modifier",
       "setting.BuildCostModifier.desc": "Multiplies the amount of materials required to build structures",
       "setting.RecipeCostModifier.name": "Recipe Cost Modifier",
@@ -2785,8 +2759,6 @@
       "setting.RconEnabled.desc": "RCON Enabled to allow Console input",
       "setting.lanMode.name": "LAN Mode",
       "setting.lanMode.desc": "Use this setting for a server without internet connectivity. The LAN Mode check box must also be checked in-game when connecting.",
-      "setting.lanMode.value.False": "false",
-      "setting.lanMode.value.True": "true",
       "setting.$MaxUsers.name": "Max Connected Users",
       "setting.$MaxUsers.desc": "Max number of concurrent users on server",
       "setting.MaxConnectedAdmins.name": "Max Connected Admins",
@@ -2795,8 +2767,6 @@
       "setting.ServerFps.desc": "Target FPS for server.",
       "setting.LowerFPSWhenEmpty.name": "Lower Server FPS When Empty",
       "setting.LowerFPSWhenEmpty.desc": "Run the server at a lower framerate target when no players are logged in. Requires v1.0 or higher.",
-      "setting.LowerFPSWhenEmpty.value.True": "true",
-      "setting.LowerFPSWhenEmpty.value.False": "false",
       "setting.LowerFPSWhenEmptyValue.name": "Target Server FPS When Empty",
       "setting.LowerFPSWhenEmptyValue.desc": "Set the framerate target for when Lower FPS When Empty is active. Requires v1.0 or higher.",
       "setting.SaveName.name": "Save Name",
@@ -2807,16 +2777,10 @@
       "setting.$RemoteAdminPassword.desc": "See the Security and Privacy menu for configurable options for the server\u0027s RCON",
       "setting.Secure.name": "VAC Secure",
       "setting.Secure.desc": "Choose if you want your server to use VAC or not.",
-      "setting.Secure.value.True": "true",
-      "setting.Secure.value.False": "false",
       "setting.ListOnSteam.name": "List on Steam",
       "setting.ListOnSteam.desc": "Set to true to list on Steam\u0027s server list",
-      "setting.ListOnSteam.value.True": "true",
-      "setting.ListOnSteam.value.False": "false",
       "setting.ListOnEOS.name": "List on EOS",
       "setting.ListOnEOS.desc": "Set to true to list on the in-game server list",
-      "setting.ListOnEOS.value.True": "true",
-      "setting.ListOnEOS.value.False": "false",
       "setting.AutoSaveCount.name": "Auto Save Count",
       "setting.AutoSaveCount.desc": "Number of autosaves to keep",
       "setting.AutoSaveInterval.name": "Auto Save Interval",
@@ -2861,16 +2825,10 @@
       "setting.GameDifficultyPreset.value._": "Custom",
       "setting.AdminOnlyDebugEvents.name": "Admin Only Debug Events",
       "setting.AdminOnlyDebugEvents.desc": "Show debug events only to admins",
-      "setting.AdminOnlyDebugEvents.value.True": "true",
-      "setting.AdminOnlyDebugEvents.value.False": "false",
       "setting.DisableDebugEvents.name": "Disable Debug Events",
       "setting.DisableDebugEvents.desc": "Disable Debug Events from appearing at all",
-      "setting.DisableDebugEvents.value.True": "true",
-      "setting.DisableDebugEvents.value.False": "false",
       "setting.API.Enabled.name": "Enable API",
       "setting.API.Enabled.desc": "Enables API access (Undocumented feature)",
-      "setting.API.Enabled.value.True": "true",
-      "setting.API.Enabled.value.False": "false",
       "setting.ReleaseStream.name": "Server Release Stream",
       "setting.ReleaseStream.desc": "Sets the server release stream to install. Note: Update the server after changing this setting",
       "category.updates": "Updates",
@@ -2884,8 +2842,6 @@
       "setting.BepInExEnabled.name": "Activate BepInEx",
       "setting.BepInExEnabled.desc": "If set, BepInEx will be installed when the server is updated and enabled when the server is run, allowing the server to be modded. Configure \u0022BepInEx Version\u0022 accordingly. Mods must be installed in the BepInEx/plugins directory, which is created after BepInEx is first run. Requires Wine 8 staging build on Linux (and Xvfb and cabextract)",
       "category.runtime-configuration": "Runtime Configuration",
-      "setting.BepInExEnabled.value.False": "false",
-      "setting.BepInExEnabled.value.True": "true",
       "setting.BepInExVersion.name": "BepInEx Version",
       "setting.BepInExVersion.desc": "Sets the [BepInEx version](https://thunderstore.io/c/v-rising/p/BepInEx/BepInExPack_V_Rising/versions/) to install. Empty = latest. NOTE: Update the server after switching versions!",
       "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",

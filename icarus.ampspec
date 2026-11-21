@@ -424,8 +424,8 @@
       "Keywords": "hardcore",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.Hardcore.value.False",
-        "True": "setting.Hardcore.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -467,8 +467,8 @@
       "Keywords": "non,admins,create,prospects,allownonadminstolaunchprospects",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowNonAdminsToLaunchProspects.value.False",
-        "True": "setting.AllowNonAdminsToLaunchProspects.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -482,8 +482,8 @@
       "Keywords": "non,admins,delete,prospects,allownonadminstodeleteprospects",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowNonAdminsToDeleteProspects.value.False",
-        "True": "setting.AllowNonAdminsToDeleteProspects.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -511,8 +511,8 @@
       "Keywords": "fiber,foliage,respawn,FiberFoliageRespawn",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.FiberFoliageRespawn.value.False",
-        "True": "setting.FiberFoliageRespawn.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -526,8 +526,8 @@
       "Keywords": "large,stones,respawn,LargeStonesRespawn",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.LargeStonesRespawn.value.False",
-        "True": "setting.LargeStonesRespawn.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -555,8 +555,8 @@
       "Keywords": "save,game,exit,SaveGameOnExit",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.SaveGameOnExit.value.False",
-        "True": "setting.SaveGameOnExit.value.True"
+        "False": "False",
+        "True": "True"
       }
     },
     {
@@ -782,36 +782,24 @@
       "setting.Difficulty.value.4": "Extreme",
       "setting.Hardcore.name": "Enable Hardcore",
       "setting.Hardcore.desc": "If set, hardcore mode will be enabled when creating a prospect (respawns will be disabled)",
-      "setting.Hardcore.value.False": "False",
-      "setting.Hardcore.value.True": "True",
       "setting.ShutdownIfNotJoinedFor.name": "No Join Shutdown Interval",
       "setting.ShutdownIfNotJoinedFor.desc": "Sets the period after which the server will exit a prospect and return to the lobby, if no player has joined. -1 = run indefinitely, 0 = return to lobby immediately, \u003E0 = interval for shutdown. Note that data loss/corruption may occur if the server is shut down in AMP before returning to the lobby",
       "setting.ShutdownIfEmptyFor.name": "Empty Shutdown Interval",
       "setting.ShutdownIfEmptyFor.desc": "Sets the period after which the server will exit a prospect and return to the lobby, if the server becomes empty. -1 = run indefinitely, 0 = return to lobby immediately, \u003E0 = interval for shutdown. Note that data loss/corruption may occur if the server is shut down in AMP before returning to the lobby",
       "setting.AllowNonAdminsToLaunchProspects.name": "Allow Non-Admins To Load Prospects",
       "setting.AllowNonAdminsToLaunchProspects.desc": "If set, anyone who joins the lobby can create a new prospect or load an existing one. Otherwise, only admins can",
-      "setting.AllowNonAdminsToLaunchProspects.value.False": "False",
-      "setting.AllowNonAdminsToLaunchProspects.value.True": "True",
       "setting.AllowNonAdminsToDeleteProspects.name": "Allow Non-Admins To Delete Prospects",
       "setting.AllowNonAdminsToDeleteProspects.desc": "If set, anyone who joins the lobby can delete existing prospects from the server. Otherwise, only admins can",
-      "setting.AllowNonAdminsToDeleteProspects.value.False": "False",
-      "setting.AllowNonAdminsToDeleteProspects.value.True": "True",
       "setting.AsyncTaskTimeout.name": "Async Task Timeout",
       "setting.AsyncTaskTimeout.desc": "Sets the \u0022AsyncTaskTimeout\u0022 parameter for Engine.ini. This can be helpful for resolving connection issues (Linux only)",
       "setting.FiberFoliageRespawn.name": "Enable Fiber Foliage Respawn",
       "setting.FiberFoliageRespawn.desc": "If set, respawn of fiber foliage will be enabled",
-      "setting.FiberFoliageRespawn.value.False": "False",
-      "setting.FiberFoliageRespawn.value.True": "True",
       "setting.LargeStonesRespawn.name": "Enable Large Stones Respawn",
       "setting.LargeStonesRespawn.desc": "If set, respawn of large stones will be enabled",
-      "setting.LargeStonesRespawn.value.False": "False",
-      "setting.LargeStonesRespawn.value.True": "True",
       "setting.GameSaveFrequency.name": "Autosave Interval",
       "setting.GameSaveFrequency.desc": "Sets the time interval between automatic game saves",
       "setting.SaveGameOnExit.name": "Save Game On Exit",
       "setting.SaveGameOnExit.desc": "If set, the server will be saved when the server is stopped",
-      "setting.SaveGameOnExit.value.False": "False",
-      "setting.SaveGameOnExit.value.True": "True",
       "setting.ServerBranch.name": "Server Branch",
       "setting.ServerBranch.desc": "Sets the server branch to install. The client must be on the same version. Set any required password under \u0022Beta Password\u0022. NOTE: Update the server after switching branches!",
       "category.updates": "Updates",

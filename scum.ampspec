@@ -207,7 +207,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.nobattleye.value.True"
+        "True": "-nobattleye "
       }
     },
     {
@@ -271,7 +271,6 @@
       "setting.ServerSettingsAdminUsers.desc": "List of [Steam64 IDs](https://steamid.io/) for users who will be allowed to change server settings in-game",
       "setting.nobattleye.name": "Disable BattlEye",
       "setting.nobattleye.desc": "If set, BattlEye anti-cheat will be disabled on the server",
-      "setting.nobattleye.value.True": "-nobattleye ",
       "setting.CustomArgs.name": "Additional Command Line Arguments",
       "setting.CustomArgs.desc": "Specifies additional command line arguments (anything that begins with a - ) that are not otherwise set by AMP. Use with care",
       "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",

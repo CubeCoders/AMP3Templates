@@ -157,8 +157,8 @@
       "Keywords": "public,steam",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.Public.value.True",
-        "False": "setting.Public.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -208,8 +208,8 @@
       "Keywords": "admins,hide,playerlist,HideAdminsInPlayerList",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.HideAdminsInPlayerList.value.False",
-        "True": "setting.HideAdminsInPlayerList.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -260,8 +260,8 @@
       "Keywords": "whitelist,open",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.Open.value.True",
-        "False": "setting.Open.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -275,8 +275,8 @@
       "Keywords": "whitelist,add,automatic,AutoCreateUserInWhiteList",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.AutoCreateUserInWhiteList.value.True",
-        "False": "setting.AutoCreateUserInWhiteList.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -290,8 +290,8 @@
       "Keywords": "whitelist,drop,death,DropOffWhiteListAfterDeath",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DropOffWhiteListAfterDeath.value.False",
-        "True": "setting.DropOffWhiteListAfterDeath.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -305,8 +305,8 @@
       "Keywords": "lua,checksum,kick,DoLuaChecksum",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DoLuaChecksum.value.False",
-        "True": "setting.DoLuaChecksum.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -320,8 +320,8 @@
       "Keywords": "login,deny,denial,overload,DenyLoginOnOverloadedServer",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DenyLoginOnOverloadedServer.value.False",
-        "True": "setting.DenyLoginOnOverloadedServer.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -335,8 +335,8 @@
       "Keywords": "login,queue,LoginQueueEnabled",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.LoginQueueEnabled.value.False",
-        "True": "setting.LoginQueueEnabled.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -393,8 +393,8 @@
       "Keywords": "VAC,cheat,SteamVAC",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.SteamVAC.value.True",
-        "False": "setting.SteamVAC.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -408,8 +408,8 @@
       "Keywords": "steam,integration,SteamInt",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.SteamInt.value.True",
-        "False": "setting.SteamInt.value.False"
+        "True": "1",
+        "False": "0"
       }
     },
     {
@@ -467,8 +467,8 @@
       "Keywords": "display,name,DisplayUserName",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.DisplayUserName.value.True",
-        "False": "setting.DisplayUserName.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -482,8 +482,8 @@
       "Keywords": "display,character,name,ShowFirstAndLastName",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.ShowFirstAndLastName.value.True",
-        "False": "setting.ShowFirstAndLastName.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -497,8 +497,8 @@
       "Keywords": "mouse,over,display,name,MouseOverToSeeDisplayName",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.MouseOverToSeeDisplayName.value.False",
-        "True": "setting.MouseOverToSeeDisplayName.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -512,8 +512,8 @@
       "Keywords": "non,ascii,username,AllowNonAsciiUsername",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowNonAsciiUsername.value.False",
-        "True": "setting.AllowNonAsciiUsername.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -527,8 +527,8 @@
       "Keywords": "username,disguise,UsernameDisguises",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.UsernameDisguises.value.False",
-        "True": "setting.UsernameDisguises.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -542,8 +542,8 @@
       "Keywords": "username,hide,disguise,HideDisguisedUserName",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.HideDisguisedUserName.value.False",
-        "True": "setting.HideDisguisedUserName.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -557,8 +557,8 @@
       "Keywords": "zombies,ownership,switch,SwitchZombiesOwnershipEachUpdate",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.SwitchZombiesOwnershipEachUpdate.value.False",
-        "True": "setting.SwitchZombiesOwnershipEachUpdate.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -586,8 +586,8 @@
       "Keywords": "co-op,splitscreen,AllowCoop",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.AllowCoop.value.False",
-        "True": "setting.AllowCoop.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -617,8 +617,8 @@
       "Keywords": "scoreboard,disable,DisableScoreboard",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableScoreboard.value.False",
-        "True": "setting.DisableScoreboard.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -632,8 +632,8 @@
       "Keywords": "pause,empty,PauseEmpty",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.PauseEmpty.value.True",
-        "False": "setting.PauseEmpty.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -692,8 +692,8 @@
       "Keywords": "backups,start,BackupsOnStart",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.BackupsOnStart.value.False",
-        "True": "setting.BackupsOnStart.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -707,8 +707,8 @@
       "Keywords": "backups,version,change,BackupsOnVersionChange",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.BackupsOnVersionChange.value.False",
-        "True": "setting.BackupsOnVersionChange.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -772,8 +772,8 @@
       "Keywords": "perk,logs,PerkLogs",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PerkLogs.value.False",
-        "True": "setting.PerkLogs.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -787,8 +787,8 @@
       "Keywords": "upnp",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.UPnP.value.True",
-        "False": "setting.UPnP.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -905,8 +905,8 @@
       "Keywords": "respawn,death,PlayerRespawnWithSelf",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PlayerRespawnWithSelf.value.False",
-        "True": "setting.PlayerRespawnWithSelf.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -920,8 +920,8 @@
       "Keywords": "respawn,split,screen,remote,play,location,PlayerRespawnWithOther",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PlayerRespawnWithOther.value.False",
-        "True": "setting.PlayerRespawnWithOther.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -935,8 +935,8 @@
       "Keywords": "pvp",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.PVP.value.True",
-        "False": "setting.PVP.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -950,8 +950,8 @@
       "Keywords": "pvp,log,admin,chat,PVPLogToolChat",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PVPLogToolChat.value.False",
-        "True": "setting.PVPLogToolChat.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -965,8 +965,8 @@
       "Keywords": "pvp,log,file,PVPLogToolFile",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PVPLogToolFile.value.False",
-        "True": "setting.PVPLogToolFile.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -980,8 +980,8 @@
       "Keywords": "safety,system,pvp,SafetySystem",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.SafetySystem.value.True",
-        "False": "setting.SafetySystem.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -995,8 +995,8 @@
       "Keywords": "pvp,status,safety,system,ShowSafety",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.ShowSafety.value.True",
-        "False": "setting.ShowSafety.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1055,8 +1055,8 @@
       "Keywords": "pvp,melee,hit,reaction,PVPMeleeWhileHitReaction",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PVPMeleeWhileHitReaction.value.False",
-        "True": "setting.PVPMeleeWhileHitReaction.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1098,8 +1098,8 @@
       "Keywords": "factions",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.Faction.value.True",
-        "False": "setting.Faction.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1173,8 +1173,8 @@
       "Keywords": "fire,NoFire",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.NoFire.value.True",
-        "False": "setting.NoFire.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1188,8 +1188,8 @@
       "Keywords": "announce,death,AnnounceDeath",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.AnnounceDeath.value.True",
-        "False": "setting.AnnounceDeath.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1263,8 +1263,8 @@
       "Keywords": "loot,respawn,construction,ConstructionPreventsLootRespawn",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.ConstructionPreventsLootRespawn.value.True",
-        "False": "setting.ConstructionPreventsLootRespawn.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1278,8 +1278,8 @@
       "Keywords": "loot,respawn,safehouse,SafehousePreventsLootRespawn",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.SafehousePreventsLootRespawn.value.True",
-        "False": "setting.SafehousePreventsLootRespawn.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1293,8 +1293,8 @@
       "Keywords": "safehouse,PlayerSafehouse",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.PlayerSafehouse.value.True",
-        "False": "setting.PlayerSafehouse.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1308,8 +1308,8 @@
       "Keywords": "safehouse,AdminSafehouse",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.AdminSafehouse.value.True",
-        "False": "setting.AdminSafehouse.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1323,8 +1323,8 @@
       "Keywords": "safehouse,disable,connected,DisableSafehouseWhenPlayerConnected",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableSafehouseWhenPlayerConnected.value.False",
-        "True": "setting.DisableSafehouseWhenPlayerConnected.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1338,8 +1338,8 @@
       "Keywords": "safehouse,disable,connected,owner,DisableSafehouseWhenOwnerConnected",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableSafehouseWhenOwnerConnected.value.False",
-        "True": "setting.DisableSafehouseWhenOwnerConnected.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1353,8 +1353,8 @@
       "Keywords": "safehouse,trespass,SafehouseAllowTrepass",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.SafehouseAllowTrepass.value.True",
-        "False": "setting.SafehouseAllowTrepass.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1378,8 +1378,8 @@
       "Keywords": "safehouse,fire,SafehouseAllowFire",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.SafehouseAllowFire.value.True",
-        "False": "setting.SafehouseAllowFire.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1393,8 +1393,8 @@
       "Keywords": "safehouse,loot,SafehouseAllowLoot",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.SafehouseAllowLoot.value.True",
-        "False": "setting.SafehouseAllowLoot.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1408,8 +1408,8 @@
       "Keywords": "safehouse,respawn,SafehouseAllowRespawn",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.SafehouseAllowRespawn.value.True",
-        "False": "setting.SafehouseAllowRespawn.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1453,8 +1453,8 @@
       "Keywords": "safehouse,non-residential,SafehouseAllowNonResidential",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.SafehouseAllowNonResidential.value.False",
-        "True": "setting.SafehouseAllowNonResidential.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1468,8 +1468,8 @@
       "Keywords": "safehouse,disguise,disable,SafehouseDisableDisguises",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.SafehouseDisableDisguises.value.False",
-        "True": "setting.SafehouseDisableDisguises.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1498,8 +1498,8 @@
       "Keywords": "sledgehammer,destruction,AllowDestructionBySledgehammer",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.AllowDestructionBySledgehammer.value.True",
-        "False": "setting.AllowDestructionBySledgehammer.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1513,8 +1513,8 @@
       "Keywords": "sledgehammer,destruction,SledgehammerOnlyInSafehouse",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.SledgehammerOnlyInSafehouse.value.True",
-        "False": "setting.SledgehammerOnlyInSafehouse.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1573,8 +1573,8 @@
       "Keywords": "kick,fast,players,KickFastPlayers",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.KickFastPlayers.value.False",
-        "True": "setting.KickFastPlayers.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1602,8 +1602,8 @@
       "Keywords": "sleep,SleepAllowed",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.SleepAllowed.value.True",
-        "False": "setting.SleepAllowed.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1617,8 +1617,8 @@
       "Keywords": "sleep,SleepNeeded",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.SleepNeeded.value.True",
-        "False": "setting.SleepNeeded.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1646,8 +1646,8 @@
       "Keywords": "knocked,down,KnockedDownAllowed",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.KnockedDownAllowed.value.False",
-        "True": "setting.KnockedDownAllowed.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1661,8 +1661,8 @@
       "Keywords": "player,bump,PlayerBumpPlayer",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.PlayerBumpPlayer.value.False",
-        "True": "setting.PlayerBumpPlayer.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1676,8 +1676,8 @@
       "Keywords": "hide,players,HidePlayersBehindYou",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.HidePlayersBehindYou.value.False",
-        "True": "setting.HidePlayersBehindYou.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1691,8 +1691,8 @@
       "Keywords": "sneak,mode,hide,hidden,SneakModeHideFromOtherPlayers",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.SneakModeHideFromOtherPlayers.value.False",
-        "True": "setting.SneakModeHideFromOtherPlayers.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1706,8 +1706,8 @@
       "Keywords": "ultra,speed,animals,UltraSpeedDoesnotAffectToAnimals",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.UltraSpeedDoesnotAffectToAnimals.value.False",
-        "True": "setting.UltraSpeedDoesnotAffectToAnimals.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1721,8 +1721,8 @@
       "Keywords": "player,corpses,corpse,removal,RemovePlayerCorpsesOnCorpseRemoval",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.RemovePlayerCorpsesOnCorpseRemoval.value.False",
-        "True": "setting.RemovePlayerCorpsesOnCorpseRemoval.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1751,8 +1751,8 @@
       "Keywords": "ban,kick,message,globalsound,BanKickGlobalSound",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.BanKickGlobalSound.value.False",
-        "True": "setting.BanKickGlobalSound.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1766,8 +1766,8 @@
       "Keywords": "trash,delete,all,TrashDeleteAll",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.TrashDeleteAll.value.False",
-        "True": "setting.TrashDeleteAll.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1812,8 +1812,8 @@
       "Keywords": "towing,vehicle,DisableVehicleTowing",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableVehicleTowing.value.False",
-        "True": "setting.DisableVehicleTowing.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1827,8 +1827,8 @@
       "Keywords": "towing,trailer,DisableTrailerTowing",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableTrailerTowing.value.False",
-        "True": "setting.DisableTrailerTowing.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1842,8 +1842,8 @@
       "Keywords": "towing,burnt,DisableBurntTowing",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableBurntTowing.value.False",
-        "True": "setting.DisableBurntTowing.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1857,8 +1857,8 @@
       "Keywords": "physics,hit,reaction,UsePhysicsHitReaction",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.UsePhysicsHitReaction.value.False",
-        "True": "setting.UsePhysicsHitReaction.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1872,8 +1872,8 @@
       "Keywords": "chat,global,GlobalChat",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.GlobalChat.value.True",
-        "False": "setting.GlobalChat.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -1929,8 +1929,8 @@
       "Keywords": "voice,enable,VoiceEnable",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.VoiceEnable.value.False",
-        "True": "setting.VoiceEnable.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1972,8 +1972,8 @@
       "Keywords": "voice,3D,Voice3D",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.Voice3D.value.False",
-        "True": "setting.Voice3D.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1987,8 +1987,8 @@
       "Keywords": "radio,staff,DisableRadioStaff",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableRadioStaff.value.False",
-        "True": "setting.DisableRadioStaff.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -2002,8 +2002,8 @@
       "Keywords": "radio,admin,DisableRadioAdmin",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableRadioAdmin.value.False",
-        "True": "setting.DisableRadioAdmin.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -2017,8 +2017,8 @@
       "Keywords": "radio,gm,DisableRadioGM",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableRadioGM.value.False",
-        "True": "setting.DisableRadioGM.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -2032,8 +2032,8 @@
       "Keywords": "radio,overseer,DisableRadioOverseer",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableRadioOverseer.value.False",
-        "True": "setting.DisableRadioOverseer.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -2047,8 +2047,8 @@
       "Keywords": "radio,moderator,DisableRadioModerator",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableRadioModerator.value.False",
-        "True": "setting.DisableRadioModerator.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -2062,8 +2062,8 @@
       "Keywords": "radio,invisible,DisableRadioInvisible",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.DisableRadioInvisible.value.False",
-        "True": "setting.DisableRadioInvisible.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -2128,8 +2128,8 @@
       "Keywords": "discord,DiscordEnable",
       "InputType": "checkbox",
       "EnumValues": {
-        "True": "setting.DiscordEnable.value.True",
-        "False": "setting.DiscordEnable.value.False"
+        "True": "true",
+        "False": "false"
       }
     },
     {
@@ -2198,8 +2198,8 @@
       "Keywords": "enable,beta",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.EnableBeta.value.False",
-        "True": "setting.EnableBeta.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -2253,8 +2253,6 @@
       "setting.PublicName.desc": "Sets the server name as shown in the in-game browser and, if applicable, the Steam browser",
       "setting.Public.name": "Make Server Public",
       "setting.Public.desc": "If enabled, the server will be visible in the in-game browser (Steam-enabled servers are always visible in the Steam server browser)",
-      "setting.Public.value.True": "true",
-      "setting.Public.value.False": "false",
       "setting.PublicDescription.name": "Server Public Description",
       "setting.PublicDescription.desc": "Sets the description displayed in the in-game browser. Use \u0022\\n\u0022 to create a new line in the description",
       "setting.Password.name": "Server Password",
@@ -2263,8 +2261,6 @@
       "setting.adminpassword.desc": "Sets the in-game \u0022admin\u0022 user password (not the server password). Set before first running the server, or you will be prompted to do so in the console",
       "setting.HideAdminsInPlayerList.name": "Hide Admins In Player List",
       "setting.HideAdminsInPlayerList.desc": "If enabled, admins will be hidden in the player list. Requires b42",
-      "setting.HideAdminsInPlayerList.value.False": "false",
-      "setting.HideAdminsInPlayerList.value.True": "true",
       "setting.RCONPassword.name": "RCON Password",
       "setting.RCONPassword.desc": "Sets the password to connect to RCON. Default is a random, strong password",
       "setting.ServerWelcomeMessage.name": "Welcome Message",
@@ -2273,28 +2269,16 @@
       "setting.$MaxUsers.desc": "Sets the maximum number of users that may be on the server at one time (excluding admins). User counts above 32 will potentially result in poor map streaming and desync",
       "setting.Open.name": "Enable Open Server",
       "setting.Open.desc": "If enabled, players may join the server without already being included in the whitelist. Otherwise, admins must manually create username/password combinations",
-      "setting.Open.value.True": "true",
-      "setting.Open.value.False": "false",
       "setting.AutoCreateUserInWhiteList.name": "Automatically Whitelist Players",
       "setting.AutoCreateUserInWhiteList.desc": "Automatically add unknown usernames to the whitelist when players join (for open servers). Players will supply their own username/password on joining",
-      "setting.AutoCreateUserInWhiteList.value.True": "true",
-      "setting.AutoCreateUserInWhiteList.value.False": "false",
       "setting.DropOffWhiteListAfterDeath.name": "Drop Off Whitelist After Death",
       "setting.DropOffWhiteListAfterDeath.desc": "If set, player accounts will be removed from the whitelist after death. This prevents players creating a new character after death on non-open servers",
-      "setting.DropOffWhiteListAfterDeath.value.False": "false",
-      "setting.DropOffWhiteListAfterDeath.value.True": "true",
       "setting.DoLuaChecksum.name": "Enable Lua Checksum Kick",
       "setting.DoLuaChecksum.desc": "If set, clients whose game files don\u0027t match the server\u0027s file will be kicked",
-      "setting.DoLuaChecksum.value.False": "false",
-      "setting.DoLuaChecksum.value.True": "true",
       "setting.DenyLoginOnOverloadedServer.name": "Deny Login On Overloaded Server",
       "setting.DenyLoginOnOverloadedServer.desc": "If set, login will be denied on an overloaded server",
-      "setting.DenyLoginOnOverloadedServer.value.False": "false",
-      "setting.DenyLoginOnOverloadedServer.value.True": "true",
       "setting.LoginQueueEnabled.name": "Enable Login Queue",
       "setting.LoginQueueEnabled.desc": "If set, the login queue will be enabled",
-      "setting.LoginQueueEnabled.value.False": "false",
-      "setting.LoginQueueEnabled.value.True": "true",
       "setting.LoginQueueConnectTimeout.name": "Login Queue Connect Timeout",
       "setting.LoginQueueConnectTimeout.desc": "Sets the connection timeout for the login queue",
       "setting.MaxMemory.name": "Memory Limit",
@@ -2305,12 +2289,8 @@
       "setting.JavaGCAlgo.value.-XX_UseG1GC": "G1GC Algorithm",
       "setting.SteamVAC.name": "Enable Valve Anti-cheat (Steam VAC)",
       "setting.SteamVAC.desc": "If set, enables the Steam VAC system",
-      "setting.SteamVAC.value.True": "true",
-      "setting.SteamVAC.value.False": "false",
       "setting.SteamInt.name": "Steam Integration",
       "setting.SteamInt.desc": "Enable Steam integration",
-      "setting.SteamInt.value.True": "1",
-      "setting.SteamInt.value.False": "0",
       "setting.WorldGenSeed.name": "World Generation Seed",
       "setting.WorldGenSeed.desc": "The seed used to generate the world can be set by configuring the \u0027Seed\u0027 configuration variable. Remove map_worldgen.bin to regenerate with a new seed. Requires b42",
       "setting.Map.name": "Maps",
@@ -2321,38 +2301,22 @@
       "setting.WorkshopItems.desc": "Semi-colon separated list of IDs of workshop items (eg 2478247379;2566953935) to install. ONE LINE ONLY! To load them, the mod IDs also need to be added to Load Mods. NOTE: Don\u0027t use \u0022Steam workshop items\u0022 under Updates",
       "setting.DisplayUserName.name": "Display Player Usernames",
       "setting.DisplayUserName.desc": "If enabled, displays players\u0027 usernames above their heads in-game",
-      "setting.DisplayUserName.value.True": "true",
-      "setting.DisplayUserName.value.False": "false",
       "setting.ShowFirstAndLastName.name": "Display Player Character Names",
       "setting.ShowFirstAndLastName.desc": "If enabled, displays players\u0027 first and last names above their heads in-game instead of usernames",
-      "setting.ShowFirstAndLastName.value.True": "true",
-      "setting.ShowFirstAndLastName.value.False": "false",
       "setting.MouseOverToSeeDisplayName.name": "Require Mouse Over To See Display Name",
       "setting.MouseOverToSeeDisplayName.desc": "If enabled, players will have to mouse over someone to see their display name",
-      "setting.MouseOverToSeeDisplayName.value.False": "false",
-      "setting.MouseOverToSeeDisplayName.value.True": "true",
       "setting.AllowNonAsciiUsername.name": "Allow Non-ASCII Usernames",
       "setting.AllowNonAsciiUsername.desc": "If enabled, allows the use of non-ASCII (cyrillic etc) characters in usernames",
-      "setting.AllowNonAsciiUsername.value.False": "false",
-      "setting.AllowNonAsciiUsername.value.True": "true",
       "setting.UsernameDisguises.name": "Enable Username Disguises",
       "setting.UsernameDisguises.desc": "If enabled, players can disguise their username in-game. Requires b42",
-      "setting.UsernameDisguises.value.False": "false",
-      "setting.UsernameDisguises.value.True": "true",
       "setting.HideDisguisedUserName.name": "Hide Disguised Username",
       "setting.HideDisguisedUserName.desc": "If enabled, disguised usernames are hidden from certain UI elements. Requires b42",
-      "setting.HideDisguisedUserName.value.False": "false",
-      "setting.HideDisguisedUserName.value.True": "true",
       "setting.SwitchZombiesOwnershipEachUpdate.name": "Switch Zombies Ownership Each Update",
       "setting.SwitchZombiesOwnershipEachUpdate.desc": "If enabled, zombies may switch ownership between players on each update. Requires b42",
-      "setting.SwitchZombiesOwnershipEachUpdate.value.False": "false",
-      "setting.SwitchZombiesOwnershipEachUpdate.value.True": "true",
       "setting.MaxAccountsPerUser.name": "Maximum Accounts Per User",
       "setting.MaxAccountsPerUser.desc": "Sets the limit on the number of different accounts a single Steam user may create on the server",
       "setting.AllowCoop.name": "Allow Co-op/Splitscreen Players",
       "setting.AllowCoop.desc": "If set, allows co-op/splitscreen players",
-      "setting.AllowCoop.value.False": "false",
-      "setting.AllowCoop.value.True": "true",
       "setting.SteamScoreboard.name": "Steam Scoreboard",
       "setting.SteamScoreboard.desc": "Sets whether steam usernames and avatars are visible in the player list",
       "setting.SteamScoreboard.value.true": "Visible to everyone",
@@ -2360,12 +2324,8 @@
       "setting.SteamScoreboard.value.admins": "Visible to admins only",
       "setting.DisableScoreboard.name": "Disable Scoreboard",
       "setting.DisableScoreboard.desc": "If enabled, the scoreboard will be disabled. Requires b42",
-      "setting.DisableScoreboard.value.False": "false",
-      "setting.DisableScoreboard.value.True": "true",
       "setting.PauseEmpty.name": "Pause When Empty",
       "setting.PauseEmpty.desc": "If enabled, game time stops when there are no players online",
-      "setting.PauseEmpty.value.True": "true",
-      "setting.PauseEmpty.value.False": "false",
       "setting.PingLimit.name": "Ping Limit",
       "setting.PingLimit.desc": "Sets the ping limit before a player is kicked from the server. To disable, set to 100 (b41) or 0 (b42)",
       "setting.SaveWorldEveryMinutes.name": "Auto World Save Interval",
@@ -2374,12 +2334,8 @@
       "setting.BackupsCount.desc": "Sets the number of backups to keep",
       "setting.BackupsOnStart.name": "Enable Backups On Start",
       "setting.BackupsOnStart.desc": "If enable, backups will be taken on server start",
-      "setting.BackupsOnStart.value.False": "false",
-      "setting.BackupsOnStart.value.True": "true",
       "setting.BackupsOnVersionChange.name": "Enable Backups On Version Change",
       "setting.BackupsOnVersionChange.desc": "If set, backups will be taken on version change",
-      "setting.BackupsOnVersionChange.value.False": "false",
-      "setting.BackupsOnVersionChange.value.True": "true",
       "setting.BackupsPeriod.name": "Backups Period",
       "setting.BackupsPeriod.desc": "Sets the period between backups. 0 = disabled",
       "setting.server_browser_announced_ip.name": "Server Browser Announced IP",
@@ -2390,12 +2346,8 @@
       "setting.ClientActionLogs.desc": "Semicolon-separated list of actions that will be written to the ClientActionLogs.txt server log",
       "setting.PerkLogs.name": "Enable Perk Logs",
       "setting.PerkLogs.desc": "If enabled, changes in player perk levels will be tracked in the PerkLog.txt server log",
-      "setting.PerkLogs.value.False": "false",
-      "setting.PerkLogs.value.True": "true",
       "setting.UPnP.name": "Enable UPnP",
       "setting.UPnP.desc": "If enabled, the server will attempt to configure automatic port forwarding on a compatible router",
-      "setting.UPnP.value.True": "true",
-      "setting.UPnP.value.False": "false",
       "setting.MultiplayerStatisticsPeriod.name": "Multiplayer Statistics Period",
       "setting.MultiplayerStatisticsPeriod.desc": "Sets the multiplayer update period. 0 = disabled. Requires b42",
       "setting.CustomJavaArgs.name": "Additional Java Startup Parameters",
@@ -2417,32 +2369,18 @@
       "setting.SpawnItems.desc": "Comma-separated list of item types that new players spawn with",
       "setting.PlayerRespawnWithSelf.name": "Enable Player Respawn At Death Coordinates",
       "setting.PlayerRespawnWithSelf.desc": "If set, players will be able to respawn in-game at the coordinates where they died",
-      "setting.PlayerRespawnWithSelf.value.False": "false",
-      "setting.PlayerRespawnWithSelf.value.True": "true",
       "setting.PlayerRespawnWithOther.name": "Enable Player Respawn At Other\u0027s Location",
       "setting.PlayerRespawnWithOther.desc": "If set, players will be allowed to respawn in-game at a split screen / Remote Play player\u0027s location",
-      "setting.PlayerRespawnWithOther.value.False": "false",
-      "setting.PlayerRespawnWithOther.value.True": "true",
       "setting.PVP.name": "Allow PvP",
       "setting.PVP.desc": "If enabled, players can hurt and kill other players",
-      "setting.PVP.value.True": "true",
-      "setting.PVP.value.False": "false",
       "setting.PVPLogToolChat.name": "Log PvP To Admin Chat",
       "setting.PVPLogToolChat.desc": "If enabled, PvP events will be posted to the admin chat. Requires b42",
-      "setting.PVPLogToolChat.value.False": "false",
-      "setting.PVPLogToolChat.value.True": "true",
       "setting.PVPLogToolFile.name": "Log PvP To File",
       "setting.PVPLogToolFile.desc": "If enabled, PvP events will be written to the server log file. Requires b42",
-      "setting.PVPLogToolFile.value.False": "false",
-      "setting.PVPLogToolFile.value.True": "true",
       "setting.SafetySystem.name": "Enable PvP Toggle (Safety System)",
       "setting.SafetySystem.desc": "If enabled, allows players to enter and leave PvP mode on an individual basis. A player can only hurt another player when at least one of them is in PvP mode. Requires \u0022Allow PvP\u0022 to be enabled",
-      "setting.SafetySystem.value.True": "true",
-      "setting.SafetySystem.value.False": "false",
       "setting.ShowSafety.name": "Show Player PvP Status",
       "setting.ShowSafety.desc": "If enabled, displays a skull icon above the heads of players who have entered PvP mode",
-      "setting.ShowSafety.value.True": "true",
-      "setting.ShowSafety.value.False": "false",
       "setting.SafetyToggleTimer.name": "PvP Toggle Timer",
       "setting.SafetyToggleTimer.desc": "Sets the time taken for a player to enter and leave PvP mode",
       "setting.SafetyCooldownTimer.name": "PvP Cooldown Timer",
@@ -2451,16 +2389,12 @@
       "setting.SafetyDisconnectDelay.desc": "Sets the delay before a disconnected player\u0027s PvP safety is removed. Requires b42",
       "setting.PVPMeleeWhileHitReaction.name": "Enable PvP Melee While Hit Reaction",
       "setting.PVPMeleeWhileHitReaction.desc": "If enabled, players can hit again when struck by another player",
-      "setting.PVPMeleeWhileHitReaction.value.False": "false",
-      "setting.PVPMeleeWhileHitReaction.value.True": "true",
       "setting.PVPMeleeDamageModifier.name": "PvP Melee Damage Modifier",
       "setting.PVPMeleeDamageModifier.desc": "Sets the damage multiplier for PvP melee attacks",
       "setting.PVPFirearmDamageModifier.name": "PvP Firearm Damage Modifier",
       "setting.PVPFirearmDamageModifier.desc": "Sets the damage multiplier for PvP ranged attacks",
       "setting.Faction.name": "Enable Factions",
       "setting.Faction.desc": "If enabled, factions can be created and used",
-      "setting.Faction.value.True": "true",
-      "setting.Faction.value.False": "false",
       "setting.FactionDaySurvivedToCreate.name": "Game Days For Factions",
       "setting.FactionDaySurvivedToCreate.desc": "Number of in-game days that a player must survive for before they can create a faction",
       "setting.FactionPlayersRequiredForTag.name": "Faction Players Required For Tag",
@@ -2476,12 +2410,8 @@
       "setting.NightLength.value.5": "Always Day (b42 only)",
       "setting.NoFire.name": "Don\u0027t Allow Fire",
       "setting.NoFire.desc": "If enabled, fires are not allowed (except campfires). Enable if fires cause problems for your server",
-      "setting.NoFire.value.True": "true",
-      "setting.NoFire.value.False": "false",
       "setting.AnnounceDeath.name": "Announce Player Death",
       "setting.AnnounceDeath.desc": "If enabled, a global message is displayed in the chat when a player dies",
-      "setting.AnnounceDeath.value.True": "true",
-      "setting.AnnounceDeath.value.False": "false",
       "setting.MinutesPerPage.name": "Minutes Per Book Page",
       "setting.MinutesPerPage.desc": "Sets the number of in-game minutes it takes to read one page of a book. Requires b41",
       "setting.HoursForLootRespawn.name": "Minimum Period for Loot Respawn",
@@ -2492,68 +2422,40 @@
       "setting.ItemNumbersLimitPerContainer.desc": "Sets the maximum number of items that can be placed in a container. Includes individual small items like nails. 0 = no limit",
       "setting.ConstructionPreventsLootRespawn.name": "Construction Prevents Respawn",
       "setting.ConstructionPreventsLootRespawn.desc": "If enabled, items will not respawn in buildings that players have barricaded or built in. Requires b41",
-      "setting.ConstructionPreventsLootRespawn.value.True": "true",
-      "setting.ConstructionPreventsLootRespawn.value.False": "false",
       "setting.SafehousePreventsLootRespawn.name": "Safehouse Prevents Respawn",
       "setting.SafehousePreventsLootRespawn.desc": "If enabled, items will not respawn in buildings that players have claimed as a safehouse. Requires b42",
-      "setting.SafehousePreventsLootRespawn.value.True": "true",
-      "setting.SafehousePreventsLootRespawn.value.False": "false",
       "setting.PlayerSafehouse.name": "Allow Player Safehouses",
       "setting.PlayerSafehouse.desc": "If enabled, both admins and players can claim safehouses",
-      "setting.PlayerSafehouse.value.True": "true",
-      "setting.PlayerSafehouse.value.False": "false",
       "setting.AdminSafehouse.name": "Allow Admin Safehouses",
       "setting.AdminSafehouse.desc": "If enabled, only admins can claim safehouses",
-      "setting.AdminSafehouse.value.True": "true",
-      "setting.AdminSafehouse.value.False": "false",
       "setting.DisableSafehouseWhenPlayerConnected.name": "Disable Safehouse When Player Connected",
       "setting.DisableSafehouseWhenPlayerConnected.desc": "If set, disables a safehouse when a member of the safehouse is connected, so that it acts like a normal house and is only secure when players are offline. Renamed in b42 - use \u0022Disable Safehouse When Owner Connected\u0022 instead",
-      "setting.DisableSafehouseWhenPlayerConnected.value.False": "false",
-      "setting.DisableSafehouseWhenPlayerConnected.value.True": "true",
       "setting.DisableSafehouseWhenOwnerConnected.name": "Disable Safehouse When Owner Connected",
       "setting.DisableSafehouseWhenOwnerConnected.desc": "If set, a safehouse acts like a normal house while its owner is connected, so it is only secure when the owner is offline. Requires b42.18 or later, where it replaced DisableSafehouseWhenPlayerConnected",
-      "setting.DisableSafehouseWhenOwnerConnected.value.False": "false",
-      "setting.DisableSafehouseWhenOwnerConnected.value.True": "true",
       "setting.SafehouseAllowTrepass.name": "Allow Safehouse Trespass",
       "setting.SafehouseAllowTrepass.desc": "If enabled, non-members can enter a safehouse without being invited",
-      "setting.SafehouseAllowTrepass.value.True": "true",
-      "setting.SafehouseAllowTrepass.value.False": "false",
       "setting.SafehouseAllowTrespass.name": "Allow Safehouse Trespass",
       "setting.SafehouseAllowTrespass.desc": "[Backup setting given typo in config key, to future proof for correction]",
       "setting.SafehouseAllowFire.name": "Allow Safehouse Fire",
       "setting.SafehouseAllowFire.desc": "If enabled, safehouses can be damaged by fire",
-      "setting.SafehouseAllowFire.value.True": "true",
-      "setting.SafehouseAllowFire.value.False": "false",
       "setting.SafehouseAllowLoot.name": "Allow Safehouse Loot",
       "setting.SafehouseAllowLoot.desc": "If enabled, non-members can loot safehouses",
-      "setting.SafehouseAllowLoot.value.True": "true",
-      "setting.SafehouseAllowLoot.value.False": "false",
       "setting.SafehouseAllowRespawn.name": "Allow Safehouse Respawn",
       "setting.SafehouseAllowRespawn.desc": "If enabled, players will respawn in a safehouse they were a member of before death",
-      "setting.SafehouseAllowRespawn.value.True": "true",
-      "setting.SafehouseAllowRespawn.value.False": "false",
       "setting.SafehouseDaySurvivedToClaim.name": "Game Days For Safehouse",
       "setting.SafehouseDaySurvivedToClaim.desc": "Sets the number of in-game days that a player must survive for before they can claim a safehouse",
       "setting.SafeHouseRemovalTime.name": "Safehouse Removal Period",
       "setting.SafeHouseRemovalTime.desc": "Players are automatically removed from a safehouse they have not visited for this many real-time hours",
       "setting.SafehouseAllowNonResidential.name": "Allow Non-Residential Safehouses",
       "setting.SafehouseAllowNonResidential.desc": "If enabled, players can claim non-residential buildings",
-      "setting.SafehouseAllowNonResidential.value.False": "false",
-      "setting.SafehouseAllowNonResidential.value.True": "true",
       "setting.SafehouseDisableDisguises.name": "Disable Disguises In Safehouse",
       "setting.SafehouseDisableDisguises.desc": "If enabled, disguises will be disabled while inside a safehouse. Requires b42",
-      "setting.SafehouseDisableDisguises.value.False": "false",
-      "setting.SafehouseDisableDisguises.value.True": "true",
       "setting.MaxSafezoneSize.name": "Maximum Safezone Size",
       "setting.MaxSafezoneSize.desc": "Sets the maximum allowed safezone size. Requires b42",
       "setting.AllowDestructionBySledgehammer.name": "Allow Sledgehammer Destruction",
       "setting.AllowDestructionBySledgehammer.desc": "If enabled, players can destroy world objects with sledgehammers",
-      "setting.AllowDestructionBySledgehammer.value.True": "true",
-      "setting.AllowDestructionBySledgehammer.value.False": "false",
       "setting.SledgehammerOnlyInSafehouse.name": "Allow Only Safehouse Sledgehammers",
       "setting.SledgehammerOnlyInSafehouse.desc": "If enabled, players can destroy world objects with sledgehammers only in their safehouse. Requires \u0022Allow Sledgehammer Destruction\u0022 to be enabled",
-      "setting.SledgehammerOnlyInSafehouse.value.True": "true",
-      "setting.SledgehammerOnlyInSafehouse.value.False": "false",
       "setting.WarStartDelay.name": "War Start Delay",
       "setting.WarStartDelay.desc": "Sets the time before the war starts. Requires b42",
       "setting.WarDuration.name": "War Duration",
@@ -2562,54 +2464,32 @@
       "setting.WarSafehouseHitPoints.desc": "Sets the safehouse hit points limit. Requires b42",
       "setting.KickFastPlayers.name": "Kick Fast Players",
       "setting.KickFastPlayers.desc": "If enabled, players that appear to be moving faster than is possible will be kicked. May be buggy - use with caution. Requires b41",
-      "setting.KickFastPlayers.value.False": "false",
-      "setting.KickFastPlayers.value.True": "true",
       "setting.SpeedLimit.name": "Speed Limit",
       "setting.SpeedLimit.desc": "Sets the speed limit for players",
       "setting.SleepAllowed.name": "Allow Sleep",
       "setting.SleepAllowed.desc": "If enabled, players are allowed to sleep when tired, but do not need to",
-      "setting.SleepAllowed.value.True": "true",
-      "setting.SleepAllowed.value.False": "false",
       "setting.SleepNeeded.name": "Require Sleep",
       "setting.SleepNeeded.desc": "If enabled, players become tired and need to sleep. Requires \u0022Allow Sleep\u0022 to be enabled",
-      "setting.SleepNeeded.value.True": "true",
-      "setting.SleepNeeded.value.False": "false",
       "setting.FastForwardMultiplier.name": "Sleep Fast Forward Multiplier",
       "setting.FastForwardMultiplier.desc": "Sets how fast time passes while players sleep",
       "setting.KnockedDownAllowed.name": "Allow Knock Down",
       "setting.KnockedDownAllowed.desc": "If set, players can be knocked down. Activating this setting may cause visual desynchronization of player positions",
-      "setting.KnockedDownAllowed.value.False": "false",
-      "setting.KnockedDownAllowed.value.True": "true",
       "setting.PlayerBumpPlayer.name": "Enable Player Bump Player",
       "setting.PlayerBumpPlayer.desc": "If enabled, players will bump (and knock over) other players when running through them",
-      "setting.PlayerBumpPlayer.value.False": "false",
-      "setting.PlayerBumpPlayer.value.True": "true",
       "setting.HidePlayersBehindYou.name": "Hide Players Behind You",
       "setting.HidePlayersBehindYou.desc": "If enabled, players that can\u0027t be seen will be automatically hidden (like zombies)",
-      "setting.HidePlayersBehindYou.value.False": "false",
-      "setting.HidePlayersBehindYou.value.True": "true",
       "setting.SneakModeHideFromOtherPlayers.name": "Hide From Other Players In Sneak Mode",
       "setting.SneakModeHideFromOtherPlayers.desc": "If set, players in sneak mode will be hidden from other players",
-      "setting.SneakModeHideFromOtherPlayers.value.False": "false",
-      "setting.SneakModeHideFromOtherPlayers.value.True": "true",
       "setting.UltraSpeedDoesnotAffectToAnimals.name": "Ultra Speed Does Not Affect Animals",
       "setting.UltraSpeedDoesnotAffectToAnimals.desc": "If enabled, the Ultra Speed effect will not apply to animals. Requires b42",
-      "setting.UltraSpeedDoesnotAffectToAnimals.value.False": "false",
-      "setting.UltraSpeedDoesnotAffectToAnimals.value.True": "true",
       "setting.RemovePlayerCorpsesOnCorpseRemoval.name": "Remove Player Corpses On Corpse Removal",
       "setting.RemovePlayerCorpsesOnCorpseRemoval.desc": "If enabled, when \u0027HoursForCorpseRemoval\u0027 triggers, it will also remove player\u2019s corpses from the ground",
-      "setting.RemovePlayerCorpsesOnCorpseRemoval.value.False": "false",
-      "setting.RemovePlayerCorpsesOnCorpseRemoval.value.True": "true",
       "setting.BloodSplatLifespanDays.name": "Blood Splats Lifespan Days",
       "setting.BloodSplatLifespanDays.desc": "Sets the number of days before old blood splats are removed. Removal happens when map chunks are loaded. 0 = splats never disappear",
       "setting.BanKickGlobalSound.name": "Enable Ban/Kick Global Sound",
       "setting.BanKickGlobalSound.desc": "If set, enables the global sound for ban and kick messages",
-      "setting.BanKickGlobalSound.value.False": "false",
-      "setting.BanKickGlobalSound.value.True": "true",
       "setting.TrashDeleteAll.name": "Enable Trash Delete All",
       "setting.TrashDeleteAll.desc": "If enabled, players can use the \u0027delete all\u0027 button on bins",
-      "setting.TrashDeleteAll.value.False": "false",
-      "setting.TrashDeleteAll.value.True": "true",
       "setting.CarEngineAttractionModifier.name": "Car Engine Attraction Modifier",
       "setting.CarEngineAttractionModifier.desc": "Modifies the range of zombie attraction to cars. Lower values can help lag",
       "setting.MapRemotePlayerVisibility.name": "Remote Player Map Visibility",
@@ -2620,25 +2500,15 @@
       "setting.MapRemotePlayerVisibility.value.4": "Everyone",
       "setting.DisableVehicleTowing.name": "Disable Vehicle Towing",
       "setting.DisableVehicleTowing.desc": "If set, vehicle towing will be disabled. Requires b42",
-      "setting.DisableVehicleTowing.value.False": "false",
-      "setting.DisableVehicleTowing.value.True": "true",
       "setting.DisableTrailerTowing.name": "Disable Trailer Towing",
       "setting.DisableTrailerTowing.desc": "If set, trailer towing will be disabled. Requires b42",
-      "setting.DisableTrailerTowing.value.False": "false",
-      "setting.DisableTrailerTowing.value.True": "true",
       "setting.DisableBurntTowing.name": "Disable Burnt Vehicle Towing",
       "setting.DisableBurntTowing.desc": "If enabled, burnt vehicles cannot be towed. Requires b42",
-      "setting.DisableBurntTowing.value.False": "false",
-      "setting.DisableBurntTowing.value.True": "true",
       "setting.UsePhysicsHitReaction.name": "Use Physics Hit Reactions",
       "setting.UsePhysicsHitReaction.desc": "If enabled, physics-based hit reactions are used. Requires b42",
-      "setting.UsePhysicsHitReaction.value.False": "false",
-      "setting.UsePhysicsHitReaction.value.True": "true",
       "setting.GlobalChat.name": "Enable Global Chat",
       "setting.GlobalChat.desc": "If enabled, players can communicate with everyone (using the /all command in chat)",
       "category.communication": "Communication",
-      "setting.GlobalChat.value.True": "true",
-      "setting.GlobalChat.value.False": "false",
       "setting.ChatStreams.name": "Chat Streams",
       "setting.ChatStreams.desc": "Sets the enabled chat streams for different message targets. Options: s (say), r (radio), a (all), w (whisper), y (yell), sh (safehouse), f (faction), all",
       "setting.ChatMessageCharacterLimit.name": "Chat Message Character Limit",
@@ -2647,40 +2517,24 @@
       "setting.ChatMessageSlowModeTime.desc": "Sets the time between sending chat messages when slow mode is enabled. Requires b42",
       "setting.VoiceEnable.name": "Enable VOIP",
       "setting.VoiceEnable.desc": "If set, VOIP will be enabled",
-      "setting.VoiceEnable.value.False": "false",
-      "setting.VoiceEnable.value.True": "true",
       "setting.VoiceMinDistance.name": "Minimum Distance For VOIP",
       "setting.VoiceMinDistance.desc": "Sets the minimum tile distance over which VOIP sounds can be heard",
       "setting.VoiceMaxDistance.name": "Maximum Distance For VOIP",
       "setting.VoiceMaxDistance.desc": "Sets the maximum tile distance over which VOIP sounds can be heard",
       "setting.Voice3D.name": "Enable VOIP 3D",
       "setting.Voice3D.desc": "If set, enables directional audio for VOIP",
-      "setting.Voice3D.value.False": "false",
-      "setting.Voice3D.value.True": "true",
       "setting.DisableRadioStaff.name": "Disable Radio For Staff",
       "setting.DisableRadioStaff.desc": "If set, disables radio transmissions from players with a \u0027staff\u0027 access level",
-      "setting.DisableRadioStaff.value.False": "false",
-      "setting.DisableRadioStaff.value.True": "true",
       "setting.DisableRadioAdmin.name": "Disable Radio For Admins",
       "setting.DisableRadioAdmin.desc": "If set, disables radio transmissions from players with an \u0027admin\u0027 access level",
-      "setting.DisableRadioAdmin.value.False": "false",
-      "setting.DisableRadioAdmin.value.True": "true",
       "setting.DisableRadioGM.name": "Disable Radio For GMs",
       "setting.DisableRadioGM.desc": "If set, disables radio transmissions from players with a \u0027gm\u0027 access level",
-      "setting.DisableRadioGM.value.False": "false",
-      "setting.DisableRadioGM.value.True": "true",
       "setting.DisableRadioOverseer.name": "Disable Radio For Overseers",
       "setting.DisableRadioOverseer.desc": "If set, disables radio transmissions from players with an \u0027overseer\u0027 access level",
-      "setting.DisableRadioOverseer.value.False": "false",
-      "setting.DisableRadioOverseer.value.True": "true",
       "setting.DisableRadioModerator.name": "Disable Radio For Moderators",
       "setting.DisableRadioModerator.desc": "If set, disables radio transmissions from players with a \u0027moderator\u0027 access level",
-      "setting.DisableRadioModerator.value.False": "false",
-      "setting.DisableRadioModerator.value.True": "true",
       "setting.DisableRadioInvisible.name": "Disable Radio For Invisible Players",
       "setting.DisableRadioInvisible.desc": "Disable radio transmissions from invisible players",
-      "setting.DisableRadioInvisible.value.False": "false",
-      "setting.DisableRadioInvisible.value.True": "true",
       "setting.BadWordListFile.name": "Bad Word List File",
       "setting.BadWordListFile.desc": "Sets the path to a file with the list of words to be prohibited. One word per line. Requires b42",
       "setting.GoodWordListFile.name": "Good Word List File",
@@ -2696,8 +2550,6 @@
       "setting.DiscordEnable.name": "Enable Discord Integration",
       "setting.DiscordEnable.desc": "If enabled, allows global text chat integration with a Discord channel. Requires a valid bot token to be set under \u0022Discord Token\u0022",
       "category.discord-and-slack": "Discord and Slack",
-      "setting.DiscordEnable.value.True": "true",
-      "setting.DiscordEnable.value.False": "false",
       "setting.DiscordToken.name": "Discord Token",
       "setting.DiscordToken.desc": "Sets the bot token to access the Discord servers",
       "setting.DiscordChannel.name": "Discord Channel",
@@ -2712,8 +2564,6 @@
       "setting.EnableBeta.desc": "If enabled, allows beta branches (branches other than \u0022public\u0022) to be installed. Specify the branch under \u0022Selected Beta Branch\u0022. NOTE: Update the server after switching branches!",
       "category.updates": "Updates",
       "category.steam-downloads": "Steam Downloads",
-      "setting.EnableBeta.value.False": "false",
-      "setting.EnableBeta.value.True": "true",
       "setting.BetaBranch.name": "Selected Beta Branch",
       "setting.BetaBranch.desc": "Sets the [beta branch](https://steamdb.info/app/380870/depots/) to install. Requires \u0022Enable Beta Branch\u0022 to be enabled. Set any required password under \u0022Beta Password\u0022. NOTE: Update the server after switching branches!",
       "setting.$ApplicationIPBinding.name": "IP Binding",

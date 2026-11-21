@@ -538,8 +538,8 @@
       "Keywords": "mods,addons,bikeys",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ManageBikeys.value.False",
-        "True": "setting.ManageBikeys.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -563,8 +563,8 @@
       "Keywords": "kick,duplicate,kickduplicate",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.kickDuplicate.value.False",
-        "True": "setting.kickDuplicate.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -578,8 +578,8 @@
       "Keywords": "mods,addons,verify,verifysignatures",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.verifySignatures.value.False",
-        "True": "setting.verifySignatures.value.True"
+        "False": "0",
+        "True": "2"
       }
     },
     {
@@ -633,8 +633,8 @@
       "Keywords": "lan,loopback",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.loopback.value.False",
-        "True": "setting.loopback.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -689,7 +689,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.hc_parfile.value.True"
+        "True": "hc_parameters.txt"
       }
     },
     {
@@ -732,8 +732,8 @@
       "Keywords": "upnp",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.upnp.value.False",
-        "True": "setting.upnp.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -760,7 +760,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.parfile.value.True"
+        "True": "-par=parameters.txt "
       }
     },
     {
@@ -774,8 +774,8 @@
       "Keywords": "skip,lobby,skiplobby",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.skipLobby.value.False",
-        "True": "setting.skipLobby.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -831,8 +831,8 @@
       "Keywords": "voice,chat,disablevon",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.disableVoN.value.False",
-        "True": "setting.disableVoN.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -876,7 +876,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.autoInit.value.True"
+        "True": "-autoInit "
       }
     },
     {
@@ -890,8 +890,8 @@
       "Keywords": "mission,persistent",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.persistent.value.False",
-        "True": "setting.persistent.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -905,8 +905,8 @@
       "Keywords": "mission,selection,automatic,autoselectmission",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.autoSelectMission.value.False",
-        "True": "setting.autoSelectMission.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -920,8 +920,8 @@
       "Keywords": "mission,random,order,randommissionorder",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.randomMissionOrder.value.False",
-        "True": "setting.randomMissionOrder.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -935,8 +935,8 @@
       "Keywords": "map,lines,markers,drawinginmap",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.drawingInMap.value.False",
-        "True": "setting.drawingInMap.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -950,8 +950,8 @@
       "Keywords": "profile,glasses,allowprofileglasses",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.allowProfileGlasses.value.False",
-        "True": "setting.allowProfileGlasses.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -983,8 +983,8 @@
       "Keywords": "arma,game,analytics,statistics,statisticsenabled",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.statisticsEnabled.value.False",
-        "True": "setting.statisticsEnabled.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1050,8 +1050,8 @@
       "Keywords": "player,diag,info,enableplayerdiag",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.enablePlayerDiag.value.False",
-        "True": "setting.enablePlayerDiag.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1185,8 +1185,8 @@
       "Keywords": "log,object,not,found,logobjectnotfound",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.LogObjectNotFound.value.False",
-        "True": "setting.LogObjectNotFound.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1200,8 +1200,8 @@
       "Keywords": "skip,description,parsing,skipdescriptionparsing",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.SkipDescriptionParsing.value.False",
-        "True": "setting.SkipDescriptionParsing.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1215,8 +1215,8 @@
       "Keywords": "ignore,mission,errors,ignoremissionloaderrors",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ignoreMissionLoadErrors.value.False",
-        "True": "setting.ignoreMissionLoadErrors.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1257,8 +1257,8 @@
       "Keywords": "disconnect,timeout,kick,kickclientsonslownetwork",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.kickTimeout.value.False",
-        "True": "setting.kickTimeout.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1284,8 +1284,8 @@
       "Keywords": "maximum,desync,kick,kickdesync,kickclientsonslownetwork",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.kickDesync.value.False",
-        "True": "setting.kickDesync.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1312,8 +1312,8 @@
       "Keywords": "maximum,ping,latency,kick,kickclientsonslownetwork",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.kickPing.value.False",
-        "True": "setting.kickPing.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1339,8 +1339,8 @@
       "Keywords": "maximum,packet,loss,kick,kickclientsonslownetwork",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.kickLoss.value.False",
-        "True": "setting.kickLoss.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1526,8 +1526,8 @@
       "Keywords": "mod,directory,name,format,moddirformat",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.ModDirFormat.value.False",
-        "True": "setting.ModDirFormat.value.True"
+        "False": "false",
+        "True": "true"
       }
     },
     {
@@ -1596,18 +1596,12 @@
       "setting.clientmod.desc": "Semi-colon separated list (moddir1;moddir2) of [client-side only mod directories](https://discourse.cubecoders.com/t/arma-3-server-guide/3475#p-7295-h-42-loading-6). ONE LINE ONLY! These won\u0027t be loaded by the server, but will be used by the Manage Bikeys setting if enabled. Specify simply the mod ID or @modname (as applicable to the Updates settings) for any mods downloaded under Updates or the Store. Otherwise, use mod directory paths relative to the server base directory or full paths",
       "setting.ManageBikeys.name": "Manage Bikeys",
       "setting.ManageBikeys.desc": "If enabled, the bikey files for each of the mods specified in Load Mods and Client Mods will be copied to the \u0027keys\u0027 directory on server start, to enable addon signature verification. All existing bikeys in that directory (other than the default \u0027a3.bikey\u0027) will be deleted",
-      "setting.ManageBikeys.value.False": "false",
-      "setting.ManageBikeys.value.True": "true",
       "setting.ip.name": "Server/RCON IP Binding",
       "setting.ip.desc": "If required, you can change the binding of the server and BattlEye RCON by changing the Application IP Binding for this instance. NOTE: The IP must be reachable by AMP, otherwise AMP\u0027s console won\u0027t work",
       "setting.kickDuplicate.name": "Disallow Duplicate Game IDs",
       "setting.kickDuplicate.desc": "If enabled, players with an ID that is identical to another player will be kicked",
-      "setting.kickDuplicate.value.False": "0",
-      "setting.kickDuplicate.value.True": "1",
       "setting.verifySignatures.name": "Addon Signature Verification",
       "setting.verifySignatures.desc": "If enabled, players with unknown or unsigned mods will not be allowed to join",
-      "setting.verifySignatures.value.False": "0",
-      "setting.verifySignatures.value.True": "2",
       "setting.allowedFilePatching.name": "Allow Client File Patching",
       "setting.allowedFilePatching.desc": "Specifies whether to prevent or allow file patching for clients",
       "setting.allowedFilePatching.value.0": "Do not allow (default)",
@@ -1619,8 +1613,6 @@
       "setting.requiredBuild.desc": "Sets the minimum client version, below which clients won\u0027t be allowed to join. Default of 99999999 equates to the server version. NOTE: If the server uses the Performance Profiling Build in any way, set this to 0, otherwise no client can connect",
       "setting.loopback.name": "Force LAN Mode",
       "setting.loopback.desc": "If enabled, the server will be forced into LAN mode - only local clients can connect",
-      "setting.loopback.value.False": "false",
-      "setting.loopback.value.True": "true",
       "setting.HeadlessClientsNum.name": "Headless Clients To Launch",
       "setting.HeadlessClientsNum.desc": "Sets the number of headless clients to launch when the server starts. Further information on configuration is [here](https://discourse.cubecoders.com/t/arma-3-generic-guide/3475#h-6-headless-clients-9)",
       "setting.HeadlessClientsStartLimit.name": "Headless Clients Launch Time Limit",
@@ -1629,25 +1621,19 @@
       "setting.headlessClients.desc": "Sets the IPs of headless clients able to connect to the server. Multiples connections and IPs are allowed. Format is \u0022IP1\u0022,\u0022IP2\u0022",
       "setting.hc_parfile.name": "Use Headless Client Startup Parameters File",
       "setting.hc_parfile.desc": "If enabled, allows the use of a [parameters file](https://community.bistudio.com/wiki/Startup_Parameters_Config_File) for additional startup parameters for headless clients. File is \u0022hc_parameters.txt\u0022 in the server base directory. Useful if the server also uses its own Startup Parameters File for mods. Use with care",
-      "setting.hc_parfile.value.True": "hc_parameters.txt",
       "setting.localClient.name": "Local Headless Client IPs",
       "setting.localClient.desc": "Sets the IPs of those headless clients listed under Headless Client IPs that have unlimited bandwidth and nearly no latency. Format is \u0022IP1\u0022,\u0022IP2\u0022",
       "setting.limitFPS.name": "FPS Limit",
       "setting.limitFPS.desc": "Sets the limit for the server FPS. Setting this too high can have an effect on server performance",
       "setting.upnp.name": "Enable UPnP",
       "setting.upnp.desc": "If enabled, the server will automatically create port mappings on UPnP/IGD enabled routers",
-      "setting.upnp.value.False": "false",
-      "setting.upnp.value.True": "true",
       "setting.CustomServerArgs.name": "Additional Server Startup Parameters",
       "setting.CustomServerArgs.desc": "Specifies additional startup parameters that are not otherwise set by AMP. Alternatively, use the Startup Parameters File option. Use with care",
       "setting.parfile.name": "Use Server Startup Parameters File",
       "setting.parfile.desc": "If enabled, allows the use of a [parameters file](https://community.bistudio.com/wiki/Startup_Parameters_Config_File) for additional startup parameters for the server. File is \u0022parameters.txt\u0022 in the server base directory. Useful for long startup parameters such as -mod or -serverMod. Use with care",
-      "setting.parfile.value.True": "-par=parameters.txt ",
       "setting.skipLobby.name": "Skip Lobby",
       "setting.skipLobby.desc": "If enabled, joining players will skip role selection",
       "category.gameplay": "Gameplay",
-      "setting.skipLobby.value.False": "false",
-      "setting.skipLobby.value.True": "true",
       "setting.voteMissionPlayers.name": "Minimum Players For Mission Selection",
       "setting.voteMissionPlayers.desc": "Sets the minimum number of players required before displaying the mission selection screen",
       "setting.voteThreshold.name": "Minimum Voting Threshold",
@@ -1659,8 +1645,6 @@
       "setting.forceRotorLibSimulation.value.2": "Force Simple Flight Model",
       "setting.disableVoN.name": "Disable Voice Chat",
       "setting.disableVoN.desc": "If set, players will not be able to use in-game voice chat",
-      "setting.disableVoN.value.False": "0",
-      "setting.disableVoN.value.True": "1",
       "setting.vonCodec.name": "Voice Chat Codec",
       "setting.vonCodec.desc": "Sets the voice chat codec type",
       "setting.vonCodec.value.0": "Old SPEEX codec",
@@ -1669,27 +1653,16 @@
       "setting.vonCodecQuality.desc": "Sets the voice sound range: 1-10 is 8kHz (narrowband), 11-20 is 16kHz (wideband), 21-30 is 32kHz (SPEEX) or 48kHz (OPUS) (ultrawideband)",
       "setting.autoInit.name": "Start Mission Immediately",
       "setting.autoInit.desc": "If enabled, begins the mission immediately instead of waiting for players to join (autoInit). Requires Persistent Mission to be enabled",
-      "setting.autoInit.value.True": "-autoInit ",
       "setting.persistent.name": "Persistent Mission",
       "setting.persistent.desc": "If enabled, the mission keeps running when all players disconnect. Required for \u0022autoInit\u0022 (Start Mission Immediately option)",
-      "setting.persistent.value.False": "0",
-      "setting.persistent.value.True": "1",
       "setting.autoSelectMission.name": "Enable Automatic Mission Selection",
       "setting.autoSelectMission.desc": "If enabled, the server auto-starts the next mission in the mission cycle and waits for players in the role selection. Requires a [mission cycle](https://community.bistudio.com/wiki/Arma_3:_Server_Config_File#Mission_rotation) to be specified in AMP_server.cfg",
-      "setting.autoSelectMission.value.False": "false",
-      "setting.autoSelectMission.value.True": "true",
       "setting.randomMissionOrder.name": "Enable Random Mission Order",
       "setting.randomMissionOrder.desc": "If enabled, the server randomly chooses a mission from the mission cycle for starting or auto-starting. Requires a [mission cycle](https://community.bistudio.com/wiki/Arma_3:_Server_Config_File#Mission_rotation) to be specified in AMP_server.cfg",
-      "setting.randomMissionOrder.value.False": "false",
-      "setting.randomMissionOrder.value.True": "true",
       "setting.drawingInMap.name": "Enable Map Lines/Markers",
       "setting.drawingInMap.desc": "If enabled, gives the ability to place markers and draw lines in map",
-      "setting.drawingInMap.value.False": "false",
-      "setting.drawingInMap.value.True": "true",
       "setting.allowProfileGlasses.name": "Allow Profile Glasses",
       "setting.allowProfileGlasses.desc": "If disabled, glasses set in a player\u0027s profile will be ignored",
-      "setting.allowProfileGlasses.value.False": "false",
-      "setting.allowProfileGlasses.value.True": "true",
       "setting.forcedDifficulty.name": "Enforce Difficulty",
       "setting.forcedDifficulty.desc": "Forces the selected difficulty on the server. To use custom difficulty settings, you must configure them in the profile within the A3Master directory",
       "setting.forcedDifficulty.value._": "None (default)",
@@ -1700,8 +1673,6 @@
       "setting.statisticsEnabled.name": "Enable Statistics",
       "setting.statisticsEnabled.desc": "If enabled, the server will opt into [Arma 3 game analytics](https://community.bistudio.com/wiki/Arma_3:_Analytics)",
       "category.miscellaneous": "Miscellaneous",
-      "setting.statisticsEnabled.value.False": "false",
-      "setting.statisticsEnabled.value.True": "true",
       "setting.allowedLoadFileExtensions.name": "Allowed File Extensions",
       "setting.allowedLoadFileExtensions.desc": "Only allows files with the listed extensions to be loaded via the loadFile command",
       "setting.allowedPreprocessFileExtensions.name": "Allowed Preprocess File Extensions",
@@ -1715,8 +1686,6 @@
       "setting.timeStampFormat.value.full": "Full",
       "setting.enablePlayerDiag.name": "Log Player Info",
       "setting.enablePlayerDiag.desc": "If enabled, the server logs players\u0027 bandwidth and desync info every 60 seconds, as well as \u0022network message is pending\u0022 owner identity",
-      "setting.enablePlayerDiag.value.False": "0",
-      "setting.enablePlayerDiag.value.True": "1",
       "setting.onUserConnected.name": "Run Script On User Connected",
       "setting.onUserConnected.desc": "Sets [server side scripting](https://community.bistudio.com/wiki/ArmA:_Armed_Assault:_Server_Side_Scripting) to run when a user has connected",
       "setting.onUserDisconnected.name": "Run Script On User Disconnected",
@@ -1742,16 +1711,10 @@
       "setting.callExtReportLimit.desc": "If a server-initiated callExtension takes longer than the specified limit, a warning will be logged as well as reflected in the extension return result",
       "setting.LogObjectNotFound.name": "Log Object Not Found",
       "setting.LogObjectNotFound.desc": "If enabled, \u0022object not found\u0022 messages will be logged",
-      "setting.LogObjectNotFound.value.False": "false",
-      "setting.LogObjectNotFound.value.True": "true",
       "setting.SkipDescriptionParsing.name": "Skip Description Parsing",
       "setting.SkipDescriptionParsing.desc": "If enabled, parsing of description.ext/mission.sqm will be skipped. Will show pbo filename instead of configured missionName",
-      "setting.SkipDescriptionParsing.value.False": "false",
-      "setting.SkipDescriptionParsing.value.True": "true",
       "setting.ignoreMissionLoadErrors.name": "Ignore Mission Load Errors",
       "setting.ignoreMissionLoadErrors.desc": "If enabled, a mission will load regardless of the number of loading errors",
-      "setting.ignoreMissionLoadErrors.value.False": "false",
-      "setting.ignoreMissionLoadErrors.value.True": "true",
       "setting.queueSizeLogG.name": "Message Queue Size Threshold",
       "setting.queueSizeLogG.desc": "If enabled, all of a player\u0027s message types and sizes are dumped to a logfile if #monitor is running and the player\u0027s Guaranteed Message Queue size goes above the set threshold",
       "setting.disconnectTimeout.name": "Disconnect Timeout",
@@ -1759,26 +1722,18 @@
       "category.limits": "Limits",
       "setting.kickTimeout.name": "Kick On Disconnect Timeout",
       "setting.kickTimeout.desc": "If enabled, players hitting the disconnect timeout will be kicked, otherwise that will just be logged",
-      "setting.kickTimeout.value.False": "0",
-      "setting.kickTimeout.value.True": "1",
       "setting.maxDesync.name": "Maximum Desync",
       "setting.maxDesync.desc": "Sets the maximum desync value before the server kicks a player (if Kick On Maximum Desync is enabled)",
       "setting.kickDesync.name": "Kick On Maximum Desync",
       "setting.kickDesync.desc": "If enabled, players hitting the maximum desync value will be kicked, otherwise that will just be logged",
-      "setting.kickDesync.value.False": "0",
-      "setting.kickDesync.value.True": "1",
       "setting.maxPing.name": "Maximum Ping",
       "setting.maxPing.desc": "Sets the maximum latency (ping) before the server kicks a player (if Kick On Maximum Ping is enabled)",
       "setting.kickPing.name": "Kick On Maximum Ping",
       "setting.kickPing.desc": "If enabled, players hitting the maximum latency (ping) value will be kicked, otherwise that will just be logged",
-      "setting.kickPing.value.False": "0",
-      "setting.kickPing.value.True": "1",
       "setting.maxPacketLoss.name": "Maximum Packet Loss",
       "setting.maxPacketLoss.desc": "Sets the maximum packet loss before the server kicks a player (if Kick On Maximum Packet Loss is enabled)",
       "setting.kickLoss.name": "Kick On Maximum Packet Loss",
       "setting.kickLoss.desc": "If enabled, players hitting the maximum packet loss value will be kicked, otherwise that will just be logged",
-      "setting.kickLoss.value.False": "0",
-      "setting.kickLoss.value.True": "1",
       "setting.kickManual.name": "Manual Kick Waittime",
       "setting.kickManual.desc": "Sets the time interval before a player can return after a manual kick (such as vote kick, admin kick, bruteforce detection). -1 = until mission end, -2 = until server restart",
       "setting.kickConnectivity.name": "Connectivity Kick Waittime",
@@ -1821,8 +1776,6 @@
       "setting.ModDirFormat.name": "Enable Named Mod Directory Links",
       "setting.ModDirFormat.desc": "If set, mods downloaded under \u0022Steam workshop items\u0022 will be linked to the server base directory in the format @modname, rather than just by reference to the mod ID. NOTE: Update the server after changing this setting",
       "category.steam-workshop": "Steam Workshop",
-      "setting.ModDirFormat.value.False": "false",
-      "setting.ModDirFormat.value.True": "true",
       "setting.$ApplicationIPBinding.name": "IP Binding",
       "setting.$ApplicationIPBinding.desc": "The network address the server binds its ports to. 0.0.0.0 binds every interface (recommended for most setups); set a specific address on multi-IP hosts.",
       "category.networking": "Networking",

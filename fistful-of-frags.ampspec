@@ -321,8 +321,8 @@
       "Keywords": "lan,local,sv_lan",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_lan.value.False",
-        "True": "setting.sv_lan.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -518,8 +518,8 @@
       "Keywords": "allow,spectators,mp_allowspectators",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_allowspectators.value.False",
-        "True": "setting.mp_allowspectators.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -550,8 +550,8 @@
       "Keywords": "pure,server,cheat,hack,integrity,sv_pure_kick_clients",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_pure_kick_clients.value.False",
-        "True": "setting.sv_pure_kick_clients.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -565,8 +565,8 @@
       "Keywords": "force,preload,sv_forcepreload",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_forcepreload.value.False",
-        "True": "setting.sv_forcepreload.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -580,8 +580,8 @@
       "Keywords": "allow,cheat,hack,integrity,sv_cheats",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_cheats.value.False",
-        "True": "setting.sv_cheats.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -596,7 +596,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.insecure.value.True"
+        "True": "-insecure "
       }
     },
     {
@@ -610,8 +610,8 @@
       "Keywords": "ip,ban,banning,sv_filterban",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_filterban.value.False",
-        "True": "setting.sv_filterban.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -640,8 +640,8 @@
       "Keywords": "allow,download,content,maps,sv_allowdownload",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_allowdownload.value.False",
-        "True": "setting.sv_allowdownload.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -667,8 +667,8 @@
       "Keywords": "allow,upload,customisation,files,sv_allowupload",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_allowupload.value.False",
-        "True": "setting.sv_allowupload.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -782,8 +782,8 @@
       "Keywords": "cpu,stats,sv_stats",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_stats.value.False",
-        "True": "setting.sv_stats.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -841,8 +841,8 @@
       "Keywords": "friendly,fire,mp_friendlyfire",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_friendlyfire.value.False",
-        "True": "setting.mp_friendlyfire.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -856,8 +856,8 @@
       "Keywords": "flashlight,mp_flashlight",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_flashlight.value.False",
-        "True": "setting.mp_flashlight.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -871,8 +871,8 @@
       "Keywords": "footstep,sounds,mp_footsteps",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_footsteps.value.False",
-        "True": "setting.mp_footsteps.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -886,8 +886,8 @@
       "Keywords": "auto,crosshair,mp_autocrosshair",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_autocrosshair.value.False",
-        "True": "setting.mp_autocrosshair.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -901,8 +901,8 @@
       "Keywords": "team,play,teamplay,mp_teamplay",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_teamplay.value.False",
-        "True": "setting.mp_teamplay.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -916,8 +916,8 @@
       "Keywords": "pause,pausable,sv_pausable",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_pausable.value.False",
-        "True": "setting.sv_pausable.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -931,8 +931,8 @@
       "Keywords": "wait,command,sv_allow_wait_command",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_allow_wait_command.value.False",
-        "True": "setting.sv_allow_wait_command.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -946,8 +946,8 @@
       "Keywords": "voice,communication,sv_voiceenable",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_voiceenable.value.False",
-        "True": "setting.sv_voiceenable.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -961,8 +961,8 @@
       "Keywords": "all,talk,sv_alltalk",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_alltalk.value.False",
-        "True": "setting.sv_alltalk.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -976,8 +976,8 @@
       "Keywords": "fade,black,spectator,death,mp_fadetoblack",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_fadetoblack.value.False",
-        "True": "setting.mp_fadetoblack.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -991,8 +991,8 @@
       "Keywords": "force,respawn,death,mp_forcerespawn",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_forcerespawn.value.False",
-        "True": "setting.mp_forcerespawn.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1035,8 +1035,8 @@
       "Keywords": "stalemate,mode,mp_stalemate_enable",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_stalemate_enable.value.False",
-        "True": "setting.mp_stalemate_enable.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1119,8 +1119,8 @@
       "Keywords": "spectator,camera,first,person,mp_forcecamera",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.mp_forcecamera.value.False",
-        "True": "setting.mp_forcecamera.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1150,8 +1150,8 @@
       "Keywords": "bots,dynamic,fof_sv_bot_dynamicjoin",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.fof_sv_bot_dynamicjoin.value.False",
-        "True": "setting.fof_sv_bot_dynamicjoin.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1229,8 +1229,8 @@
       "Keywords": "competitive,notoriety,fof_sv_dm_comp",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.fof_sv_dm_comp.value.False",
-        "True": "setting.fof_sv_dm_comp.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1258,8 +1258,8 @@
       "Keywords": "custom,shootout,,fof_sv_shootout_custom",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.fof_sv_shootout_custom.value.False",
-        "True": "setting.fof_sv_shootout_custom.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1273,8 +1273,8 @@
       "Keywords": "alternate,ticks,sv_alternateticks",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.sv_alternateticks.value.False",
-        "True": "setting.sv_alternateticks.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1289,7 +1289,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "",
-        "True": "setting.nohltv.value.True"
+        "True": "-nohltv "
       }
     },
     {
@@ -1303,8 +1303,8 @@
       "Keywords": "sourcetv,tv,tv_autorecord",
       "InputType": "checkbox",
       "EnumValues": {
-        "False": "setting.tv_autorecord.value.False",
-        "True": "setting.tv_autorecord.value.True"
+        "False": "0",
+        "True": "1"
       }
     },
     {
@@ -1443,8 +1443,6 @@
       "setting.fof_sv_motd_countdown.desc": "Sets how long the MOTD panel lasts before it can be closed by clients",
       "setting.sv_lan.name": "LAN Server",
       "setting.sv_lan.desc": "If enabled, the server will operate as a LAN server: no heartbeat, no authentication, and no non-class C addresses",
-      "setting.sv_lan.value.False": "0",
-      "setting.sv_lan.value.True": "1",
       "setting.sv_setsteamaccount.name": "Game Server Login Token (GSLT)",
       "setting.sv_setsteamaccount.desc": "Sets the [Steam Game Server Login Token](https://steamcommunity.com/dev/managegameservers) for the server, to allow it to be listed in the server browser. Use app ID 265630 when generating the token",
       "setting.sv_password.name": "Server Password",
@@ -1529,8 +1527,6 @@
       "setting.sv_visiblemaxplayers.desc": "Sets the maximum players reported to prospective clients, regardless of the Player Limit. -1 = do not override",
       "setting.mp_allowspectators.name": "Allow Spectators",
       "setting.mp_allowspectators.desc": "If set, spectator mode will be enabled",
-      "setting.mp_allowspectators.value.False": "0",
-      "setting.mp_allowspectators.value.True": "1",
       "setting.sv_pure.name": "Pure Server Mode",
       "setting.sv_pure.desc": "Sets whether clients are only allowed to use certain files",
       "setting.sv_pure.value.-1": "Do not restrict client files",
@@ -1539,35 +1535,22 @@
       "setting.sv_pure.value.2": "Apply rules in \u0027pure_server_full.txt\u0027",
       "setting.sv_pure_kick_clients.name": "Kick Clients On Pure Server",
       "setting.sv_pure_kick_clients.desc": "If enabled, the server will kick clients with mismatching files. Otherwise, it will issue a warning to the clients",
-      "setting.sv_pure_kick_clients.value.False": "0",
-      "setting.sv_pure_kick_clients.value.True": "1",
       "setting.sv_forcepreload.name": "Force Preload",
       "setting.sv_forcepreload.desc": "If set, server side preloading will be forced",
-      "setting.sv_forcepreload.value.False": "0",
-      "setting.sv_forcepreload.value.True": "1",
       "setting.sv_cheats.name": "Enable Cheats",
       "setting.sv_cheats.desc": "If set, cheat convars will be allowed to be used on the server",
-      "setting.sv_cheats.value.False": "0",
-      "setting.sv_cheats.value.True": "1",
       "setting.insecure.name": "Disable Valve Anti-Cheat",
       "setting.insecure.desc": "If set, Valve Anti-Cheat (VAC) will be disabled",
-      "setting.insecure.value.True": "-insecure ",
       "setting.sv_filterban.name": "Enable IP Packet Filter",
       "setting.sv_filterban.desc": "If set, enables packet filtering by IP mode. If disabled, everyone will treated as IP-banned, but their IP won\u0027t be added to the banlist",
-      "setting.sv_filterban.value.False": "0",
-      "setting.sv_filterban.value.True": "1",
       "setting.tickrate.name": "Server Tickrate",
       "setting.tickrate.desc": "Sets the server tickrate",
       "setting.sv_allowdownload.name": "Allow Download From Server",
       "setting.sv_allowdownload.desc": "If set, clients will be allowed to download content from the server (maps, sprays and related)",
-      "setting.sv_allowdownload.value.False": "0",
-      "setting.sv_allowdownload.value.True": "1",
       "setting.sv_downloadurl.name": "Fast Download URL",
       "setting.sv_downloadurl.desc": "Sets the URL for clients to download custom content from, instead of sourcing the content from the server. This allows for faster downloads",
       "setting.sv_allowupload.name": "Allow Upload To Server",
       "setting.sv_allowupload.desc": "If set, clients will be allowed to upload customisation files to the server",
-      "setting.sv_allowupload.value.False": "0",
-      "setting.sv_allowupload.value.True": "1",
       "setting.net_maxfilesize.name": "Maximum File Size",
       "setting.net_maxfilesize.desc": "Sets the maximum allowed file size for uploading to the server",
       "setting.sv_minrate.name": "Minimum Client Rate",
@@ -1588,8 +1571,6 @@
       "setting.pingboost.value.-pingboost_3_": "3",
       "setting.sv_stats.name": "Enable CPU Stats Collection",
       "setting.sv_stats.desc": "If set, CPU stats will be collected",
-      "setting.sv_stats.value.False": "0",
-      "setting.sv_stats.value.True": "1",
       "setting.ip.name": "Server/RCON IPv4 IP Binding",
       "setting.ip.desc": "If required, you can change the IPv4 IP binding of the server and RCON by changing the Application IP Binding for this instance. NOTE: AMP requires the server to be bound to a specific IP, rather than 0.0.0.0, for the server to log to AMP\u0027s console. The IP must also be reachable by AMP",
       "setting.CustomParameters.name": "Additional Command Line Parameters",
@@ -1601,48 +1582,26 @@
       "setting.mp_friendlyfire.name": "Enable Friendly Fire",
       "setting.mp_friendlyfire.desc": "If set, friendly fire will be enabled (teammates can cause damage to other teammates)",
       "category.gameplay": "Gameplay",
-      "setting.mp_friendlyfire.value.False": "0",
-      "setting.mp_friendlyfire.value.True": "1",
       "setting.mp_flashlight.name": "Enable Flashlight",
       "setting.mp_flashlight.desc": "If sets, allows the use of the flashlight by pressing the F button",
-      "setting.mp_flashlight.value.False": "0",
-      "setting.mp_flashlight.value.True": "1",
       "setting.mp_footsteps.name": "Enable Footsteps",
       "setting.mp_footsteps.desc": "If set, the server will always play footstep sounds",
-      "setting.mp_footsteps.value.False": "0",
-      "setting.mp_footsteps.value.True": "1",
       "setting.mp_autocrosshair.name": "Enable Auto Crosshair",
       "setting.mp_autocrosshair.desc": "If set, the auto crosshair will be enabled",
-      "setting.mp_autocrosshair.value.False": "0",
-      "setting.mp_autocrosshair.value.True": "1",
       "setting.mp_teamplay.name": "Enable Teamplay",
       "setting.mp_teamplay.desc": "If enabled, teamplay game rules will apply",
-      "setting.mp_teamplay.value.False": "0",
-      "setting.mp_teamplay.value.True": "1",
       "setting.sv_pausable.name": "Allow Players To Pause Server",
       "setting.sv_pausable.desc": "If set, players will be able to pause the server. Not recommended",
-      "setting.sv_pausable.value.False": "0",
-      "setting.sv_pausable.value.True": "1",
       "setting.sv_allow_wait_command.name": "Allow Wait Command",
       "setting.sv_allow_wait_command.desc": "If enabled, the wait command will be allowed on clients connected to the server. Recommended to keep disabled to prevent server crash exploits",
-      "setting.sv_allow_wait_command.value.False": "0",
-      "setting.sv_allow_wait_command.value.True": "1",
       "setting.sv_voiceenable.name": "Enable Voice Communication",
       "setting.sv_voiceenable.desc": "If set, voice communication will be enabled on the server",
-      "setting.sv_voiceenable.value.False": "0",
-      "setting.sv_voiceenable.value.True": "1",
       "setting.sv_alltalk.name": "Allow All Talk",
       "setting.sv_alltalk.desc": "If enabled, players can communicate with all other players, with no team restrictions",
-      "setting.sv_alltalk.value.False": "0",
-      "setting.sv_alltalk.value.True": "1",
       "setting.mp_fadetoblack.name": "Enable Fade To Black",
       "setting.mp_fadetoblack.desc": "If enabled, a player\u0027s screen fades to black for the remainder of the round after death (HUD and chat still works)",
-      "setting.mp_fadetoblack.value.False": "0",
-      "setting.mp_fadetoblack.value.True": "1",
       "setting.mp_forcerespawn.name": "Force Respawn",
       "setting.mp_forcerespawn.desc": "If enabled, players will be forced to respawn after death",
-      "setting.mp_forcerespawn.value.False": "0",
-      "setting.mp_forcerespawn.value.True": "1",
       "setting.mp_autoteambalance.name": "Automatic Team Balancing",
       "setting.mp_autoteambalance.desc": "Sets whether to automatically balance teams based on the Teams Unbalance Limit",
       "setting.mp_autoteambalance.value.0": "Off",
@@ -1652,8 +1611,6 @@
       "setting.mp_teams_unbalance_limit.desc": "Teams will be considered unbalanced for the purpose of Automatic Team Balancing when one team has this many more players than the other team. 0 = check disabled",
       "setting.mp_stalemate_enable.name": "Enable Stalemate Mode",
       "setting.mp_stalemate_enable.desc": "If set, the stalemate mode will be enabled",
-      "setting.mp_stalemate_enable.value.False": "0",
-      "setting.mp_stalemate_enable.value.True": "1",
       "setting.mp_stalemate_timelimit.name": "Stalemate Mode Time Limit",
       "setting.mp_stalemate_timelimit.desc": "Sets the time limit of the stalemate round",
       "setting.mp_timelimit.name": "Map Rotation Time Limit",
@@ -1666,8 +1623,6 @@
       "setting.mp_winlimit.desc": "Sets the maximum score one team can reach before the map rotates. 0 = disabled",
       "setting.mp_forcecamera.name": "Restrict Spectator Mode",
       "setting.mp_forcecamera.desc": "If set, the spectator mode for dead players will be restricted",
-      "setting.mp_forcecamera.value.False": "0",
-      "setting.mp_forcecamera.value.True": "1",
       "setting.fof_sv_maxteams.name": "Maximum Teams",
       "setting.fof_sv_maxteams.desc": "Sets the maximum number of teams for the server",
       "setting.fof_sv_maxteams.value.2": "2",
@@ -1675,8 +1630,6 @@
       "setting.fof_sv_maxteams.value.4": "4",
       "setting.fof_sv_bot_dynamicjoin.name": "Enable Bots Dynamic Join",
       "setting.fof_sv_bot_dynamicjoin.desc": "If set, the server will have bots join or leave automatically to fill slots",
-      "setting.fof_sv_bot_dynamicjoin.value.False": "0",
-      "setting.fof_sv_bot_dynamicjoin.value.True": "1",
       "setting.fof_sv_bot_slotpct.name": "Bots Slot Fill Percentage",
       "setting.fof_sv_bot_slotpct.desc": "Sets the slots percentage (expressed as a number between 0 and 1) filled by bots",
       "setting.fof_bot_skill.name": "Bots Skill Level",
@@ -1694,26 +1647,17 @@
       "setting.fof_sv_obj_warmuptime.desc": "Sets the warm-up duration",
       "setting.fof_sv_dm_comp.name": "Enable Competitive Mode",
       "setting.fof_sv_dm_comp.desc": "If set, the competitive variant mode will be enabled: there is no time limit and the first player reaching the specified Notoriety Points To Win wins the game. The leader loses notoriety points when killed (same amount that their killer gets)",
-      "setting.fof_sv_dm_comp.value.False": "0",
-      "setting.fof_sv_dm_comp.value.True": "1",
       "setting.fof_sv_dm_comp_points.name": "Competitive Mode Notoriety Points To Win",
       "setting.fof_sv_dm_comp_points.desc": "Sets the number of notoriety points required to win the game in competitive mode",
       "setting.fof_sv_shootout_custom.name": "Enable Custom Shootout Mode",
       "setting.fof_sv_shootout_custom.desc": "If set, a custom Shootout mode will be enabled: weapon crates, whiskey and physic items are placed by following a script instead of their default positions. Create a script using the bot editor",
-      "setting.fof_sv_shootout_custom.value.False": "0",
-      "setting.fof_sv_shootout_custom.value.True": "1",
       "setting.sv_alternateticks.name": "Alternate Ticks",
       "setting.sv_alternateticks.desc": "If set, the server only simulates entities on even numbered ticks",
-      "setting.sv_alternateticks.value.False": "0",
-      "setting.sv_alternateticks.value.True": "1",
       "setting.nohltv.name": "Disable SourceTV",
       "setting.nohltv.desc": "If set, SourceTV will be disabled on the server",
       "category.sourcetv": "SourceTV",
-      "setting.nohltv.value.True": "-nohltv ",
       "setting.tv_autorecord.name": "Enable Automatic Demo Recording",
       "setting.tv_autorecord.desc": "If set, all games will be recorded as SourceTV demos",
-      "setting.tv_autorecord.value.False": "0",
-      "setting.tv_autorecord.value.True": "1",
       "setting.tv_maxclients.name": "SourceTV Viewer Limit",
       "setting.tv_maxclients.desc": "Sets the maximum number of clients allowed to connect to the server\u0027s SourceTV. 0 = no SourceTV viewers are allowed, the game will only be recorded locally",
       "setting.tv_maxrate.name": "Maximum SourceTV Bandwidth",
