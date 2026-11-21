@@ -754,7 +754,7 @@
       "InputType": "checkbox",
       "EnumValues": {
         "False": "False",
-        "Truue": "True"
+        "True": "True"
       }
     },
     {
