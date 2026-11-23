@@ -30,14 +30,16 @@ if (Test-Path $workshopDir) {
       }
       
       if (-not $modName) {
-        # Final fallback: Try fetching name from Steam workshop webpage if no name found
+        # Final fallback: Ask the Steam Web API for the workshop item's title
         $modID = $_.Name
-        $steamPage = "https://steamcommunity.com/workshop/filedetails/?id=$modID"
+        $steamApi = "https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/"
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-        $modName = (Invoke-WebRequest -UseBasicParsing -Uri $steamPage).Content |
-                   Select-String -Pattern '<div class="workshopItemTitle">([^<]*)</div>' |
-                   ForEach-Object { $_.Matches.Groups[1].Value } |
-                   Select-Object -First 1
+        try {
+          $details = Invoke-RestMethod -UseBasicParsing -Method Post -Uri $steamApi -Body @{ 'itemcount' = 1; 'publishedfileids[0]' = $modID }
+          $modName = $details.response.publishedfiledetails[0].title
+        } catch {
+          $modName = $null
+        }
         
         if (-not $modName) {
           Write-Output "Error: Unable to retrieve name for workshop item $modID. Skipping"

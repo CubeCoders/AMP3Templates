@@ -30,10 +30,18 @@ if [ -d "$workshopDir" ]; then
       fi
 
       if [ -z "$modName" ]; then
-        # Final fallback: Try fetching name from Steam workshop webpage if no name found
+        # Final fallback: Ask the Steam Web API for the workshop item's title
         modID=$(basename "$modDir")
-        modName=$(wget -qO- "https://steamcommunity.com/workshop/filedetails/?id=$modID" | \
-          sed -n 's/.*<div class="workshopItemTitle">\([^<]*\)<\/div>.*/\1/p' | head -n 1)
+        steamApi="https://api.steampowered.com/ISteamRemoteStorage/GetPublishedFileDetails/v1/"
+        response=""
+        if command -v curl >/dev/null 2>&1; then
+          response=$(curl -fsS --max-time 30 -d "itemcount=1&publishedfileids[0]=$modID" "$steamApi" 2>/dev/null)
+        elif command -v wget >/dev/null 2>&1; then
+          response=$(wget -qO- --timeout=30 --post-data="itemcount=1&publishedfileids[0]=$modID" "$steamApi" 2>/dev/null)
+        fi
+        # The first "title" member, with its escaped quotes, slashes and backslashes restored
+        modName=$(printf '%s' "$response" | grep -oE '"title"[[:space:]]*:[[:space:]]*"([^"\\]|\\.)*"' | head -n 1 | \
+          sed -E 's/^"title"[[:space:]]*:[[:space:]]*"//; s/"$//; s/\\"/"/g; s/\\\//\//g; s/\\\\/\\/g')
 
         if [ -z "$modName" ]; then
           echo "Error: Unable to retrieve name for workshop item $modID. Skipping"
