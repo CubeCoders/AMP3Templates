@@ -67,10 +67,16 @@
       "ForceDownloadPlatform": "Windows"
     },
     {
-      "UpdateSource": "Executable",
+      "UpdateSource": "FetchURL",
       "UpdateStageName": "Proton GE Download",
+      "UpdateSourceData": "{{SpecificReleaseVersion.downloadUrl}}",
+      "UpdateSourceTarget": "{{$FullRootDir}}.proton"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Proton GE Installation",
       "UpdateSourceData": "/bin/bash",
-      "UpdateSourceArgs": "-c \u0022cd \\\u0022{{$FullRootDir}}\\\u0022; mkdir -p \\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 \\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullBaseDir}}.config/protonfixes\\\u0022; ProtonVersion=\\\u0022{{SpecificReleaseVersion}}\\\u0022 \u0026\u0026 if [[ -x \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 \u0026\u0026 -f \\\u0022{{$FullRootDir}}.proton/version\\\u0022 ]]; then read _ InstalledVersion \u003C \\\u0022{{$FullRootDir}}.proton/version\\\u0022; else InstalledVersion=\\\u0022\\\u0022; fi; if [[ -z \\\u0022$ProtonVersion\\\u0022 ]]; then ProtonVersion=$(wget -qO- https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | jq -r .tag_name); fi; if [[ ! \\\u0022$ProtonVersion\\\u0022 =~ ^GE-Proton[0-9]\u002B-[0-9]\u002B$ ]]; then echo \\\u0022Invalid Proton GE release version format specified\\\u0022 \u0026\u0026 exit 1; elif [[ \\\u0022$InstalledVersion\\\u0022 == \\\u0022$ProtonVersion\\\u0022* ]]; then echo \\\u0022Proton GE version $ProtonVersion already installed. Skipping\\\u0022 \u0026\u0026 exit 0; else [[ -f GE-Proton.tar.gz ]] \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261; suffix=\\\u0022\\\u0022; ver=\\\u0022${ProtonVersion#GE-Proton}\\\u0022; major=\\\u0022${ver%%-*}\\\u0022; minor=\\\u0022${ver#*-}\\\u0022; if (( major \u003E 11 || (major == 11 \u0026\u0026 minor \u003E= 4) )); then suffix=\\\u0022-x86_64\\\u0022; fi; wget -qO GE-Proton.tar.gz https://github.com/GloriousEggroll/proton-ge-custom/releases/download/$ProtonVersion/${ProtonVersion}${suffix}.tar.gz || { echo \\\u0022Proton GE download failed from GitHub. Aborting\\\u0022; exit 1; }; rm -rf \\\u0022{{$FullRootDir}}.proton/compatdata/\\\u0022* \u003E/dev/null 2\u003E\u00261; tar -xzf GE-Proton.tar.gz -C \\\u0022{{$FullRootDir}}.proton\\\u0022 --strip-components=1 \u0026\u0026 rm -f GE-Proton.tar.gz \u003E/dev/null 2\u003E\u00261 \u0026\u0026 echo \\\u0022Proton GE version $ProtonVersion downloaded\\\u0022 \u0026\u0026 { STEAM_COMPAT_DATA_PATH=\\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 STEAM_COMPAT_CLIENT_INSTALL_PATH=\\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 PROTON_LOG=1 \u003E/dev/null 2\u003E\u00261; exit 0; }; fi\u0022"
+      "UpdateSourceArgs": "-c \u0022cd \\\u0022{{$FullRootDir}}.proton\\\u0022 \u0026\u0026 mkdir -p compatdata \\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullBaseDir}}.config/protonfixes\\\u0022 || exit 1; ProtonVersion=\\\u0022{{SpecificReleaseVersion}}\\\u0022; Archive=\\\u0022{{SpecificReleaseVersion.downloadUrl}}\\\u0022; Archive=\\\u0022${Archive##*/}\\\u0022; if [[ ! -s \\\u0022$Archive\\\u0022 ]]; then InstalledVersion=\\\u0022\\\u0022; [[ -x proton \u0026\u0026 -f version ]] \u0026\u0026 read _ InstalledVersion \u003C version; if [[ \\\u0022$InstalledVersion\\\u0022 == \\\u0022$ProtonVersion\\\u0022 || \\\u0022$InstalledVersion\\\u0022 == \\\u0022$ProtonVersion\\\u0022-* ]]; then echo \\\u0022Proton GE version $ProtonVersion already installed. Skipping\\\u0022; exit 0; fi; rm -f \\\u0022$Archive\\\u0022; echo \\\u0022Proton GE version $ProtonVersion is not installed. Update again to download it\\\u0022; exit 1; fi; rm -rf compatdata/* \u003E/dev/null 2\u003E\u00261; if ! tar -xzf \\\u0022$Archive\\\u0022 --strip-components=1; then rm -f \\\u0022$Archive\\\u0022; echo \\\u0022Proton GE archive could not be extracted. Aborting\\\u0022; exit 1; fi; find . -maxdepth 1 -name \u0027GE-Proton*.tar.gz\u0027 ! -name \\\u0022$Archive\\\u0022 -delete; : \u003E \\\u0022$Archive\\\u0022; echo \\\u0022Proton GE version $ProtonVersion downloaded\\\u0022; STEAM_COMPAT_DATA_PATH=\\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 STEAM_COMPAT_CLIENT_INSTALL_PATH=\\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 PROTON_LOG=1 \u003E/dev/null 2\u003E\u00261; exit 0\u0022"
     }
   ],
   "PortRequirements": [
@@ -98,6 +104,19 @@
       "Name": "port.CubePort.name",
       "Ref": "CubePort",
       "Port": 14999
+    }
+  ],
+  "VersionSources": [
+    {
+      "Id": "protonge.releases",
+      "Url": "https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases?per_page=100",
+      "Format": "Text",
+      "Select": "\u0022browser_download_url\u0022\\s*:\\s*\u0022(?\u003Curl\u003Ehttps://github\\.com/GloriousEggroll/proton-ge-custom/releases/download/(?\u003Ctag\u003EGE-Proton[0-9]\u002B-[0-9]\u002B)/\\k\u003Ctag\u003E(?:-x86_64)?\\.tar\\.gz)\u0022",
+      "Value": "tag",
+      "Fields": {
+        "downloadUrl": "url"
+      },
+      "Sort": "VersionDescending"
     }
   ],
   "Settings": [
@@ -274,14 +293,16 @@
     {
       "FieldName": "SpecificReleaseVersion",
       "ParamFieldName": "SpecificReleaseVersion",
-      "DefaultValue": "",
+      "Required": true,
+      "Platform": "Linux",
+      "DefaultValue": "[Latest]",
       "Category": "category.updates",
       "Subcategory": "category.runtime-configuration:build:3",
       "DisplayName": "setting.SpecificReleaseVersion.name",
       "Description": "setting.SpecificReleaseVersion.desc",
       "Keywords": "proton,release,version",
-      "InputType": "text",
-      "Placeholder": "GE-Proton9-1"
+      "InputType": "enum",
+      "ValueSourceId": "protonge.releases"
     },
     {
       "FieldName": "$ApplicationIPBinding",
@@ -334,7 +355,7 @@
       "setting.NoTransferFromFiltering.name": "Filter Transfers",
       "setting.NoTransferFromFiltering.desc": "If set, prevents ARK data usage between single player and servers that do not have a Cluster ID set. Even with a Cluster ID set, it is suggested to enable this option",
       "setting.SpecificReleaseVersion.name": "Proton GE Release Version (Linux)",
-      "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install. Empty = latest. Example: GE-Proton9-1",
+      "setting.SpecificReleaseVersion.desc": "Sets the Proton GE [release version](https://github.com/GloriousEggroll/proton-ge-custom/releases) to install.",
       "category.updates": "Updates",
       "category.runtime-configuration": "Runtime Configuration",
       "setting.$ApplicationIPBinding.name": "IP Binding",

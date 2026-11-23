@@ -71,26 +71,28 @@
       "OverwriteExistingFiles": true
     },
     {
-      "UpdateSource": "Executable",
+      "UpdateSource": "FetchURL",
       "UpdateStageName": "Metamod Download",
-      "UpdateSourceData": "/bin/bash",
-      "UpdateSourceArgs": "-c \u0022MetamodBuild=\\\u0022{{MetamodBuild}}\\\u0022 \u0026\u0026 MetamodBranch=\\\u0022{{MetamodBranch}}\\\u0022 \u0026\u0026 if [[ -z \\\u0022$MetamodBuild\\\u0022 ]]; then wget -qO metamod.tar.gz \\\u0022https://metamodsource.net/latest.php?os=linux\u0026version=$MetamodBranch\\\u0022 \u0026\u0026 echo \\\u0022Latest Metamod $MetamodBranch build downloaded\\\u0022 \u0026\u0026 exit 0; elif [[ ! \\\u0022$MetamodBuild\\\u0022 =~ ^[0-9]\u002B$ ]]; then echo \\\u0022Invalid Metamod build version format specified\\\u0022 \u0026\u0026 exit 1; fi; if { [[ \\\u0022$MetamodBranch\\\u0022 == \\\u00222.0\\\u0022 ]] \u0026\u0026 [[ \\\u0022$MetamodBuild\\\u0022 -ge 1391 ]]; } || { [[ \\\u0022$MetamodBranch\\\u0022 == \\\u00221.12\\\u0022 ]] \u0026\u0026 [[ \\\u0022$MetamodBuild\\\u0022 -ge 1221 ]]; }; then DownloadURL=\\\u0022https://github.com/alliedmodders/metamod-source/releases/download/$MetamodBranch.0.$MetamodBuild/mmsource-$MetamodBranch.0-git$MetamodBuild-linux.tar.gz\\\u0022; else DownloadURL=\\\u0022https://mms.alliedmods.net/mmsdrop/$MetamodBranch/mmsource-$MetamodBranch.0-git$MetamodBuild-linux.tar.gz\\\u0022; fi; wget -qO metamod.tar.gz \\\u0022$DownloadURL\\\u0022 \u0026\u0026 echo \\\u0022Metamod $MetamodBranch build $MetamodBuild downloaded\\\u0022\u0022",
+      "UpdateSourceData": "{{MetamodBuild.downloadUrl}}-linux.tar.gz",
+      "UpdateSourceArgs": "metamod.tar.gz",
+      "OverwriteExistingFiles": true,
       "UpdateSourceConditionSetting": "InstallMod",
       "UpdateSourceConditionValue": "true"
     },
     {
-      "UpdateSource": "Executable",
+      "UpdateSource": "FetchURL",
       "UpdateStageName": "Metamod Download",
       "UpdateSourcePlatform": "Windows",
-      "UpdateSourceData": "powershell.exe",
-      "UpdateSourceArgs": "-NoProfile -Command \u0022$ProgressPreference=\u0027SilentlyContinue\u0027; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $MetamodBuild=\u0027{{MetamodBuild}}\u0027; $MetamodBranch=\u0027{{MetamodBranch}}\u0027; if ([string]::IsNullOrWhiteSpace($MetamodBuild)) { Invoke-WebRequest -UseBasicParsing -Uri \\\u0022https://metamodsource.net/latest.php?os=windows\u0026version=$MetamodBranch\\\u0022 -OutFile \u0027metamod.zip\u0027; if ($?) { Write-Output \\\u0022Latest Metamod $MetamodBranch build downloaded\\\u0022; exit 0 } } elseif ($MetamodBuild -notmatch \u0027^\\d\u002B$\u0027) { Write-Output \\\u0022Invalid Metamod build version format specified\\\u0022; exit 1 }; if (($MetamodBranch -eq \u00272.0\u0027 -and [int]$MetamodBuild -ge 1391) -or ($MetamodBranch -eq \u00271.12\u0027 -and [int]$MetamodBuild -ge 1221)) { $DownloadURL = \\\u0022https://github.com/alliedmodders/metamod-source/releases/download/$MetamodBranch.0.$MetamodBuild/mmsource-$MetamodBranch.0-git$MetamodBuild-windows.zip\\\u0022 } else { $DownloadURL = \\\u0022https://mms.alliedmods.net/mmsdrop/$MetamodBranch/mmsource-$MetamodBranch.0-git$MetamodBuild-windows.zip\\\u0022 }; Invoke-WebRequest -UseBasicParsing -Uri $DownloadURL -OutFile \u0027metamod.zip\u0027; if ($?) { Write-Output \\\u0022Metamod $MetamodBranch build $MetamodBuild downloaded\\\u0022 }\u0022",
+      "UpdateSourceData": "{{MetamodBuild.downloadUrl}}-windows.zip",
+      "UpdateSourceArgs": "metamod.zip",
+      "OverwriteExistingFiles": true,
       "UpdateSourceConditionSetting": "InstallMod",
       "UpdateSourceConditionValue": "true"
     },
     {
       "UpdateSource": "ExtractArchive",
       "UpdateStageName": "Metamod Extract",
-      "UpdateSourceData": "metamod.tar.gz",
+      "UpdateSourceData": "{{$FullRootDir}}metamod.tar.gz",
       "UpdateSourceTarget": "{{$FullBaseDir}}cstrike",
       "OverwriteExistingFiles": true,
       "UpdateSourceConditionSetting": "InstallMod",
@@ -101,7 +103,7 @@
       "UpdateSource": "ExtractArchive",
       "UpdateStageName": "Metamod Extract",
       "UpdateSourcePlatform": "Windows",
-      "UpdateSourceData": "metamod.zip",
+      "UpdateSourceData": "{{$FullRootDir}}metamod.zip",
       "UpdateSourceTarget": "{{$FullBaseDir}}cstrike",
       "OverwriteExistingFiles": true,
       "UpdateSourceConditionSetting": "InstallMod",
@@ -117,26 +119,28 @@
       "UpdateSourceConditionValue": "true"
     },
     {
-      "UpdateSource": "Executable",
+      "UpdateSource": "FetchURL",
       "UpdateStageName": "SourceMod Download",
-      "UpdateSourceData": "/bin/bash",
-      "UpdateSourceArgs": "-c \u0022SourceModBuild=\\\u0022{{SourceModBuild}}\\\u0022 \u0026\u0026 SourceModBranch=\\\u0022{{SourceModBranch}}\\\u0022 \u0026\u0026 if [[ -z \\\u0022$SourceModBuild\\\u0022 ]]; then wget -qO sourcemod.tar.gz \\\u0022https://sourcemod.net/latest.php?os=linux\u0026version=$SourceModBranch\\\u0022 \u0026\u0026 echo \\\u0022Latest SourceMod $SourceModBranch build downloaded\\\u0022 \u0026\u0026 exit 0; elif [[ ! \\\u0022$SourceModBuild\\\u0022 =~ ^[0-9]\u002B$ ]]; then echo \\\u0022Invalid SourceMod build version format specified\\\u0022 \u0026\u0026 exit 1; fi; if { [[ \\\u0022$SourceModBranch\\\u0022 == \\\u00221.13\\\u0022 ]] \u0026\u0026 [[ \\\u0022$SourceModBuild\\\u0022 -ge 7311 ]]; } || { [[ \\\u0022$SourceModBranch\\\u0022 == \\\u00221.12\\\u0022 ]] \u0026\u0026 [[ \\\u0022$SourceModBuild\\\u0022 -ge 7225 ]]; }; then DownloadURL=\\\u0022https://github.com/alliedmodders/sourcemod/releases/download/$SourceModBranch.0.$SourceModBuild/sourcemod-$SourceModBranch.0-git$SourceModBuild-linux.tar.gz\\\u0022; else DownloadURL=\\\u0022https://sm.alliedmods.net/smdrop/$SourceModBranch/sourcemod-$SourceModBranch.0-git$SourceModBuild-linux.tar.gz\\\u0022; fi; wget -qO sourcemod.tar.gz \\\u0022$DownloadURL\\\u0022 \u0026\u0026 echo \\\u0022SourceMod $SourceModBranch build $SourceModBuild downloaded\\\u0022\u0022",
+      "UpdateSourceData": "{{SourceModBuild.downloadUrl}}-linux.tar.gz",
+      "UpdateSourceArgs": "sourcemod.tar.gz",
+      "OverwriteExistingFiles": true,
       "UpdateSourceConditionSetting": "InstallMod",
       "UpdateSourceConditionValue": "true"
     },
     {
-      "UpdateSource": "Executable",
+      "UpdateSource": "FetchURL",
       "UpdateStageName": "SourceMod Download",
       "UpdateSourcePlatform": "Windows",
-      "UpdateSourceData": "powershell.exe",
-      "UpdateSourceArgs": "-NoProfile -Command \u0022$ProgressPreference=\u0027SilentlyContinue\u0027; [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; $SourceModBuild=\u0027{{SourceModBuild}}\u0027; $SourceModBranch=\u0027{{SourceModBranch}}\u0027; if ([string]::IsNullOrWhiteSpace($SourceModBuild)) { Invoke-WebRequest -UseBasicParsing -Uri \\\u0022https://sourcemod.net/latest.php?os=windows\u0026version=$SourceModBranch\\\u0022 -OutFile \u0027sourcemod.zip\u0027; if ($?) { Write-Output \\\u0022Latest SourceMod $SourceModBranch build downloaded\\\u0022; exit 0 } } elseif ($SourceModBuild -notmatch \u0027^\\d\u002B$\u0027) { Write-Output \\\u0022Invalid SourceMod build version format specified\\\u0022; exit 1 }; if (($SourceModBranch -eq \u00271.13\u0027 -and [int]$SourceModBuild -ge 7311) -or ($SourceModBranch -eq \u00271.12\u0027 -and [int]$SourceModBuild -ge 7225)) { $DownloadURL = \\\u0022https://github.com/alliedmodders/sourcemod/releases/download/$SourceModBranch.0.$SourceModBuild/sourcemod-$SourceModBranch.0-git$SourceModBuild-windows.zip\\\u0022 } else { $DownloadURL = \\\u0022https://sm.alliedmods.net/smdrop/$SourceModBranch/sourcemod-$SourceModBranch.0-git$SourceModBuild-windows.zip\\\u0022 }; Invoke-WebRequest -UseBasicParsing -Uri $DownloadURL -OutFile \u0027sourcemod.zip\u0027; if ($?) { Write-Output \\\u0022SourceMod $SourceModBranch build $SourceModBuild downloaded\\\u0022 }\u0022",
+      "UpdateSourceData": "{{SourceModBuild.downloadUrl}}-windows.zip",
+      "UpdateSourceArgs": "sourcemod.zip",
+      "OverwriteExistingFiles": true,
       "UpdateSourceConditionSetting": "InstallMod",
       "UpdateSourceConditionValue": "true"
     },
     {
       "UpdateSource": "ExtractArchive",
       "UpdateStageName": "SourceMod Extract",
-      "UpdateSourceData": "sourcemod.tar.gz",
+      "UpdateSourceData": "{{$FullRootDir}}sourcemod.tar.gz",
       "UpdateSourceTarget": "{{$FullBaseDir}}sm",
       "OverwriteExistingFiles": true,
       "UpdateSourceConditionSetting": "InstallMod",
@@ -147,7 +151,7 @@
       "UpdateSource": "ExtractArchive",
       "UpdateStageName": "SourceMod Extract",
       "UpdateSourcePlatform": "Windows",
-      "UpdateSourceData": "sourcemod.zip",
+      "UpdateSourceData": "{{$FullRootDir}}sourcemod.zip",
       "UpdateSourceTarget": "{{$FullBaseDir}}sm",
       "OverwriteExistingFiles": true,
       "UpdateSourceConditionSetting": "InstallMod",
@@ -251,6 +255,64 @@
       "Ref": "ClientPort",
       "Port": 27005,
       "Protocol": "UDP"
+    }
+  ],
+  "VersionSources": [
+    {
+      "Id": "metamod.builds",
+      "Documents": [
+        {
+          "Url": "https://api.github.com/repos/alliedmodders/metamod-source/releases?per_page=100",
+          "UrlTemplate": "https://github.com/alliedmodders/metamod-source/releases/download/{{MetamodBranch}}.0.{value}/mmsource-{{MetamodBranch}}.0-git{value}"
+        },
+        {
+          "Url": "https://mms.alliedmods.net/mmsdrop/{{MetamodBranch}}/",
+          "UrlTemplate": "https://mms.alliedmods.net/mmsdrop/{{MetamodBranch}}/mmsource-{{MetamodBranch}}.0-git{value}"
+        }
+      ],
+      "Format": "Text",
+      "Select": "(?:\u0022name\u0022\\s*:\\s*\u0022|href=\u0022)mmsource-(?\u003Cbranch\u003E[0-9]\u002B\\.[0-9]\u002B)\\.0-git(?\u003Cbuild\u003E[0-9]\u002B)-linux\\.tar\\.gz\u0022",
+      "Value": "build",
+      "Fields": {
+        "branch": "branch"
+      },
+      "Where": {
+        "branch": "{{MetamodBranch}}"
+      },
+      "Sort": "VersionDescending",
+      "DependsOn": [
+        "MetamodBranch"
+      ]
+    },
+    {
+      "Id": "sourcemod.builds",
+      "Documents": [
+        {
+          "Url": "https://api.github.com/repos/alliedmodders/sourcemod/releases?per_page=100",
+          "UrlTemplate": "https://github.com/alliedmodders/sourcemod/releases/download/{{SourceModBranch}}.0.{value}/sourcemod-{{SourceModBranch}}.0-git{value}"
+        },
+        {
+          "Url": "https://api.github.com/repos/alliedmodders/sourcemod/releases?per_page=100\u0026page=2",
+          "UrlTemplate": "https://github.com/alliedmodders/sourcemod/releases/download/{{SourceModBranch}}.0.{value}/sourcemod-{{SourceModBranch}}.0-git{value}"
+        },
+        {
+          "Url": "https://sm.alliedmods.net/smdrop/{{SourceModBranch}}/",
+          "UrlTemplate": "https://sm.alliedmods.net/smdrop/{{SourceModBranch}}/sourcemod-{{SourceModBranch}}.0-git{value}"
+        }
+      ],
+      "Format": "Text",
+      "Select": "(?:\u0022name\u0022\\s*:\\s*\u0022|href=\u0022)sourcemod-(?\u003Cbranch\u003E[0-9]\u002B\\.[0-9]\u002B)\\.0-git(?\u003Cbuild\u003E[0-9]\u002B)-linux\\.tar\\.gz\u0022",
+      "Value": "build",
+      "Fields": {
+        "branch": "branch"
+      },
+      "Where": {
+        "branch": "{{SourceModBranch}}"
+      },
+      "Sort": "VersionDescending",
+      "DependsOn": [
+        "SourceModBranch"
+      ]
     }
   ],
   "Settings": [
@@ -1058,14 +1120,17 @@
     {
       "FieldName": "MetamodBuild",
       "ParamFieldName": "MetamodBuild",
-      "DefaultValue": "",
+      "Required": true,
+      "ConditionSetting": "InstallMod",
+      "ConditionValue": "true",
+      "DefaultValue": "[Latest]",
       "Category": "category.updates",
       "Subcategory": "category.metamod-and-sourcemod:build:3",
       "DisplayName": "setting.MetamodBuild.name",
       "Description": "setting.MetamodBuild.desc",
       "Keywords": "metamod,build,version",
-      "InputType": "number",
-      "Placeholder": "1219"
+      "InputType": "enum",
+      "ValueSourceId": "metamod.builds"
     },
     {
       "FieldName": "SourceModBranch",
@@ -1086,14 +1151,17 @@
     {
       "FieldName": "SourceModBuild",
       "ParamFieldName": "SourceModBuild",
-      "DefaultValue": "",
+      "Required": true,
+      "ConditionSetting": "InstallMod",
+      "ConditionValue": "true",
+      "DefaultValue": "[Latest]",
       "Category": "category.updates",
       "Subcategory": "category.metamod-and-sourcemod:build:3",
       "DisplayName": "setting.SourceModBuild.name",
       "Description": "setting.SourceModBuild.desc",
       "Keywords": "sourcemod,build,version",
-      "InputType": "number",
-      "Placeholder": "7176"
+      "InputType": "enum",
+      "ValueSourceId": "sourcemod.builds"
     },
     {
       "FieldName": "$ApplicationIPBinding",
@@ -1281,14 +1349,14 @@
       "setting.MetamodBranch.value.1_12": "Stable (1.12) (default)",
       "setting.MetamodBranch.value.2_0": "Development (2.0)",
       "setting.MetamodBuild.name": "Metamod Build Version",
-      "setting.MetamodBuild.desc": "Specifies the [Metamod build version](https://www.metamodsource.net/downloads.php) to install. Empty = latest build for the branch specified under Metamod Branch",
+      "setting.MetamodBuild.desc": "Specifies the [Metamod build version](https://www.metamodsource.net/downloads.php) to install from the branch specified under Metamod Branch.",
       "setting.SourceModBranch.name": "SourceMod Branch",
       "setting.SourceModBranch.desc": "Specifies the [SourceMod](https://www.sourcemod.net/downloads.php) branch to install",
       "setting.SourceModBranch.value.1_11": "Old stable (1.11)",
       "setting.SourceModBranch.value.1_12": "Stable (1.12) (default)",
       "setting.SourceModBranch.value.1_13": "Development (1.13)",
       "setting.SourceModBuild.name": "SourceMod Build Version",
-      "setting.SourceModBuild.desc": "Specifies the [SourceMod build version](https://www.sourcemod.net/downloads.php) to install. Empty = latest build for the branch specified under SourceMod Branch",
+      "setting.SourceModBuild.desc": "Specifies the [SourceMod build version](https://www.sourcemod.net/downloads.php) to install from the branch specified under SourceMod Branch.",
       "setting.$ApplicationIPBinding.name": "IP Binding",
       "setting.$ApplicationIPBinding.desc": "The network address the server binds its ports to. 0.0.0.0 binds every interface (recommended for most setups); set a specific address on multi-IP hosts.",
       "category.networking": "Networking",
