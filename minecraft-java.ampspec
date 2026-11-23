@@ -93,11 +93,49 @@
       "UpdateSourceConditionValue": "Forge"
     },
     {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Forge Server Install",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceArgs": "-jar forge-installer.jar --installServer",
+      "UpdateSourceConditionSetting": "ServerType",
+      "UpdateSourceConditionValue": "Forge"
+    },
+    {
+      "UpdateSource": "FetchURL",
+      "UpdateStageName": "Forge Server Starter Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "https://github.com/NeoForged/serverstarterjar/releases/latest/download/server.jar",
+      "UpdateSourceArgs": "server.jar",
+      "UpdateSourceTarget": "{{$FullBaseDir}}",
+      "OverwriteExistingFiles": true,
+      "UpdateSourceConditionSetting": "ServerType",
+      "UpdateSourceConditionValue": "Forge"
+    },
+    {
       "UpdateSource": "FetchURL",
       "UpdateStageName": "NeoForge Installer Download",
       "UpdateSourcePlatform": "All",
       "UpdateSourceData": "{{NeoForgeVersion.downloadUrl}}",
       "UpdateSourceArgs": "forge-installer.jar",
+      "UpdateSourceTarget": "{{$FullBaseDir}}",
+      "OverwriteExistingFiles": true,
+      "UpdateSourceConditionSetting": "ServerType",
+      "UpdateSourceConditionValue": "NeoForge"
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "NeoForge Server Install",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceArgs": "-jar forge-installer.jar --installServer",
+      "UpdateSourceConditionSetting": "ServerType",
+      "UpdateSourceConditionValue": "NeoForge"
+    },
+    {
+      "UpdateSource": "FetchURL",
+      "UpdateStageName": "NeoForge Server Starter Download",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceData": "https://github.com/NeoForged/serverstarterjar/releases/latest/download/server.jar",
+      "UpdateSourceArgs": "server.jar",
       "UpdateSourceTarget": "{{$FullBaseDir}}",
       "OverwriteExistingFiles": true,
       "UpdateSourceConditionSetting": "ServerType",
