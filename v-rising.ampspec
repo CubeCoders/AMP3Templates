@@ -133,16 +133,9 @@
       "UpdateSourceConditionValue": "true"
     },
     {
-      "UpdateSource": "FetchURL",
+      "UpdateSource": "Proton",
       "UpdateStageName": "Proton GE Download",
-      "UpdateSourceData": "{{SpecificReleaseVersion.downloadUrl}}",
-      "UpdateSourceTarget": "{{$FullRootDir}}.proton"
-    },
-    {
-      "UpdateSource": "Executable",
-      "UpdateStageName": "Proton GE Installation",
-      "UpdateSourceData": "/bin/bash",
-      "UpdateSourceArgs": "-c \u0022cd \\\u0022{{$FullRootDir}}.proton\\\u0022 \u0026\u0026 mkdir -p compatdata \\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullBaseDir}}.config/protonfixes\\\u0022 || exit 1; ProtonVersion=\\\u0022{{SpecificReleaseVersion}}\\\u0022; Archive=\\\u0022{{SpecificReleaseVersion.downloadUrl}}\\\u0022; Archive=\\\u0022${Archive##*/}\\\u0022; if [[ ! -s \\\u0022$Archive\\\u0022 ]]; then InstalledVersion=\\\u0022\\\u0022; [[ -x proton \u0026\u0026 -f version ]] \u0026\u0026 read _ InstalledVersion \u003C version; if [[ \\\u0022$InstalledVersion\\\u0022 == \\\u0022$ProtonVersion\\\u0022 || \\\u0022$InstalledVersion\\\u0022 == \\\u0022$ProtonVersion\\\u0022-* ]]; then echo \\\u0022Proton GE version $ProtonVersion already installed. Skipping\\\u0022; exit 0; fi; rm -f \\\u0022$Archive\\\u0022; echo \\\u0022Proton GE version $ProtonVersion is not installed. Update again to download it\\\u0022; exit 1; fi; rm -rf compatdata/* \u003E/dev/null 2\u003E\u00261; if ! tar -xzf \\\u0022$Archive\\\u0022 --strip-components=1; then rm -f \\\u0022$Archive\\\u0022; echo \\\u0022Proton GE archive could not be extracted. Aborting\\\u0022; exit 1; fi; find . -maxdepth 1 -name \u0027GE-Proton*.tar.gz\u0027 ! -name \\\u0022$Archive\\\u0022 -delete; : \u003E \\\u0022$Archive\\\u0022; echo \\\u0022Proton GE version $ProtonVersion downloaded\\\u0022; STEAM_COMPAT_DATA_PATH=\\\u0022{{$FullRootDir}}.proton/compatdata\\\u0022 STEAM_COMPAT_CLIENT_INSTALL_PATH=\\\u0022{{$FullBaseDir}}.steam/steam\\\u0022 \\\u0022{{$FullRootDir}}.proton/proton\\\u0022 PROTON_LOG=1 \u003E/dev/null 2\u003E\u00261; exit 0\u0022"
+      "UpdateSourceVersion": "{{SpecificReleaseVersion}}"
     },
     {
       "UpdateSource": "Executable",
