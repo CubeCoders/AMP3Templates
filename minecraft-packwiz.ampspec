@@ -50,12 +50,37 @@
   "UpdateStages": [
     {
       "UpdateSource": "FetchURL",
-      "UpdateStageName": "Vanilla Server Download",
-      "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "{{MinecraftServerDownload}}",
-      "UpdateSourceArgs": "server.jar",
-      "UpdateSourceTarget": "{{$FullBaseDir}}",
+      "UpdateStageName": "Packwiz Script Download",
+      "UpdateSourcePlatform": "Linux",
+      "UpdateSourceData": "https://raw.githubusercontent.com/ivybowman/AMP3Packwiz/main/scripts/minecraft-packwiz/packwiz.sh",
+      "UpdateSourceArgs": "packwiz.sh",
+      "UpdateSourceTarget": "{{$FullInstanceDir}}",
       "OverwriteExistingFiles": true
+    },
+    {
+      "UpdateSource": "FetchURL",
+      "UpdateStageName": "Packwiz Script Download",
+      "UpdateSourcePlatform": "Windows",
+      "UpdateSourceData": "https://raw.githubusercontent.com/ivybowman/AMP3Packwiz/main/scripts/minecraft-packwiz/packwiz.ps1",
+      "UpdateSourceArgs": "packwiz.ps1",
+      "UpdateSourceTarget": "{{$FullInstanceDir}}",
+      "OverwriteExistingFiles": true
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Pack Server Install",
+      "UpdateSourcePlatform": "Linux",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "./packwiz.sh install \"{{$FullBaseDir}}\" \"{{PackwizUrl}}\"",
+      "SkipOnFailure": false
+    },
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Pack Server Install",
+      "UpdateSourcePlatform": "Windows",
+      "UpdateSourceData": "powershell.exe",
+      "UpdateSourceArgs": "-NoProfile -ExecutionPolicy Bypass -File \"packwiz.ps1\" install \"{{$FullBaseDir}}\" \"{{PackwizUrl}}\"",
+      "SkipOnFailure": false
     },
     {
       "UpdateSource": "CreateDirectory",
@@ -79,15 +104,15 @@
       "UpdateStageName": "Packwiz Pack Sync",
       "UpdateSourcePlatform": "Linux",
       "UpdateSourceData": "/bin/bash",
-      "UpdateSourceArgs": "-c \"cd \\\"{{$FullBaseDir}}\\\" && J=\\\"{{JavaPath}}\\\" && { [ -x \\\"$J\\\" ] || J=java; } && \\\"$J\\\" -cp packwiz-installer/packwiz-installer.jar link.infra.packwiz.installer.Main -g -s server --pack-folder . \\\"{{PackwizUrl}}\\\"\"",
+      "UpdateSourceArgs": "./packwiz.sh sync \"{{$FullBaseDir}}\" \"{{PackwizUrl}}\" \"{{JavaPath}}\"",
       "SkipOnFailure": false
     },
     {
       "UpdateSource": "Executable",
       "UpdateStageName": "Packwiz Pack Sync",
       "UpdateSourcePlatform": "Windows",
-      "UpdateSourceData": "cmd.exe",
-      "UpdateSourceArgs": "/C cd /d \"{{$FullBaseDir}}\" && \"{{JavaPath}}\" -cp packwiz-installer/packwiz-installer.jar link.infra.packwiz.installer.Main -g -s server --pack-folder . \"{{PackwizUrl}}\"",
+      "UpdateSourceData": "powershell.exe",
+      "UpdateSourceArgs": "-NoProfile -ExecutionPolicy Bypass -File \"packwiz.ps1\" sync \"{{$FullBaseDir}}\" \"{{PackwizUrl}}\" \"{{JavaPath}}\"",
       "SkipOnFailure": false
     }
   ],
@@ -109,32 +134,6 @@
   ],
   "VersionSources": [
     {
-      "Id": "mojang.versions",
-      "Url": "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json",
-      "Select": "$.versions[*]",
-      "Value": "$.id",
-      "Fields": {
-        "url": "$.url",
-        "type": "$.type"
-      },
-      "Where": {
-        "type": "release"
-      },
-      "Sort": "VersionDescending"
-    },
-    {
-      "Id": "mojang.server",
-      "Url": "{{MinecraftVersion.url}}",
-      "Select": "$.downloads.server",
-      "Value": "$.url",
-      "Display": "$.sha1",
-      "Sort": "AsReturned",
-      "CacheMinutes": 1440,
-      "DependsOn": [
-        "MinecraftVersion"
-      ]
-    },
-    {
       "Id": "packwiz.installer",
       "Url": "https://maven.packwiz.infra.link/repository/release/link/infra/packwiz/packwiz-installer/maven-metadata.xml",
       "Format": "Xml",
@@ -145,29 +144,6 @@
     }
   ],
   "Settings": [
-    {
-      "FieldName": "MinecraftVersion",
-      "Required": true,
-      "DefaultValue": "[Latest]",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.MinecraftVersion.name",
-      "Description": "setting.MinecraftVersion.desc",
-      "Keywords": "version,minecraft,vanilla",
-      "InputType": "enum",
-      "Order": 2,
-      "ValueSourceId": "mojang.versions"
-    },
-    {
-      "FieldName": "MinecraftServerDownload",
-      "Hidden": true,
-      "DefaultValue": "[Latest]",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.MinecraftServerDownload.name",
-      "Description": "setting.MinecraftServerDownload.desc",
-      "InputType": "enum",
-      "Order": 2,
-      "ValueSourceId": "mojang.server"
-    },
     {
       "FieldName": "eula",
       "ParamFieldName": "eula",
@@ -1116,10 +1092,6 @@
       "meta.name": "Minecraft: Packwiz",
       "meta.description": "packwiz is a command line tool for creating Minecraft modpacks.",
       "category.server-version": "Server Version",
-      "setting.MinecraftVersion.name": "Minecraft version",
-      "setting.MinecraftVersion.desc": "Which version of Minecraft to run. Used when the server type is Vanilla.",
-      "setting.MinecraftServerDownload.name": "Server download",
-      "setting.MinecraftServerDownload.desc": "The server jar for the chosen Minecraft version, read from Mojang's version document.",
       "setting.eula.name": "Minecraft EULA",
       "setting.eula.desc": "Whether the Minecraft EULA has been accepted.",
       "setting.JavaVersion.name": "Java Version",
@@ -1310,17 +1282,13 @@
       "event.serverLagging.param.TicksSkipped.desc": "How many turns of the world the server had to skip to catch up.",
       "category.packwiz": "Packwiz",
       "setting.PackwizUrl.name": "Pack URL",
-      "setting.PackwizUrl.desc": "The link to the pack.toml file of the packwiz modpack, for example https://example.com/mypack/pack.toml. The pack is installed and updated every time the server starts, and only its server-side mods are installed. Choose the Minecraft version the pack is made for",
+      "setting.PackwizUrl.desc": "The link to the pack.toml file of the packwiz modpack, for example https://raw.githubusercontent.com/owner/pack/main/pack.toml (a GitHub page link is changed to the raw file link). Update installs the server for the Minecraft version and loader the pack names (Vanilla or Fabric for now). The pack itself is installed and updated every time the server starts, server-side mods only",
       "setting.PackwizInstallerVersion.name": "Packwiz installer version",
       "setting.PackwizInstallerVersion.desc": "Which packwiz-installer version to download. Latest is recommended"
     },
     "de": {
       "meta.description": "Der originale Minecraft-Server, dazu die Server-Varianten Paper, Forge, NeoForge und Fabric.",
       "category.server-version": "Serverversion",
-      "setting.MinecraftVersion.name": "Minecraft-Version",
-      "setting.MinecraftVersion.desc": "Welche Minecraft-Version ausgeführt wird. Gilt für den Servertyp Vanilla.",
-      "setting.MinecraftServerDownload.name": "Server-Download",
-      "setting.MinecraftServerDownload.desc": "Die Server-JAR der gewählten Minecraft-Version, aus Mojangs Versionsdokument gelesen.",
       "setting.eula.desc": "Ob die Minecraft-EULA akzeptiert wurde.",
       "setting.JavaVersion.name": "Java-Version",
       "setting.JavaVersion.desc": "Mit welcher Java-Version der Server gestartet wird, bei Servertypen die Java benötigen",
@@ -1503,10 +1471,6 @@
     "fr": {
       "meta.description": "Le serveur Minecraft d'origine, ainsi que les variantes Paper, Forge, NeoForge et Fabric.",
       "category.server-version": "Version du serveur",
-      "setting.MinecraftVersion.name": "Version de Minecraft",
-      "setting.MinecraftVersion.desc": "Quelle version de Minecraft exécuter. Utilisée lorsque le type de serveur est Vanilla.",
-      "setting.MinecraftServerDownload.name": "Téléchargement du serveur",
-      "setting.MinecraftServerDownload.desc": "Le fichier JAR du serveur pour la version de Minecraft choisie, lu depuis le document de version de Mojang.",
       "setting.eula.desc": "Indique si le CLUF de Minecraft a été accepté.",
       "setting.JavaVersion.name": "Version de Java",
       "setting.JavaVersion.desc": "Avec quelle version de Java démarrer le serveur, pour les types de serveur qui reposent sur Java",
@@ -1688,10 +1652,6 @@
     "nl": {
       "meta.description": "De originele Minecraft-server, plus de servervarianten Paper, Forge, NeoForge en Fabric.",
       "category.server-version": "Serverversie",
-      "setting.MinecraftVersion.name": "Minecraft-versie",
-      "setting.MinecraftVersion.desc": "Welke versie van Minecraft wordt uitgevoerd. Wordt gebruikt bij servertype Vanilla.",
-      "setting.MinecraftServerDownload.name": "Serverdownload",
-      "setting.MinecraftServerDownload.desc": "De server-JAR voor de gekozen Minecraft-versie, gelezen uit het versiedocument van Mojang.",
       "setting.eula.desc": "Of de Minecraft-EULA is geaccepteerd.",
       "setting.JavaVersion.name": "Java-versie",
       "setting.JavaVersion.desc": "Met welke Java-versie de server wordt gestart, voor servertypen die Java nodig hebben",
