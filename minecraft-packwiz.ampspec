@@ -55,64 +55,40 @@
       "UpdateSourceData": "{{MinecraftServerDownload}}",
       "UpdateSourceArgs": "server.jar",
       "UpdateSourceTarget": "{{$FullBaseDir}}",
-      "OverwriteExistingFiles": true,
-      "UpdateSourceConditionSetting": "ServerType",
-      "UpdateSourceConditionValue": "Vanilla"
+      "OverwriteExistingFiles": true
+    },
+    {
+      "UpdateSource": "CreateDirectory",
+      "UpdateStageName": "Packwiz Directory Creation",
+      "UpdateSourcePlatform": "All",
+      "UpdateSourceArgs": "{{$FullBaseDir}}packwiz-installer"
     },
     {
       "UpdateSource": "FetchURL",
-      "UpdateStageName": "Paper Server Download",
+      "UpdateStageName": "Packwiz Installer Download",
       "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "{{PaperBuild.downloadUrl}}",
-      "UpdateSourceArgs": "server.jar",
-      "UpdateSourceTarget": "{{$FullBaseDir}}",
-      "OverwriteExistingFiles": true,
-      "UpdateSourceConditionSetting": "ServerType",
-      "UpdateSourceConditionValue": "Paper"
+      "UpdateSourceData": "{{PackwizInstallerVersion.downloadUrl}}",
+      "UpdateSourceArgs": "packwiz-installer.jar",
+      "UpdateSourceTarget": "{{$FullBaseDir}}packwiz-installer/",
+      "OverwriteExistingFiles": true
+    }
+  ],
+  "PreStartStages": [
+    {
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Packwiz Pack Sync",
+      "UpdateSourcePlatform": "Linux",
+      "UpdateSourceData": "/bin/bash",
+      "UpdateSourceArgs": "-c \"cd \\\"{{$FullBaseDir}}\\\" && J=\\\"{{JavaPath}}\\\" && { [ -x \\\"$J\\\" ] || J=java; } && \\\"$J\\\" -cp packwiz-installer/packwiz-installer.jar link.infra.packwiz.installer.Main -g -s server --pack-folder . \\\"{{PackwizUrl}}\\\"\"",
+      "SkipOnFailure": false
     },
     {
-      "UpdateSource": "FetchURL",
-      "UpdateStageName": "Folia Server Download",
-      "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "{{FoliaBuild.downloadUrl}}",
-      "UpdateSourceArgs": "server.jar",
-      "UpdateSourceTarget": "{{$FullBaseDir}}",
-      "OverwriteExistingFiles": true,
-      "UpdateSourceConditionSetting": "ServerType",
-      "UpdateSourceConditionValue": "Folia"
-    },
-    {
-      "UpdateSource": "FetchURL",
-      "UpdateStageName": "Forge Installer Download",
-      "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "{{ForgeVersion.downloadUrl}}",
-      "UpdateSourceArgs": "forge-installer.jar",
-      "UpdateSourceTarget": "{{$FullBaseDir}}",
-      "OverwriteExistingFiles": true,
-      "UpdateSourceConditionSetting": "ServerType",
-      "UpdateSourceConditionValue": "Forge"
-    },
-    {
-      "UpdateSource": "FetchURL",
-      "UpdateStageName": "NeoForge Installer Download",
-      "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "{{NeoForgeVersion.downloadUrl}}",
-      "UpdateSourceArgs": "forge-installer.jar",
-      "UpdateSourceTarget": "{{$FullBaseDir}}",
-      "OverwriteExistingFiles": true,
-      "UpdateSourceConditionSetting": "ServerType",
-      "UpdateSourceConditionValue": "NeoForge"
-    },
-    {
-      "UpdateSource": "FetchURL",
-      "UpdateStageName": "Fabric Server Launcher Download",
-      "UpdateSourcePlatform": "All",
-      "UpdateSourceData": "{{FabricServerDownload.downloadUrl}}",
-      "UpdateSourceArgs": "server.jar",
-      "UpdateSourceTarget": "{{$FullBaseDir}}",
-      "OverwriteExistingFiles": true,
-      "UpdateSourceConditionSetting": "ServerType",
-      "UpdateSourceConditionValue": "Fabric"
+      "UpdateSource": "Executable",
+      "UpdateStageName": "Packwiz Pack Sync",
+      "UpdateSourcePlatform": "Windows",
+      "UpdateSourceData": "cmd.exe",
+      "UpdateSourceArgs": "/C cd /d \"{{$FullBaseDir}}\" && \"{{JavaPath}}\" -cp packwiz-installer/packwiz-installer.jar link.infra.packwiz.installer.Main -g -s server --pack-folder . \"{{PackwizUrl}}\"",
+      "SkipOnFailure": false
     }
   ],
   "PortRequirements": [
@@ -159,140 +135,20 @@
       ]
     },
     {
-      "Id": "paper.versions",
-      "Url": "https://fill.papermc.io/v3/projects/paper",
-      "Select": "$.versions.*[*]",
-      "Value": "$"
-    },
-    {
-      "Id": "paper.builds",
-      "Url": "https://fill.papermc.io/v3/projects/paper/versions/{{PaperMinecraftVersion}}/builds",
-      "Select": "$[*]",
-      "Value": "$.id",
-      "Fields": {
-        "downloadUrl": "$.downloads['server:default'].url",
-        "file": "$.downloads['server:default'].name",
-        "channel": "$.channel"
-      },
-      "CacheMinutes": 30,
-      "DependsOn": [
-        "PaperMinecraftVersion"
-      ]
-    },
-    {
-      "Id": "folia.versions",
-      "Url": "https://fill.papermc.io/v3/projects/folia",
-      "Select": "$.versions.*[*]",
-      "Value": "$"
-    },
-    {
-      "Id": "folia.builds",
-      "Url": "https://fill.papermc.io/v3/projects/folia/versions/{{FoliaMinecraftVersion}}/builds",
-      "Select": "$[*]",
-      "Value": "$.id",
-      "Fields": {
-        "downloadUrl": "$.downloads['server:default'].url",
-        "file": "$.downloads['server:default'].name",
-        "channel": "$.channel"
-      },
-      "CacheMinutes": 30,
-      "DependsOn": [
-        "FoliaMinecraftVersion"
-      ]
-    },
-    {
-      "Id": "forge.versions",
-      "Url": "https://maven.minecraftforge.net/net/minecraftforge/forge/maven-metadata.xml",
+      "Id": "packwiz.installer",
+      "Url": "https://maven.packwiz.infra.link/repository/release/link/infra/packwiz/packwiz-installer/maven-metadata.xml",
       "Format": "Xml",
       "Select": "//versions/version",
       "Value": "text()",
-      "UrlTemplate": "https://maven.minecraftforge.net/net/minecraftforge/forge/{value}/forge-{value}-installer.jar",
+      "UrlTemplate": "https://maven.packwiz.infra.link/repository/release/link/infra/packwiz/packwiz-installer/{value}/packwiz-installer-{value}-dist.jar",
       "CacheMinutes": 240
-    },
-    {
-      "Id": "neoforge.versions",
-      "Documents": [
-        {
-          "Url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/maven-metadata.xml",
-          "UrlTemplate": "https://maven.neoforged.net/releases/net/neoforged/neoforge/{value}/neoforge-{value}-installer.jar"
-        },
-        {
-          "Url": "https://maven.neoforged.net/releases/net/neoforged/forge/maven-metadata.xml",
-          "UrlTemplate": "https://maven.neoforged.net/releases/net/neoforged/forge/{value}/forge-{value}-installer.jar"
-        }
-      ],
-      "Format": "Xml",
-      "Select": "/metadata[artifactId='neoforge']/versioning/versions/version[not(contains(., '-alpha') or contains(., '+snapshot'))] | /metadata[artifactId='forge']/versioning/versions/version[contains(., '-')]",
-      "Value": "text()",
-      "CacheMinutes": 240
-    },
-    {
-      "Id": "fabric.versions",
-      "Url": "https://meta.fabricmc.net/v2/versions/game",
-      "Select": "$[*]",
-      "Value": "$.version",
-      "Fields": {
-        "stable": "$.stable"
-      },
-      "Where": {
-        "stable": "true"
-      },
-      "Sort": "VersionDescending"
-    },
-    {
-      "Id": "fabric.loaders",
-      "Url": "https://meta.fabricmc.net/v2/versions/loader/{{FabricMinecraftVersion}}",
-      "Select": "$[*]",
-      "Value": "$.loader.version",
-      "Sort": "VersionDescending",
-      "DependsOn": [
-        "FabricMinecraftVersion"
-      ]
-    },
-    {
-      "Id": "fabric.server",
-      "Url": "https://meta.fabricmc.net/v2/versions/installer",
-      "Select": "$[*]",
-      "Value": "$.version",
-      "Fields": {
-        "stable": "$.stable"
-      },
-      "Where": {
-        "stable": "true"
-      },
-      "UrlTemplate": "https://meta.fabricmc.net/v2/versions/loader/{{FabricMinecraftVersion}}/{{FabricLoaderVersion}}/{value}/server/jar",
-      "Sort": "VersionDescending",
-      "DependsOn": [
-        "FabricMinecraftVersion",
-        "FabricLoaderVersion"
-      ]
     }
   ],
   "Settings": [
     {
-      "FieldName": "ServerType",
-      "DefaultValue": "Vanilla",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.ServerType.name",
-      "Description": "setting.ServerType.desc",
-      "Keywords": "type,flavour,paper,forge,neoforge,fabric,vanilla",
-      "InputType": "enum",
-      "Order": 1,
-      "EnumValues": {
-        "Vanilla": "setting.ServerType.value.Vanilla",
-        "Paper": "setting.ServerType.value.Paper",
-        "Folia": "setting.ServerType.value.Folia",
-        "Forge": "setting.ServerType.value.Forge",
-        "NeoForge": "setting.ServerType.value.NeoForge",
-        "Fabric": "setting.ServerType.value.Fabric"
-      }
-    },
-    {
       "FieldName": "MinecraftVersion",
       "Required": true,
       "DefaultValue": "[Latest]",
-      "ConditionSetting": "ServerType",
-      "ConditionValue": "Vanilla",
       "Category": "category.server-version:package",
       "DisplayName": "setting.MinecraftVersion.name",
       "Description": "setting.MinecraftVersion.desc",
@@ -304,8 +160,6 @@
     {
       "FieldName": "MinecraftServerDownload",
       "Hidden": true,
-      "ConditionSetting": "ServerType",
-      "ConditionValue": "Vanilla",
       "DefaultValue": "[Latest]",
       "Category": "category.server-version:package",
       "DisplayName": "setting.MinecraftServerDownload.name",
@@ -313,131 +167,6 @@
       "InputType": "enum",
       "Order": 2,
       "ValueSourceId": "mojang.server"
-    },
-    {
-      "FieldName": "PaperMinecraftVersion",
-      "Required": true,
-      "DefaultValue": "[Latest]",
-      "ConditionSetting": "ServerType",
-      "ConditionValue": "Paper",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.PaperMinecraftVersion.name",
-      "Description": "setting.PaperMinecraftVersion.desc",
-      "Keywords": "version,paper",
-      "InputType": "enum",
-      "Order": 3,
-      "ValueSourceId": "paper.versions"
-    },
-    {
-      "FieldName": "PaperBuild",
-      "Required": true,
-      "DefaultValue": "[Latest]",
-      "ConditionSetting": "ServerType",
-      "ConditionValue": "Paper",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.PaperBuild.name",
-      "Description": "setting.PaperBuild.desc",
-      "Keywords": "build,paper",
-      "InputType": "enum",
-      "Order": 4,
-      "ValueSourceId": "paper.builds"
-    },
-    {
-      "FieldName": "FoliaMinecraftVersion",
-      "Required": true,
-      "DefaultValue": "[Latest]",
-      "ConditionSetting": "ServerType",
-      "ConditionValue": "Folia",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.FoliaMinecraftVersion.name",
-      "Description": "setting.FoliaMinecraftVersion.desc",
-      "Keywords": "version,folia",
-      "InputType": "enum",
-      "Order": 3,
-      "ValueSourceId": "folia.versions"
-    },
-    {
-      "FieldName": "FoliaBuild",
-      "Required": true,
-      "DefaultValue": "[Latest]",
-      "ConditionSetting": "ServerType",
-      "ConditionValue": "Folia",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.FoliaBuild.name",
-      "Description": "setting.FoliaBuild.desc",
-      "Keywords": "build,folia",
-      "InputType": "enum",
-      "Order": 4,
-      "ValueSourceId": "folia.builds"
-    },
-    {
-      "FieldName": "ForgeVersion",
-      "Required": true,
-      "DefaultValue": "[Latest]",
-      "ConditionSetting": "ServerType",
-      "ConditionValue": "Forge",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.ForgeVersion.name",
-      "Description": "setting.ForgeVersion.desc",
-      "Keywords": "forge,version,mods",
-      "InputType": "enum",
-      "Order": 5,
-      "ValueSourceId": "forge.versions"
-    },
-    {
-      "FieldName": "NeoForgeVersion",
-      "Required": true,
-      "DefaultValue": "[Latest]",
-      "ConditionSetting": "ServerType",
-      "ConditionValue": "NeoForge",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.NeoForgeVersion.name",
-      "Description": "setting.NeoForgeVersion.desc",
-      "Keywords": "neoforge,version,mods",
-      "InputType": "enum",
-      "Order": 6,
-      "ValueSourceId": "neoforge.versions"
-    },
-    {
-      "FieldName": "FabricMinecraftVersion",
-      "Required": true,
-      "DefaultValue": "[Latest]",
-      "ConditionSetting": "ServerType",
-      "ConditionValue": "Fabric",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.FabricMinecraftVersion.name",
-      "Description": "setting.FabricMinecraftVersion.desc",
-      "Keywords": "version,fabric",
-      "InputType": "enum",
-      "Order": 3,
-      "ValueSourceId": "fabric.versions"
-    },
-    {
-      "FieldName": "FabricLoaderVersion",
-      "Required": true,
-      "DefaultValue": "[Latest]",
-      "ConditionSetting": "ServerType",
-      "ConditionValue": "Fabric",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.FabricLoaderVersion.name",
-      "Description": "setting.FabricLoaderVersion.desc",
-      "Keywords": "fabric,loader,version,mods",
-      "InputType": "enum",
-      "Order": 4,
-      "ValueSourceId": "fabric.loaders"
-    },
-    {
-      "FieldName": "FabricServerDownload",
-      "Hidden": true,
-      "ConditionSetting": "ServerType",
-      "ConditionValue": "Fabric",
-      "DefaultValue": "[Latest]",
-      "Category": "category.server-version:package",
-      "DisplayName": "setting.FabricServerDownload.name",
-      "Description": "setting.FabricServerDownload.desc",
-      "InputType": "enum",
-      "Order": 4,
-      "ValueSourceId": "fabric.server"
     },
     {
       "FieldName": "eula",
@@ -451,6 +180,29 @@
       "InputType": "checkbox",
       "Order": 99,
       "IncludeInConfigFile": false
+    },
+    {
+      "FieldName": "PackwizUrl",
+      "Required": true,
+      "Category": "category.packwiz:extension",
+      "DisplayName": "setting.PackwizUrl.name",
+      "Description": "setting.PackwizUrl.desc",
+      "Keywords": "packwiz,pack.toml,url,modpack",
+      "InputType": "text",
+      "Order": 1,
+      "Placeholder": "https://example.com/mypack/pack.toml"
+    },
+    {
+      "FieldName": "PackwizInstallerVersion",
+      "Required": true,
+      "DefaultValue": "[Latest]",
+      "Category": "category.packwiz:extension",
+      "DisplayName": "setting.PackwizInstallerVersion.name",
+      "Description": "setting.PackwizInstallerVersion.desc",
+      "Keywords": "packwiz,installer,version",
+      "InputType": "enum",
+      "Order": 2,
+      "ValueSourceId": "packwiz.installer"
     },
     {
       "FieldName": "JavaVersion",
@@ -1278,7 +1030,8 @@
     "*.log",
     "*.log.gz",
     "hs_err_pid*.log",
-    "debug/"
+    "debug/",
+    "packwiz-installer/"
   ],
   "Events": [
     {
@@ -1362,37 +1115,11 @@
     "en": {
       "meta.name": "Minecraft: Packwiz",
       "meta.description": "packwiz is a command line tool for creating Minecraft modpacks.",
-      "setting.ServerType.name": "Server type",
-      "setting.ServerType.desc": "Which flavour of Minecraft server to run. Vanilla is the official server, Paper is a faster drop-in replacement that supports plugins, Folia is Paper with multithreaded region processing, and Forge, NeoForge and Fabric run mods.",
       "category.server-version": "Server Version",
-      "setting.ServerType.value.Vanilla": "Vanilla (official)",
-      "setting.ServerType.value.Paper": "Paper",
-      "setting.ServerType.value.Folia": "Folia",
-      "setting.ServerType.value.Forge": "Forge",
-      "setting.ServerType.value.NeoForge": "NeoForge",
-      "setting.ServerType.value.Fabric": "Fabric",
       "setting.MinecraftVersion.name": "Minecraft version",
       "setting.MinecraftVersion.desc": "Which version of Minecraft to run. Used when the server type is Vanilla.",
       "setting.MinecraftServerDownload.name": "Server download",
       "setting.MinecraftServerDownload.desc": "The server jar for the chosen Minecraft version, read from Mojang's version document.",
-      "setting.PaperMinecraftVersion.name": "Minecraft version (Paper)",
-      "setting.PaperMinecraftVersion.desc": "Which version of Minecraft to run Paper for.",
-      "setting.PaperBuild.name": "Paper build",
-      "setting.PaperBuild.desc": "Which Paper build to install. Choose the Minecraft version first.",
-      "setting.FoliaMinecraftVersion.name": "Minecraft version (Folia)",
-      "setting.FoliaMinecraftVersion.desc": "Which version of Minecraft to run Folia for.",
-      "setting.FoliaBuild.name": "Folia build",
-      "setting.FoliaBuild.desc": "Which Folia build to install. Choose the Minecraft version first.",
-      "setting.ForgeVersion.name": "Forge version",
-      "setting.ForgeVersion.desc": "Which Forge version to install. The list is every published build, newest first. Type a Minecraft version to narrow it down.",
-      "setting.NeoForgeVersion.name": "NeoForge version",
-      "setting.NeoForgeVersion.desc": "Which NeoForge version to install. Type a Minecraft version to narrow the list down.",
-      "setting.FabricMinecraftVersion.name": "Minecraft version (Fabric)",
-      "setting.FabricMinecraftVersion.desc": "Which version of Minecraft to run Fabric for.",
-      "setting.FabricLoaderVersion.name": "Fabric loader version",
-      "setting.FabricLoaderVersion.desc": "Which Fabric loader version to install. Choose the Minecraft version first.",
-      "setting.FabricServerDownload.name": "Fabric server launcher",
-      "setting.FabricServerDownload.desc": "The Fabric server launcher for the chosen Minecraft and loader versions, built with the newest stable Fabric installer.",
       "setting.eula.name": "Minecraft EULA",
       "setting.eula.desc": "Whether the Minecraft EULA has been accepted.",
       "setting.JavaVersion.name": "Java Version",
@@ -1580,36 +1307,20 @@
       "event.serverLagging.param.MillisecondsBehind.name": "Milliseconds behind",
       "event.serverLagging.param.MillisecondsBehind.desc": "How far behind the server had fallen when it noticed.",
       "event.serverLagging.param.TicksSkipped.name": "Ticks skipped",
-      "event.serverLagging.param.TicksSkipped.desc": "How many turns of the world the server had to skip to catch up."
+      "event.serverLagging.param.TicksSkipped.desc": "How many turns of the world the server had to skip to catch up.",
+      "category.packwiz": "Packwiz",
+      "setting.PackwizUrl.name": "Pack URL",
+      "setting.PackwizUrl.desc": "The link to the pack.toml file of the packwiz modpack, for example https://example.com/mypack/pack.toml. The pack is installed and updated every time the server starts, and only its server-side mods are installed. Choose the Minecraft version the pack is made for",
+      "setting.PackwizInstallerVersion.name": "Packwiz installer version",
+      "setting.PackwizInstallerVersion.desc": "Which packwiz-installer version to download. Latest is recommended"
     },
     "de": {
       "meta.description": "Der originale Minecraft-Server, dazu die Server-Varianten Paper, Forge, NeoForge und Fabric.",
-      "setting.ServerType.name": "Servertyp",
-      "setting.ServerType.desc": "Welche Variante des Minecraft-Servers ausgeführt wird. Vanilla ist der offizielle Server, Paper ist ein schnellerer Ersatz mit Plugin-Unterstützung, Folia ist Paper mit paralleler Regionsverarbeitung, und Forge, NeoForge und Fabric führen Mods aus.",
       "category.server-version": "Serverversion",
-      "setting.ServerType.value.Vanilla": "Vanilla (offiziell)",
       "setting.MinecraftVersion.name": "Minecraft-Version",
       "setting.MinecraftVersion.desc": "Welche Minecraft-Version ausgeführt wird. Gilt für den Servertyp Vanilla.",
       "setting.MinecraftServerDownload.name": "Server-Download",
       "setting.MinecraftServerDownload.desc": "Die Server-JAR der gewählten Minecraft-Version, aus Mojangs Versionsdokument gelesen.",
-      "setting.PaperMinecraftVersion.name": "Minecraft-Version (Paper)",
-      "setting.PaperMinecraftVersion.desc": "Für welche Minecraft-Version Paper ausgeführt wird.",
-      "setting.PaperBuild.name": "Paper-Build",
-      "setting.PaperBuild.desc": "Welcher Paper-Build installiert wird. Wählen Sie zuerst die Minecraft-Version.",
-      "setting.FoliaMinecraftVersion.name": "Minecraft-Version (Folia)",
-      "setting.FoliaMinecraftVersion.desc": "Für welche Minecraft-Version Folia ausgeführt wird.",
-      "setting.FoliaBuild.name": "Folia-Build",
-      "setting.FoliaBuild.desc": "Welcher Folia-Build installiert wird. Wählen Sie zuerst die Minecraft-Version.",
-      "setting.ForgeVersion.name": "Forge-Version",
-      "setting.ForgeVersion.desc": "Welche Forge-Version installiert wird. Die Liste enthält alle veröffentlichten Builds, neueste zuerst. Geben Sie eine Minecraft-Version ein, um sie einzugrenzen.",
-      "setting.NeoForgeVersion.name": "NeoForge-Version",
-      "setting.NeoForgeVersion.desc": "Welche NeoForge-Version installiert wird. Geben Sie eine Minecraft-Version ein, um die Liste einzugrenzen.",
-      "setting.FabricMinecraftVersion.name": "Minecraft-Version (Fabric)",
-      "setting.FabricMinecraftVersion.desc": "Für welche Minecraft-Version Fabric ausgeführt wird.",
-      "setting.FabricLoaderVersion.name": "Fabric-Loader-Version",
-      "setting.FabricLoaderVersion.desc": "Welche Fabric-Loader-Version installiert wird. Wählen Sie zuerst die Minecraft-Version.",
-      "setting.FabricServerDownload.name": "Fabric-Server-Launcher",
-      "setting.FabricServerDownload.desc": "Der Fabric-Server-Launcher für die gewählte Minecraft- und Loader-Version, erstellt mit dem neuesten stabilen Fabric-Installer.",
       "setting.eula.desc": "Ob die Minecraft-EULA akzeptiert wurde.",
       "setting.JavaVersion.name": "Java-Version",
       "setting.JavaVersion.desc": "Mit welcher Java-Version der Server gestartet wird, bei Servertypen die Java benötigen",
@@ -1791,32 +1502,11 @@
     },
     "fr": {
       "meta.description": "Le serveur Minecraft d'origine, ainsi que les variantes Paper, Forge, NeoForge et Fabric.",
-      "setting.ServerType.name": "Type de serveur",
-      "setting.ServerType.desc": "Quelle variante du serveur Minecraft exécuter. Vanilla est le serveur officiel, Paper est un remplaçant plus rapide qui prend en charge les plugins, Folia est Paper avec un traitement des régions multithreadé, et Forge, NeoForge et Fabric exécutent des mods.",
       "category.server-version": "Version du serveur",
-      "setting.ServerType.value.Vanilla": "Vanilla (officiel)",
       "setting.MinecraftVersion.name": "Version de Minecraft",
       "setting.MinecraftVersion.desc": "Quelle version de Minecraft exécuter. Utilisée lorsque le type de serveur est Vanilla.",
       "setting.MinecraftServerDownload.name": "Téléchargement du serveur",
       "setting.MinecraftServerDownload.desc": "Le fichier JAR du serveur pour la version de Minecraft choisie, lu depuis le document de version de Mojang.",
-      "setting.PaperMinecraftVersion.name": "Version de Minecraft (Paper)",
-      "setting.PaperMinecraftVersion.desc": "Pour quelle version de Minecraft exécuter Paper.",
-      "setting.PaperBuild.name": "Build Paper",
-      "setting.PaperBuild.desc": "Quel build de Paper installer. Choisissez d'abord la version de Minecraft.",
-      "setting.FoliaMinecraftVersion.name": "Version de Minecraft (Folia)",
-      "setting.FoliaMinecraftVersion.desc": "Pour quelle version de Minecraft exécuter Folia.",
-      "setting.FoliaBuild.name": "Build Folia",
-      "setting.FoliaBuild.desc": "Quel build de Folia installer. Choisissez d'abord la version de Minecraft.",
-      "setting.ForgeVersion.name": "Version de Forge",
-      "setting.ForgeVersion.desc": "Quelle version de Forge installer. La liste contient tous les builds publiés, du plus récent au plus ancien. Saisissez une version de Minecraft pour la restreindre.",
-      "setting.NeoForgeVersion.name": "Version de NeoForge",
-      "setting.NeoForgeVersion.desc": "Quelle version de NeoForge installer. Saisissez une version de Minecraft pour restreindre la liste.",
-      "setting.FabricMinecraftVersion.name": "Version de Minecraft (Fabric)",
-      "setting.FabricMinecraftVersion.desc": "Pour quelle version de Minecraft exécuter Fabric.",
-      "setting.FabricLoaderVersion.name": "Version du chargeur Fabric",
-      "setting.FabricLoaderVersion.desc": "Quelle version du chargeur Fabric installer. Choisissez d'abord la version de Minecraft.",
-      "setting.FabricServerDownload.name": "Lanceur de serveur Fabric",
-      "setting.FabricServerDownload.desc": "Le lanceur de serveur Fabric pour les versions de Minecraft et du chargeur choisies, généré avec le dernier installateur Fabric stable.",
       "setting.eula.desc": "Indique si le CLUF de Minecraft a été accepté.",
       "setting.JavaVersion.name": "Version de Java",
       "setting.JavaVersion.desc": "Avec quelle version de Java démarrer le serveur, pour les types de serveur qui reposent sur Java",
@@ -1997,32 +1687,11 @@
     },
     "nl": {
       "meta.description": "De originele Minecraft-server, plus de servervarianten Paper, Forge, NeoForge en Fabric.",
-      "setting.ServerType.name": "Servertype",
-      "setting.ServerType.desc": "Welke variant van de Minecraft-server wordt uitgevoerd. Vanilla is de officiële server, Paper is een snellere vervanger met ondersteuning voor plug-ins, Folia is Paper met multithreaded regioverwerking, en Forge, NeoForge en Fabric draaien mods.",
       "category.server-version": "Serverversie",
-      "setting.ServerType.value.Vanilla": "Vanilla (officieel)",
       "setting.MinecraftVersion.name": "Minecraft-versie",
       "setting.MinecraftVersion.desc": "Welke versie van Minecraft wordt uitgevoerd. Wordt gebruikt bij servertype Vanilla.",
       "setting.MinecraftServerDownload.name": "Serverdownload",
       "setting.MinecraftServerDownload.desc": "De server-JAR voor de gekozen Minecraft-versie, gelezen uit het versiedocument van Mojang.",
-      "setting.PaperMinecraftVersion.name": "Minecraft-versie (Paper)",
-      "setting.PaperMinecraftVersion.desc": "Voor welke Minecraft-versie Paper wordt uitgevoerd.",
-      "setting.PaperBuild.name": "Paper-build",
-      "setting.PaperBuild.desc": "Welke Paper-build wordt geïnstalleerd. Kies eerst de Minecraft-versie.",
-      "setting.FoliaMinecraftVersion.name": "Minecraft-versie (Folia)",
-      "setting.FoliaMinecraftVersion.desc": "Voor welke Minecraft-versie Folia wordt uitgevoerd.",
-      "setting.FoliaBuild.name": "Folia-build",
-      "setting.FoliaBuild.desc": "Welke Folia-build wordt geïnstalleerd. Kies eerst de Minecraft-versie.",
-      "setting.ForgeVersion.name": "Forge-versie",
-      "setting.ForgeVersion.desc": "Welke Forge-versie wordt geïnstalleerd. De lijst bevat elke uitgebrachte build, nieuwste eerst. Typ een Minecraft-versie om de lijst te beperken.",
-      "setting.NeoForgeVersion.name": "NeoForge-versie",
-      "setting.NeoForgeVersion.desc": "Welke NeoForge-versie wordt geïnstalleerd. Typ een Minecraft-versie om de lijst te beperken.",
-      "setting.FabricMinecraftVersion.name": "Minecraft-versie (Fabric)",
-      "setting.FabricMinecraftVersion.desc": "Voor welke Minecraft-versie Fabric wordt uitgevoerd.",
-      "setting.FabricLoaderVersion.name": "Fabric-loaderversie",
-      "setting.FabricLoaderVersion.desc": "Welke Fabric-loaderversie wordt geïnstalleerd. Kies eerst de Minecraft-versie.",
-      "setting.FabricServerDownload.name": "Fabric-serverlauncher",
-      "setting.FabricServerDownload.desc": "De Fabric-serverlauncher voor de gekozen Minecraft- en loaderversie, gemaakt met de nieuwste stabiele Fabric-installer.",
       "setting.eula.desc": "Of de Minecraft-EULA is geaccepteerd.",
       "setting.JavaVersion.name": "Java-versie",
       "setting.JavaVersion.desc": "Met welke Java-versie de server wordt gestart, voor servertypen die Java nodig hebben",
