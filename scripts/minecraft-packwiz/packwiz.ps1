@@ -1,17 +1,22 @@
 # Minecraft: Packwiz helper for AMP3 (Windows).
-#   install <server folder> <pack url>         Reads [versions] from the pack's pack.toml and installs the
-#                                               matching server as server.jar (Vanilla, or Fabric).
-#   sync    <server folder> <pack url> [java]  Installs/updates the pack with packwiz-installer
-#                                               (server-side mods only).
-param([string]$Mode, [string]$Base, [string]$Url, [string]$Java = '')
+#   install <server folder> <pack url>
+#       Reads [versions] from the pack's pack.toml, installs the matching server as server.jar
+#       (Vanilla, or Fabric) and notes the Java version Mojang requires for that Minecraft version.
+#   sync <server folder> <pack url> [java path] [java version setting]
+#       Warns when the selected Java does not match the pack, then installs/updates the pack with
+#       packwiz-installer (server-side mods only).
+param([string]$Mode, [string]$Base, [string]$Url, [string]$Java = '', [string]$JavaSetting = '')
 $ProgressPreference = 'SilentlyContinue'
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 if (-not (Test-Path -LiteralPath $Base)) { Write-Host "Server folder not found: $Base"; exit 1 }
 Set-Location -LiteralPath $Base
+$InfoFile = 'packwiz-installer\pack-versions.txt'
 
-# A GitHub page link (github.com/<owner>/<repo>/blob/<branch>/<path>) becomes the raw file link.
-$Url = $Url -replace '^https?://github\.com/([^/]+)/([^/]+)/blob/', 'https://raw.githubusercontent.com/$1/$2/'
+# A GitHub page or folder link (github.com/<owner>/<repo>/blob|tree/<branch>/<path>) becomes the raw link,
+# and a link to the pack's folder gets pack.toml added.
+$Url = $Url -replace '^https?://github\.com/([^/]+)/([^/]+)/(blob|tree)/', 'https://raw.githubusercontent.com/$1/$2/'
+if ($Url -notmatch '\.toml$') { $Url = $Url.TrimEnd('/') + '/pack.toml' }
 
 switch ($Mode) {
     'install' {
@@ -31,17 +36,22 @@ switch ($Mode) {
             exit 1
         }
         try {
+            # Mojang's data for this Minecraft version: server download and required Java.
+            # Store arrays in variables first: Windows PowerShell passes an Invoke-RestMethod array down a pipeline as ONE object.
+            $manifest = Invoke-RestMethod -Uri 'https://piston-meta.mojang.com/mc/game/version_manifest_v2.json'
+            $entry = $manifest.versions | Where-Object { $_.id -eq $mc } | Select-Object -First 1
+            if (-not $entry) { Write-Host "Minecraft $mc was not found in Mojang's version list."; exit 1 }
+            $vjson = Invoke-RestMethod -Uri $entry.url
+            $needJava = [string]$vjson.javaVersion.majorVersion
+            if ($needJava -eq '16') { $needJava = '17' }   # Minecraft 1.17 asks for Java 16; 17 is the nearest version offered
             if ($v['fabric']) {
-                # Store the array first: Windows PowerShell passes an Invoke-RestMethod array down a pipeline as ONE object.
                 $installers = Invoke-RestMethod -Uri 'https://meta.fabricmc.net/v2/versions/installer'
                 $installer = ($installers | Where-Object { $_.stable } | Select-Object -First 1).version
                 if (-not $installer) { Write-Host 'Could not read the Fabric installer version.'; exit 1 }
                 $jar = "https://meta.fabricmc.net/v2/versions/loader/$mc/$($v['fabric'])/$installer/server/jar"
                 $what = "Fabric $($v['fabric'])"
             } else {
-                $entry = (Invoke-RestMethod -Uri 'https://piston-meta.mojang.com/mc/game/version_manifest_v2.json').versions | Where-Object { $_.id -eq $mc } | Select-Object -First 1
-                if (-not $entry) { Write-Host "Minecraft $mc was not found in Mojang's version list."; exit 1 }
-                $jar = (Invoke-RestMethod -Uri $entry.url).downloads.server.url
+                $jar = $vjson.downloads.server.url
                 if (-not $jar) { Write-Host "Minecraft $mc has no server download."; exit 1 }
                 $what = 'Vanilla'
             }
@@ -52,11 +62,34 @@ switch ($Mode) {
             Write-Host "Could not install the server: $($_.Exception.Message)"; exit 1
         }
         Write-Host "Installed the $what server for Minecraft $mc."
+        New-Item -ItemType Directory -Force 'packwiz-installer' | Out-Null
+        Set-Content -LiteralPath $InfoFile -Value @("minecraft=$mc", "java=$needJava") -Encoding ASCII
+        if ($needJava) { Write-Host "Minecraft $mc needs Java $needJava (Mojang). Set the Java version to match if the server does not start." }
     }
     'sync' {
+        # Java check: compare the selected Java with what the pack's Minecraft version needs. Warns only.
+        $needJava = ''; $packMc = ''
+        if (Test-Path -LiteralPath $InfoFile) {
+            foreach ($line in Get-Content -LiteralPath $InfoFile) {
+                if ($line -match '^java=(\d+)') { $needJava = $Matches[1] }
+                if ($line -match '^minecraft=(.+)$') { $packMc = $Matches[1] }
+            }
+        }
+        $have = ''
+        if ($Java -and (Test-Path -LiteralPath $Java)) {
+            $out = (& $Java -version 2>&1 | Out-String)
+            if ($out -match 'version "1\.(\d+)') { $have = $Matches[1] } elseif ($out -match 'version "(\d+)') { $have = $Matches[1] }
+        } elseif ($JavaSetting -match '^\d+$') { $have = $JavaSetting }
+        if ($needJava -and $have -and ($have -ne $needJava)) {
+            if ([int]$have -lt [int]$needJava) {
+                Write-Host "WARNING: this pack is for Minecraft $packMc, which needs Java $needJava or newer, but Java $have is selected. Set the Java version to $needJava."
+            } else {
+                Write-Host "WARNING: this pack is for Minecraft $packMc, made for Java $needJava, but Java $have is selected. If the server fails with `"Unsupported class file major version`", set the Java version to $needJava."
+            }
+        }
         if (-not $Java -or -not (Test-Path -LiteralPath $Java)) { $Java = 'java' }
         & $Java -cp 'packwiz-installer/packwiz-installer.jar' link.infra.packwiz.installer.Main -g -s server --pack-folder . $Url
         exit $LASTEXITCODE
     }
-    default { Write-Host 'Usage: packwiz.ps1 install|sync <server folder> <pack url> [java]'; exit 2 }
+    default { Write-Host 'Usage: packwiz.ps1 install|sync <server folder> <pack url> [java path] [java version setting]'; exit 2 }
 }
